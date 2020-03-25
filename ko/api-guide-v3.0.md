@@ -1275,7 +1275,7 @@
 | data[0].startIdx   | String | 필수    |       | 출발지 식별ID                                 |
 | endX     | String | 필수    |       | 도착지 X 좌표                                 |
 | endY     | String | 필수    |       | 도착지 Y 좌표                                 |
-| orderby    | String | 필수    |       | 정렬기준(<br> 0: distance_desc<br>1: distance_asc<br>2: time_desc <br>3: time_asc<br>)                               |
+| orderby    | String | 필수    |       | 정렬 기준(<br> 0: distance_desc<br>1: distance_asc<br>2: time_desc <br>3: time_asc<br>)                               |
 | coordType    | String | 필수    |       | 좌표 타입(TW, WGS84)
 | resultCount    | Integer | 선택    |       | 결과 표시 개수                               |
 
