@@ -1,25 +1,25 @@
 ## Application Service > Maps > リリースノート
 
 ### 2020.01.21
-#### 기능  추가
-* [API] 주변 카테고리 검색 API 추가
-	* 기준 좌표X,Y 공간 및 반경 카테고리 검색 추가
-#### 기능  개선
-* [API] ReverseGeocoding 건물명, 우편번호 추가
-* [API] 통합검색 catecode 삭제
-* [SDK] 마커 표출 상태 변경 시 애니메이션 기본값 비활성화로 변경
-* [SDK] 마커 표출 상태 변경 시 애니메이션 설정 API 추가
-* [SDK] INVMarker#infoWindow 속성 nullable로 변경 (iOS)
+#### 機能追加
+* [API] 周辺カテゴリー検索APIを追加
+	* 基準座標X、Y空間および半径カテゴリー検索を追加
+#### 機能改善
+* [API] ReverseGeocoding建物名、郵便番号を追加
+* [API]統合検索catecodeを削除
+* [SDK]マーカー表示状態の変更時のアニメーションのデフォルト値を無効に変更
+* [SDK]マーカー表示状態変更時のアニメーション設定APIを追加
+* [SDK] INVMarker#infoWindowプロパティをnullableに変更(iOS)
 #### Bug fixes
-* [API] 통합검색 spopt 2일때 vaildation check 개선
-* [API] POI 하위시설물조회 vaildation check 개선
-* [SDK] 마커 타이틀에 “^” 문자 포함 시 줄바꿈되는 오류 수정
-* [SDK] Fly 애니메이션 타입 카메라 이동 시 자연스럽지 않은 오류 수정 (iOS)
-* [SDK] 줌 컨트롤러에 지도의 Padding 값이 적용되지 않는 오류 수정 (iOS)
+* [API]統合検索spopt 2の時のvalidation checkを改善
+* [API] POI下位施設照会validation checkを改善
+* [SDK]マーカータイトルに(^)が含まれていると改行されるエラーを修正
+* [SDK] Flyアニメーションタイプのカメラ移動時、不自然なエラーを修正(iOS)
+* [SDK] ズームコントローラーにマップのPadding値が適用されないエラーを修正(iOS)
 
 ### 2019.12.24
 #### 機能改善
-* [API]数字データ8桁を超えると発生するバグを修正
+* [API]数字データが8桁を超えると発生するバグを修正
 * [API] ReverseGeocodingエンジンを変更
 * [API] StaticMap IEバグを修正
 * [SDK]マップ移動領域を制限するインターフェイスを追加
@@ -41,7 +41,7 @@
 	* InvRoute追加(マップ上に経路を表示するシェイプ)
 	* InvMultiLine Deprecated適用(InvRouteに変更)
 #### 機能改善
-* [API] v3.0 API基本座標WGS84に変更 
+* [API] v3.0 API基本座標WGS84に変更
 * StaticMap API Imageファイル提供追加
 * [SDK] alpha値を含む色を設定すると、異常な色が表示されるエラーを修正(Android)
 * [SDK]特定マップレベルでシェイプが消えるエラーを修正(iOS)
