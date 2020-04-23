@@ -1,25 +1,34 @@
 ## Application Service > Maps > 릴리스 노트
+### 2020. 04. 28
+#### 기능 추가
+* [SDK] 지도의 최소/최대 기울기 각도를 설정하는 API 추가
+
+#### 기능 개선
+* [SDK] SDK 안정성 향상
+* [SDK] Swift 5.2 대응(iOS)
+* [API] StaticMap 요청 실패 시 에러로그 개선
+
 ### 2020. 03. 24
-#### 기능  추가
+#### 기능 추가
 * [SDK] 특정 영역 전체가 보이는 카메라 위치 정보를 반환하는 API 추가
 * [SDK] 지도에 등록된 모든 셰이프를 지도에서 제거하는 API 추가
 * [SDK] 지도 로고 이미지 변경
 
-#### 기능  개선
+#### 기능 개선
 * [API] 검색엔진 변경
-* [API] Reverse Geocoding 유효성 검사 개선
-* [SDK] 기울기 조절 제스처 사용성 개선(Android)
+* [API] Reverse Geocoding Vaildation Check 개선
+* [SDK] 기울기 조절 제스처 사용성 개선 (Android)
 
 #### 버그 수정
-* [SDK] 지도 초기화 전에 일부 셰이프 객체 생성 시 지도에 비정상 표출되는 오류 수정(Android)
-* [SDK]  Proguard 난독화 적용 시 비정상 종료되는 오류 수정(Android)
-* [SDK]  낮은 버전의 OS에서 지도가 표출되지 않는 오류 수정(Android)
+* [SDK] 지도 초기화 전에 일부 셰이프 객체 생성 시 지도에 비정상 표출되는 오류 수정 (Android)
+* [SDK]  Proguard 난독화 적용 시 비정상 종료되는 오류 수정 (Android)
+* [SDK]  낮은 버전의 OS에서 지도가 표출되지 않는 오류 수정 (Android
 
 ### 2020. 02. 25
-#### 기능  추가
+#### 기능 추가
 * [SDK] 마커 클러스터링 기능 추가
 
-#### 기능  개선
+#### 기능 개선
 * [CONSOLE] 일본어 글꼴 추가
 
 #### 버그 수정
@@ -29,11 +38,11 @@
 * [SDK] INVShape 추가/제거 시 비정상 종료되는 오류 수정(iOS)
 
 ### 2020. 01. 21
-#### 기능  추가
+#### 기능 추가
 * [API] 주변 카테고리 검색 API 추가
 	* 기준 좌표X,Y 공간 및 반경 카테고리 검색 추가
 
-#### 기능  개선
+#### 기능 개선
 * [API] ReverseGeocoding 건물명, 우편번호 항목 추가
 * [API] 통합검색 catecode 항목 삭제
 * [SDK] 마커 표출 상태 변경 시 애니메이션 기본값 비활성화로 변경
@@ -48,7 +57,7 @@
 * [SDK] 줌 컨트롤러에 지도의 Padding 값이 적용되지 않는 오류 수정(iOS)
 
 ### 2019. 12. 24.
-#### 기능  개선
+#### 기능 개선
 * [API] 숫자 데이터 8자리 초과 시 제대로 보이지 않는 버그 수정
 * [API] ReverseGeocoding 엔진 변경
 * [API] StaticMap Internet Exloprer 버그 수정
@@ -71,7 +80,7 @@
 	* InvRoute 추가(지도 위에 경로를 표출하는 셰이프)
 	* InvMultiLine Deprecated 적용(InvRoute로 대체)
 
-#### 기능개선
+#### 기능 개선
 * [API] v3.0 API 기본 좌표 WGS84로 변경  
 * StaticMap API Image 파일 제공 추가
 * [SDK] alpha 값을 포함한 색상 설정 시 비정상인 색상으로 표출되는 오류 수정 (Android)

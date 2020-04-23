@@ -1443,7 +1443,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | 名前   | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| data    | Array |     |       | 出発地情報Array                               |
+| data    | Array |     |       | 出発地情報Array (最大50個)                         |
 | data[0].startX   | String | 必須 |       | 出発地X座標                             |
 | data[0].startY   | String | 必須 |       | 出発地Y座標                             |
 | data[0].startIdx   | String | 必須 |       | 出発地識別ID                                 |
@@ -1525,7 +1525,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | 名前   | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| data    | Array |     |       | 出発地情報Array                               |
+| data    | Array |     |       | 出発地情報Array (最大50個)                       |
 | data[0].endX   | String | 必須 |       | 到着地X座標                             |
 | data[0].endY   | String | 必須 |       | 到着地Y座標                             |
 | data[0].endIdx   | String | 必須 |       | 到着地識別ID                                 |
