@@ -1454,7 +1454,7 @@ In the order of gas, premium gas, light oil, and LPG |
 
 | Name   | Type   | Required | Valid Range | Description                            |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| data    | Array |     |       | Array information at departure      |
+| data    | Array |     |       | Array information at departure (Max : 50)     |
 | data[0].startX   | String | Required |       | X coordinates at departure         |
 | data[0].startY   | String | Required |       | Y coordinates at departure       |
 | data[0].startIdx   | String | Required |       | ID at departure                  |
@@ -1536,7 +1536,7 @@ In the order of gas, premium gas, light oil, and LPG |
 
 | Name   | Type  | Required | Valid Range | Description                             |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| data    | Array |     |       | Array information at departure      |
+| data    | Array |     |       | Array information at departure (Max : 50)     |
 | data[0].endX   | String | Required |       | X coordinates at destination    |
 | data[0].endY   | String | Required |       | Y coordinates at destination     |
 | data[0].endIdx   | String | Required |       | ID at destination               |
