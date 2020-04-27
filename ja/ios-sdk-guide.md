@@ -1,4 +1,4 @@
-﻿## Application Service > Maps > iOSマップSDKガイド
+## Application Service > Maps > iOSマップSDKガイド
 iOSプラットフォームでinaviマップを使用するためのプロジェクト基本設定方法を説明します。
 
 ### 事前準備
@@ -12,18 +12,18 @@ iOSプラットフォームでinaviマップを使用するためのプロジェ
 
 
 ### Project環境構成
-아이나비 지도 SDK를 사용하기 위해서는 다음과 같은 순서로 프로젝트의 환경을 구성해주어야 합니다.
+inaviマップSDKを使用するには、次の順序でプロジェクトの環境を構成する必要があります。
 
-#### Git LFS 설치
-SDK 용량이 크기 때문에 Pod 의존성 설치 전 [Git Large File Storage(LFS)](https://git-lfs.github.com/) 설치가 필요합니다.
-> `git-lfs가 설치되어 있지 않으면 SDK 의존성 설치가 정상적으로 진행되지 않아 빌드 시 오류가 발생합니다.`
+#### Git LFSインストール
+SDKの容量が大きいため、Pod依存性をインストールする前に[Git Large File Storage(LFS)](https://git-lfs.github.com/)のインストールが必要です。
+> `git-lfsがインストールされていない場合、SDK依存性のインストールが正常に進行できず、ビルドの際にエラーが発生します。`
 
 ```
 brew install git-lfs
 git lfs install
 ```
 
-#### Podfile 구성
+#### Podfile構成
 次のようにPodfileを作成してinaviマップSDKに対するPod依存性を設定します。
 > inaviマップiOS SDKはCocoaPodsを通して配布され、Beta期間終了後はポリシーに合わせて変更される場合があります。(事前告知予定)
 
@@ -37,16 +37,16 @@ target 'iNaviMapsDemoiOS' do
 end
 ```
 
-#### SDK 설치
+#### SDKインストール
 依存性設定を行った後、Terminalでプロジェクトpathに移動し、下記のコマンドを実行してinaviマップSDKをインストールします。
-> `SDK 의존성 설치가 완료되었을 때 프레임워크 용량은 약 150MB 입니다.`
+> `SDK依存性インストールが完了した時、フレームワークの容量は約100MBです。`
 ```
 pod install --repo-update
 ```
 
-#### CocoaPods 캐시 삭제
-간혹 이전에 다운로드 받은 SDK 의존성의 캐시가 남아있어 빌드에 오류가 발생할 수 있습니다.\
-아래 명령어를 통해 아이나비 지도 SDK의 CocoaPods 캐시를 삭제할 수 있습니다.
+#### CocoaPodsキャッシュ削除
+もし以前ダウンロードしたSDK依存性のキャッシュが残っている場合、ビルドの際にエラーが発生する場合があります。
+下記のコマンドでinaviマップSDKのCocoaPodsキャッシュを削除できます。
 ```
 pod cache clean inavi-maps-sdk
 pod update inavi-maps-sdk
@@ -187,4 +187,3 @@ Maps SDKの使用方法は[iNavi Maps APIセンター](http://imapsapi.inavi.com
 [moveCamera()] : [https://inavi-systems.github.io/inavi-maps-sdk-reference/ios/Classes/InaviMapView.html#/c:objc(cs)InaviMapView(im)moveCamera:](https://inavi-systems.github.io/inavi-maps-sdk-reference/ios/Classes/InaviMapView.html#/c:objc(cs)InaviMapView(im)moveCamera:)
 
 [NHN TOAST Console] : [https://console.toast.com/](https://console.toast.com/)
-

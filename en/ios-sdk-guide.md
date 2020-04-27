@@ -39,7 +39,7 @@ end
 
 #### SDK 설치
 After dependency setting, go to protect path at the terminal, execute the command as below and install iNavi maps SDK. 
-> `SDK 의존성 설치가 완료되었을 때 프레임워크 용량은 약 150MB 입니다.`
+> `SDK 의존성 설치가 완료되었을 때 프레임워크 용량은 약 100MB 입니다.`
 ```
 pod install --repo-update
 ```

@@ -1,4 +1,4 @@
-﻿## Application Service > Maps > API v3.0ガイド
+## Application Service > Maps > API v3.0ガイド
 
 inaviの長年培ったナビエンジン技術を利用した検索、Geocoding、Reverse Geocoding、経路検索(ルート検索)、Static Map APIの使用方法について説明します。
 
@@ -13,7 +13,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 #### URL情報
 
-| 環境 | ドメイン                           |
+| 環境 | ドメイン                          |
 | ---- | -------------------------------- |
 | Real | https://api-maps.cloud.toast.com |
 
@@ -49,21 +49,21 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前  | タイプ  | 必須かどうか | 有効範囲 | 説明  |
+| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Query Parameters]
 
-| 名前         | タイプ  | 必須かどうか | 有効範囲 | 説明                                    |
+| 名前        | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
 | ------------- | ------ | ----- | ----- | ---------------------------------------- |
-| query         | String | 必須 |       | 検索ワード                                   |
+| query         | String | 必須 |       | 検索ワード                                  |
 | coordtype     | String | 任意 |       | 座標形式<br>0：TW座標<br>1：WGS84座標<br>2：TM座標 |
-| startposition | String | 任意 |       | 検索開始位置<br>0：最初の位置、未入力の時は0で照会  |
-| reqcount      | String | 任意 |       | 検索リクエスト数<br>0に設定するとMax Countを返す      |
+| startposition | String | 任意 |       | 検索開始位置<br>0：最初の位置、未入力の時は0で照会 |
+| reqcount      | String | 任意 |       | 検索リクエスト数<br>0に設定するとMax Countを返す     |
 | spopt         | String | 任意 |       | 空間検索オプション<br>0：空間検索を使用しない<br>1：Extent検索<br>2：Range検索<br>* spopt値が未設定の場合は0に設定 |
-| radius        | String | 任意 |       | 半径<br>spopt値が2の場合、使用<br>メートル単位           |
-| admcode       | String | 任意 |       | 行政コード                                 |
+| radius        | String | 任意 |       | 半径<br>spopt値が2の場合、使用<br>メートル単位          |
+| admcode       | String | 任意 |       | 行政コード                                |
 | depth         | String | 任意 |       | 下位施設の要求水準<br>1：1 depthのみリクエスト(最上位depth)<br>2：2 depthまでリクエスト<br>3：3 depthまでリクエスト<br>* depth値が未設定の場合、1に設定<br>* depthを設定すると、下記のResponseのようにsubpoi詳細情報がdepthに合わせて返される |
 | x1            | String | 任意 |       | X1座標<br>spopt値が0の場合、基準点X座標<br>spopt値が1の場合、Extentの左上X座標<br>spopt値が2の場合、基準点X座標 |
 | y1            | String | 任意 |       | Y1座標<br>spopt値が0の場合、基準点Y座標<br>spopt値が1の場合、Extentの左上Y座標<br>spopt値が2の場合、基準点Y座標 |
@@ -209,94 +209,94 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-| 名前                            | タイプ   | 説明                                    |
+| 名前                           | タイプ  | 説明                                   |
 | -------------------------------- | ------- | ---------------------------------------- |
-| header                           | Object  | ヘッダ領域                                 |
-| header.isSuccessful              | Boolean | 成否                                 |
-| header.resultCode                | Integer | 失敗コード                                 |
-| header.resultMessage             | String  | 失敗メッセージ                                |
-| search                           | Object  | 本文領域                                 |
-| search.result                    | Boolean | 成否                                 |
-| search.type                      | Integer | 0：一般検索<br>1：Reference検索         |
-| search.totalcount                | Integer | 全体検索結果対象数                         |
-| search.count                     | Integer | 検索結果数                               |
+| header                           | Object  | ヘッダ領域                                |
+| header.isSuccessful              | Boolean | 成否                                |
+| header.resultCode                | Integer | 失敗コード                                |
+| header.resultMessage             | String  | 失敗メッセージ                               |
+| search                           | Object  | 本文領域                                |
+| search.result                    | Boolean | 成否                                |
+| search.type                      | Integer | 0：一般検索<br>1：Reference検索        |
+| search.totalcount                | Integer | 全体検索結果対象数                        |
+| search.count                     | Integer | 検索結果数                              |
 | search.poitotalcount             | Integer | 全体検索結果対象数(Thinkware POI)            |
 | search.poicount                  | Integer | 検索結果数(Thinkware POI)                  |
 | search.tel_poitotalcount         | Integer | 全体検索結果対象数(Tel POI)                  |
 | search.tel_poicount              | Integer | 検索結果数(Tel POI)                        |
 | search.ucp_poitotalcount         | Integer | 全体検索結果対象数(User POI)                 |
 | search.ucp_poicount              | Integer | 検索結果数(User POI)                       |
-| search.admtotalcount             | Integer | ADM全体検索結果対象数                     |
-| search.admcount                  | Integer | ADM検索結果数                           |
-| search.reftotalcount             | Integer | ref全体検索結果対象数                     |
-| search.refcount                  | Integer | ref検索結果数                           |
+| search.admtotalcount             | Integer | ADM全体検索結果対象数                    |
+| search.admcount                  | Integer | ADM検索結果数                          |
+| search.reftotalcount             | Integer | ref全体検索結果対象数                    |
+| search.refcount                  | Integer | ref検索結果数                          |
 | search.res_type                  | String  | 検索結果Type名称<br>名称、カテゴリー、住所、電話番号順<br>(例) NYNN：名称No、カテゴリーYES、住所NO、電話番号NO |
-| search.poi                       | Array   | POI検索結果リスト                          |
+| search.poi                       | Array   | POI検索結果リスト                         |
 | search.poi[0].poiid              | Integer | POI ID                                   |
 | search.poi[0].depth              | String  | POI depth                                |
 | search.poi[0].dpx                | String  | display X座標(WGS84の場合longitude)         |
 | search.poi[0].dpy                | String  | display Y座標(WGS84の場合latitude)          |
 | search.poi[0].rpx                | String  | 探索X座標(WGS84の場合longitude)              |
 | search.poi[0].rpy                | String  | 探索Y座標(WGS84の場合latitude)               |
-| search.poi[0].name1              | String  | 正式名称                                 |
-| search.poi[0].name2              | String  | 略称                                 |
+| search.poi[0].name1              | String  | 正式名称                                |
+| search.poi[0].name2              | String  | 略称                                |
 | search.poi[0].name3              | String  | 拡張名称1                                  |
 | search.poi[0].name4              | String  | 拡張名称2                                  |
-| search.poi[0].admcode            | String  | 行政コード                                 |
-| search.poi[0].address            | String  | 住所                                    |
-| search.poi[0].jibun              | String  | 地番                                     |
-| search.poi[0].roadname           | String  | 新しい住所道路名                                |
-| search.poi[0].roadjibun          | String  | 新しい住所地番                                 |
-| search.poi[0].detailaddress      | String  | 詳細住所                                 |
-| search.poi[0].catecode           | String  | 分類コード                                 |
-| search.poi[0].catename           | String  | 分類名称                                 |
-| search.poi[0].dp_catecode        | String  | DP分類コード                              |
+| search.poi[0].admcode            | String  | 行政コード                                |
+| search.poi[0].address            | String  | 住所                                   |
+| search.poi[0].jibun              | String  | 地番                                    |
+| search.poi[0].roadname           | String  | 新しい住所道路名                               |
+| search.poi[0].roadjibun          | String  | 新しい住所地番                                |
+| search.poi[0].detailaddress      | String  | 詳細住所                                |
+| search.poi[0].catecode           | String  | 分類コード                                |
+| search.poi[0].catename           | String  | 分類名称                                |
+| search.poi[0].dp_catecode        | String  | DP分類コード                             |
 | search.poi[0].distance           | Integer | 座標との距離(該当する時のみ)                          |
-| search.poi[0].tel                | String  | 電話番号                                  |
-| search.poi[0].hasoildata         | Boolean | ガソリン価格データ有無                           |
-| search.poi[0].hasdetailinfo      | Boolean | 詳細情報有無                            |
-| search.poi[0].hassubpoi          | Boolean | 下位施設有無                           |
-|| search.poi[0].islandmark         | Boolean | ランドマークかどうか                                |
-| search.poi[0].updateTS           | String  | 最終変更日時(Y4-MM-DD HH：mm：ss)フォーマット         |
-| search.poi[0].imagecount         | Integer | POIイメージ数                             |
-| search.poi[0].oildata            | Object  | ガソリン価格データ情報                             |
-| search.poi[0].oildata.g_price    | Integer | レギュラー価格                                |
-| search.poi[0].oildata.hg_price   | Integer | ハイオク価格                             |
-| search.poi[0].oildata.d_price    | Integer | 軽油価格                                 |
-| search.poi[0].oildata.l_price    | Integer | LPG価格                                |
-| search.poi[0].oildata.updatetime | String  | アップデート時間                               |
+| search.poi[0].tel                | String  | 電話番号                                 |
+| search.poi[0].hasoildata         | Boolean | ガソリン価格データ有無                          |
+| search.poi[0].hasdetailinfo      | Boolean | 詳細情報有無                           |
+| search.poi[0].hassubpoi          | Boolean | 下位施設有無                          |
+|| search.poi[0].islandmark         | Boolean | ランドマークかどうか                               |
+| search.poi[0].updateTS           | String  | 最終変更日時(Y4-MM-DD HH：mm：ss)フォーマット        |
+| search.poi[0].imagecount         | Integer | POIイメージ数                            |
+| search.poi[0].oildata            | Object  | ガソリン価格データ情報                            |
+| search.poi[0].oildata.g_price    | Integer | レギュラー価格                               |
+| search.poi[0].oildata.hg_price   | Integer | ハイオク価格                            |
+| search.poi[0].oildata.d_price    | Integer | 軽油価格                                |
+| search.poi[0].oildata.l_price    | Integer | LPG価格                               |
+| search.poi[0].oildata.updatetime | String  | アップデート時間                              |
 | search.poi[0].oildata.priceinfo  | String  | 最高、最低ガソリン価格情報<br>(H：最高、L：最低、X：該当なし)<br>レギュラー、ハイオク、軽油、LPG順 |
-| search.poi[0].oildata.wash       | Boolean | 洗車施設有無                               |
-| search.poi[0].oildata.fix        | Boolean | 整備可否                               |
-| search.poi[0].oildata.mart       | Boolean | 売店有無                                  |
-| search.poi[0].subpoi             | Object  | 下位施設情報                             |
-| search.poi[0].subpoi.count       | Integer | 下位施設の数                              |
-| search.poi[0].subpoi.poi         | Array   | POI情報と同じ                             |
+| search.poi[0].oildata.wash       | Boolean | 洗車施設有無                              |
+| search.poi[0].oildata.fix        | Boolean | 整備可否                              |
+| search.poi[0].oildata.mart       | Boolean | 売店有無                                 |
+| search.poi[0].subpoi             | Object  | 下位施設情報                            |
+| search.poi[0].subpoi.count       | Integer | 下位施設の数                             |
+| search.poi[0].subpoi.poi         | Array   | POI情報と同じ                            |
 | search.tel                       | Array   | TEL検索結果リスト(POI情報と同じ)                |
-| search.adm                       | Array   | ADM検索結果リスト                          |
+| search.adm                       | Array   | ADM検索結果リスト                         |
 | search.adm[0].type               | String  | 検索type<br>1：行政系検索<br>2：地番検索<br>3：新住所検索 |
 | search.adm[0].posx               | String  | X座標(WGS84の場合longitude)                 |
 | search.adm[0].posy               | String  | Y座標(WGS84の場合latitude)                  |
-| search.adm[0].admcode            | String  | 行政コード                                  |
-| search.adm[0].address            | String  | 住所                                    |
-| search.adm[0].jibun              | String  | 地番                                     |
-| search.adm[0].roadname           | String  | 新住所道路名                                |
-| search.adm[0].roadjibun          | String  | 新住所地番                                 |
+| search.adm[0].admcode            | String  | 行政コード                                 |
+| search.adm[0].address            | String  | 住所                                   |
+| search.adm[0].jibun              | String  | 地番                                    |
+| search.adm[0].roadname           | String  | 新住所道路名                               |
+| search.adm[0].roadjibun          | String  | 新住所地番                                |
 | search.adm[0].accuracy           | Integer | 地番の正確度<br>0：正確検索<br>1：枝番拡張<br>2：親番拡張 |
-| search.hasgasstation             | Boolean | ガソリン価格情報提供有無                            |
-| search.oilprice                  | Object  | ガソリン価格情報                                 |
-| search.oilprice.max_g_price      | Integer | 最高レギュラー価格                             |
-| search.oilprice.min_g_price      | Integer | 最低レギュラー価格                             |
-| search.oilprice.avg_g_price      | Integer | 平均レギュラー価格                             |
-| search\.oilprice\.max\_hg\_price | Integer | 最高ハイオク価格                          |
-| search\.oilprice\.min\_hg\_price | Integer | 最低ハイオク価格                          |
-| search\.oilprice\.avg\_hg\_price | Integer | 平均ハイオク価格                          |
-| search.oilprice.max_d_price      | Integer | 最高軽油価格                              |
-| search.oilprice.min_d_price      | Integer | 最低軽油価格                              |
-| search.oilprice.avg_d_price      | Integer | 平均軽油価格                              |
-| search.oilprice.max_l_price      | Integer | 最高LPG価格                             |
-| search.oilprice.min_l_price      | Integer | 最低LPG価格                             |
-| search.oilprice.avg_l_price      | Integer | 平均LPG価格                             |
+| search.hasgasstation             | Boolean | ガソリン価格情報提供有無                           |
+| search.oilprice                  | Object  | ガソリン価格情報                                |
+| search.oilprice.max_g_price      | Integer | 最高レギュラー価格                            |
+| search.oilprice.min_g_price      | Integer | 最低レギュラー価格                            |
+| search.oilprice.avg_g_price      | Integer | 平均レギュラー価格                            |
+| search\.oilprice\.max\_hg\_price | Integer | 最高ハイオク価格                         |
+| search\.oilprice\.min\_hg\_price | Integer | 最低ハイオク価格                         |
+| search\.oilprice\.avg\_hg\_price | Integer | 平均ハイオク価格                         |
+| search.oilprice.max_d_price      | Integer | 最高軽油価格                             |
+| search.oilprice.min_d_price      | Integer | 最低軽油価格                             |
+| search.oilprice.avg_d_price      | Integer | 平均軽油価格                             |
+| search.oilprice.max_l_price      | Integer | 最高LPG価格                            |
+| search.oilprice.min_l_price      | Integer | 最低LPG価格                            |
+| search.oilprice.avg_l_price      | Integer | 平均LPG価格                            |
 
 
 ### 2\. 推薦ワード検索
@@ -313,13 +313,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前  | タイプ  | 必須かどうか | 有効範囲 | 説明  |
+| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Query Parameters]
 
-| 名前 | タイプ  | 必須かどうか | 有効範囲 | 説明                  |
+| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明                 |
 | ----- | ------ | ----- | ----- | ---------------------- |
 | query | String | 必須 | 50バイト | ハングル/英語/数字50バイト(ハングル25文字) |
 
@@ -385,18 +385,18 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-| 名前                         | タイプ   | 説明     |
+| 名前                        | タイプ  | 説明    |
 | ----------------------------- | ------- | --------- |
-| header                        | Object  | ヘッダ領域  |
-| header.isSuccessful           | Boolean | 成否  |
-| header.resultCode             | Integer | 失敗コード  |
+| header                        | Object  | ヘッダ領域 |
+| header.isSuccessful           | Boolean | 成否 |
+| header.resultCode             | Integer | 失敗コード |
 | header.resultMessage          | String  | 失敗メッセージ |
-| proposer                      | Object  | 本文領域  |
-| proposer.result               | Boolean | 成否  |
+| proposer                      | Object  | 本文領域 |
+| proposer.result               | Boolean | 成否 |
 | proposer.count                | Integer | 推薦検索ワード数 |
 | proposer.keyword              | Array   | 推薦検索ワードリスト |
 | proposer.keyword[0].keyword   | String  | 推薦検索ワード |
-| proposer.keyword[0].frequency | Integer | 照会頻度  |
+| proposer.keyword[0].frequency | Integer | 照会頻度 |
 
 ### 3\. POI詳細検索
 
@@ -412,13 +412,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前  | タイプ  | 必須かどうか | 有効範囲 | 説明  |
+| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Query Parameters]
 
-| 名前 | タイプ  | 必須かどうか | 有効範囲 | 説明                                    |
+| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
 | ----- | ------ | ----- | ----- | ---------------------------------------- |
 | poiid | String | 必須 | 186個 | POI ID<br>poiidをセパレータ","で区切って入力<br>(複数可能186個まで)<br>例) poiid=123,234,567 |
 
@@ -534,64 +534,64 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-| 名前                              | タイプ   | 説明                                    |
+| 名前                             | タイプ  | 説明                                   |
 | ---------------------------------- | ------- | ---------------------------------------- |
-| header                             | Object  | ヘッダ領域                            |
-| header.isSuccessful                | Boolean | 成否                            |
-| header.resultCode                  | Integer | 失敗コード                            |
-| header.resultMessage               | String  | 失敗メッセージ                           |
-| poi                                | Object  | 本文領域                            |
-| poi.result                         | Boolean | 成否                            |
-| poi.totalcount                     | Integer | 全体検索結果対象数                     |
-| poi.count                          | Integer | 検索結果数                           |
-| poi.poiinfo                        | Array   | POI検索結果リスト                     |
+| header                             | Object  | ヘッダ領域                           |
+| header.isSuccessful                | Boolean | 成否                           |
+| header.resultCode                  | Integer | 失敗コード                           |
+| header.resultMessage               | String  | 失敗メッセージ                          |
+| poi                                | Object  | 本文領域                           |
+| poi.result                         | Boolean | 成否                           |
+| poi.totalcount                     | Integer | 全体検索結果対象数                    |
+| poi.count                          | Integer | 検索結果数                          |
+| poi.poiinfo                        | Array   | POI検索結果リスト                    |
 | poi.poiinfo[0].poiid               | Integer | POI ID                                   |
 | poi.poiinfo[0].dpx                 | String  | display X座標(WGS84の場合longitude)         |
 | poi.poiinfo[0].dpy                 | String  | display Y座標(WGS84の場合latitude)          |
 | poi.poiinfo[0].rpx                 | String  | 探索X座標(WGS84の場合longitude)              |
 | poi.poiinfo[0].rpy                 | String  | 探索Y座標(WGS84の場合latitude)               |
-| poi.poiinfo[0].name1               | String  | 正式名称                              |
-| poi.poiinfo[0].name2               | String  | 略称                              |
+| poi.poiinfo[0].name1               | String  | 正式名称                             |
+| poi.poiinfo[0].name2               | String  | 略称                             |
 | poi.poiinfo[0].name3               | String  | 拡張名称1                                  |
 | poi.poiinfo[0].name4               | String  | 拡張名称2                                  |
-| poi.poiinfo[0].admcode             | String  | 行政コード                            |
-| poi.poiinfo[0].jibun               | String  | 地番                                 |
-| poi.poiinfo[0].address             | String  | 住所                               |
-| poi.poiinfo[0].roadname            | String  | 新住所の道路名                            |
-| poi.poiinfo[0].roadjibun           | String  | 新住所の地番                             |
-| poi.poiinfo[0].detailaddress       | String  | 詳細住所                            |
-| poi.poiinfo[0].catecode            | String  | 分類コード                            |
-| poi.poiinfo[0].catename            | String  | 分類名称                              |
+| poi.poiinfo[0].admcode             | String  | 行政コード                           |
+| poi.poiinfo[0].jibun               | String  | 地番                                |
+| poi.poiinfo[0].address             | String  | 住所                              |
+| poi.poiinfo[0].roadname            | String  | 新住所の道路名                           |
+| poi.poiinfo[0].roadjibun           | String  | 新住所の地番                            |
+| poi.poiinfo[0].detailaddress       | String  | 詳細住所                           |
+| poi.poiinfo[0].catecode            | String  | 分類コード                           |
+| poi.poiinfo[0].catename            | String  | 分類名称                             |
 | poi.poiinfo[0].fulladdress         | String  | 全体住所(行政住所+地番+詳細住所)                      |
-| poi.poiinfo[0].zip                 | String  | 郵便番号                             |
+| poi.poiinfo[0].zip                 | String  | 郵便番号                            |
 | poi.poiinfo[0].homeage             | String  | Webサイトurl                                 |
-| poi.poiinfo[0].email               | String  | メール                              |
-| poi.poiinfo[0].howtogo             | String  | 交通手段                                |
+| poi.poiinfo[0].email               | String  | メール                             |
+| poi.poiinfo[0].howtogo             | String  | 交通手段                               |
 | poi.poiinfo[0].tel1                | String  | 電話番号1                                   |
 | poi.poiinfo[0].tel2                | String  | 電話番号2                                   |
 | poi.poiinfo[0].fax1                | String  | Fax番号1                                   |
 | poi.poiinfo[0].fax2                | String  | Fax番号2                                   |
 | poi.poiinfo[0].icode               | String  | ICODE                                    |
-| poi.poiinfo[0].detail_count        | Integer | 分類詳細項目数                        |
-| poi.poiinfo[0].etc_count           | Integer | 分類その他項目数                        |
-| poi.poiinfo[0].imagecount          | Integer | POIイメージ数                         |
-| poi.poiinfo[0].hasoildata          | Boolean | ガソリン価格データの有無                       |
-| poi.poiinfo[0].detailinfo          | Array   | 分類詳細項目                         |
-| poi.poiinfo[0].detailinfo[0].name  | String  | 分類詳細項目説明                      |
-| poi.poiinfo[0].detailinfo[0].value | String  | 分類詳細項目内容                      |
-| poi.poiinfo[0].etcinfo             | Array   | 分類その他項目                         |
-| poi.poiinfo[0].etcinfo[0].name     | String  | 分類その他項目説明                      |
-| poi.poiinfo[0].etcinfo[0].value    | String  | 分類その他項目内容                      |
-| poi.poiinfo[0].oildata             | Object  | ガソリン価格データ情報                        |
-| poi.poiinfo[0].oilda.tag_price     | Integer | レギュラー価格                           |
-| poi.poiinfo[0].oilda.hg_price      | Integer | ハイオク価格                         |
-| poi.poiinfo[0].oilda.d_price       | Integer | 軽油価格                            |
-| poi.poiinfo[0].oilda.l_price       | Integer | LPG価格                           |
-| poi.poiinfo[0].oilda.updatetime    | String  | アップデート時間                          |
+| poi.poiinfo[0].detail_count        | Integer | 分類詳細項目数                       |
+| poi.poiinfo[0].etc_count           | Integer | 分類その他項目数                       |
+| poi.poiinfo[0].imagecount          | Integer | POIイメージ数                        |
+| poi.poiinfo[0].hasoildata          | Boolean | ガソリン価格データの有無                      |
+| poi.poiinfo[0].detailinfo          | Array   | 分類詳細項目                        |
+| poi.poiinfo[0].detailinfo[0].name  | String  | 分類詳細項目説明                     |
+| poi.poiinfo[0].detailinfo[0].value | String  | 分類詳細項目内容                     |
+| poi.poiinfo[0].etcinfo             | Array   | 分類その他項目                        |
+| poi.poiinfo[0].etcinfo[0].name     | String  | 分類その他項目説明                     |
+| poi.poiinfo[0].etcinfo[0].value    | String  | 分類その他項目内容                     |
+| poi.poiinfo[0].oildata             | Object  | ガソリン価格データ情報                       |
+| poi.poiinfo[0].oilda.tag_price     | Integer | レギュラー価格                          |
+| poi.poiinfo[0].oilda.hg_price      | Integer | ハイオク価格                        |
+| poi.poiinfo[0].oilda.d_price       | Integer | 軽油価格                           |
+| poi.poiinfo[0].oilda.l_price       | Integer | LPG価格                          |
+| poi.poiinfo[0].oilda.updatetime    | String  | アップデート時間                         |
 | poi.poiinfo[0].oilda.priceinfo     | String  | 最高、最低ガソリン価格情報<br>(H：最高、L：最低、X：該当なし)<br>レギュラー、ハイオク、軽油、LPG順 |
-| poi.poiinfo[0].oilda.wash          | Boolean | 洗車施設有無                           |
-| poi.poiinfo[0].oilda.fix           | Boolean | 整備可否                           |
-| poi.poiinfo[0].oilda.mart          | Boolean | 売店有無                              |
+| poi.poiinfo[0].oilda.wash          | Boolean | 洗車施設有無                          |
+| poi.poiinfo[0].oilda.fix           | Boolean | 整備可否                          |
+| poi.poiinfo[0].oilda.mart          | Boolean | 売店有無                             |
 
 ### 4\. POI下位施設検索
 
@@ -613,7 +613,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Query Parameters]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲                            | 説明          |
+| 名前 | タイプ | 必須かどうか | 有効範囲                           | 説明         |
 | ----- | ------ | ----- | ---------------------------------------- | ------------------- |
 | poiid | String | 必須 |                                          | POI ID<br>複数サポートされない |
 | x1    | String | 任意 | 現在地またはマップ中心座標<br>X、Y座標がすべてNULLまたは0の場合、距離計算を実行しない |                     |
@@ -682,63 +682,63 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-| 名前                       | タイプ | 説明                               |
+| 名前                      | タイプ | 説明                              |
 | -------------------------------- | ------- | ---------------------------------------- |
-| header                           | Object  | ヘッダ領域                            |
-| header.isSuccessful              | Boolean | 成否                            |
-| header.resultCode                | Integer | 失敗コード                            |
-| header.resultMessage             | String  | 失敗メッセージ                           |
-| subpoi                           | Object  | 本文領域                            |
-| subpoi.result                    | Boolean | 成否                            |
-| subpoi.totalcount                | Integer  | 全体検索結果対象数                           |
-| subpoi.count                     | Integer  | 検索結果数                                |
-| subpoi.poi                       | Array   | POI検索結果リスト                     |
+| header                           | Object  | ヘッダ領域                           |
+| header.isSuccessful              | Boolean | 成否                           |
+| header.resultCode                | Integer | 失敗コード                           |
+| header.resultMessage             | String  | 失敗メッセージ                          |
+| subpoi                           | Object  | 本文領域                           |
+| subpoi.result                    | Boolean | 成否                           |
+| subpoi.totalcount                | Integer  | 全体検索結果対象数                          |
+| subpoi.count                     | Integer  | 検索結果数                               |
+| subpoi.poi                       | Array   | POI検索結果リスト                    |
 | subpoi.poi[0].poiid              | Integer | POI ID                                   |
 | subpoi.poi[0].depth              | String  | POI depth                                |
 | subpoi.poi[0].dpx                | String  | display X座標(WGS84の場合、longitude)         |
 | subpoi.poi[0].dpy                | String  | display Y座標(WGS84の場合、latitude)          |
 | subpoi.poi[0].rpx                | String  | 探索X座標(WGS84の場合、longitude)              |
 | subpoi.poi[0].rpy                | String  | 探索Y座標(WGS84の場合、latitude)               |
-| subpoi.poi[0].name1              | String  | 正式名称                               |
-| subpoi.poi[0].name2              | String  | 略称                               |
+| subpoi.poi[0].name1              | String  | 正式名称                              |
+| subpoi.poi[0].name2              | String  | 略称                              |
 | subpoi.poi[0].name3              | String  | 拡張名称1                                    |
 | subpoi.poi[0].name4              | String  | 拡張名称2                                    |
-| subpoi.poi[0].admcode            | String  | 行政コード                             |
-| subpoi.poi[0].address            | String  | 住所                               |
-| subpoi.poi[0].jibun              | String  | 地番                                 |
-| subpoi.poi[0].roadname           | String  | 新住所の道路名                            |
-| subpoi.poi[0].roadjibun          | String  | 新住所の地番                             |
-| subpoi.poi[0].detailaddress      | String  | 詳細住所                             |
-| subpoi.poi[0].catecode           | String  | 分類コード                             |
-| subpoi.poi[0].catename           | String  | 分類名称                               |
-| subpoi.poi[0].dp_catecode        | String  | DP分類コード                          |
+| subpoi.poi[0].admcode            | String  | 行政コード                            |
+| subpoi.poi[0].address            | String  | 住所                              |
+| subpoi.poi[0].jibun              | String  | 地番                                |
+| subpoi.poi[0].roadname           | String  | 新住所の道路名                           |
+| subpoi.poi[0].roadjibun          | String  | 新住所の地番                            |
+| subpoi.poi[0].detailaddress      | String  | 詳細住所                            |
+| subpoi.poi[0].catecode           | String  | 分類コード                            |
+| subpoi.poi[0].catename           | String  | 分類名称                              |
+| subpoi.poi[0].dp_catecode        | String  | DP分類コード                         |
 | subpoi.poi[0].distance           | Integer | 座標との距離(該当する時のみ)                         |
-| subpoi.poi[0].tel                | String  | 電話番号                             |
-| subpoi.poi[0].hasoildata         | Boolean | ガソリン価格データの有無                       |
-| subpoi.poi[0].hasdetailinfo      | Boolean | 詳細情報の有無                         |
-| subpoi.poi[0].hassubpoi          | Boolean | 下位施設の有無                         |
-| subpoi.poi[0].adv_count          | Boolean | 広告コード数                           |
-| subpoi.poi[0].islandmark         | Boolean | ランドマークかどうか                            |
-| subpoi.poi[0].updateTS           | String  | 最終変更日時(Y4-MM-DD HH:mm:ss)フォーマット     |
+| subpoi.poi[0].tel                | String  | 電話番号                            |
+| subpoi.poi[0].hasoildata         | Boolean | ガソリン価格データの有無                      |
+| subpoi.poi[0].hasdetailinfo      | Boolean | 詳細情報の有無                        |
+| subpoi.poi[0].hassubpoi          | Boolean | 下位施設の有無                        |
+| subpoi.poi[0].adv_count          | Boolean | 広告コード数                          |
+| subpoi.poi[0].islandmark         | Boolean | ランドマークかどうか                           |
+| subpoi.poi[0].updateTS           | String  | 最終変更日時(Y4-MM-DD HH:mm:ss)フォーマット    |
 | subpoi.poi[0].data_source        | String  | POI作成情報区分(Thinkware/Tel/User)        |
 | subpoi.poi[0].badgeflag          | Boolean | バッジ有無(Not Yet: FALSE, Badged: TRUE)      |
 | subpoi.poi[0].userid             | String  | POI登録ユーザーID (UCPの場合にのみ)                |
-| subpoi.poi[0].imagecount         | Integer | POIイメージ数                         |
-| subpoi.poi[0].oildata            | Object  | ガソリン価格データ情報                        |
-| subpoi.poi[0].oildata.g_price    | Integer | レギュラー価格                           |
-| subpoi.poi[0].oildata.hg_price   | Integer | ハイオク価格                         |
-| subpoi.poi[0].oildata.d_price    | Integer | 軽油価格                            |
-| subpoi.poi[0].oildata.l_price    | Integer | LPG価格                           |
-| subpoi.poi[0].oildata.updatetime | String  | Update時間                        |
+| subpoi.poi[0].imagecount         | Integer | POIイメージ数                        |
+| subpoi.poi[0].oildata            | Object  | ガソリン価格データ情報                       |
+| subpoi.poi[0].oildata.g_price    | Integer | レギュラー価格                          |
+| subpoi.poi[0].oildata.hg_price   | Integer | ハイオク価格                        |
+| subpoi.poi[0].oildata.d_price    | Integer | 軽油価格                           |
+| subpoi.poi[0].oildata.l_price    | Integer | LPG価格                          |
+| subpoi.poi[0].oildata.updatetime | String  | Update時間                       |
 | subpoi.poi[0].oildata.priceinfo  | String  | 最高、最低ガソリン価格情報<br>(H：最高、L：最低、X：該当なし)<br>レギュラー、ハイオク、軽油、LPG順 |
-| subpoi.poi[0].oildata.wash       | Boolean | 洗車施設有無                             |
-| subpoi.poi[0].oildata.fix        | Boolean | 整備可否                             |
-| subpoi.poi[0].oildata.mart       | Boolean | 売店有無                               |
-| subpoi.poi[0].AdInfo             | Array   | 広告コードリスト                         |
+| subpoi.poi[0].oildata.wash       | Boolean | 洗車施設有無                            |
+| subpoi.poi[0].oildata.fix        | Boolean | 整備可否                            |
+| subpoi.poi[0].oildata.mart       | Boolean | 売店有無                              |
+| subpoi.poi[0].AdInfo             | Array   | 広告コードリスト                        |
 | subpoi.poi[0].AdInfo[0].ADCODE   | Integer | 広告コード<br>1～99まで付与可能(最大99個)              |
-| subpoi.poi[0].subpoi             | Object  | 下位施設情報                        |
-| subpoi.poi[0].subpoi.count       | Integer | subpoi数                          |
-| subpoi.poi[0].subpoi.poi         | Array   | POI情報と同じ                         |
+| subpoi.poi[0].subpoi             | Object  | 下位施設情報                       |
+| subpoi.poi[0].subpoi.count       | Integer | subpoi数                         |
+| subpoi.poi[0].subpoi.poi         | Array   | POI情報と同じ                        |
 
 ### 5\. 座標変換
 
@@ -760,11 +760,11 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Query Parameters]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲                         | 説明                           |
+| 名前 | タイプ | 必須かどうか | 有効範囲                        | 説明                          |
 | --------- | ------ | ----- | ------------------------------------- | ------------------------------------ |
 | coordtype | String | 必須 |                                       | 0：WGS84 → TM <br> 1：TM → WGS84 |
-| x         | String | 必須  | 現在地またはマップ中心座標<br>WGS84座標またはTM座標 |                                      |
-| y         | String | 必須  | 現在地またはマップ中心座標<br>WGS84座標またはTM座標 |                                      |
+| x         | String | 必須 | 現在地またはマップ中心座標<br>WGS84座標またはTM座標 |                                      |
+| y         | String | 必須 | 現在地またはマップ中心座標<br>WGS84座標またはTM座標 |                                      |
 
 #### レスポンス
 
@@ -787,7 +787,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-| 名前           | タイプ | 説明 |
+| 名前          | タイプ | 説明 |
 | -------------------- | ------- | -------- |
 | header               | Object  | ヘッダ領域 |
 | header.isSuccessful  | Boolean | 成否 |
@@ -798,40 +798,40 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | coordinate.x         | String  | 変換X座標 |
 | coordinate.y         | String  | 変換Y座標 |
 
-### 6\. 주변 카테고리 검색
+### 6\. 周辺カテゴリー検索
 
-* 기준 좌표를 기준으로 주변 카테고리 검색기능을 지원합니다.
+* 基準座標を基準とした周辺カテゴリー検索機能をサポートします。
 
-#### 요청
+#### リクエスト
 
 [URI]
 
-| 메서드  | URI                                      |
+| メソッド | URI                                      |
 | ---- | ---------------------------------------- |
 | GET  | /maps/v3.0/appkeys/{appkey}/nearby-category-searches?depth={depth}&x1={x1}&y1={y1}&x2={x2}&y2={y2}&radius={radius}&catecode={catecode}&coordtype={coordtype}&reqcount={reqcount}  |
 
 [Path parameter]
 
-| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| 名前    | タイプ    | 必須かどうか | 有効範囲 | 説明    |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 앱키 |
+| appkey | String | 必須   |       | 固有のアプリケーションキー |
 
 [Query Parameters]
 
-| 이름        | 타입     | 필수 여부 |  설명                                   |
+| 名前       | タイプ    | 必須かどうか | 説明                                  |
 | --------- | ------ | ----- |  ------------------------------------ |
-| depth | Integer | 필수    | 0 : 전체 depth <br> 1 : depth1 <br> 2 : depth2 <br> 3 : depth3|
-| spopt         | Integer | 필수   | 1 : Extent(x1,y1,x2,y2) <br> 2 : 반경검색(x1,y1,radius)                                   |
-| catecode         | String | 필수   | 카테고리 코드 |
-| x1         | String | 필수(spopt 참조)    | 기준 X1좌표 |
-| y1         | String | 필수(spopt 참조)    | 기준 Y1좌표 |
-| x2         | String | 필수(spopt 참조)    | 기준 X2좌표 |
-| y2         | String | 필수(spopt 참조)    | 기준 Y2 좌표 |
-| radius         | String | 필수(spopt 참조)    | 반경(m) |
+| depth | Integer | 必須   | 0 :全体depth <br> 1 : depth1 <br> 2 : depth2 <br> 3 : depth3|
+| spopt         | Integer | 必須  | 1：Extent(x1,y1,x2,y2) <br> 2：半径検索(x1,y1,radius)                                   |
+| catecode         | String | 必須  | カテゴリーコード |
+| x1         | String | 必須(spopt参照)    | 基準X1座標 |
+| y1         | String | 必須(spopt参照)    | 基準Y1座標 |
+| x2         | String | 必須(spopt参照)    | 基準X2座標 |
+| y2         | String | 必須(spopt参照)    | 基準Y2座標 |
+| radius         | String | 必須(spopt参照)    | 半径(m) |
 
-#### 응답
+#### レスポンス
 
-##### 응답 본문
+##### レスポンス本文
 
 ```
 {
@@ -847,18 +847,18 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
                 "dpy": "37.402184",
                 "rpx": "127.110862",
                 "rpy": "37.402334",
-                "name1": "팅크웨어(주)",
-                "name2": "아이나비(본사)",
+                "name1": "THINKWARE (株)",
+                "name2": "inavi(本社)",
                 "name3": "THINKWARE",
                 "name4": "INAVI",
                 "admcode": "4113510900",
                 "jibun": "678",
-                "address": "경기도 성남시 분당구 삼평동",
-                "roadname": "경기도 성남시 분당구 판교역로",
+                "address": "京畿道城南市盆唐区三坪洞",
+                "roadname": "京畿道城南市盆唐区板橋駅路",
                 "roadjibun": "240",
-                "detailaddress": "삼환하이펙스 A동 8층,9층",
+                "detailaddress": "Samhwan HIPEX A棟8階、9階",
                 "catecode": "130600",
-                "catename": "기업",
+                "catename": "企業",
                 "dp_catecode": "000",
                 "userid": "",
                 "imagecount": 0,
@@ -874,7 +874,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
                 "pop_sns": false,
                 "pop_hot": false,
                 "pop_hit": false,
-                "pop_top": "경기_,분당구_2",
+                "pop_top": "京畿_,盆唐区_2",
                 "updateTS": "2019-05-02 00:00:00",
                 "hasoildata": false,
                 "hasdetailinfo": true,
@@ -894,72 +894,72 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 }
 ```
 
-##### 필드
+##### フィールド
 
-##### 필드
+##### フィールド
 
-| 이름                                 | 타입      | 설명                                       |
+| 名前                                | タイプ     | 説明                                      |
 | ---------------------------------- | ------- | ---------------------------------------- |
-| header                             | Object  | 헤더 영역                                    |
-| header.isSuccessful                | Boolean | 성공 여부                                    |
-| header.resultCode                  | Integer | 실패 코드                                    |
-| header.resultMessage               | String  | 실패 메시지                                   |
-| cate                                | Object  | 본문 영역                                    |
-| cate.result                         | Boolean | 성공 여부                                    |
-| cate.totalcount                     | Integer | 전체 검색 결과 대상 개수                           |
-| cate.count                          | Integer | 검색 결과 개수                                 |
-| cate.poi                        | Array   | POI 검색 결과 목록                             |
+| header                             | Object  | ヘッダ領域                                   |
+| header.isSuccessful                | Boolean | 成否                                   |
+| header.resultCode                  | Integer | 失敗コード                                   |
+| header.resultMessage               | String  | 失敗メッセージ                                  |
+| cate                                | Object  | 本文領域                                   |
+| cate.result                         | Boolean | 成否                                   |
+| cate.totalcount                     | Integer | 全体検索結果対象数                           |
+| cate.count                          | Integer | 検索結果数                                 |
+| cate.poi                        | Array   | POI検索結果リスト                            |
 | cate.poi[0].poiid               | Integer | POI ID                                   |
-| cate.poi[0].dpx                 | String  | display X 좌표(WGS84의 경우 longitude)         |
-| cate.poi[0].dpy                 | String  | display Y 좌표(WGS84의 경우 latitude)          |
-| cate.poi[0].rpx                 | String  | 탐색 X 좌표(WGS84의 경우 longitude)              |
-| cate.poi[0].rpy                 | String  | 탐색 Y 좌표(WGS84의 경우 latitude)               |
-| cate.poi[0].name1               | String  | 정식 명칭                                    |
-| cate.poi[0].name2               | String  | 축약 명칭                                    |
-| cate.poi[0].name3               | String  | 확장 명칭 1                                  |
-| cate.poi[0].name4               | String  | 확장 명칭 2                                  |
-| cate.poi[0].admcode             | String  | 행정코드                                    |
-| cate.poi[0].jibun               | String  | 지번                                       |
-| cate.poi[0].address             | String  | 주소                                       |
-| cate.poi[0].roadname            | String  | 새주소 도로명                                  |
-| cate.poi[0].roadjibun           | String  | 새주소 지번                                   |
-| cate.poi[0].detailaddress       | String  | 상세 주소                                    |
-| cate.poi[0].catecode            | String  | 분류 코드                                    |
-| cate.poi[0].catename            | String  | 분류 명칭                                    |
-| cate.poi[0].fulladdress         | String  | 전체 주소(행정주소+지번+상세주소)                      |
-| cate.poi[0].zip                 | String  | 우편번호                                     |
-| cate.poi[0].homeage             | String  | 홈페이지 url                                 |
-| cate.poi[0].email               | String  | 이메일                                      |
-| cate.poi[0].howtogo             | String  | 교통편                                      |
-| cate.poi[0].tel1                | String  | 전화번호 1                                   |
-| cate.poi[0].tel2                | String  | 전화번호 2                                   |
-| cate.poi[0].fax1                | String  | 팩스번호 1                                   |
-| cate.poi[0].fax2                | String  | 팩스번호 2                                   |
+| cate.poi[0].dpx                 | String  | display X座標(WGS84の場合longitude)         |
+| cate.poi[0].dpy                 | String  | display Y座標(WGS84の場合latitude)          |
+| cate.poi[0].rpx                 | String  | 探索X座標(WGS84の場合longitude)              |
+| cate.poi[0].rpy                 | String  | 探索Y座標(WGS84の場合latitude)               |
+| cate.poi[0].name1               | String  | 正式名称                                   |
+| cate.poi[0].name2               | String  | 縮約名称                                   |
+| cate.poi[0].name3               | String  | 拡張名称1                                  |
+| cate.poi[0].name4               | String  | 拡張名称2                                  |
+| cate.poi[0].admcode             | String  | 行政コード                                   |
+| cate.poi[0].jibun               | String  | 地番                                       |
+| cate.poi[0].address             | String  | 住所                                      |
+| cate.poi[0].roadname            | String  | 新住所の道路名                                  |
+| cate.poi[0].roadjibun           | String  | 新住所の地番                                   |
+| cate.poi[0].detailaddress       | String  | 詳細住所                                   |
+| cate.poi[0].catecode            | String  | 分類コード                                   |
+| cate.poi[0].catename            | String  | 分類名称                                   |
+| cate.poi[0].fulladdress         | String  | 全体住所(行政住所+地番+詳細住所)                      |
+| cate.poi[0].zip                 | String  | 郵便番号                                    |
+| cate.poi[0].homeage             | String  | Webサイトurl                                 |
+| cate.poi[0].email               | String  | メール                                     |
+| cate.poi[0].howtogo             | String  | 交通アクセス                                      |
+| cate.poi[0].tel1                | String  | 電話番号1                                   |
+| cate.poi[0].tel2                | String  | 電話番号2                                   |
+| cate.poi[0].fax1                | String  | Fax番号1                                   |
+| cate.poi[0].fax2                | String  | Fax番号2                                   |
 | cate.poi[0].icode               | String  | ICODE                                    |
-| cate.poi[0].detail_count        | Integer | 분류 상세 항목 개수                              |
-| cate.poi[0].etc_count           | Integer | 분류 기타 항목 개수                              |
-| cate.poi[0].imagecount          | Integer | POI 이미지 개수                               |
-| cate.poi[0].hasoildata          | Boolean | 유가 데이터 존재 유무                             |
-| cate.poi[0].detailinfo          | Array   | 분류 상세 항목                                 |
-| cate.poi[0].detailinfo[0].name  | String  | 분류 상세 항목 설명                              |
-| cate.poi[0].detailinfo[0].value | String  | 분류 상세 항목 내용                              |
-| cate.poi[0].etcinfo             | Array   | 분류 기타 항목                                 |
-| cate.poi[0].etcinfo[0].name     | String  | 분류 기타 항목 설명                              |
-| cate.poi[0].etcinfo[0].value    | String  | 분류 기타 항목 내용                              |
-| cate.poi[0].oildata             | Object  | 유가 데이터 정보                                |
-| cate.poi[0].oilda.tag_price     | Integer | 휘발유 가격                                   |
-| cate.poi[0].oilda.hg_price      | Integer | 고급휘발유 가격                                 |
-| cate.poi[0].oilda.d_price       | Integer | 경유 가격                                    |
-| cate.poi[0].oilda.l_price       | Integer | LPG 가격                                   |
-| cate.poi[0].oilda.updatetime    | String  | 업데이트 시간                                  |
-| cate.poi[0].oilda.priceinfo     | String  | 최고, 최저 유가 정보<br>(H : 최고, L : 최저, X : 해당없음)<br>휘발유, 고급휘발유, 경유, LPG 순 |
-| cate.poi[0].oilda.wash          | Boolean | 세차 시설 여부                                 |
-| cate.poi[0].oilda.fix           | Boolean | 정비 가능 여부                                 |
-| cate.poi[0].oilda.mart          | Boolean | 매점 여부                                    |
-| cate.poi[0].hassubpoi          | Boolean | 하위 시설물 데이터 존재 유무          |
-| cate.poi[0].subpoi          | Object | 하위 시설물 정보                                 |
-| cate.poi[0].subpoi.count          | Integer | 하위 시설물 개수                                 |
-| cate.poi[0].subpoi.poi          | Array |  POI 정보와 동일                            |
+| cate.poi[0].detail_count        | Integer | 分類詳細項目数                              |
+| cate.poi[0].etc_count           | Integer | 分類その他項目数                              |
+| cate.poi[0].imagecount          | Integer | POIイメージ数                               |
+| cate.poi[0].hasoildata          | Boolean | ガソリン価格データ存在有無                             |
+| cate.poi[0].detailinfo          | Array   | 分類詳細項目                                |
+| cate.poi[0].detailinfo[0].name  | String  | 分類詳細項目説明                             |
+| cate.poi[0].detailinfo[0].value | String  | 分類詳細項目内容                             |
+| cate.poi[0].etcinfo             | Array   | 分類その他項目                                |
+| cate.poi[0].etcinfo[0].name     | String  | 分類その他項目説明                             |
+| cate.poi[0].etcinfo[0].value    | String  | 分類その他項目内容                             |
+| cate.poi[0].oildata             | Object  | ガソリン価格データ情報                               |
+| cate.poi[0].oilda.tag_price     | Integer | レギュラー価格                                  |
+| cate.poi[0].oilda.hg_price      | Integer | ハイオク価格                                |
+| cate.poi[0].oilda.d_price       | Integer | 軽油価格                                   |
+| cate.poi[0].oilda.l_price       | Integer | LPG価格                                  |
+| cate.poi[0].oilda.updatetime    | String  | アップデート時間                                 |
+| cate.poi[0].oilda.priceinfo     | String  | 最高、最低ガソリン価格情報<br>(H：最高、 L：最低、 X：該当なし)<br>レギュラー、ハイオク、軽油、LPG順 |
+| cate.poi[0].oilda.wash          | Boolean | 洗車施設有無                                 |
+| cate.poi[0].oilda.fix           | Boolean | 整備可否                                 |
+| cate.poi[0].oilda.mart          | Boolean | 売店有無                                    |
+| cate.poi[0].hassubpoi          | Boolean | 下位施設データ存在有無          |
+| cate.poi[0].subpoi          | Object | 下位施設情報                                |
+| cate.poi[0].subpoi.count          | Integer | 下位施設数                                 |
+| cate.poi[0].subpoi.poi          | Array |  POI情報と同じ                            |
 ## Geocoding API
 
 ### 1\. 住所検索\(住所→座標\)
@@ -982,13 +982,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Query Parameters]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明                               |
+| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明                              |
 | ------------- | ------ | ----- | ----- | ---------------------------------------- |
-| query         | String | 必須 |       | 検索ワード                                |
+| query         | String | 必須 |       | 検索ワード                               |
 | coordtype     | String | 任意 |       | 座標形式<br>0：TW座標<br>1：WGS84座標<br>2：TM座標 |
 | startposition | String | 任意 |       | 検索開始位置<br>0：最初の位置<br>未入力時は0で照会 |
-| reqcount      | String | 任意 |       | 検索リクエスト数<br>0に設定するとMax Countを返す  |
-| admcode       | String | 任意 |       | 行政コード                            |
+| reqcount      | String | 任意 |       | 検索リクエスト数<br>0に設定するとMax Countを返す |
+| admcode       | String | 任意 |       | 行政コード                           |
 
 #### レスポンス
 
@@ -1051,24 +1051,24 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-| 名前                    | タイプ   | 説明                                    |
+| 名前                   | タイプ  | 説明                                   |
 | ------------------------ | ------- | ---------------------------------------- |
-| header                   | Object  | ヘッダ領域   |
-| header.isSuccessful      | Boolean | 成否   |
-| header.resultCode        | Integer | 失敗コード   |
-| header.resultMessage     | String  | 失敗メッセージ  |
-| address                  | Object  | 本文領域                                 |
-| address.result           | Boolean | 成否                                 |
-| address.totalcount       | Integer | 全体検索結果対象数                         |
+| header                   | Object  | ヘッダ領域  |
+| header.isSuccessful      | Boolean | 成否  |
+| header.resultCode        | Integer | 失敗コード  |
+| header.resultMessage     | String  | 失敗メッセージ |
+| address                  | Object  | 本文領域                                |
+| address.result           | Boolean | 成否                                |
+| address.totalcount       | Integer | 全体検索結果対象数                        |
 | address.res_type         | String  | 検索結果Type名称<br>名称、カテゴリー、住所、電話番号順<br>(例) NYNN：名称No、カテゴリーYES、住所NO、電話番号NO |
-| address.adm              | Array   | 検索結果                             |
+| address.adm              | Array   | 検索結果                            |
 | address.adm[0].type      | String  | 検索type<br>1：行政系検索<br>2：地番検索<br>3：新住所検索 |
-| address.adm[0].posx      | String  | X座標                             |
-| address.adm[0].posy      | String  | Y座標                             |
-| address.adm[0].admcode   | String  | 行政コード                            |
-| address.adm[0].address   | String  | 住所                               |
-| address.adm[0].roadname  | String  | 新住所の道路名                            |
-| address.adm[0].roadjibun | String  | 新住所の地番                             |
+| address.adm[0].posx      | String  | X座標                            |
+| address.adm[0].posy      | String  | Y座標                            |
+| address.adm[0].admcode   | String  | 行政コード                           |
+| address.adm[0].address   | String  | 住所                              |
+| address.adm[0].roadname  | String  | 新住所の道路名                           |
+| address.adm[0].roadjibun | String  | 新住所の地番                            |
 | address.adm[0].accuracy  | Integer | 地番の正確度<br>0：正確検索<br>1：枝番拡張<br>例) 963-2と検索すると、963-X検索結果を返す<br>2：親番拡張<br>例) 963-2と検索すると、96X検索結果を返す<br>3：法定洞同座標<br>例)三坪洞までのみ入力される場合<br>4：洞単位以上の座標または法定洞座標<br>例)盆唐区までのみ入力される場合 |
 
 
@@ -1095,10 +1095,10 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Query Parameters]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明                               |
+| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明                              |
 | --------- | ------ | ----- | ----- | ---------------------------------------- |
-| posX      | String | 必須 |       | X座標                             |
-| posY      | String | 必須 |       | Y座標                             |
+| posX      | String | 必須 |       | X座標                            |
+| posY      | String | 必須 |       | Y座標                            |
 | coordtype | String | 任意 |       | リクエスト座標形式<br>0：TW座標<br>1：WGS84座標<br>未入力時、TW座標基準検索 |
 
 #### レスポンス
@@ -1118,76 +1118,76 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
         "adm": {
             "posx": "126.947265",
             "posy": "37.384033",
-            "address": "경기도 안양시 동안구 호계동",
+            "address": "京畿道安養市東安区虎溪洞",
             "distance": 0,
             "bldname": "",
             "admcode": "4117310400",
             "postcode": "14079",
             "jibun": "921",
-            "roadname": "경기도 안양시 동안구 귀인로",
+            "roadname": "京畿道安養市東安区貴仁路",
             "roadjibun": "59"
         },
         "adm_address": {
-            "address": "경기도 안양시 동안구 호계2동",
+            "address": "京畿道安養市東安区虎溪2洞",
             "admcode": "4117359000",
-            "address_category3": "호계2동",
+            "address_category3": "虎溪2洞",
             "address_category4": "",
             "jibun": "921",
-            "address_category1": "경기도",
-            "address_category2": "안양시 동안구",
-            "cut_address": "경기 안양시 동안구 호계2동"
+            "address_category1": "京畿道",
+            "address_category2": "安養市東安区",
+            "cut_address": "京畿道安養市東安区虎溪2洞"
         },
         "legal_address": {
-            "address": "경기도 안양시 동안구 호계동",
+            "address": "京畿道安養市東安区虎溪洞",
             "admcode": "4117310400",
-            "address_category3": "호계동",
+            "address_category3": "虎溪洞",
             "address_category4": "",
             "jibun": "921",
-            "address_category1": "경기도",
-            "address_category2": "안양시 동안구",
-            "cut_address": "경기 안양시 동안구 호계동"
+            "address_category1": "京畿道",
+            "address_category2": "安養市東安区",
+            "cut_address": "京畿道安養市東安区虎溪洞"
         }
     }
 }
 ```
 
 ##### フィールド
-| 이름                     | 타입      | 설명                                       |
+| 名前                    | タイプ     | 説明                                      |
 | ---------------------- | ------- | ---------------------------------------- |
-| header                 | Object  | 헤더 영역                                    |
-| header.isSuccessful    | Boolean | 성공 여부                                    |
-| header.resultCode      | Integer | 실패 코드                                    |
-| header.resultMessage   | String  | 실패 메시지                                   |
-| location               | Object  | 본문 영역                                    |
-| location.result        | Boolean | 성공 여부                                    |
-| location.hasAdmAddress        | Boolean | 행정 주소 반환 여부                                    |
-| location.adm           | Object  | 법정 주소 정보                           |
-| location.adm.posx      | String  | X 좌표                                     |
-| location.adm.posy      | String  | Y 좌표                                     |
-| location.adm.admcode  | String  | 법정코드                                  |
-| location.adm.address  | String  | 주소                                  |
-| location.adm.jibun  | String  | 지번                                  |
-| location.adm.roadname  | String  | 새주소 도로명                                  |
-| location.adm.roadjibun | String  | 새주소 지번                                   |
-| location.adm.bldname  | String  | 건물명(해당될 때만)                              |
-| location.adm.postcode  | String  | 우편번호                   |
-| location.adm_address           | Object  | 행정동 주소 정보                           |
-| location.adm_address.admcode   | String  | 행정코드                                    |
-| location.adm_address.address   | String  | 주소                                       |
-| location.adm_address.jibun     | String  | 지번                                       |
-| location.adm_address.address_category1     | String  |   도/시                      |
-| location.adm_address.address_category2     | String  |   시/군/구                   |
-| location.adm_address.address_category3     | String  |   읍/면/동                 |
-| location.adm_address.address_category4     | String  |   리                  |
+| header                 | Object  | ヘッダ領域                                   |
+| header.isSuccessful    | Boolean | 成否                                   |
+| header.resultCode      | Integer | 失敗コード                                   |
+| header.resultMessage   | String  | 失敗メッセージ                                  |
+| location               | Object  | 本文領域                                   |
+| location.result        | Boolean | 成否                                   |
+| location.hasAdmAddress        | Boolean | 行政住所を返すかどうか                                    |
+| location.adm           | Object  | 法定住所情報                          |
+| location.adm.posx      | String  | X座標                                    |
+| location.adm.posy      | String  | Y座標                                    |
+| location.adm.admcode  | String  | 法定コード                                 |
+| location.adm.address  | String  | 住所                                 |
+| location.adm.jibun  | String  | 地番                                  |
+| location.adm.roadname  | String  | 新住所の道路名                            |
+| location.adm.roadjibun | String  | 新住所の地番                             |
+| location.adm.bldname  | String  | 建物名(該当する時のみ)                              |
+| location.adm.postcode  | String  | 郵便番号                  |
+| location.adm_address           | Object  | 行政洞住所情報                         |
+| location.adm_address.admcode   | String  | 行政コード                                   |
+| location.adm_address.address   | String  | 住所                                      |
+| location.adm_address.jibun     | String  | 地番                                      |
+| location.adm_address.address_category1     | String  |  道/市                     |
+| location.adm_address.address_category2     | String  |  市/郡/区                  |
+| location.adm_address.address_category3     | String  |  邑/面/洞                |
+| location.adm_address.address_category4     | String  |  里                 |
 | location.adm_address.cut_address     | String  |                         |
-| location.legal_address           | Object  | 법정동 주소 정보                           |
-| location.legal_address.admcode   | String  | 법정코드                                    |
-| location.legal_address.address   | String  | 주소                                       |
-| location.legal_address.jibun     | String  | 지번                                       |
-| location.legal_address.address_category1     | String  |  도/시                       |
-| location.legal_address.address_category2     | String  |  시/군/구                      |
-| location.legal_address.address_category3     | String  |  읍/면/동                      |
-| location.legal_address.address_category4     | String  |  리                       |
+| location.legal_address           | Object  | 法定洞住所情報                          |
+| location.legal_address.admcode   | String  | 法定コード                                   |
+| location.legal_address.address   | String  | 住所                                      |
+| location.legal_address.jibun     | String  | 地番                                      |
+| location.legal_address.address_category1     | String  | 道/市                      |
+| location.legal_address.address_category2     | String  | 市/郡/区                     |
+| location.legal_address.address_category3     | String  | 邑/面/洞                     |
+| location.legal_address.address_category4     | String  | 里                      |
 | location.legal_address.cut_address     | String  |                         |
 
 
@@ -1208,28 +1208,28 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前  | タイプ  | 必須かどうか | 有効範囲 | 説明  |
+| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Request Parameters]
 
-| 名前    | タイプ  | 必須かどうか | 有効範囲 | 説明                                    |
+| 名前   | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| startX   | String | 必須 |       | 出発地X座標                              |
-| startY   | String | 必須 |       | 出発地Y座標                              |
-| endX     | String | 必須 |       | 到着地X座標                              |
-| endY     | String | 必須 |       | 到着地Y座標                              |
-| via1X    | String | 任意 |       | 経由地1 X座標                            |
-| via1Y    | String | 任意 |       | 経由地1 Y座標                            |
-| via2X    | String | 任意 |       | 経由地2 X座標                            |
-| via2Y    | String | 任意 |       | 経由地2 Y座標                            |
-| via3X    | String | 任意 |       | 経由地3 X座標                            |
-| via3Y    | String | 任意 |       | 経由地3 Y座標                            |
-| via4X    | String | 任意 |       | 経由地4 X座標                            |
-| via4Y    | String | 任意 |       | 経由地4 Y座標                            |
-| via5X    | String | 任意 |       | 経由地5 X座標                            |
-| via5Y    | String | 任意 |       | 経由地5 Y座標                            |
+| startX   | String | 必須 |       | 出発地X座標                             |
+| startY   | String | 必須 |       | 出発地Y座標                             |
+| endX     | String | 必須 |       | 到着地X座標                             |
+| endY     | String | 必須 |       | 到着地Y座標                             |
+| via1X    | String | 任意 |       | 経由地1 X座標                           |
+| via1Y    | String | 任意 |       | 経由地1 Y座標                           |
+| via2X    | String | 任意 |       | 経由地2 X座標                           |
+| via2Y    | String | 任意 |       | 経由地2 Y座標                           |
+| via3X    | String | 任意 |       | 経由地3 X座標                           |
+| via3Y    | String | 任意 |       | 経由地3 Y座標                           |
+| via4X    | String | 任意 |       | 経由地4 X座標                           |
+| via4Y    | String | 任意 |       | 経由地4 Y座標                           |
+| via5X    | String | 任意 |       | 経由地5 X座標                           |
+| via5Y    | String | 任意 |       | 経由地5 Y座標                           |
 | option   | String | 必須 |       | 経路検索オプション<br>探索オプション1つのみ可能<br>例) option=real_traffic<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle:二輪車 |
 | carType   | Integer | 任意 |       | 料金所費用計算のための車種(1～6)、default：1 |
 | coordType   | String | 必須 |       | input、output座標タイプ、1つのみ入力可能(TW、WGS84) |
@@ -1307,39 +1307,39 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-| 名前                       | タイプ   | 説明                                    |
+| 名前                      | タイプ  | 説明                                   |
 | --------------------------- | ------- | ---------------------------------------- |
-| header                      | Object  | ヘッダ領域                                 |
-| header.isSuccessful         | Boolean | 成否                                 |
-| header.resultCode           | Integer | 失敗コード                                 |
-| header.resultMessage        | String  | 失敗メッセージ                                |
-| route			                  | Object  | 本文領域                                 |
-| route.data                   | Object  | 経路情報                                 |
-| route.data.file_name          | String | 経路周辺のPOI検索のためのbinaryファイル名             |
-| route.data.option              | String | 探索オプション                     |
+| header                      | Object  | ヘッダ領域                                |
+| header.isSuccessful         | Boolean | 成否                                |
+| header.resultCode           | Integer | 失敗コード                                |
+| header.resultMessage        | String  | 失敗メッセージ                               |
+| route			                  | Object  | 本文領域                                |
+| route.data                   | Object  | 経路情報                                |
+| route.data.file_name          | String | 経路周辺のPOI検索のためのbinaryファイル名            |
+| route.data.option              | String | 探索オプション                    |
 | route.data.spend_time           | Integer | 所要時間(秒)                              |
 | route.data.distance           | Integer | 距離(m)                          |
-| route.data.toll_fee    | Integer | 料金所の料金                          |
-| route.data.paths	 | Array | 詳細経路リスト                          |
-| route.data.paths[0].coords | Array | 詳細座標リスト                         |
-| route.data.paths[0].coords[0].x   | Double | X座標                          |
-| route.data.paths[0].coords[0].y         | Double | Y座標                      |
-| route.data.paths[0].speed          | Integer | 速度                                |
+| route.data.toll_fee    | Integer | 料金所の料金                         |
+| route.data.paths	 | Array | 詳細経路リスト                         |
+| route.data.paths[0].coords | Array | 詳細座標リスト                        |
+| route.data.paths[0].coords[0].x   | Double | X座標                         |
+| route.data.paths[0].coords[0].y         | Double | Y座標                     |
+| route.data.paths[0].speed          | Integer | 速度                               |
 | route.data.paths[0].spend_time          | Integer | 所要時間(秒)                                   |
 | route.data.paths[0].distance             | Integer | 距離(m)                        |
-| route.data.paths[0].road_code             | Integer | 道路種別コード                     |
-| route.data.paths[0].traffic_color       | String | 道路交通色                      |
-| route.data.guides       | Array | 主要道路情報リスト                     |
-| route.data.guides[0].coords       | Array | 詳細座標リスト                     |
-| route.data.guides[0].coords[0].x       | Array | X座標                     |
-| route.data.guides[0].coords[0].y       | Array | Y座標                     |
+| route.data.paths[0].road_code             | Integer | 道路種別コード                    |
+| route.data.paths[0].traffic_color       | String | 道路交通色                     |
+| route.data.guides       | Array | 主要道路情報リスト                    |
+| route.data.guides[0].coords       | Array | 詳細座標リスト                    |
+| route.data.guides[0].coords[0].x       | Array | X座標                    |
+| route.data.guides[0].coords[0].y       | Array | Y座標                    |
 | route.data.guides[0].distance       | Integer | 距離(m)                        |
-| route.data.guides[0].name       | String | 道路名                      |
-| route.data.guides[0].road_code       | Integer | 道路種別コード                     |
-| route.data.guides[0].score       | Integer | 比重                      |
+| route.data.guides[0].name       | String | 道路名                     |
+| route.data.guides[0].road_code       | Integer | 道路種別コード                    |
+| route.data.guides[0].score       | Integer | 比重                     |
 | route.data.guides[0].speed       | Integer | 速度(km)                       |
-| route.data.guides[0].type       | String | 道路タイプ                     |
-| route.data.guides[0].traffic_color       | String | 道路交通色                      |
+| route.data.guides[0].type       | String | 道路タイプ                    |
+| route.data.guides[0].traffic_color       | String | 道路交通色                     |
 
 
 
@@ -1357,28 +1357,28 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前  | タイプ  | 必須かどうか | 有効範囲 | 説明  |
+| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Request Parameters]
 
-| 名前    | タイプ  | 必須かどうか | 有効範囲 | 説明                                    |
+| 名前   | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| startX   | String | 必須 |       | 出発地X座標                              |
-| startY   | String | 必須 |       | 出発地Y座標                              |
-| endX     | String | 必須 |       | 到着地X座標                              |
-| endY     | String | 必須 |       | 到着地Y座標                              |
-| via1X    | String | 任意 |       | 経由地1 X座標                            |
-| via1Y    | String | 任意 |       | 経由地1 Y座標                            |
-| via2X    | String | 任意 |       | 経由地2 X座標                            |
-| via2Y    | String | 任意 |       | 経由地2 Y座標                            |
-| via3X    | String | 任意 |       | 経由地3 X座標                            |
-| via3Y    | String | 任意 |       | 経由地3 Y座標                            |
-| via4X    | String | 任意 |       | 経由地4 X座標                            |
-| via4Y    | String | 任意 |       | 経由地4 Y座標                            |
-| via5X    | String | 任意 |       | 経由地5 X座標                            |
-| via5Y    | String | 任意 |       | 経由地5 Y座標                            |
+| startX   | String | 必須 |       | 出発地X座標                             |
+| startY   | String | 必須 |       | 出発地Y座標                             |
+| endX     | String | 必須 |       | 到着地X座標                             |
+| endY     | String | 必須 |       | 到着地Y座標                             |
+| via1X    | String | 任意 |       | 経由地1 X座標                           |
+| via1Y    | String | 任意 |       | 経由地1 Y座標                           |
+| via2X    | String | 任意 |       | 経由地2 X座標                           |
+| via2Y    | String | 任意 |       | 経由地2 Y座標                           |
+| via3X    | String | 任意 |       | 経由地3 X座標                           |
+| via3Y    | String | 任意 |       | 経由地3 Y座標                           |
+| via4X    | String | 任意 |       | 経由地4 X座標                           |
+| via4Y    | String | 任意 |       | 経由地4 Y座標                           |
+| via5X    | String | 任意 |       | 経由地5 X座標                           |
+| via5Y    | String | 任意 |       | 経由地5 Y座標                           |
 | option   | String | 必須 |       | 経路検索オプション<br>探索オプション1つのみ可能<br>例) option=real_traffic<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle:二輪車 |
 | coordType   | String | 必須 |       | input、output座標タイプ、1つのみ入力可能(TW、WGS84) |
 
@@ -1408,15 +1408,15 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-| 名前                       | タイプ   | 説明                                    |
+| 名前                      | タイプ  | 説明                                   |
 | --------------------------- | ------- | ---------------------------------------- |
-| header                      | Object  | ヘッダ領域                                 |
-| header.isSuccessful         | Boolean | 成否                                 |
-| header.resultCode           | Integer | 失敗コード                                 |
-| header.resultMessage        | String  | 失敗メッセージ                                |
-| route			                  | Object  | 本文領域                                 |
-| route.data                   | Array  | 経路情報                                 |
-| route.data[0].option              | String | 探索オプション                     |
+| header                      | Object  | ヘッダ領域                                |
+| header.isSuccessful         | Boolean | 成否                                |
+| header.resultCode           | Integer | 失敗コード                                |
+| header.resultMessage        | String  | 失敗メッセージ                               |
+| route			                  | Object  | 本文領域                                |
+| route.data                   | Array  | 経路情報                                |
+| route.data[0].option              | String | 探索オプション                    |
 | route.data[0].spend_time           | Integer | 所要時間(秒)                              |
 | route.data[0].distance           | Integer | 距離(m)                          |
 
@@ -1435,23 +1435,23 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前  | タイプ  | 必須かどうか | 有効範囲 | 説明  |
+| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Request Parameters]
 
-| 名前    | タイプ  | 必須かどうか | 有効範囲 | 説明                                    |
+| 名前   | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| data    | Array |     |       | 出発地情報Array                               |
-| data[0].startX   | String | 必須 |       | 出発地X座標                              |
-| data[0].startY   | String | 必須 |       | 出発地Y座標                              |
+| data    | Array |     |       | 出発地情報Array (最大50個)                         |
+| data[0].startX   | String | 必須 |       | 出発地X座標                             |
+| data[0].startY   | String | 必須 |       | 出発地Y座標                             |
 | data[0].startIdx   | String | 必須 |       | 出発地識別ID                                 |
-| endX     | String | 必須 |       | 到着地X座標                              |
-| endY     | String | 必須 |       | 到着地Y座標                              |
+| endX     | String | 必須 |       | 到着地X座標                             |
+| endY     | String | 必須 |       | 到着地Y座標                             |
 | orderby    | String | 必須 |       | ソート基準(<br> 0 : distance_desc<br>1 : distance_asc<br>2 : time_desc <br>3 : time_asc<br>)                               |
 | coordType    | String | 必須 |       | 座標タイプ(TW、WGS84)
-| resultCount    | Integer | 任意 |       | 結果表示数                             |
+| resultCount    | Integer | 任意 |       | 結果表示数                            |
 
 
 #### レスポンス
@@ -1487,18 +1487,18 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-| 名前                       | タイプ   | 説明                                    |
+| 名前                      | タイプ  | 説明                                   |
 | --------------------------- | ------- | ---------------------------------------- |
-| header                      | Object  | ヘッダ領域                                 |
-| header.isSuccessful         | Boolean | 成否                                 |
-| header.resultCode           | Integer | 失敗コード                                 |
-| header.resultMessage        | String  | 失敗メッセージ                                |
-| route			                  | Object  | 本文領域                                 |
-| route.data                   | Array  | 経路情報                                 |
+| header                      | Object  | ヘッダ領域                                |
+| header.isSuccessful         | Boolean | 成否                                |
+| header.resultCode           | Integer | 失敗コード                                |
+| header.resultMessage        | String  | 失敗メッセージ                               |
+| route			                  | Object  | 本文領域                                |
+| route.data                   | Array  | 経路情報                                |
 | route.data[0].spend_time           | Integer | 所要時間(秒)                              |
 | route.data[0].distance           | Integer | 距離(m)                          |
-| route.data[0].startX           | String | 出発地X座標                       |
-| route.data[0].startY           | String | 出発地Y座標                       |
+| route.data[0].startX           | String | 出発地X座標                      |
+| route.data[0].startY           | String | 出発地Y座標                      |
 | route.data[0].startIdx           | String | 出発地識別ID                          |
 
 
@@ -1517,23 +1517,23 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前  | タイプ  | 必須かどうか | 有効範囲 | 説明  |
+| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Request Parameters]
 
-| 名前    | タイプ  | 必須かどうか | 有効範囲 | 説明                                    |
+| 名前   | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| data    | Array |     |       | 出発地情報Array                               |
-| data[0].endX   | String | 必須 |       | 到着地X座標                              |
-| data[0].endY   | String | 必須 |       | 到着地Y座標                              |
+| data    | Array |     |       | 出発地情報Array (最大50個)                       |
+| data[0].endX   | String | 必須 |       | 到着地X座標                             |
+| data[0].endY   | String | 必須 |       | 到着地Y座標                             |
 | data[0].endIdx   | String | 必須 |       | 到着地識別ID                                 |
-| startX     | String | 必須 |       | 出発地X座標                              |
-| startY     | String | 必須 |       | 出発地Y座標                              |
+| startX     | String | 必須 |       | 出発地X座標                             |
+| startY     | String | 必須 |       | 出発地Y座標                             |
 | orderby    | String | 必須 |       | ソート基準(<br> 0 : distance_desc<br>1 : distance_asc<br>2 : time_desc <br>3 : time_asc<br>)                               |
 | coordType    | String | 必須 |       | 座標タイプ(TW、WGS84)
-| resultCount    | Integer | 任意 |       | 結果表示数                             |
+| resultCount    | Integer | 任意 |       | 結果表示数                            |
 
 
 #### レスポンス
@@ -1569,18 +1569,18 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-| 名前                       | タイプ   | 説明                                    |
+| 名前                      | タイプ  | 説明                                   |
 | --------------------------- | ------- | ---------------------------------------- |
-| header                      | Object  | ヘッダ領域                                 |
-| header.isSuccessful         | Boolean | 成否                                 |
-| header.resultCode           | Integer | 失敗コード                                 |
-| header.resultMessage        | String  | 失敗メッセージ                                |
-| route			                  | Object  | 本文領域                                 |
-| route.data                   | Array  | 経路情報                                 |
+| header                      | Object  | ヘッダ領域                                |
+| header.isSuccessful         | Boolean | 成否                                |
+| header.resultCode           | Integer | 失敗コード                                |
+| header.resultMessage        | String  | 失敗メッセージ                               |
+| route			                  | Object  | 本文領域                                |
+| route.data                   | Array  | 経路情報                                |
 | route.data[0].spend_time           | Integer | 所要時間(秒)                              |
 | route.data[0].distance           | Integer | 距離(m)                          |
-| route.data[0].endX           | String | 到着地X座標                       |
-| route.data[0].endY           | String | 到着地Y座標                       |
+| route.data[0].endX           | String | 到着地X座標                      |
+| route.data[0].endY           | String | 到着地Y座標                      |
 | route.data[0].endIdx           | String | 到着地識別ID                          |
 
 
@@ -1599,42 +1599,42 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前  | タイプ  | 必須かどうか | 有効範囲 | 説明  |
+| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Request Parameters]
 
-| 名前    | タイプ  | 必須かどうか | 有効範囲 | 説明                                    |
+| 名前   | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
 | startX    | String | 必須 |       | 出発地X座標
 | startY    | String | 必須 |       | 出発地Y座標
-| endX   | String | 必須  |       | 到着地X座標                               |
-| endY   | String | 必須  |       | 到着地Y座標                               |
-| type     | String | 必須  |       | 基準時間(出発、到着)<br> start：出発時間基準<br>end：到着時間基準                               |
-| year     | Integer | 必須  |       | 基準年(ex.2019)                                 |
-| month     | Integer | 必須  |       | 基準月                                |
-| day    | Integer | 必須  |       | 基準日		|
-| hour     | Integer | 必須  |       | 基準時間(時)                                 |
-| minutes    | Integer | 必須  |       | 基準時間(分) 		|
-| via1X   | String | 任意  |       | 経由地1 X座標                             |
-| via1Y   | String | 任意  |       | 経由地1 Y座標                             |
-| via2X   | String | 任意  |       | 経由地2 X座標                             |
-| via2Y   | String | 任意  |       | 経由地2 Y座標                             |
-| via3X   | String | 任意  |       | 経由地3 X座標                             |
-| via3Y   | String | 任意  |       | 経由地3 Y座標                             |
-| via4X   | String | 任意  |       | 経由地4 X座標                             |
-| via4Y   | String | 任意  |       | 経由地4 Y座標                             |
-| via5X   | String | 任意  |       | 経由地5 X座標                             |
-| via5Y   | String | 任意  |       | 経由地5 Y座標                             |
-| coordType    | String | 任意  |       | 座標タイプ(tw, wgs84)<br> default : wgs84
-| useTrafficColor   | Boolean | 任意  |       | 道路交通色返却有無(true、false)<br> defaut : false |
-| guideTop   | Integer | 任意  |       | 表示する案内情報数 |
-| carType   | Integer | 任意  |       | 料金所費用計算のための車種(1～6), default : 1 |
+| endX   | String | 必須 |       | 到着地X座標                              |
+| endY   | String | 必須 |       | 到着地Y座標                              |
+| type     | String | 必須 |       | 基準時間(出発、到着)<br> start：出発時間基準<br>end：到着時間基準                              |
+| year     | Integer | 必須 |       | 基準年(ex.2019)                                 |
+| month     | Integer | 必須 |       | 基準月                               |
+| day    | Integer | 必須 |       | 基準日		|
+| hour     | Integer | 必須 |       | 基準時間(時)                                 |
+| minutes    | Integer | 必須 |       | 基準時間(分) 		|
+| via1X   | String | 任意 |       | 経由地1 X座標                            |
+| via1Y   | String | 任意 |       | 経由地1 Y座標                            |
+| via2X   | String | 任意 |       | 経由地2 X座標                            |
+| via2Y   | String | 任意 |       | 経由地2 Y座標                            |
+| via3X   | String | 任意 |       | 経由地3 X座標                            |
+| via3Y   | String | 任意 |       | 経由地3 Y座標                            |
+| via4X   | String | 任意 |       | 経由地4 X座標                            |
+| via4Y   | String | 任意 |       | 経由地4 Y座標                            |
+| via5X   | String | 任意 |       | 経由地5 X座標                            |
+| via5Y   | String | 任意 |       | 経由地5 Y座標                            |
+| coordType    | String | 任意 |       | 座標タイプ(tw, wgs84)<br> default : wgs84
+| useTrafficColor   | Boolean | 任意 |       | 道路交通色返却有無(true、false)<br> defaut : false |
+| guideTop   | Integer | 任意 |       | 表示する案内情報数 |
+| carType   | Integer | 任意 |       | 料金所費用計算のための車種(1～6), default : 1 |
 |groupByTrafficColor	| Boolean| 選択| |詳細経路リスト(paths)情報を交通色別にグルーピングして返すかどうか	|
-| beforeCount   | Integer | 任意  |       | 基準時間以前の時間の探索数 |
-| afterCount   | Integer | 任意  |       | 基準時間以降の時間の探索数 |
-| interval   | Integer | 任意  |       | 基準時間以前/以降の時間Interval(分) |
+| beforeCount   | Integer | 任意 |       | 基準時間以前の時間の探索数 |
+| afterCount   | Integer | 任意 |       | 基準時間以降の時間の探索数 |
+| interval   | Integer | 任意 |       | 基準時間以前/以降の時間Interval(分) |
 
 #### レスポンス
 
@@ -1834,54 +1834,54 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-| 名前                        | タイプ    | 説明                                     |
+| 名前                       | タイプ   | 説明                                    |
 | --------------------------- | ------- | ---------------------------------------- |
-| header                      | Object  | ヘッダ領域                                 |
-| header.isSuccessful         | Boolean | 成否                                 |
-| header.resultCode           | Integer | 失敗コード                                 |
-| header.resultMessage        | String  | 失敗メッセージ                                |
-| route			                  | Object  | 本文領域                                  |
-| route.data                   | Object  | 経路情報                                  |
-| route.data.file_name          | String | 経路周辺のPOI検索のためのbinaryファイル名              |
-| route.data.option              | String | 探索オプション                      |
+| header                      | Object  | ヘッダ領域                                |
+| header.isSuccessful         | Boolean | 成否                                |
+| header.resultCode           | Integer | 失敗コード                                |
+| header.resultMessage        | String  | 失敗メッセージ                               |
+| route			                  | Object  | 本文領域                                 |
+| route.data                   | Object  | 経路情報                                 |
+| route.data.file_name          | String | 経路周辺のPOI検索のためのbinaryファイル名             |
+| route.data.option              | String | 探索オプション                     |
 | route.data.spend_time           | Integer | 所要時間(秒)                              |
 | route.data.distance           | Integer | 距離(m)                          |
-| route.data.toll_fee    | Integer | 料金所の料金                           |
-| route.data.times	 | Array | 詳細経路リスト                           |
+| route.data.toll_fee    | Integer | 料金所の料金                          |
+| route.data.times	 | Array | 詳細経路リスト                          |
 | route.data.times[0].index	 | Integer | 基準時間対比Index(0の場合は基準時間)       |
 | route.data.times[0].spend_time	 | Integer | 所要時間(秒)       |
-| route.data.times[0].start_time	 | Object | 出発時間     |
-| route.data.times[0].start_time.year	 | Object | 年      |
-| route.data.times[0].start_time.month	 | Object | 月      |
-| route.data.times[0].start_time.day	 | Object | 日      |
-| route.data.times[0].start_time.hour	 | Object | 時      |
-| route.data.times[0].start_time.minutes	 | Object | 分      |
-| route.data.times[0].end_time	 | Object | 到着時間     |
-| route.data.times[0].end_time.year	 | Object | 年      |
-| route.data.times[0].end_time.month	 | Object | 月      |
-| route.data.times[0].end_time.day	 | Object | 日      |
-| route.data.times[0].end_time.hour	 | Object | 時      |
-| route.data.times[0].end_time.minutes	 | Object | 分      |
-| route.data.paths	 | Array | 詳細経路リスト                           |
-| route.data.paths[0].coords | Array | 詳細座標リスト                          |
-| route.data.paths[0].coords[0].x   | Double | X座標                           |
-| route.data.paths[0].coords[0].y         | Double | Y座標                       |
-| route.data.paths[0].speed          | Integer | 速度                                 |
+| route.data.times[0].start_time	 | Object | 出発時間    |
+| route.data.times[0].start_time.year	 | Object | 年     |
+| route.data.times[0].start_time.month	 | Object | 月     |
+| route.data.times[0].start_time.day	 | Object | 日     |
+| route.data.times[0].start_time.hour	 | Object | 時     |
+| route.data.times[0].start_time.minutes	 | Object | 分     |
+| route.data.times[0].end_time	 | Object | 到着時間    |
+| route.data.times[0].end_time.year	 | Object | 年     |
+| route.data.times[0].end_time.month	 | Object | 月     |
+| route.data.times[0].end_time.day	 | Object | 日     |
+| route.data.times[0].end_time.hour	 | Object | 時     |
+| route.data.times[0].end_time.minutes	 | Object | 分     |
+| route.data.paths	 | Array | 詳細経路リスト                          |
+| route.data.paths[0].coords | Array | 詳細座標リスト                         |
+| route.data.paths[0].coords[0].x   | Double | X座標                          |
+| route.data.paths[0].coords[0].y         | Double | Y座標                      |
+| route.data.paths[0].speed          | Integer | 速度                                |
 | route.data.paths[0].spend_time          | Integer | 所要時間(秒)                                   |
 | route.data.paths[0].distance             | Integer | 距離(m)                        |
-| route.data.paths[0].road_code             | Integer | 道路種別コード                      |
-| route.data.paths[0].traffic_color       | String | 道路交通色                       |
-| route.data.guides       | Array | 主要道路の情報リスト                      |
-| route.data.guides[0].coords       | Array | 詳細座標リスト                      |
-| route.data.guides[0].coords[0].x       | Array | X座標                      |
-| route.data.guides[0].coords[0].y       | Array | Y座標                      |
+| route.data.paths[0].road_code             | Integer | 道路種別コード                     |
+| route.data.paths[0].traffic_color       | String | 道路交通色                      |
+| route.data.guides       | Array | 主要道路の情報リスト                     |
+| route.data.guides[0].coords       | Array | 詳細座標リスト                     |
+| route.data.guides[0].coords[0].x       | Array | X座標                     |
+| route.data.guides[0].coords[0].y       | Array | Y座標                     |
 | route.data.guides[0].distance       | Integer | 距離(m)                        |
-| route.data.guides[0].name       | String | 道路名                       |
-| route.data.guides[0].road_code       | Integer | 道路種別コード                      |
-| route.data.guides[0].score       | Integer | 比重                       |
+| route.data.guides[0].name       | String | 道路名                      |
+| route.data.guides[0].road_code       | Integer | 道路種別コード                     |
+| route.data.guides[0].score       | Integer | 比重                      |
 | route.data.guides[0].speed       | Integer | 速度(km)                       |
-| route.data.guides[0].type       | String | 道路タイプ                      |
-| route.data.guides[0].traffic_color       | String | 道路交通色                       |
+| route.data.guides[0].type       | String | 道路タイプ                     |
+| route.data.guides[0].traffic_color       | String | 道路交通色                      |
 
 
 ## Static Map
@@ -1900,25 +1900,25 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前   | タイプ   | 必須かどうか | 有効範囲 | 説明   |
+| 名前  | タイプ  | 必須かどうか | 有効範囲 | 説明  |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 必須  |       | 固有のアプリケーションキー |
+| appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Request Query Parameters]
 
-| 名前     | タイプ   | 必須かどうか | 有効範囲 | 説明                                     |
+| 名前    | タイプ  | 必須かどうか | 有効範囲 | 説明                                    |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| lon   | String | 必須  |       | リクエストするlongitude(経度)座標         |
-| lat   | String | 必須  |       | リクエストするlatitude(緯度)座標           |
-| zoom   | String | 任意  |       | リクエストする座標の拡大レベル                               |
-| bearing     | String | 任意  |       | リクエストする座標の回転率                                |
-| pitch     | String | 任意  |       | リクエストする座標の傾き(0～30)   |
-| width    | String | 任意  |       | リクエストするイメージのwidth値 |
-| height    | String | 任意  |       | リクエストするイメージのheight値 |
-| x2    | String | 任意  |       | イメージサイズ * 2を返すかどうか |
-| mx    | String | 任意  |       | マーカーを表示する座標(longitude)   |
-| my    | String | 任意  |       | マーカーを表示する座標(latitude)   |
-| imgUrl    | String | 任意  |       | マーカーを表示するイメージURL   |
+| lon   | String | 必須 |       | リクエストするlongitude(経度)座標        |
+| lat   | String | 必須 |       | リクエストするlatitude(緯度)座標          |
+| zoom   | String | 任意 |       | リクエストする座標の拡大レベル                              |
+| bearing     | String | 任意 |       | リクエストする座標の回転率                               |
+| pitch     | String | 任意 |       | リクエストする座標の傾き(0～30)   |
+| width    | String | 任意 |       | リクエストするイメージのwidth値 |
+| height    | String | 任意 |       | リクエストするイメージのheight値 |
+| x2    | String | 任意 |       | イメージサイズ * 2を返すかどうか |
+| mx    | String | 任意 |       | マーカーを表示する座標(longitude)   |
+| my    | String | 任意 |       | マーカーを表示する座標(latitude)   |
+| imgUrl    | String | 任意 |       | マーカーを表示するイメージURL   |
 
 
 #### レスポンス

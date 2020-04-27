@@ -1,4 +1,4 @@
-﻿## Application Service > Maps > AndroidマップSDKガイド
+## Application Service > Maps > AndroidマップSDKガイド
 Androidプラットフォームでinaviマップを使用するためのプロジェクト基本設定方法を説明します。
 
 ### 事前準備
@@ -33,7 +33,7 @@ allprojects {
 /* App Module build.gradle */
 
 dependencies {
-    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.4.2'
+    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.4.4'
 }
 ```
 
