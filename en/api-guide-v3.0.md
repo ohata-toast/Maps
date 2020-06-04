@@ -579,7 +579,7 @@ in the order of gas, premium gas, light oil, and LPG |
 | poi.poiinfo[0].hasoildata          | Boolean | Availability of oil data                                     |
 | poi.poiinfo[0].detailinfo          | Array   | Detail classification item                                   |
 | poi.poiinfo[0].detailinfo[0].name  | String  | Description of detail classification item                    |
-| poi.poiinfo[0].detailinfo[0].value | String  | 분류 상세 항목 내용 Content of detail classification item    |
+| poi.poiinfo[0].detailinfo[0].value | String  | Content of detail classification item    |
 | poi.poiinfo[0].etcinfo             | Array   | Other classification item                                    |
 | poi.poiinfo[0].etcinfo[0].name     | String  | Description of other classification item                     |
 | poi.poiinfo[0].etcinfo[0].value    | String  | Content of other classification item                         |
@@ -801,40 +801,40 @@ In the order of gas, premium gas, light oil, and LPG |
 | coordinate.y         | String  | Y coordinates for conversion |
 
 
-### 6\. 주변 카테고리 검색
+### 6\. Search of Nearby Categories주변 카테고리 검색
 
-* 기준 좌표를 기준으로 주변 카테고리 검색기능을 지원합니다.
+* Search is supported for nearby categories based on coordinates. 기준 좌표를 기준으로 주변 카테고리 검색기능을 지원합니다.
 
-#### 요청
+#### 요청 Request 
 
 [URI]
 
-| 메서드  | URI                                      |
+| Method  | URI                                      |
 | ---- | ---------------------------------------- |
 | GET  | /maps/v3.0/appkeys/{appkey}/nearby-category-searches?depth={depth}&x1={x1}&y1={y1}&x2={x2}&y2={y2}&radius={radius}&catecode={catecode}&coordtype={coordtype}&reqcount={reqcount}  |
 
 [Path parameter]
 
-| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| Name     | Type     | Required | Valid Range | Description     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 앱키 |
+| appkey | String | Required    |       | Original appkey |
 
 [Query Parameters]
 
-| 이름        | 타입     | 필수 여부 |  설명                                   |
+| Name        | Type     | Required |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
-| depth | Integer | 필수    | 0 : 전체 depth <br> 1 : depth1 <br> 2 : depth2 <br> 3 : depth3|
-| spopt         | Integer | 필수   | 1 : Extent(x1,y1,x2,y2) <br> 2 : 반경검색(x1,y1,radius)                                   |
-| catecode         | String | 필수   | 카테고리 코드 |
-| x1         | String | 필수(spopt 참조)    | 기준 X1좌표 |
-| y1         | String | 필수(spopt 참조)    | 기준 Y1좌표 |
-| x2         | String | 필수(spopt 참조)    | 기준 X2좌표 |
-| y2         | String | 필수(spopt 참조)    | 기준 Y2 좌표 |
-| radius         | String | 필수(spopt 참조)    | 반경(m) |
+| depth | Integer | Required    | 0 : Total depth <br> 1 : depth1 <br> 2 : depth2 <br> 3 : depth3|
+| spopt         | Integer | Required   | 1 : Extent(x1,y1,x2,y2) <br> 2 : 반경검색(x1,y1,radius)                                   |
+| catecode         | String | Required   | Category Code |
+| x1         | String | Required (see spopt)    | 기준 X1좌표 |
+| y1         | String | Required (see spopt)    | 기준 Y1좌표 |
+| x2         | String | Required (see spopt)    | 기준 X2좌표 |
+| y2         | String | Required (see spopt)    | 기준 Y2 좌표 |
+| radius         | String | Required (see spopt)    | Radius (m) |
 
-#### 응답
+#### Response
 
-##### 응답 본문
+##### Response Body 
 
 ```
 {
@@ -897,53 +897,53 @@ In the order of gas, premium gas, light oil, and LPG |
 }
 ```
 
-##### 필드
+##### Field
 
-##### 필드
+##### Field
 
-| 이름                                 | 타입      | 설명                                       |
+| Name                                 | Type      | Description                                       |
 | ---------------------------------- | ------- | ---------------------------------------- |
-| header                             | Object  | 헤더 영역                                    |
-| header.isSuccessful                | Boolean | 성공 여부                                    |
-| header.resultCode                  | Integer | 실패 코드                                    |
-| header.resultMessage               | String  | 실패 메시지                                   |
-| cate                                | Object  | 본문 영역                                    |
-| cate.result                         | Boolean | 성공 여부                                    |
-| cate.totalcount                     | Integer | 전체 검색 결과 대상 개수                           |
-| cate.count                          | Integer | 검색 결과 개수                                 |
-| cate.poi                        | Array   | POI 검색 결과 목록                             |
+| header                             | Object  | Header area 헤더 영역                                    |
+| header.isSuccessful                | Boolean | Successful or not 성공 여부                                    |
+| header.resultCode                  | Integer | Failure code 실패 코드                                    |
+| header.resultMessage               | String  | Failure message 실패 메시지                                   |
+| cate                                | Object  | Body area 본문 영역                                    |
+| cate.result                         | Boolean | Successful or not 성공 여부                                    |
+| cate.totalcount                     | Integer | Total number of search results전체 검색 결과 대상 개수                           |
+| cate.count                          | Integer | Number of search results 검색 결과 개수                                 |
+| cate.poi                        | Array   | List of POI search results 검색 결과 목록                             |
 | cate.poi[0].poiid               | Integer | POI ID                                   |
-| cate.poi[0].dpx                 | String  | display X 좌표(WGS84의 경우 longitude)         |
-| cate.poi[0].dpy                 | String  | display Y 좌표(WGS84의 경우 latitude)          |
-| cate.poi[0].rpx                 | String  | 탐색 X 좌표(WGS84의 경우 longitude)              |
-| cate.poi[0].rpy                 | String  | 탐색 Y 좌표(WGS84의 경우 latitude)               |
-| cate.poi[0].name1               | String  | 정식 명칭                                    |
-| cate.poi[0].name2               | String  | 축약 명칭                                    |
-| cate.poi[0].name3               | String  | 확장 명칭 1                                  |
-| cate.poi[0].name4               | String  | 확장 명칭 2                                  |
-| cate.poi[0].admcode             | String  | 행정코드                                    |
-| cate.poi[0].jibun               | String  | 지번                                       |
-| cate.poi[0].address             | String  | 주소                                       |
-| cate.poi[0].roadname            | String  | 새주소 도로명                                  |
-| cate.poi[0].roadjibun           | String  | 새주소 지번                                   |
-| cate.poi[0].detailaddress       | String  | 상세 주소                                    |
-| cate.poi[0].catecode            | String  | 분류 코드                                    |
-| cate.poi[0].catename            | String  | 분류 명칭                                    |
-| cate.poi[0].fulladdress         | String  | 전체 주소(행정주소+지번+상세주소)                      |
-| cate.poi[0].zip                 | String  | 우편번호                                     |
+| cate.poi[0].dpx                 | String  | X coordinates for display 좌표(WGS84의 경우 longitude for WGS84)         |
+| cate.poi[0].dpy                 | String  | Y coordinates for display Y 좌표(WGS84의 경우 latitude)          |
+| cate.poi[0].rpx                 | String  | X coordinates for navigation 탐색 X 좌표(WGS84의 경우 longitude)              |
+| cate.poi[0].rpy                 | String  | Y coordinates for navigation 탐색 Y 좌표(WGS84의 경우 latitude)               |
+| cate.poi[0].name1               | String  | Official name 정식 명칭                                    |
+| cate.poi[0].name2               | String  | Short name 축약 명칭                                    |
+| cate.poi[0].name3               | String  | Expanded name 확장 명칭 1                                  |
+| cate.poi[0].name4               | String  | Expanded name 확장 명칭 2                                  |
+| cate.poi[0].admcode             | String  | Administrative code 행정코드                                    |
+| cate.poi[0].jibun               | String  | Land-lot number지번                                       |
+| cate.poi[0].address             | String  | Address 주소                                       |
+| cate.poi[0].roadname            | String  | Road name for new address system 새주소 도로명                                  |
+| cate.poi[0].roadjibun           | String  | Land-lot number for new address system 새주소 지번                                   |
+| cate.poi[0].detailaddress       | String  | Address details 상세 주소                                    |
+| cate.poi[0].catecode            | String  | Classification code 분류 코드                                    |
+| cate.poi[0].catename            | String  | Classification name 분류 명칭                                    |
+| cate.poi[0].fulladdress         | String  | Full address (administrative+ land-lot number + details) 전체 주소(행정주소+지번+상세주소)                      |
+| cate.poi[0].zip                 | String  | Zip code 우편번호                                     |
 | cate.poi[0].homeage             | String  | 홈페이지 url                                 |
-| cate.poi[0].email               | String  | 이메일                                      |
+| cate.poi[0].email               | String  | Email 이메일                                      |
 | cate.poi[0].howtogo             | String  | 교통편                                      |
-| cate.poi[0].tel1                | String  | 전화번호 1                                   |
-| cate.poi[0].tel2                | String  | 전화번호 2                                   |
-| cate.poi[0].fax1                | String  | 팩스번호 1                                   |
-| cate.poi[0].fax2                | String  | 팩스번호 2                                   |
+| cate.poi[0].tel1                | String  | Phone number 전화번호 1                                   |
+| cate.poi[0].tel2                | String  | Phone number 전화번호 2                                   |
+| cate.poi[0].fax1                | String  | Fax number 팩스번호 1                                   |
+| cate.poi[0].fax2                | String  | Fax number 팩스번호 2                                   |
 | cate.poi[0].icode               | String  | ICODE                                    |
-| cate.poi[0].detail_count        | Integer | 분류 상세 항목 개수                              |
-| cate.poi[0].etc_count           | Integer | 분류 기타 항목 개수                              |
-| cate.poi[0].imagecount          | Integer | POI 이미지 개수                               |
-| cate.poi[0].hasoildata          | Boolean | 유가 데이터 존재 유무                             |
-| cate.poi[0].detailinfo          | Array   | 분류 상세 항목                                 |
+| cate.poi[0].detail_count        | Integer | Number of detail classification items 분류 상세 항목 개수                              |
+| cate.poi[0].etc_count           | Integer | Number of other classification items 분류 기타 항목 개수                              |
+| cate.poi[0].imagecount          | Integer | Number of POI images 이미지 개수                               |
+| cate.poi[0].hasoildata          | Boolean | Oil data exists or not 유가 데이터 존재 유무                             |
+| cate.poi[0].detailinfo          | Array   | Detail classification item분류 상세 항목                                 |
 | cate.poi[0].detailinfo[0].name  | String  | 분류 상세 항목 설명                              |
 | cate.poi[0].detailinfo[0].value | String  | 분류 상세 항목 내용                              |
 | cate.poi[0].etcinfo             | Array   | 분류 기타 항목                                 |
@@ -1326,7 +1326,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | header.resultMessage        | String  | Failure message                          |
 | route			                  | Object  | Body area                                |
 | route.data                   | Object  | Route data                   |
-| route.data.file_name          | String | Binary file name to search POI around the route 경로 주변 POI 검색을 위한 binary 파일명 |
+| route.data.file_name          | String | Binary file name to search POI around the route |
 | route.data.option              | String | Navigation option |
 | route.data.spend_time           | Integer | Required time (second)          |
 | route.data.distance           | Integer | Distance (m)                 |
