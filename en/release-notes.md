@@ -1,10 +1,10 @@
 ## Application Service > Maps > Release Notes
 
 ### Jan. 21, 2020
-#### 기능  추가
+#### More Features 기능  추가
 * [API] 주변 카테고리 검색 API 추가
 	* 기준 좌표X,Y 공간 및 반경 카테고리 검색 추가
-#### 기능  개선
+#### Feature Updates 기능  개선
 * [API] ReverseGeocoding 건물명, 우편번호 추가
 * [API] 통합검색 catecode 삭제
 * [SDK] 마커 표출 상태 변경 시 애니메이션 기본값 비활성화로 변경
