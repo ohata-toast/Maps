@@ -12,11 +12,11 @@ Describes the basic project configuration method to enable iNavi maps on iOS.
 
 
 ### Project Configuration 
-To enable iNavi maps SDK, project must be configured in the following order. 아이나비 지도 SDK를 사용하기 위해서는 다음과 같은 순서로 프로젝트의 환경을 구성해주어야 합니다.
+To enable iNavi maps SDK, a project must be configured in the following order. 아이나비 지도 SDK를 사용하기 위해서는 다음과 같은 순서로 프로젝트의 환경을 구성해주어야 합니다.
 
 #### Git LFS 설치 Install Git LFS
-Due to heavy volume, SDK 용량이 크기 때문에 Pod 의존성 설치 전 [Git Large File Storage(LFS)](https://git-lfs.github.com/) 설치가 필요합니다.
-> `git-lfs가 설치되어 있지 않으면 SDK 의존성 설치가 정상적으로 진행되지 않아 빌드 시 오류가 발생합니다.`
+Due to heavy volume of SDK, SDK 용량이 크기 때문에 Pod 의존성 설치 전 [Git Large File Storage(LFS)](https://git-lfs.github.com/) must be installed before pod dependency is installed.  설치가 필요합니다.
+> Without `git-lfs, SDK dependency is not properly installed which may result in build error.'가 설치되어 있지 않으면 SDK 의존성 설치가 정상적으로 진행되지 않아 빌드 시 오류가 발생합니다.`
 
 ```
 brew install git-lfs
