@@ -1,21 +1,21 @@
-## Application Service > Maps > 웹 지도 가이드
+## Application Service > Maps > 웹 지도 가이드 Web Maps Guide 
 
 Maps 웹 지도를 사용하는 데 필요한 JavaScript 기반 웹 API를 설명합니다.
 
 
-## API 공통 정보
-
-### 사전 준비
+## Common API Information 공통 정보
+ 
+### Prerequisites 사전 준비
 - API를 사용하려면 Appkey가 필요합니다.
 - Appkey는 **TOAST Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
 
-### 요청 공통 정보
+### 요청 공통 정보 Common Request Information
 
-#### URL 정보
+#### URL Information 
 
-| 항목        | URL                                      |
+| Item       | URL                                      |
 | --------- | ---------------------------------------- |
-| 지도        | https://api-maps.cloud.toast.com |
+| Map        | https://api-maps.cloud.toast.com |
 
 
 ## 웹 지도
