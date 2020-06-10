@@ -824,12 +824,12 @@ In the order of gas, premium gas, light oil, and LPG |
 | Name        | Type     | Required |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
 | depth | Integer | Required    | 0 : Total depth <br> 1 : depth1 <br> 2 : depth2 <br> 3 : depth3|
-| spopt         | Integer | Required   | 1 : Extent(x1,y1,x2,y2) <br> 2 : 반경검색(x1,y1,radius)                                   |
+| spopt         | Integer | Required   | 1 : Extent(x1,y1,x2,y2) <br> 2 : Search radius (x1,y1,radius)                                   |
 | catecode         | String | Required   | Category Code |
-| x1         | String | Required (see spopt)    | 기준 X1좌표 |
-| y1         | String | Required (see spopt)    | 기준 Y1좌표 |
-| x2         | String | Required (see spopt)    | 기준 X2좌표 |
-| y2         | String | Required (see spopt)    | 기준 Y2 좌표 |
+| x1         | String | Required (see spopt)    | Base X1 coordinate |
+| y1         | String | Required (see spopt)    | Base Y1 coordinate |
+| x2         | String | Required (see spopt)    | Base X2 coordinate |
+| y2         | String | Required (see spopt)    | Base Y2 coordinate |
 | radius         | String | Required (see spopt)    | Radius (m) |
 
 #### Response
@@ -850,8 +850,8 @@ In the order of gas, premium gas, light oil, and LPG |
                 "dpy": "37.402184",
                 "rpx": "127.110862",
                 "rpy": "37.402334",
-                "name1": "팅크웨어(주)",
-                "name2": "아이나비(본사)",
+                "name1": "Thinkware (Inc.)",
+                "name2": "iNavi(HQ)",
                 "name3": "THINKWARE",
                 "name4": "INAVI",
                 "admcode": "4113510900",
@@ -861,7 +861,7 @@ In the order of gas, premium gas, light oil, and LPG |
                 "roadjibun": "240",
                 "detailaddress": "삼환하이펙스 A동 8층,9층",
                 "catecode": "130600",
-                "catename": "기업",
+                "catename": "Company",
                 "dp_catecode": "000",
                 "userid": "",
                 "imagecount": 0,
@@ -903,62 +903,62 @@ In the order of gas, premium gas, light oil, and LPG |
 
 | Name                                 | Type      | Description                                       |
 | ---------------------------------- | ------- | ---------------------------------------- |
-| header                             | Object  | Header area 헤더 영역                                    |
-| header.isSuccessful                | Boolean | Successful or not 성공 여부                                    |
-| header.resultCode                  | Integer | Failure code 실패 코드                                    |
-| header.resultMessage               | String  | Failure message 실패 메시지                                   |
-| cate                                | Object  | Body area 본문 영역                                    |
-| cate.result                         | Boolean | Successful or not 성공 여부                                    |
-| cate.totalcount                     | Integer | Total number of search results전체 검색 결과 대상 개수                           |
-| cate.count                          | Integer | Number of search results 검색 결과 개수                                 |
-| cate.poi                        | Array   | List of POI search results 검색 결과 목록                             |
+| header                             | Object  | Header area                                     |
+| header.isSuccessful                | Boolean | Successful or not                                     |
+| header.resultCode                  | Integer | Failure code                                     |
+| header.resultMessage               | String  | Failure message                                    |
+| cate                                | Object  | Body area                                     |
+| cate.result                         | Boolean | Successful or not                                     |
+| cate.totalcount                     | Integer | Total number of search results                           |
+| cate.count                          | Integer | Number of search results                                  |
+| cate.poi                        | Array   | List of POI search results                              |
 | cate.poi[0].poiid               | Integer | POI ID                                   |
-| cate.poi[0].dpx                 | String  | X coordinates for display 좌표(WGS84의 경우 longitude for WGS84)         |
-| cate.poi[0].dpy                 | String  | Y coordinates for display Y 좌표(WGS84의 경우 latitude)          |
-| cate.poi[0].rpx                 | String  | X coordinates for navigation 탐색 X 좌표(WGS84의 경우 longitude)              |
-| cate.poi[0].rpy                 | String  | Y coordinates for navigation 탐색 Y 좌표(WGS84의 경우 latitude)               |
-| cate.poi[0].name1               | String  | Official name 정식 명칭                                    |
-| cate.poi[0].name2               | String  | Short name 축약 명칭                                    |
-| cate.poi[0].name3               | String  | Expanded name 확장 명칭 1                                  |
-| cate.poi[0].name4               | String  | Expanded name 확장 명칭 2                                  |
-| cate.poi[0].admcode             | String  | Administrative code 행정코드                                    |
-| cate.poi[0].jibun               | String  | Land-lot number지번                                       |
-| cate.poi[0].address             | String  | Address 주소                                       |
-| cate.poi[0].roadname            | String  | Road name for new address system 새주소 도로명                                  |
-| cate.poi[0].roadjibun           | String  | Land-lot number for new address system 새주소 지번                                   |
-| cate.poi[0].detailaddress       | String  | Address details 상세 주소                                    |
-| cate.poi[0].catecode            | String  | Classification code 분류 코드                                    |
-| cate.poi[0].catename            | String  | Classification name 분류 명칭                                    |
-| cate.poi[0].fulladdress         | String  | Full address (administrative+ land-lot number + details) 전체 주소(행정주소+지번+상세주소)                      |
-| cate.poi[0].zip                 | String  | Zip code 우편번호                                     |
-| cate.poi[0].homeage             | String  | 홈페이지 url                                 |
-| cate.poi[0].email               | String  | Email 이메일                                      |
-| cate.poi[0].howtogo             | String  | 교통편                                      |
-| cate.poi[0].tel1                | String  | Phone number 전화번호 1                                   |
-| cate.poi[0].tel2                | String  | Phone number 전화번호 2                                   |
-| cate.poi[0].fax1                | String  | Fax number 팩스번호 1                                   |
-| cate.poi[0].fax2                | String  | Fax number 팩스번호 2                                   |
+| cate.poi[0].dpx                 | String  | X coordinates for display (longitude for WGS84)         |
+| cate.poi[0].dpy                 | String  | Y coordinates for display (latitude for WGS84)          |
+| cate.poi[0].rpx                 | String  | X coordinates for navigation (longitutde for WGS84)              |
+| cate.poi[0].rpy                 | String  | Y coordinates for navigation (latitude for WGS84)               |
+| cate.poi[0].name1               | String  | Official name                                     |
+| cate.poi[0].name2               | String  | Short name                                     |
+| cate.poi[0].name3               | String  | Expanded name 1                                  |
+| cate.poi[0].name4               | String  | Expanded name 2                                  |
+| cate.poi[0].admcode             | String  | Administrative code                                     |
+| cate.poi[0].jibun               | String  | Land-lot number                                       |
+| cate.poi[0].address             | String  | Address                                        |
+| cate.poi[0].roadname            | String  | Road name for new address system                                   |
+| cate.poi[0].roadjibun           | String  | Land-lot number for new address system                                    |
+| cate.poi[0].detailaddress       | String  | Address details                                     |
+| cate.poi[0].catecode            | String  | Classification code                                     |
+| cate.poi[0].catename            | String  | Classification name                                     |
+| cate.poi[0].fulladdress         | String  | Full address (administrative+ land-lot number + details)                       |
+| cate.poi[0].zip                 | String  | Zip code                                      |
+| cate.poi[0].homeage             | String  | Url for website                                 |
+| cate.poi[0].email               | String  | Email                                       |
+| cate.poi[0].howtogo             | String  | How to Access                                      |
+| cate.poi[0].tel1                | String  | Phone number 1                                   |
+| cate.poi[0].tel2                | String  | Phone number 2                                   |
+| cate.poi[0].fax1                | String  | Fax number 1                                   |
+| cate.poi[0].fax2                | String  | Fax number 2                                   |
 | cate.poi[0].icode               | String  | ICODE                                    |
-| cate.poi[0].detail_count        | Integer | Number of detail classification items 분류 상세 항목 개수                              |
-| cate.poi[0].etc_count           | Integer | Number of other classification items 분류 기타 항목 개수                              |
-| cate.poi[0].imagecount          | Integer | Number of POI images 이미지 개수                               |
-| cate.poi[0].hasoildata          | Boolean | Oil data exists or not 유가 데이터 존재 유무                             |
-| cate.poi[0].detailinfo          | Array   | Detail classification item분류 상세 항목                                 |
-| cate.poi[0].detailinfo[0].name  | String  | 분류 상세 항목 설명                              |
+| cate.poi[0].detail_count        | Integer | Number of detail classification items                              |
+| cate.poi[0].etc_count           | Integer | Number of other classification items                               |
+| cate.poi[0].imagecount          | Integer | Number of POI images                                |
+| cate.poi[0].hasoildata          | Boolean | Availability of oil data                              |
+| cate.poi[0].detailinfo          | Array   | Detail classification item                                 |
+| cate.poi[0].detailinfo[0].name  | String  | Description of detail classification item                          |
 | cate.poi[0].detailinfo[0].value | String  | 분류 상세 항목 내용                              |
 | cate.poi[0].etcinfo             | Array   | 분류 기타 항목                                 |
 | cate.poi[0].etcinfo[0].name     | String  | 분류 기타 항목 설명                              |
 | cate.poi[0].etcinfo[0].value    | String  | 분류 기타 항목 내용                              |
-| cate.poi[0].oildata             | Object  | 유가 데이터 정보                                |
-| cate.poi[0].oilda.tag_price     | Integer | 휘발유 가격                                   |
-| cate.poi[0].oilda.hg_price      | Integer | 고급휘발유 가격                                 |
-| cate.poi[0].oilda.d_price       | Integer | 경유 가격                                    |
-| cate.poi[0].oilda.l_price       | Integer | LPG 가격                                   |
-| cate.poi[0].oilda.updatetime    | String  | 업데이트 시간                                  |
-| cate.poi[0].oilda.priceinfo     | String  | 최고, 최저 유가 정보<br>(H : 최고, L : 최저, X : 해당없음)<br>휘발유, 고급휘발유, 경유, LPG 순 |
-| cate.poi[0].oilda.wash          | Boolean | 세차 시설 여부                                 |
-| cate.poi[0].oilda.fix           | Boolean | 정비 가능 여부                                 |
-| cate.poi[0].oilda.mart          | Boolean | 매점 여부                                    |
+| cate.poi[0].oildata             | Object  | 유가 데이터 정보 Oil price data                                |
+| cate.poi[0].oilda.tag_price     | Integer | 휘발유 가격   Gas price                                |
+| cate.poi[0].oilda.hg_price      | Integer | 고급휘발유 가격 Premium gas price                                 |
+| cate.poi[0].oilda.d_price       | Integer | 경유 가격 Light oil price                                   |
+| cate.poi[0].oilda.l_price       | Integer | LPG price                                   |
+| cate.poi[0].oilda.updatetime    | String  | 업데이트 시간 Updated time                                 |
+| cate.poi[0].oilda.priceinfo     | String  | 최고, 최저 유가 정보<br>(H: Highest, L : 최저, X : 해당없음)<br>휘발유, 고급휘발유, 경유, LPG 순 |
+| cate.poi[0].oilda.wash          | Boolean | 세차 시설 여부 Availability of car wash |
+| cate.poi[0].oilda.fix           | Boolean | 정비 가능 여부 Availability of car repairs                                 |
+| cate.poi[0].oilda.mart          | Boolean | 매점 여부 Availability of a store                                   |
 | cate.poi[0].hassubpoi          | Boolean | 하위 시설물 데이터 존재 유무          |
 | cate.poi[0].subpoi          | Object | 하위 시설물 정보                                 |
 | cate.poi[0].subpoi.count          | Integer | 하위 시설물 개수                                 |
