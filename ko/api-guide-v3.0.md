@@ -1205,7 +1205,7 @@
 | via4Y    | String | 선택    |       | 경유지 4 Y 좌표                               |
 | via5X    | String | 선택    |       | 경유지 5 X 좌표                               |
 | via5Y    | String | 선택    |       | 경유지 5 Y 좌표                               |
-| option   | String | 필수    |       | 경로 탐색 옵션<br>탐색 옵션 하나만 가능<br>예) option=real_traffic<br>real_traffic: 실시간 추천 1<br>real\_traffic\_freeroad: 실시간 \(무료\)<br>real_traffic2: 실시간 추천 2<br>short\_distance\_priority: 단거리<br>motorcycle: 이륜차 |
+| option   | String | 필수    |       | 경로 탐색 옵션<br>탐색 option ',' 단위로 요청<br>예) ex) option=real_traffic,real_traffic2<br>real_traffic: 실시간 추천 1<br>real\_traffic\_freeroad: 실시간 \(무료\)<br>real_traffic2: 실시간 추천 2<br>short\_distance\_priority: 단거리<br>motorcycle: 이륜차 |
 | coordType   | String | 필수    |       | input, output 좌표 타입, 하나만 입력 가능(TW, WGS84) |
 
 
