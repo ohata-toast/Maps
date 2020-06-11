@@ -143,7 +143,7 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
                             "rpx": "169039",
                             "rpy": "517941",
                             "name1": "Builiding A",
-                            "name2": "Sanhwan HIPEX Building A",
+                            "name2": "Samhwan HIPEX Building A",
                             "name3": "",
                             "name4": "",
                             "admcode": "4113510900",
@@ -267,8 +267,8 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
 | search.poi[0].oildata.updatetime | String  | Updated time                             |
 | search.poi[0].oildata.priceinfo  | String  | Highest/Lowest oil price data<br/>(H: Highest, L: Lowest, X: N/A)
 in the order of gas, premium gas, light oil, and LPG |
-| search.poi[0].oildata.wash       | Boolean | Availability of car wash       |
-| search.poi[0].oildata.fix        | Boolean | Availability of car repairs     |
+| search.poi[0].oildata.wash       | Boolean | Availability of a car wash       |
+| search.poi[0].oildata.fix        | Boolean | Availability of a car repair shop     |
 | search.poi[0].oildata.mart       | Boolean | Availability of a store        |
 | search.poi[0].subpoi             | Object  | Sub-facility information       |
 | search.poi[0].subpoi.count       | Integer | Number of sub-facilities      |
@@ -590,8 +590,8 @@ in the order of gas, premium gas, light oil, and LPG |
 | poi.poiinfo[0].oilda.l_price       | Integer | LPG price                                                    |
 | poi.poiinfo[0].oilda.updatetime    | String  | Updated time                                                 |
 | poi.poiinfo[0].oilda.priceinfo     | String  | Highest/Lowest oil price data<br>(H: Highest, L: Lowest, X: N/A)<br>In the order of gas, premium gas, light oil, and LPG |
-| poi.poiinfo[0].oilda.wash          | Boolean | Availability of car wash                                     |
-| poi.poiinfo[0].oilda.fix           | Boolean | Availability of car repairs                                  |
+| poi.poiinfo[0].oilda.wash          | Boolean | Availability of a car wash                                     |
+| poi.poiinfo[0].oilda.fix           | Boolean | Availability of a car repair shop                              |
 | poi.poiinfo[0].oilda.mart          | Boolean | Availability of a store                                      |
 
 ### 4\. Search of POI Sub-Facilities
@@ -649,8 +649,8 @@ in the order of gas, premium gas, light oil, and LPG |
                 "name4": "",
                 "admcode": "4113510900",
                 "jibun": "678",
-                "address": "Sampyeong-dong, Bundang-gu, Seongnam, Gyeonggi Province",
-                "roadname": "Pangyoyeok-ro, Bundang-gu, Seongnam, Gyeonggi Province",
+                "address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do",
+                "roadname": "Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
                 "roadjibun": "240",
                 "detailaddress": "",
                 "catecode": "181100",
@@ -733,8 +733,8 @@ in the order of gas, premium gas, light oil, and LPG |
 | subpoi.poi[0].oildata.updatetime | String  | Updated time                             |
 | subpoi.poi[0].oildata.priceinfo  | String  | Highest/Lowest oil price data<br/>(H: Highest, L: Lowest, X: N/A)
 In the order of gas, premium gas, light oil, and LPG |
-| subpoi.poi[0].oildata.wash       | Boolean | Availability of car wash           |
-| subpoi.poi[0].oildata.fix        | Boolean | Availability of car repairs        |
+| subpoi.poi[0].oildata.wash       | Boolean | Availability of a car wash           |
+| subpoi.poi[0].oildata.fix        | Boolean | Availability of a car repair shop    |
 | subpoi.poi[0].oildata.mart       | Boolean | Availability of a store              |
 | subpoi.poi[0].AdInfo             | Array   | List of ad codes                 |
 | subpoi.poi[0].AdInfo[0].ADCODE   | Integer | Ad codes<br/>Assignable from 1 to 99 (up to 99) |
@@ -801,11 +801,11 @@ In the order of gas, premium gas, light oil, and LPG |
 | coordinate.y         | String  | Y coordinates for conversion |
 
 
-### 6\. Search of Nearby Categories주변 카테고리 검색
+### 6\. Search of Nearby Categories
 
-* Search is supported for nearby categories based on coordinates. 기준 좌표를 기준으로 주변 카테고리 검색기능을 지원합니다.
+* Search is supported for nearby categories based on base coordinates. 
 
-#### 요청 Request 
+#### Request 
 
 [URI]
 
@@ -856,10 +856,10 @@ In the order of gas, premium gas, light oil, and LPG |
                 "name4": "INAVI",
                 "admcode": "4113510900",
                 "jibun": "678",
-                "address": "경기도 성남시 분당구 삼평동",
-                "roadname": "경기도 성남시 분당구 판교역로",
+                "address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do",
+                "roadname": "Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
                 "roadjibun": "240",
-                "detailaddress": "삼환하이펙스 A동 8층,9층",
+                "detailaddress": "Floor 8 and 9 of Samhwan HIPEX Building A"
                 "catecode": "130600",
                 "catename": "Company",
                 "dp_catecode": "000",
@@ -877,7 +877,7 @@ In the order of gas, premium gas, light oil, and LPG |
                 "pop_sns": false,
                 "pop_hot": false,
                 "pop_hit": false,
-                "pop_top": "경기_,분당구_2",
+                "pop_top": "Gyeonggi_,Bundang-gu_2",
                 "updateTS": "2019-05-02 00:00:00",
                 "hasoildata": false,
                 "hasdetailinfo": true,
@@ -945,24 +945,24 @@ In the order of gas, premium gas, light oil, and LPG |
 | cate.poi[0].hasoildata          | Boolean | Availability of oil data                              |
 | cate.poi[0].detailinfo          | Array   | Detail classification item                                 |
 | cate.poi[0].detailinfo[0].name  | String  | Description of detail classification item                          |
-| cate.poi[0].detailinfo[0].value | String  | 분류 상세 항목 내용                              |
-| cate.poi[0].etcinfo             | Array   | 분류 기타 항목                                 |
-| cate.poi[0].etcinfo[0].name     | String  | 분류 기타 항목 설명                              |
-| cate.poi[0].etcinfo[0].value    | String  | 분류 기타 항목 내용                              |
-| cate.poi[0].oildata             | Object  | 유가 데이터 정보 Oil price data                                |
-| cate.poi[0].oilda.tag_price     | Integer | 휘발유 가격   Gas price                                |
-| cate.poi[0].oilda.hg_price      | Integer | 고급휘발유 가격 Premium gas price                                 |
-| cate.poi[0].oilda.d_price       | Integer | 경유 가격 Light oil price                                   |
+| cate.poi[0].detailinfo[0].value | String  | Content of detail classification item                              |
+| cate.poi[0].etcinfo             | Array   | Other classification item                                 |
+| cate.poi[0].etcinfo[0].name     | String  | Description of other classification item                              |
+| cate.poi[0].etcinfo[0].value    | String  | Content of other classification item                              |
+| cate.poi[0].oildata             | Object  | Oil price data                                |
+| cate.poi[0].oilda.tag_price     | Integer | Gas price                                |
+| cate.poi[0].oilda.hg_price      | Integer | Premium gas price                                 |
+| cate.poi[0].oilda.d_price       | Integer | Light oil price                                   |
 | cate.poi[0].oilda.l_price       | Integer | LPG price                                   |
-| cate.poi[0].oilda.updatetime    | String  | 업데이트 시간 Updated time                                 |
-| cate.poi[0].oilda.priceinfo     | String  | 최고, 최저 유가 정보<br>(H: Highest, L : 최저, X : 해당없음)<br>휘발유, 고급휘발유, 경유, LPG 순 |
-| cate.poi[0].oilda.wash          | Boolean | 세차 시설 여부 Availability of car wash |
-| cate.poi[0].oilda.fix           | Boolean | 정비 가능 여부 Availability of car repairs                                 |
-| cate.poi[0].oilda.mart          | Boolean | 매점 여부 Availability of a store                                   |
-| cate.poi[0].hassubpoi          | Boolean | 하위 시설물 데이터 존재 유무          |
-| cate.poi[0].subpoi          | Object | 하위 시설물 정보                                 |
-| cate.poi[0].subpoi.count          | Integer | 하위 시설물 개수                                 |
-| cate.poi[0].subpoi.poi          | Array |  POI 정보와 동일                            |
+| cate.poi[0].oilda.updatetime    | String  | Updated time                                 |
+| cate.poi[0].oilda.priceinfo     | String  | Highest/Lowest oil price data<br>(H: Highest, L: Lowest, X:N/A)<br> In the order of gas, premium gas, light oil, and LPG |
+| cate.poi[0].oilda.wash          | Boolean | Availability of a car wash |
+| cate.poi[0].oilda.fix           | Boolean | Availability of a car repair shop                                 |
+| cate.poi[0].oilda.mart          | Boolean | Availability of a store                                   |
+| cate.poi[0].hassubpoi          | Boolean | Availability of sub-facility data          |
+| cate.poi[0].subpoi          | Object | Sub-facility information                                 |
+| cate.poi[0].subpoi.count          | Integer | Number of sub-facilities                                 |
+| cate.poi[0].subpoi.poi          | Array |  Same as POI information                            |
 
 ## Geocoding API
 
@@ -1125,34 +1125,34 @@ In the order of gas, premium gas, light oil, and LPG |
         "adm": {
             "posx": "126.947265",
             "posy": "37.384033",
-            "address": "경기도 안양시 동안구 호계동",
+            "address": "Hogye-dong, Dongan-gu, Anyang-si, Gyeonggi-do",
             "distance": 0,
             "bldname": "",
             "admcode": "4117310400",
             "postcode": "14079",
             "jibun": "921",
-            "roadname": "경기도 안양시 동안구 귀인로",
+            "roadname": "Gwiin-ro, Dongan-gu, Anyang-si, Gyeonggi-do",
             "roadjibun": "59"
         },
         "adm_address": {
-            "address": "경기도 안양시 동안구 호계2동",
+            "address": "Hogye 2-dong, Dongan-gu, Anyang-si, Gyeonggi-do",
             "admcode": "4117359000",
-            "address_category3": "호계2동",
+            "address_category3": "Hogye 2-dong",
             "address_category4": "",
             "jibun": "921",
-            "address_category1": "경기도",
-            "address_category2": "안양시 동안구",
-            "cut_address": "경기 안양시 동안구 호계2동"
+            "address_category1": "Gyeonggi-do",
+            "address_category2": "Dongan-gu, Anyang-si",
+            "cut_address": "Hogye 2-dong, Dongan-gu, Anyang-si, Gyeonggi-do"
         },
         "legal_address": {
-            "address": "경기도 안양시 동안구 호계동",
-            "admcode": "4117310400",
-            "address_category3": "호계동",
+            "address": "Hogye-dong, Dongan-gu, Anyang-si, Gyeonggi-do"
+	    "admcode": "4117310400",
+            "address_category3": "Hogye-dong",
             "address_category4": "",
             "jibun": "921",
-            "address_category1": "경기도",
-            "address_category2": "안양시 동안구",
-            "cut_address": "경기 안양시 동안구 호계동"
+            "address_category1": "Gyeonggi-do",
+            "address_category2": "Dongan-gu, Anyang-si",
+            "cut_address": "Hogye-dong, Dongan-gu, Anyang-si, Gyeonggi-do"
         }
     }
 }
