@@ -1161,42 +1161,42 @@ In the order of gas, premium gas, light oil, and LPG |
 ##### Field
 
 
-| 이름                     | 타입      | 설명                                       |
+| Name                   | Type    | Description                                     |
 | ---------------------- | ------- | ---------------------------------------- |
-| header                 | Object  | 헤더 영역                                    |
-| header.isSuccessful    | Boolean | 성공 여부                                    |
-| header.resultCode      | Integer | 실패 코드                                    |
-| header.resultMessage   | String  | 실패 메시지                                   |
-| location               | Object  | 본문 영역                                    |
-| location.result        | Boolean | 성공 여부                                    |
-| location.hasAdmAddress        | Boolean | 행정 주소 반환 여부                                    |
-| location.adm           | Object  | 법정 주소 정보                           |
-| location.adm.posx      | String  | X 좌표                                     |
-| location.adm.posy      | String  | Y 좌표                                     |
-| location.adm.admcode  | String  | 법정코드                                  |
-| location.adm.address  | String  | 주소                                  |
-| location.adm.jibun  | String  | 지번                                  |
-| location.adm.roadname  | String  | 새주소 도로명                                  |
-| location.adm.roadjibun | String  | 새주소 지번                                   |
-| location.adm.bldname  | String  | 건물명(해당될 때만)                              |
-| location.adm.postcode  | String  | 우편번호                   |
-| location.adm_address           | Object  | 행정동 주소 정보                           |
-| location.adm_address.admcode   | String  | 행정코드                                    |
-| location.adm_address.address   | String  | 주소                                       |
-| location.adm_address.jibun     | String  | 지번                                       |
-| location.adm_address.address_category1     | String  |   도/시                      |
-| location.adm_address.address_category2     | String  |   시/군/구                   |
-| location.adm_address.address_category3     | String  |   읍/면/동                 |
-| location.adm_address.address_category4     | String  |   리                  |
+| header                 | Object  | Header area                                 |
+| header.isSuccessful    | Boolean | Successful or not                           |
+| header.resultCode      | Integer | Failure code                                |
+| header.resultMessage   | String  | Failure message                             |
+| location               | Object  | Body area                                   |
+| location.result        | Boolean | Successful or not                           |
+| location.hasAdmAddress        | Boolean | Return administrative address or not                                 |
+| location.adm           | Object  | Legal address information                    |
+| location.adm.posx      | String  | X coordinates                                 |
+| location.adm.posy      | String  | Y coordinates                                     |
+| location.adm.admcode  | String  | Legal code                                  |
+| location.adm.address  | String  | Address                                 |
+| location.adm.jibun  | String  | Land-lot number                           |
+| location.adm.roadname  | String  | Road name for new address system                                  |
+| location.adm.roadjibun | String  | Land-lot number for new address system                                  |
+| location.adm.bldname  | String  | Building name (only when available)                              |
+| location.adm.postcode  | String  | Zip code                   |
+| location.adm_address           | Object  | Administrative addres sinformation                       |
+| location.adm_address.admcode   | String  | Administrative code                                    |
+| location.adm_address.address   | String  | Address                                    |
+| location.adm_address.jibun     | String  | Land-lot number                                |
+| location.adm_address.address_category1     | String  |   do/si                      |
+| location.adm_address.address_category2     | String  |   si/gun/gu                   |
+| location.adm_address.address_category3     | String  |   eup/myeon/dong                 |
+| location.adm_address.address_category4     | String  |   ri                  |
 | location.adm_address.cut_address     | String  |                         |
-| location.legal_address           | Object  | 법정동 주소 정보                           |
-| location.legal_address.admcode   | String  | 법정코드                                    |
-| location.legal_address.address   | String  | 주소                                       |
-| location.legal_address.jibun     | String  | 지번                                       |
-| location.legal_address.address_category1     | String  |  도/시                       |
-| location.legal_address.address_category2     | String  |  시/군/구                      |
-| location.legal_address.address_category3     | String  |  읍/면/동                      |
-| location.legal_address.address_category4     | String  |  리                       |
+| location.legal_address           | Object  | Legal address information                     |
+| location.legal_address.admcode   | String  | Legal code                                    |
+| location.legal_address.address   | String  | Address                                      |
+| location.legal_address.jibun     | String  | Land-lot number                              |
+| location.legal_address.address_category1     | String  |  do/si                       |
+| location.legal_address.address_category2     | String  |  si/gun/gu                      |
+| location.legal_address.address_category3     | String  |  eup/myeon/dong                      |
+| location.legal_address.address_category4     | String  |  ri                       |
 | location.legal_address.cut_address     | String  |                         |
 
 
