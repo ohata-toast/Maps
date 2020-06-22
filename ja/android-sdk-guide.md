@@ -12,8 +12,7 @@ Androidプラットフォームでinaviマップを使用するためのプロ�
 
 
 ### Project環境構成
-次のようにProjectおよびAppモジュールレベルのbuild.gradleファイルにinaviマップ保存場所を追加し、依存性を設定します。
-> inaviマップAndroid SDKはBintrayを通して配布され、Beta期間終了後はポリシーに合わせて変更される場合があります。(事前告知予定)
+inavi SDKはBintrayを通して別途配布されるため、次のようにプロジェクトおよびアプリモジュールレベルのbuild.gradleファイルに保存場所の設定とinaviマップSDKに対する依存性を追加します。
 ```gradle
 /* Root Project build.gradle */
 
@@ -33,7 +32,7 @@ allprojects {
 /* App Module build.gradle */
 
 dependencies {
-    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.4.5'
+    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.4.6'
 }
 ```
 

@@ -1379,7 +1379,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | via4Y    | String | 任意 |       | 経由地4 Y座標                           |
 | via5X    | String | 任意 |       | 経由地5 X座標                           |
 | via5Y    | String | 任意 |       | 経由地5 Y座標                           |
-| option   | String | 必須 |       | 経路検索オプション<br>探索オプション1つのみ可能<br>例) option=real_traffic<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle:二輪車 |
+| option   | String | 必須 |       | 経路検索オプション<br>検索オプションをカンマ（,）区切りでリクエスト<br>例) option=real_traffic,real_traffic2<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle:二輪車 |
 | coordType   | String | 必須 |       | input、output座標タイプ、1つのみ入力可能(TW、WGS84) |
 
 

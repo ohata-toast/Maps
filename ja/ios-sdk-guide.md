@@ -24,12 +24,11 @@ git lfs install
 ```
 
 #### Podfile構成
-次のようにPodfileを作成してinaviマップSDKに対するPod依存性を設定します。
-> inaviマップiOS SDKはCocoaPodsを通して配布され、Beta期間終了後はポリシーに合わせて変更される場合があります。(事前告知予定)
+inaviマップSDKはCocoaPodsを通して配布されるため、次のようにプロジェクトのPodfileファイルにinaviマップSDKに対する依存性を追加します。
 
 ```ruby
 # Podfile
-target 'iNaviMapsDemoiOS' do
+target 'iNaviMapsDemo' do
   use_frameworks!
   ...
   pod 'inavi-maps-sdk'
