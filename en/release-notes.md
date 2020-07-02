@@ -1,6 +1,43 @@
 ## Application Service > Maps > Release Notes
+### April 28, 2020
+#### More Features 
+* [SDK] Added API for configuring minimum/maximum tilting angle of a map 
 
-### Jan. 21, 2020
+#### Feature Updates 
+* [SDK] Stability enhanced for SDK  
+* [SDK] Response available for Swift 5.2 (iOS) 
+* [API] Updated error logs from failed request of StaticMap
+
+### March 24, 2020 
+#### More Features
+* [SDK] Added API returning the location data of a camera taking up the entire view of a particular area
+* [SDK] Added API removing all shapes registered on a map from the map 
+
+
+
+
+
+
+
+
+
+* [SDK]  Fixed the error of abnormal closure when proguard obfuscation is applied (Android)  
+* [SDK]  Fixed error in which map does not show on a low version OS (Android)
+
+### February 25, 
+#### More Features 	
+* [SDK] Added Marker Clustering 
+
+
+
+
+
+
+
+* [SDK] Fixed the error of abnormal display of an icon location when the icon size is changed (Android)
+* [SDK] Fixed the error of abnormal closure, when INVShape is added/removed (iOS) 
+
+### January 21, 2020
 #### More Features 
 * [API] Added Search Nearby Categories API 
 	* Added the search of base coordinates X and Y, space and radius categories 
@@ -17,7 +54,7 @@
 * [SDK] Fixed unnatural camera movement for the fly animation type (iOS)
 * [SDK] Fixed failed application of map padding to zoom controller 
 
-### Dec. 24, 2019 
+### December 24, 2019 
 #### Feature Updates
 * [API] Fixed the bug in which numbers exceeding the 8th digit are broken 
 * [API] Changed the ReverseGeocoding engine  
@@ -32,7 +69,7 @@
 * [SDK] Applied Deprecated for INVCameraUpdateParams#scrollBy  (replaced by targetBy) (iOS)
 * [SDK] Applied Deprecated for INVLatLngBounds#latLngBoundsSouthWest (replaced by boundsWithSouthWest) (iOS)
 
-### Nov. 26, 2019 
+### November 26, 2019 
 #### More Features
 * [API] Added estimated search of general routes
 	* Added the search navigation for estimated departure/arrival time based on statistics 
@@ -50,7 +87,7 @@
 * [SDK] Fixed the error in which it is abnormally closed with a click of the log on iOS 10 or lower versions  (iOS)   
 * [SDK] Fixed the error in which it is abnormally closed with the creation of InvShape before map initialization. (Android)
 
-### Oct. 29, 2019 
+### October 29, 2019 
 #### Release of v3.0 
 
 * Service the most updated iNavi technology with APIs on the new Maps version
@@ -82,7 +119,7 @@
     * Features of marker (creating, specifying icons or locations, and etc.), caption (text exposed along with a marker), style setting (color, size, opacity, overlapping, and Z-index)
     * Allows creating/setting information window (tool-tips), setting adapter or events, creating polyline/polygon/circle, and setting styles. 
 
-### Nov. 27, 2018
+### November 27, 2018
 #### More Features 
 * [API] Added Coordinates Conversion API 
 	* Added conversion API between coordinates (WGS84 coordintes <-> TM coordinates)
