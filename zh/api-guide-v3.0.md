@@ -143,7 +143,7 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
                             "rpx": "169039",
                             "rpy": "517941",
                             "name1": "Builiding A",
-                            "name2": "Sanhwan HIPEX Building A",
+                            "name2": "Samhwan HIPEX Building A",
                             "name3": "",
                             "name4": "",
                             "admcode": "4113510900",
@@ -267,8 +267,8 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
 | search.poi[0].oildata.updatetime | String  | Updated time                             |
 | search.poi[0].oildata.priceinfo  | String  | Highest/Lowest oil price data<br/>(H: Highest, L: Lowest, X: N/A)
 in the order of gas, premium gas, light oil, and LPG |
-| search.poi[0].oildata.wash       | Boolean | Availability of car wash       |
-| search.poi[0].oildata.fix        | Boolean | Availability of car repairs     |
+| search.poi[0].oildata.wash       | Boolean | Availability of a car wash       |
+| search.poi[0].oildata.fix        | Boolean | Availability of a car repair shop     |
 | search.poi[0].oildata.mart       | Boolean | Availability of a store        |
 | search.poi[0].subpoi             | Object  | Sub-facility information       |
 | search.poi[0].subpoi.count       | Integer | Number of sub-facilities      |
@@ -579,7 +579,7 @@ in the order of gas, premium gas, light oil, and LPG |
 | poi.poiinfo[0].hasoildata          | Boolean | Availability of oil data                                     |
 | poi.poiinfo[0].detailinfo          | Array   | Detail classification item                                   |
 | poi.poiinfo[0].detailinfo[0].name  | String  | Description of detail classification item                    |
-| poi.poiinfo[0].detailinfo[0].value | String  | 분류 상세 항목 내용 Content of detail classification item    |
+| poi.poiinfo[0].detailinfo[0].value | String  | Content of detail classification item    |
 | poi.poiinfo[0].etcinfo             | Array   | Other classification item                                    |
 | poi.poiinfo[0].etcinfo[0].name     | String  | Description of other classification item                     |
 | poi.poiinfo[0].etcinfo[0].value    | String  | Content of other classification item                         |
@@ -590,8 +590,8 @@ in the order of gas, premium gas, light oil, and LPG |
 | poi.poiinfo[0].oilda.l_price       | Integer | LPG price                                                    |
 | poi.poiinfo[0].oilda.updatetime    | String  | Updated time                                                 |
 | poi.poiinfo[0].oilda.priceinfo     | String  | Highest/Lowest oil price data<br>(H: Highest, L: Lowest, X: N/A)<br>In the order of gas, premium gas, light oil, and LPG |
-| poi.poiinfo[0].oilda.wash          | Boolean | Availability of car wash                                     |
-| poi.poiinfo[0].oilda.fix           | Boolean | Availability of car repairs                                  |
+| poi.poiinfo[0].oilda.wash          | Boolean | Availability of a car wash                                     |
+| poi.poiinfo[0].oilda.fix           | Boolean | Availability of a car repair shop                              |
 | poi.poiinfo[0].oilda.mart          | Boolean | Availability of a store                                      |
 
 ### 4\. Search of POI Sub-Facilities
@@ -649,8 +649,8 @@ in the order of gas, premium gas, light oil, and LPG |
                 "name4": "",
                 "admcode": "4113510900",
                 "jibun": "678",
-                "address": "Sampyeong-dong, Bundang-gu, Seongnam, Gyeonggi Province",
-                "roadname": "Pangyoyeok-ro, Bundang-gu, Seongnam, Gyeonggi Province",
+                "address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do",
+                "roadname": "Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
                 "roadjibun": "240",
                 "detailaddress": "",
                 "catecode": "181100",
@@ -733,8 +733,8 @@ in the order of gas, premium gas, light oil, and LPG |
 | subpoi.poi[0].oildata.updatetime | String  | Updated time                             |
 | subpoi.poi[0].oildata.priceinfo  | String  | Highest/Lowest oil price data<br/>(H: Highest, L: Lowest, X: N/A)
 In the order of gas, premium gas, light oil, and LPG |
-| subpoi.poi[0].oildata.wash       | Boolean | Availability of car wash           |
-| subpoi.poi[0].oildata.fix        | Boolean | Availability of car repairs        |
+| subpoi.poi[0].oildata.wash       | Boolean | Availability of a car wash           |
+| subpoi.poi[0].oildata.fix        | Boolean | Availability of a car repair shop    |
 | subpoi.poi[0].oildata.mart       | Boolean | Availability of a store              |
 | subpoi.poi[0].AdInfo             | Array   | List of ad codes                 |
 | subpoi.poi[0].AdInfo[0].ADCODE   | Integer | Ad codes<br/>Assignable from 1 to 99 (up to 99) |
@@ -801,40 +801,40 @@ In the order of gas, premium gas, light oil, and LPG |
 | coordinate.y         | String  | Y coordinates for conversion |
 
 
-### 6\. 주변 카테고리 검색
+### 6\. Search of Nearby Categories
 
-* 기준 좌표를 기준으로 주변 카테고리 검색기능을 지원합니다.
+* Search is supported for nearby categories based on base coordinates. 
 
-#### 요청
+#### Request 
 
 [URI]
 
-| 메서드  | URI                                      |
+| Method  | URI                                      |
 | ---- | ---------------------------------------- |
 | GET  | /maps/v3.0/appkeys/{appkey}/nearby-category-searches?depth={depth}&x1={x1}&y1={y1}&x2={x2}&y2={y2}&radius={radius}&catecode={catecode}&coordtype={coordtype}&reqcount={reqcount}  |
 
 [Path parameter]
 
-| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| Name     | Type     | Required | Valid Range | Description     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 앱키 |
+| appkey | String | Required    |       | Original appkey |
 
 [Query Parameters]
 
-| 이름        | 타입     | 필수 여부 |  설명                                   |
+| Name        | Type     | Required |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
-| depth | Integer | 필수    | 0 : 전체 depth <br> 1 : depth1 <br> 2 : depth2 <br> 3 : depth3|
-| spopt         | Integer | 필수   | 1 : Extent(x1,y1,x2,y2) <br> 2 : 반경검색(x1,y1,radius)                                   |
-| catecode         | String | 필수   | 카테고리 코드 |
-| x1         | String | 필수(spopt 참조)    | 기준 X1좌표 |
-| y1         | String | 필수(spopt 참조)    | 기준 Y1좌표 |
-| x2         | String | 필수(spopt 참조)    | 기준 X2좌표 |
-| y2         | String | 필수(spopt 참조)    | 기준 Y2 좌표 |
-| radius         | String | 필수(spopt 참조)    | 반경(m) |
+| depth | Integer | Required    | 0 : Total depth <br> 1 : depth1 <br> 2 : depth2 <br> 3 : depth3|
+| spopt         | Integer | Required   | 1 : Extent(x1,y1,x2,y2) <br> 2 : Search radius (x1,y1,radius)                                   |
+| catecode         | String | Required   | Category Code |
+| x1         | String | Required (see spopt)    | Base X1 coordinate |
+| y1         | String | Required (see spopt)    | Base Y1 coordinate |
+| x2         | String | Required (see spopt)    | Base X2 coordinate |
+| y2         | String | Required (see spopt)    | Base Y2 coordinate |
+| radius         | String | Required (see spopt)    | Radius (m) |
 
-#### 응답
+#### Response
 
-##### 응답 본문
+##### Response Body 
 
 ```
 {
@@ -850,18 +850,18 @@ In the order of gas, premium gas, light oil, and LPG |
                 "dpy": "37.402184",
                 "rpx": "127.110862",
                 "rpy": "37.402334",
-                "name1": "팅크웨어(주)",
-                "name2": "아이나비(본사)",
+                "name1": "Thinkware (Inc.)",
+                "name2": "iNavi(HQ)",
                 "name3": "THINKWARE",
                 "name4": "INAVI",
                 "admcode": "4113510900",
                 "jibun": "678",
-                "address": "경기도 성남시 분당구 삼평동",
-                "roadname": "경기도 성남시 분당구 판교역로",
+                "address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do",
+                "roadname": "Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
                 "roadjibun": "240",
-                "detailaddress": "삼환하이펙스 A동 8층,9층",
+                "detailaddress": "Floor 8 and 9 of Samhwan HIPEX Building A"
                 "catecode": "130600",
-                "catename": "기업",
+                "catename": "Company",
                 "dp_catecode": "000",
                 "userid": "",
                 "imagecount": 0,
@@ -877,7 +877,7 @@ In the order of gas, premium gas, light oil, and LPG |
                 "pop_sns": false,
                 "pop_hot": false,
                 "pop_hit": false,
-                "pop_top": "경기_,분당구_2",
+                "pop_top": "Gyeonggi_,Bundang-gu_2",
                 "updateTS": "2019-05-02 00:00:00",
                 "hasoildata": false,
                 "hasdetailinfo": true,
@@ -897,72 +897,72 @@ In the order of gas, premium gas, light oil, and LPG |
 }
 ```
 
-##### 필드
+##### Field
 
-##### 필드
+##### Field
 
-| 이름                                 | 타입      | 설명                                       |
+| Name                                 | Type      | Description                                       |
 | ---------------------------------- | ------- | ---------------------------------------- |
-| header                             | Object  | 헤더 영역                                    |
-| header.isSuccessful                | Boolean | 성공 여부                                    |
-| header.resultCode                  | Integer | 실패 코드                                    |
-| header.resultMessage               | String  | 실패 메시지                                   |
-| cate                                | Object  | 본문 영역                                    |
-| cate.result                         | Boolean | 성공 여부                                    |
-| cate.totalcount                     | Integer | 전체 검색 결과 대상 개수                           |
-| cate.count                          | Integer | 검색 결과 개수                                 |
-| cate.poi                        | Array   | POI 검색 결과 목록                             |
+| header                             | Object  | Header area                                     |
+| header.isSuccessful                | Boolean | Successful or not                                     |
+| header.resultCode                  | Integer | Failure code                                     |
+| header.resultMessage               | String  | Failure message                                    |
+| cate                                | Object  | Body area                                     |
+| cate.result                         | Boolean | Successful or not                                     |
+| cate.totalcount                     | Integer | Total number of search results                           |
+| cate.count                          | Integer | Number of search results                                  |
+| cate.poi                        | Array   | List of POI search results                              |
 | cate.poi[0].poiid               | Integer | POI ID                                   |
-| cate.poi[0].dpx                 | String  | display X 좌표(WGS84의 경우 longitude)         |
-| cate.poi[0].dpy                 | String  | display Y 좌표(WGS84의 경우 latitude)          |
-| cate.poi[0].rpx                 | String  | 탐색 X 좌표(WGS84의 경우 longitude)              |
-| cate.poi[0].rpy                 | String  | 탐색 Y 좌표(WGS84의 경우 latitude)               |
-| cate.poi[0].name1               | String  | 정식 명칭                                    |
-| cate.poi[0].name2               | String  | 축약 명칭                                    |
-| cate.poi[0].name3               | String  | 확장 명칭 1                                  |
-| cate.poi[0].name4               | String  | 확장 명칭 2                                  |
-| cate.poi[0].admcode             | String  | 행정코드                                    |
-| cate.poi[0].jibun               | String  | 지번                                       |
-| cate.poi[0].address             | String  | 주소                                       |
-| cate.poi[0].roadname            | String  | 새주소 도로명                                  |
-| cate.poi[0].roadjibun           | String  | 새주소 지번                                   |
-| cate.poi[0].detailaddress       | String  | 상세 주소                                    |
-| cate.poi[0].catecode            | String  | 분류 코드                                    |
-| cate.poi[0].catename            | String  | 분류 명칭                                    |
-| cate.poi[0].fulladdress         | String  | 전체 주소(행정주소+지번+상세주소)                      |
-| cate.poi[0].zip                 | String  | 우편번호                                     |
-| cate.poi[0].homeage             | String  | 홈페이지 url                                 |
-| cate.poi[0].email               | String  | 이메일                                      |
-| cate.poi[0].howtogo             | String  | 교통편                                      |
-| cate.poi[0].tel1                | String  | 전화번호 1                                   |
-| cate.poi[0].tel2                | String  | 전화번호 2                                   |
-| cate.poi[0].fax1                | String  | 팩스번호 1                                   |
-| cate.poi[0].fax2                | String  | 팩스번호 2                                   |
+| cate.poi[0].dpx                 | String  | X coordinates for display (longitude for WGS84)         |
+| cate.poi[0].dpy                 | String  | Y coordinates for display (latitude for WGS84)          |
+| cate.poi[0].rpx                 | String  | X coordinates for navigation (longitutde for WGS84)              |
+| cate.poi[0].rpy                 | String  | Y coordinates for navigation (latitude for WGS84)               |
+| cate.poi[0].name1               | String  | Official name                                     |
+| cate.poi[0].name2               | String  | Short name                                     |
+| cate.poi[0].name3               | String  | Expanded name 1                                  |
+| cate.poi[0].name4               | String  | Expanded name 2                                  |
+| cate.poi[0].admcode             | String  | Administrative code                                     |
+| cate.poi[0].jibun               | String  | Land-lot number                                       |
+| cate.poi[0].address             | String  | Address                                        |
+| cate.poi[0].roadname            | String  | Road name for new address system                                   |
+| cate.poi[0].roadjibun           | String  | Land-lot number for new address system                                    |
+| cate.poi[0].detailaddress       | String  | Address details                                     |
+| cate.poi[0].catecode            | String  | Classification code                                     |
+| cate.poi[0].catename            | String  | Classification name                                     |
+| cate.poi[0].fulladdress         | String  | Full address (administrative+ land-lot number + details)                       |
+| cate.poi[0].zip                 | String  | Zip code                                      |
+| cate.poi[0].homeage             | String  | Url for website                                 |
+| cate.poi[0].email               | String  | Email                                       |
+| cate.poi[0].howtogo             | String  | How to Access                                      |
+| cate.poi[0].tel1                | String  | Phone number 1                                   |
+| cate.poi[0].tel2                | String  | Phone number 2                                   |
+| cate.poi[0].fax1                | String  | Fax number 1                                   |
+| cate.poi[0].fax2                | String  | Fax number 2                                   |
 | cate.poi[0].icode               | String  | ICODE                                    |
-| cate.poi[0].detail_count        | Integer | 분류 상세 항목 개수                              |
-| cate.poi[0].etc_count           | Integer | 분류 기타 항목 개수                              |
-| cate.poi[0].imagecount          | Integer | POI 이미지 개수                               |
-| cate.poi[0].hasoildata          | Boolean | 유가 데이터 존재 유무                             |
-| cate.poi[0].detailinfo          | Array   | 분류 상세 항목                                 |
-| cate.poi[0].detailinfo[0].name  | String  | 분류 상세 항목 설명                              |
-| cate.poi[0].detailinfo[0].value | String  | 분류 상세 항목 내용                              |
-| cate.poi[0].etcinfo             | Array   | 분류 기타 항목                                 |
-| cate.poi[0].etcinfo[0].name     | String  | 분류 기타 항목 설명                              |
-| cate.poi[0].etcinfo[0].value    | String  | 분류 기타 항목 내용                              |
-| cate.poi[0].oildata             | Object  | 유가 데이터 정보                                |
-| cate.poi[0].oilda.tag_price     | Integer | 휘발유 가격                                   |
-| cate.poi[0].oilda.hg_price      | Integer | 고급휘발유 가격                                 |
-| cate.poi[0].oilda.d_price       | Integer | 경유 가격                                    |
-| cate.poi[0].oilda.l_price       | Integer | LPG 가격                                   |
-| cate.poi[0].oilda.updatetime    | String  | 업데이트 시간                                  |
-| cate.poi[0].oilda.priceinfo     | String  | 최고, 최저 유가 정보<br>(H : 최고, L : 최저, X : 해당없음)<br>휘발유, 고급휘발유, 경유, LPG 순 |
-| cate.poi[0].oilda.wash          | Boolean | 세차 시설 여부                                 |
-| cate.poi[0].oilda.fix           | Boolean | 정비 가능 여부                                 |
-| cate.poi[0].oilda.mart          | Boolean | 매점 여부                                    |
-| cate.poi[0].hassubpoi          | Boolean | 하위 시설물 데이터 존재 유무          |
-| cate.poi[0].subpoi          | Object | 하위 시설물 정보                                 |
-| cate.poi[0].subpoi.count          | Integer | 하위 시설물 개수                                 |
-| cate.poi[0].subpoi.poi          | Array |  POI 정보와 동일                            |
+| cate.poi[0].detail_count        | Integer | Number of detail classification items                              |
+| cate.poi[0].etc_count           | Integer | Number of other classification items                               |
+| cate.poi[0].imagecount          | Integer | Number of POI images                                |
+| cate.poi[0].hasoildata          | Boolean | Availability of oil data                              |
+| cate.poi[0].detailinfo          | Array   | Detail classification item                                 |
+| cate.poi[0].detailinfo[0].name  | String  | Description of detail classification item                          |
+| cate.poi[0].detailinfo[0].value | String  | Content of detail classification item                              |
+| cate.poi[0].etcinfo             | Array   | Other classification item                                 |
+| cate.poi[0].etcinfo[0].name     | String  | Description of other classification item                              |
+| cate.poi[0].etcinfo[0].value    | String  | Content of other classification item                              |
+| cate.poi[0].oildata             | Object  | Oil price data                                |
+| cate.poi[0].oilda.tag_price     | Integer | Gas price                                |
+| cate.poi[0].oilda.hg_price      | Integer | Premium gas price                                 |
+| cate.poi[0].oilda.d_price       | Integer | Light oil price                                   |
+| cate.poi[0].oilda.l_price       | Integer | LPG price                                   |
+| cate.poi[0].oilda.updatetime    | String  | Updated time                                 |
+| cate.poi[0].oilda.priceinfo     | String  | Highest/Lowest oil price data<br>(H: Highest, L: Lowest, X:N/A)<br> In the order of gas, premium gas, light oil, and LPG |
+| cate.poi[0].oilda.wash          | Boolean | Availability of a car wash |
+| cate.poi[0].oilda.fix           | Boolean | Availability of a car repair shop                                 |
+| cate.poi[0].oilda.mart          | Boolean | Availability of a store                                   |
+| cate.poi[0].hassubpoi          | Boolean | Availability of sub-facility data          |
+| cate.poi[0].subpoi          | Object | Sub-facility information                                 |
+| cate.poi[0].subpoi.count          | Integer | Number of sub-facilities                                 |
+| cate.poi[0].subpoi.poi          | Array |  Same as POI information                            |
 
 ## Geocoding API
 
@@ -1125,34 +1125,34 @@ In the order of gas, premium gas, light oil, and LPG |
         "adm": {
             "posx": "126.947265",
             "posy": "37.384033",
-            "address": "경기도 안양시 동안구 호계동",
+            "address": "Hogye-dong, Dongan-gu, Anyang-si, Gyeonggi-do",
             "distance": 0,
             "bldname": "",
             "admcode": "4117310400",
             "postcode": "14079",
             "jibun": "921",
-            "roadname": "경기도 안양시 동안구 귀인로",
+            "roadname": "Gwiin-ro, Dongan-gu, Anyang-si, Gyeonggi-do",
             "roadjibun": "59"
         },
         "adm_address": {
-            "address": "경기도 안양시 동안구 호계2동",
+            "address": "Hogye 2-dong, Dongan-gu, Anyang-si, Gyeonggi-do",
             "admcode": "4117359000",
-            "address_category3": "호계2동",
+            "address_category3": "Hogye 2-dong",
             "address_category4": "",
             "jibun": "921",
-            "address_category1": "경기도",
-            "address_category2": "안양시 동안구",
-            "cut_address": "경기 안양시 동안구 호계2동"
+            "address_category1": "Gyeonggi-do",
+            "address_category2": "Dongan-gu, Anyang-si",
+            "cut_address": "Hogye 2-dong, Dongan-gu, Anyang-si, Gyeonggi-do"
         },
         "legal_address": {
-            "address": "경기도 안양시 동안구 호계동",
-            "admcode": "4117310400",
-            "address_category3": "호계동",
+            "address": "Hogye-dong, Dongan-gu, Anyang-si, Gyeonggi-do"
+	    "admcode": "4117310400",
+            "address_category3": "Hogye-dong",
             "address_category4": "",
             "jibun": "921",
-            "address_category1": "경기도",
-            "address_category2": "안양시 동안구",
-            "cut_address": "경기 안양시 동안구 호계동"
+            "address_category1": "Gyeonggi-do",
+            "address_category2": "Dongan-gu, Anyang-si",
+            "cut_address": "Hogye-dong, Dongan-gu, Anyang-si, Gyeonggi-do"
         }
     }
 }
@@ -1161,42 +1161,42 @@ In the order of gas, premium gas, light oil, and LPG |
 ##### Field
 
 
-| 이름                     | 타입      | 설명                                       |
+| Name                   | Type    | Description                                     |
 | ---------------------- | ------- | ---------------------------------------- |
-| header                 | Object  | 헤더 영역                                    |
-| header.isSuccessful    | Boolean | 성공 여부                                    |
-| header.resultCode      | Integer | 실패 코드                                    |
-| header.resultMessage   | String  | 실패 메시지                                   |
-| location               | Object  | 본문 영역                                    |
-| location.result        | Boolean | 성공 여부                                    |
-| location.hasAdmAddress        | Boolean | 행정 주소 반환 여부                                    |
-| location.adm           | Object  | 법정 주소 정보                           |
-| location.adm.posx      | String  | X 좌표                                     |
-| location.adm.posy      | String  | Y 좌표                                     |
-| location.adm.admcode  | String  | 법정코드                                  |
-| location.adm.address  | String  | 주소                                  |
-| location.adm.jibun  | String  | 지번                                  |
-| location.adm.roadname  | String  | 새주소 도로명                                  |
-| location.adm.roadjibun | String  | 새주소 지번                                   |
-| location.adm.bldname  | String  | 건물명(해당될 때만)                              |
-| location.adm.postcode  | String  | 우편번호                   |
-| location.adm_address           | Object  | 행정동 주소 정보                           |
-| location.adm_address.admcode   | String  | 행정코드                                    |
-| location.adm_address.address   | String  | 주소                                       |
-| location.adm_address.jibun     | String  | 지번                                       |
-| location.adm_address.address_category1     | String  |   도/시                      |
-| location.adm_address.address_category2     | String  |   시/군/구                   |
-| location.adm_address.address_category3     | String  |   읍/면/동                 |
-| location.adm_address.address_category4     | String  |   리                  |
+| header                 | Object  | Header area                                 |
+| header.isSuccessful    | Boolean | Successful or not                           |
+| header.resultCode      | Integer | Failure code                                |
+| header.resultMessage   | String  | Failure message                             |
+| location               | Object  | Body area                                   |
+| location.result        | Boolean | Successful or not                           |
+| location.hasAdmAddress        | Boolean | Return administrative address or not                                 |
+| location.adm           | Object  | Legal address information                    |
+| location.adm.posx      | String  | X coordinates                                 |
+| location.adm.posy      | String  | Y coordinates                                     |
+| location.adm.admcode  | String  | Legal code                                  |
+| location.adm.address  | String  | Address                                 |
+| location.adm.jibun  | String  | Land-lot number                           |
+| location.adm.roadname  | String  | Road name for new address system                                  |
+| location.adm.roadjibun | String  | Land-lot number for new address system                                  |
+| location.adm.bldname  | String  | Building name (only when available)                              |
+| location.adm.postcode  | String  | Zip code                   |
+| location.adm_address           | Object  | Administrative addres sinformation                       |
+| location.adm_address.admcode   | String  | Administrative code                                    |
+| location.adm_address.address   | String  | Address                                    |
+| location.adm_address.jibun     | String  | Land-lot number                                |
+| location.adm_address.address_category1     | String  |   do/si                      |
+| location.adm_address.address_category2     | String  |   si/gun/gu                   |
+| location.adm_address.address_category3     | String  |   eup/myeon/dong                 |
+| location.adm_address.address_category4     | String  |   ri                  |
 | location.adm_address.cut_address     | String  |                         |
-| location.legal_address           | Object  | 법정동 주소 정보                           |
-| location.legal_address.admcode   | String  | 법정코드                                    |
-| location.legal_address.address   | String  | 주소                                       |
-| location.legal_address.jibun     | String  | 지번                                       |
-| location.legal_address.address_category1     | String  |  도/시                       |
-| location.legal_address.address_category2     | String  |  시/군/구                      |
-| location.legal_address.address_category3     | String  |  읍/면/동                      |
-| location.legal_address.address_category4     | String  |  리                       |
+| location.legal_address           | Object  | Legal address information                     |
+| location.legal_address.admcode   | String  | Legal code                                    |
+| location.legal_address.address   | String  | Address                                      |
+| location.legal_address.jibun     | String  | Land-lot number                              |
+| location.legal_address.address_category1     | String  |  do/si                       |
+| location.legal_address.address_category2     | String  |  si/gun/gu                      |
+| location.legal_address.address_category3     | String  |  eup/myeon/dong                      |
+| location.legal_address.address_category4     | String  |  ri                       |
 | location.legal_address.cut_address     | String  |                         |
 
 
@@ -1326,7 +1326,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | header.resultMessage        | String  | Failure message                          |
 | route			                  | Object  | Body area                                |
 | route.data                   | Object  | Route data                   |
-| route.data.file_name          | String | Binary file name to search POI around the route 경로 주변 POI 검색을 위한 binary 파일명 |
+| route.data.file_name          | String | Binary file name to search POI around the route |
 | route.data.option              | String | Navigation option |
 | route.data.spend_time           | Integer | Required time (second)          |
 | route.data.distance           | Integer | Distance (m)                 |
