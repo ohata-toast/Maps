@@ -24,7 +24,7 @@
 * [SDK]  Fixed the error of abnormal closure when proguard obfuscation is applied (Android)  
 * [SDK]  Fixed error in which map does not show on a low version OS (Android)
 
-### February 25, 
+### February 25, 2020
 #### More Features 	
 * [SDK] Added Marker Clustering 
 
