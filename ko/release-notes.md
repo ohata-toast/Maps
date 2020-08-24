@@ -1,4 +1,11 @@
 ## Application Service > Maps > 릴리스 노트
+
+### 2020. 08. 25.
+#### 기능 추가
+* [SDK] 마커와 지도상 심볼 겹침을 설정하는 API 추가
+* [SDK] 경로 셰이프에 패턴 이미지 API 추가
+* [SDK] 지도 렌더 뷰 TextureView 모드 지원 (Android)
+
 ### 2020. 07. 28.
 #### 기능 개선
 * [SDK] 간헐적으로 마커가 표시되지 않는 오류 수정(Android)
