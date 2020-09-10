@@ -1,4 +1,11 @@
 ## Application Service > Maps > Release Notes
+
+## June 23, 2020
+#### Feature Updates
+* [SDK] Updated not to cause an exception when it is requested to move camera to an invalid location
+* [SDK] Fixed infrequent blinks when the location icon is relocated  
+* [SDK] Enhanced stability of SDKs
+
 ### April 28, 2020
 #### More Features 
 * [SDK] Added API for configuring minimum/maximum tilting angle of a map 
