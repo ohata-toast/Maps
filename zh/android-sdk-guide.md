@@ -12,8 +12,8 @@ Describes the basic project configuration method to enable iNavi maps on Android
 
 
 ### Project Configuration
-Add a repository for iNavi maps in the build.gradle file of the project and the app module level, as below, and set dependency. 
-> The Andriod SDK for iNavi Maps shall be deployed via Bintray, and it may change depending on policy after Beta period ends (to be posted before schedule). 
+Since iNavi Maps SDK is deployed via Bintray, set a repository for the build.gradle file of the project and at the app module level and add dependency on iNavi Maps SDK like below. 
+
 ```gradle
 /* Root Project build.gradle */
 

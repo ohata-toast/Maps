@@ -24,12 +24,11 @@ git lfs install
 ```
 
 #### Configure Podfile
-Create a podfile like below and set pod dependency for iNavi maps SDK.  
-> The iOS SDK for iNavi Maps shall be deployed via CocoaPods, and it may change depending on policy after Beta period ends (to be posted before schedule). 
+Since iNavi Maps SDK is deployed via CocoaPods, add dependency on iNavi Maps SDK to Podfiles of the project.
 
 ```ruby
 # Podfile
-target 'iNaviMapsDemoiOS' do
+target 'iNaviMapsDemo' do
   use_frameworks!
   ...
   pod 'inavi-maps-sdk'
