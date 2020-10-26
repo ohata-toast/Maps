@@ -1,5 +1,9 @@
 ## Application Service > Maps > Release Notes
 
+### July 28, 2020
+#### Feature Updates
+* [SDK] Fixed infrequent error of failed display of marker (Android)
+
 ## June 23, 2020
 #### Feature Updates
 * [SDK] Updated not to cause an exception when it is requested to move camera to an invalid location

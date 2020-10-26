@@ -1,5 +1,15 @@
 ## Application Service > Maps > 릴리스 노트
 
+### 2020. 10. 27.
+#### 기능 추가
+* [SDK] 지도 초기옵션 속성 추가
+* [SDK] XML Attributes를 통한 지도 초기옵션 설정 지원(Android)
+* [SDK] Interface Builder를 통한 지도 초기옵션 설정 지원(iOS)
+
+#### 기능 개선
+* [SDK] 마커의 아이콘 이미지가 간헐적으로 갱신되지 않는 오류 수정(iOS)
+* [SDK] INVClusterManager#invalidate 호출 시 간헐적으로 기존 마커가 지도에 남아있는 오류 수정(iOS)
+
 ### 2020. 08. 25.
 #### 기능 추가
 * [SDK] 마커와 지도의 심벌을 겹칠 수 있는 API 추가
