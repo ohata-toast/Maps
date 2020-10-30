@@ -1,5 +1,11 @@
 ## Application Service > Maps > Release Notes
 
+### August 25, 2020
+#### More Features 
+* [SDK] Added API sharing the same symbols on the marker from the map 
+* [SDK] Add API for patterned images on the path shape 
+* [SDK] Supports the TextureView mode for the map rednering view (Android) 
+
 ### July 28, 2020
 #### Feature Updates
 * [SDK] Fixed infrequent error of failed display of marker (Android)
