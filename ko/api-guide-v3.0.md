@@ -1030,7 +1030,7 @@
 
 | 메서드  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
 
 [Path parameter]
 
@@ -1062,6 +1062,7 @@
 |guideTop	|Integer| 선택 ||나타낼 안내 정보 개수 |
 |groupByTrafficColor	| Boolean| 선택| |세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
 |saveFile	| Boolean| 선택| |경로 주변 POI 검색을 위한 바이너리 파일 저장 여부	|
+| useTaxifare   | int | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1 : 일반택시<br>2: 모범택시 |
 
 
 
@@ -1074,6 +1075,7 @@
         "data": {
             "file_name": "",
             "toll_fee": 0.0,
+						"taxiFare": 3500,
             "paths": [
                 {
                     "coords": [
@@ -1146,6 +1148,7 @@
 | route.data.spend_time           | Integer | 소요 시간(초)                             |
 | route.data.distance           | Integer | 거리(m)                          |
 | route.data.total_fee    | Integer | 톨게이트 요금                             |
+| route.data.taxiFare    | Integer | 예상 택시 요금                             |
 | route.data.paths	 | Array | 세부 경로 목록                             |
 | route.data.paths[0].coords | Array | 상세 좌표 목록                           |
 | route.data.paths[0].coords[0].x   | Double | X 좌표                            |
@@ -1423,7 +1426,7 @@
 
 | 메서드  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}|
+| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}|
 
 [Path parameter]
 
@@ -1463,7 +1466,7 @@
 | beforeCount   | Integer | 선택    |       | 기준 시간 이전 시간 탐색 개수 |
 | afterCount   | Integer | 선택    |       | 기준 시간 이후 시간 탐색 개수 |
 | interval   | Integer | 선택    |       | 기준 시간 이전/이후 시간 간격(분) |
-
+| useTaxifare   | int | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1 : 일반택시 <br>2 : 모범택시 |
 #### 응답
 
 ##### 응답 본문
@@ -1474,6 +1477,7 @@
             "distance": 22621.0,
             "spend_time": 1620.0,
             "toll_fee": 0.0,
+						"taxiFare" : 3900,
             "times": [
                 {
                     "index": -2.0,
@@ -1675,6 +1679,7 @@
 | route.data.spend_time           | Integer | 소요 시간(초)                             |
 | route.data.distance           | Integer | 거리(m)                          |
 | route.data.total_fee    | Integer | 톨게이트 요금                             |
+| route.data.taxiFare    | Integer | 예상 택시 요금                             |
 | route.data.times	 | Array | 세부 경로 목록                             |
 | route.data.times[0].index	 | Integer | 기준 시간 대비 Index(0이면 기준 시간)  |
 | route.data.times[0].spend_time	 | Integer | 소요 시간(초)      |
