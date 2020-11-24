@@ -1204,7 +1204,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | メソッド | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
 
 [Path parameter]
 
@@ -1236,6 +1236,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 |guideTop	|Integer| 任意 ||表示する案内情報数 |
 |groupByTrafficColor	| Boolean| 選択| |詳細経路リスト(paths)情報を交通色別にグルーピングして返すかどうか	|
 |saveFile	| Boolean| 選択| |経路周辺POI検索のためのbinaryファイルを保存するかどうか	|
+| useTaxifare   | int | 選択  |       | 予想タクシー料金照会有無<br>例) useTaxifare=1<br>0：未使用<br> 1：一般タクシー<br>2：模範タクシー |
 
 
 
@@ -1248,6 +1249,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
         "data": {
             "file_name": "",
             "toll_fee": 0.0,
+						"taxiFare": 3500,
             "paths": [
                 {
                     "coords": [
@@ -1320,6 +1322,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | route.data.spend_time           | Integer | 所要時間(秒)                              |
 | route.data.distance           | Integer | 距離(m)                          |
 | route.data.toll_fee    | Integer | 料金所の料金                         |
+| route.data.taxiFare    | Integer | 予想タクシー料金                            |
 | route.data.paths	 | Array | 詳細経路リスト                         |
 | route.data.paths[0].coords | Array | 詳細座標リスト                        |
 | route.data.paths[0].coords[0].x   | Double | X座標                         |
@@ -1595,7 +1598,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | メソッド | URI                                      |
 | ---- | ---------------------------------------- |
-| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}|
+| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}|
 
 [Path parameter]
 
@@ -1635,6 +1638,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | beforeCount   | Integer | 任意 |       | 基準時間以前の時間の探索数 |
 | afterCount   | Integer | 任意 |       | 基準時間以降の時間の探索数 |
 | interval   | Integer | 任意 |       | 基準時間以前/以降の時間Interval(分) |
+| useTaxifare   | int | 選択  |       | 予想タクシー料金照会有無<br>例) useTaxifare=1<br>0：未使用<br> 1：一般タクシー<br>2：模範タクシー |
 
 #### レスポンス
 
@@ -1646,6 +1650,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
             "distance": 22621.0,
             "spend_time": 1620.0,
             "toll_fee": 0.0,
+						"taxiFare" : 3900,
             "times": [
                 {
                     "index": -2.0,
@@ -1847,6 +1852,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | route.data.spend_time           | Integer | 所要時間(秒)                              |
 | route.data.distance           | Integer | 距離(m)                          |
 | route.data.toll_fee    | Integer | 料金所の料金                          |
+| route.data.taxiFare    | Integer | 予想タクシー料金                            |
 | route.data.times	 | Array | 詳細経路リスト                          |
 | route.data.times[0].index	 | Integer | 基準時間対比Index(0の場合は基準時間)       |
 | route.data.times[0].spend_time	 | Integer | 所要時間(秒)       |
