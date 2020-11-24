@@ -1062,7 +1062,7 @@
 |guideTop	|Integer| 선택 ||나타낼 안내 정보 개수 |
 |groupByTrafficColor	| Boolean| 선택| |세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
 |saveFile	| Boolean| 선택| |경로 주변 POI 검색을 위한 바이너리 파일 저장 여부	|
-| useTaxifare   | int | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1 : 일반택시<br>2: 모범택시 |
+| useTaxifare   | int | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1: 일반택시<br>2: 모범택시 |
 
 
 
@@ -1466,7 +1466,7 @@
 | beforeCount   | Integer | 선택    |       | 기준 시간 이전 시간 탐색 개수 |
 | afterCount   | Integer | 선택    |       | 기준 시간 이후 시간 탐색 개수 |
 | interval   | Integer | 선택    |       | 기준 시간 이전/이후 시간 간격(분) |
-| useTaxifare   | int | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1 : 일반택시 <br>2 : 모범택시 |
+| useTaxifare   | int | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1: 일반택시 <br>2: 모범택시 |
 #### 응답
 
 ##### 응답 본문
