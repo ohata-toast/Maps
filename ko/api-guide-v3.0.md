@@ -64,7 +64,7 @@
 | spopt         | String | 선택      |           | 공간 검색 옵션<br>0: 공간 검색 사용 안 함<br>1: Extent 검색<br>2: Range 검색<br>* spopt값이 설정되지 않은 경우 0으로 설정 |
 | radius        | String | 선택      |           | 반경<br>spopt 값이 2인 경우 사용<br>미터 단위                |
 | admcode       | String | 선택      |           | 행정 코드                                                     |
-| depth         | String | 선택      |           | 하위 시설물 요구 수준<br>1: 1 depth만 요청(최상위 depth)<br>2: 2 depth까지 요청<br>3: 3 depth까지 요청<br>* depth값이 설정되지 않은 경우 1로 설정<br>* depth 설정 시 아래 Response처럼 subpoi 상세 정보가 depth에 맞게 반환됨 |
+| depth         | String | 선택      |           | 하위 시설물 요구 수준<br>0: 0 POI 표출시 부모/Sub 를 구분하지 않고 모두 표출<br>1: 1  POI 표출시 부모 POI 만 표출하고 Sub-POI 는 카운트만 제공<br>2: 2 POI 표출시 부모 POI 하위에 Sub-POI 를 따로 그룹 지어서 표출<br>3: 3  POI 표출시 부모 POI 하위에 Sub-POI 를 따로 그룹 지어서 표출,<br> Sub-POI 내에 하위 Sub-POI 가 존재하는 경우 하위 depth 표출<br>* 옵션 선택이 없는 경우 Default 는 0 으로 설정됨 |
 | x1            | String | 선택      |           | X1 좌표<br>spopt 값이 0인 경우 기준점 X 좌표<br>spopt 값이 1인 경우 Extent의 왼쪽 상단 X 좌표<br>spopt 값이 2인 경우 기준점 X 좌표 |
 | y1            | String | 선택      |           | Y1 좌표<br>spopt 값이 0인 경우 기준점 Y 좌표<br>spopt 값이 1인 경우 Extent의 왼쪽 상단 Y 좌표<br>spopt 값이 2인 경우 기준점 Y 좌표 |
 | x2            | String | 선택      |           | X2 좌표<br>spopt 값이 1인 경우 Extent의 오른쪽 하단 X 좌표, spopt 값이 2인 경우 사용 안함 |
