@@ -1,5 +1,9 @@
 ## Application Service > Maps > 릴리스 노트
 
+### 2020. 12. 29.
+#### 버그 수정
+* [API] ReverseGeocoding TW 좌표 요청 버그 수정
+
 ### 2020. 11. 24.
 #### 기능 추가
 * [API] 일반 경로 탐색 응답에 예상 택시 요금 항목 추가
