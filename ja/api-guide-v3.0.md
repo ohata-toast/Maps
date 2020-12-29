@@ -64,7 +64,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | spopt         | String | 任意 |       | 空間検索オプション<br>0：空間検索を使用しない<br>1：Extent検索<br>2：Range検索<br>* spopt値が未設定の場合は0に設定 |
 | radius        | String | 任意 |       | 半径<br>spopt値が2の場合、使用<br>メートル単位          |
 | admcode       | String | 任意 |       | 行政コード                                |
-| depth         | String | 任意 |       | 下位施設の要求水準<br>1：1 depthのみリクエスト(最上位depth)<br>2：2 depthまでリクエスト<br>3：3 depthまでリクエスト<br>* depth値が未設定の場合、1に設定<br>* depthを設定すると、下記のResponseのようにsubpoi詳細情報がdepthに合わせて返される |
+| depth         | String | 選択     |           | 下位施設要求水準<br>0: 0 POI表示時、親/Subを区分せずに全て表示<br>1: 1 POI表示時、親POIのみ表示してSub-POIはカウントのみ提供<br>2: 2 POI表示時、親POI下位にSub-POIを別途グループ化して表示<br>3: 3 POI表示時、親POI下位にSub-POIを別途グループ化して表示、<br> Sub-POI内に下位Sub-POIが存在する場合、下位depth 表示<br>※オプション選択がない場合Defaultは0に設定される |
 | x1            | String | 任意 |       | X1座標<br>spopt値が0の場合、基準点X座標<br>spopt値が1の場合、Extentの左上X座標<br>spopt値が2の場合、基準点X座標 |
 | y1            | String | 任意 |       | Y1座標<br>spopt値が0の場合、基準点Y座標<br>spopt値が1の場合、Extentの左上Y座標<br>spopt値が2の場合、基準点Y座標 |
 | x2            | String | 任意 |       | X2座標<br>spopt値が1の場合、Extentの右下X座標、spopt値が2の場合、使用しない |
