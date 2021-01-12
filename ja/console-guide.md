@@ -24,5 +24,4 @@ APIを呼び出した時間別、日別、月別統計をMaps APIの詳細API別
 ![](http://static.toastoven.net/prod_maps/img_03.JPG)
 
 ### サービスの無効化
-Mapsサービスの利用を中止するには、**サービス選択**で**Application Service > Maps**をクリックしてサービスを無効化します。
-
+Mapsサービスの使用を中止するには**コンソール**で**プロジェクト選択 > プロジェクト設定 > サービス無効化** ボタンをクリックします。
