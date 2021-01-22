@@ -1,5 +1,9 @@
 ## Application Service > Maps > 릴리스 노트
 
+### 2021. 01. 26.
+#### 기능 추가
+* [API] 다중 경유지 추가 100 API 추가
+
 ### 2020. 12. 29.
 #### 버그 수정
 * [API] ReverseGeocoding TW 좌표 요청 버그 수정
