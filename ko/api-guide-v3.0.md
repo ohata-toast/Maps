@@ -1062,7 +1062,7 @@
 |guideTop	|Integer| 선택 ||나타낼 안내 정보 개수 |
 |groupByTrafficColor	| Boolean| 선택| |세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
 |saveFile	| Boolean| 선택| |경로 주변 POI 검색을 위한 바이너리 파일 저장 여부	|
-| useTaxifare   | int | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1: 일반택시<br>2: 모범택시 |
+| useTaxifare   | int | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1: 일반택시<br>2: 모범택시<br>3: 일반택시와 모범택시 |
 
 
 
@@ -1716,6 +1716,164 @@
 | route.data.guides[0].type       | String | 도로 타입                        |
 | route.data.guides[0].traffic_color       | String | 도로 교통 색상                        |
 
+
+### 6\. 다중 경유지 추가 100
+
+* 출발지에서 목적지까지의 경로를 탐색하여 탐색한 경로 정보를 반환합니다.
+* 경유지는 최대 100개까지 추가 가능합니다.
+* 경유지 6개 이상 지정이 필요한 경우 사용 권장합니다.
+
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI                                      |
+| ---- | ---------------------------------------- |
+| POST  | /maps/v3.0/appkeys/{appkey}/route-normal-via|
+
+[Path parameter]
+
+| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 필수    |       | 고유의 Appkey |
+
+[Request Parameters]
+
+| 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| startX   | String | 필수    |       | 출발지 X 좌표                                 |
+| startY   | String | 필수    |       | 출발지 Y 좌표                                 |
+| endX     | String | 필수    |       | 도착지 X 좌표                                 |
+| endY     | String | 필수    |       | 도착지 Y 좌표                                 |
+| option   | String | 필수    |       | 경로 탐색 옵션<br>탐색 옵션 ',' 단위로 요청<br>예) option=real_traffic,real_traffic2<br>real_traffic: 실시간 추천 1<br>real\_traffic\_freeroad: 실시간 \(무료\)<br>real_traffic2: 실시간 추천 2<br>short\_distance\_priority: 단거리<br>motorcycle: 이륜차 |
+| coordType    | String | 필수    |       | 좌표 타입(TW, WGS84)
+| viaList    | Array | 선택    |       | 경유지 정보                               |
+| via[0].viaX    | String | 선택    |       | 경유지 X좌표                               |
+| via[0].viaY    | String| 선택    |       | 경유지 Y좌표                               |
+| useAngle    | String | 선택    |       | 출발 지점의 주행 방향 옵션<br> (기본값: false, true: 주행 방향 우선, false: 주행 방향 우선이 아님)                              |
+| angle    | Integer | 선택    |       | 결과 표시 개수                               |
+| carType   | Integer | 선택    |       | 톨게이트 요금 계산을 위한 차종(1~6), 기본값: 1 |
+| guideTop	|Integer| 선택 ||나타낼 안내 정보 개수 |
+|groupByTrafficColor	| Boolean| 선택| |세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
+| useTaxifare   | Integer | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1: 일반택시<br>2: 모범택시<br>3: 일반택시와 모범택시 |
+| useStartDirection    | Boolean | 선택    |       | 결과 표시 개수                               |
+
+
+#### 응답
+
+##### 응답 본문
+```
+{
+    "route": {
+        "data": {
+            "file_name": "",
+            "toll_fee": 500,
+            "taxiFare": 44100,
+            "paths": [
+                {
+                    "coords": [
+                        {
+                            "x": 126.98738167260602,
+                            "y": 37.56100472071098
+                        },
+                        {
+                            "x": 126.98745666577292,
+                            "y": 37.561004722056495
+                        },
+                        {
+                            "x": 126.98788162917526,
+                            "y": 37.560929738395224
+                        },
+                        {
+                            "x": 126.98810661103511,
+                            "y": 37.56084641878082
+                        },
+                        {
+                            "x": 126.98823160224156,
+                            "y": 37.5607547650072
+                        },
+                        {
+                            "x": 126.9882940996141,
+                            "y": 37.56064644538208
+                        }
+                    ],
+                    "speed": 30,
+                    "distance": 95,
+                    "spend_time": 12,
+                    "road_code": 5,
+                    "traffic_color": "#00ff60"
+                } ...
+            ],
+            "guides": [
+                {
+                    "name": "한남IC",
+                    "distance": 0,
+                    "speed": 0,
+                    "road_code": 0,
+                    "score": 0,
+                    "type": "IC",
+                    "coords": [
+                        {
+                            "x": 127.01735503801878,
+                            "y": 37.522301421437476
+                        }
+                    ],
+                    "traffic_color": ""
+                }...
+                ],
+                "traffic_color": "#fff000"
+                }
+            ],
+            "option": "real_traffic",
+            "spend_time": 5580,
+            "distance": 45931
+        }
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### 필드
+
+| 이름                          | 타입      | 설명                                       |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | 헤더 영역                                    |
+| header.isSuccessful         | Boolean | 성공 여부                                    |
+| header.resultCode           | Integer | 실패 코드                                    |
+| header.resultMessage        | String  | 실패 메시지                                   |
+| route			                  | Object  | 본문 영역                                    |
+| route.data                   | Object  | 경로 정보                                    |
+| route.data.file_name          | String | 경로 주변 POI 검색을 위한 바이너리 파일명            |
+| route.data.option              | String | 탐색 옵션                       |
+| route.data.spend_time           | Integer | 소요 시간(초)                             |
+| route.data.distance           | Integer | 거리(m)                          |
+| route.data.total_fee    | Integer | 톨게이트 요금                             |
+| route.data.taxiFare    | Integer | 예상 택시 요금                             |
+| route.data.paths	 | Array | 세부 경로 목록                             |
+| route.data.paths[0].coords | Array | 상세 좌표 목록                           |
+| route.data.paths[0].coords[0].x   | Double | X 좌표                            |
+| route.data.paths[0].coords[0].y         | Double | Y 좌표                        |
+| route.data.paths[0].speed          | Integer | 속도                                   |
+| route.data.paths[0].spend_time          | Integer | 소요 시간(초)                                  |
+| route.data.paths[0].distance             | Integer | 거리(m)                        |
+| route.data.paths[0].road_code             | Integer | 도로 종별 코드                        |
+| route.data.paths[0].traffic_color       | String | 도로 교통 색상                        |
+| route.data.guides       | Array | 주요 도로 정보 목록                      |
+| route.data.guides[0].coords       | Array | 상세 좌표 목록                       |
+| route.data.guides[0].coords[0].x       | Array | X 좌표                       |
+| route.data.guides[0].coords[0].y       | Array | Y 좌표                       |
+| route.data.guides[0].distance       | Integer | 거리(m)                        |
+| route.data.guides[0].name       | String | 도로명                        |
+| route.data.guides[0].road_code       | Integer | 도로 종별 코드                        |
+| route.data.guides[0].score       | Integer | 비중                        |
+| route.data.guides[0].speed       | Integer | 속도(km)                       |
+| route.data.guides[0].type       | String | 도로 타입                        |
+| route.data.guides[0].traffic_color       | String | 도로 교통 색상                        |
 
 ## Static Map(정적 지도)
 
