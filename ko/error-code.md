@@ -26,15 +26,15 @@
 |519|	File read failure|파일 읽기 실패|탐색 전용|
 |520|	File write failure|파일 쓰기 실패|탐색 전용|
 |521|	Socket connection failure |소켓 연결 실패|탐색 전용|
-|532|	Request parameter is invalid | 요청 Parameter가 유효하지 않음 |탐색 전용|
-|533|	The starting point is not selected, or the wrong starting point |출발지가 선택이 안되었거나, 잘못된 출발지|탐색 전용|
-|534|	Destination is not selected or wrong destination |목적지가 선택이 안되었거나, 잘못된 목적지 |탐색 전용|
+|532|	Request parameter is invalid | 요청 파라미터가 유효하지 않음 |탐색 전용|
+|533|	The starting point is not selected, or the wrong starting point |출발지가 선택되지 않았거나, 잘못된 출발지|탐색 전용|
+|534|	Destination is not selected or wrong destination |목적지가 선택되지 않았거나, 잘못된 목적지 |탐색 전용|
 |535|	Wrong stopover |잘못된 경유지|탐색 전용|
 |536|	Link Projection failure | Link Projection |탐색 전용|
 |537|	Exceeding the navigational distance (1000km, walking navigation: 20km) | 탐색 가능 거리 초과(1000km, 도보 탐색 : 20km) |탐색 전용|
-|538|	Exceeds the number of expandable nodes | 확장 가능 Node개수 초과 |탐색 전용|
+|538|	Exceeds the number of expandable nodes | 확장 가능 노드 수 초과 |탐색 전용|
 |539|	Expansion failure | 확장 실패 |탐색 전용|
-|540|	Expansion failure due to inactivity or traffic control | 유고 또는 교통통제로 인한 확장 실패 |탐색 전용|
+|540|	Expansion failure due to inactivity or traffic control | 특별한 사정이나 교통 통제로 인한 확장 실패 |탐색 전용|
 |541|	Expansion failure due to vehicle height/weight restrictions near the starting point | 출발지 근처의 차량 높이/중량 제한으로 확장 실패 |탐색 전용|
 |542|	Expansion failed due to a part-time curfew near the departure point | 출발지 근처의 시간제 통행금지로 인해 확장 실패 |탐색 전용|
 |543|	The destination is a physical island road, and there are no established ferry routes. | 목적지가 물리적 섬도로이며, 구축된 페리 항로가 없음 |탐색 전용|

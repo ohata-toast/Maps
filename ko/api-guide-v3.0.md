@@ -1719,7 +1719,9 @@
 
 ### 6\. 다중 경유지 추가 100
 
-* 출발지에서 목적지(경유지 5개 초과 최대 100개)까지의 경로를 탐색하여 탐색한 경로 정보를 반환합니다.
+* 출발지에서 목적지까지의 경로를 탐색하여 탐색한 경로 정보를 반환합니다.
+* 경유지는 최대 100개까지 추가 가능합니다.
+* 경유지 6개 이상 지정이 필요한 경우 사용 권장합니다.
 
 
 #### 요청
@@ -1744,17 +1746,17 @@
 | startY   | String | 필수    |       | 출발지 Y 좌표                                 |
 | endX     | String | 필수    |       | 도착지 X 좌표                                 |
 | endY     | String | 필수    |       | 도착지 Y 좌표                                 |
-| option   | String | 필수    |       | 경로 탐색 옵션<br>탐색 option ',' 단위로 요청<br>예) ex) option=real_traffic,real_traffic2<br>real_traffic: 실시간 추천 1<br>real\_traffic\_freeroad: 실시간 \(무료\)<br>real_traffic2: 실시간 추천 2<br>short\_distance\_priority: 단거리<br>motorcycle: 이륜차 |
+| option   | String | 필수    |       | 경로 탐색 옵션<br>탐색 옵션 ',' 단위로 요청<br>예) option=real_traffic,real_traffic2<br>real_traffic: 실시간 추천 1<br>real\_traffic\_freeroad: 실시간 \(무료\)<br>real_traffic2: 실시간 추천 2<br>short\_distance\_priority: 단거리<br>motorcycle: 이륜차 |
 | coordType    | String | 필수    |       | 좌표 타입(TW, WGS84)
 | viaList    | Array | 선택    |       | 경유지 정보                               |
 | via[0].viaX    | String | 선택    |       | 경유지 X좌표                               |
 | via[0].viaY    | String| 선택    |       | 경유지 Y좌표                               |
-| useAngle    | String | 선택    |       | 출발 지점의 주행 방향 옵션<br> (Default : false, true : 주행 방향 우선, false : 주행 방향 비우선)                              |
+| useAngle    | String | 선택    |       | 출발 지점의 주행 방향 옵션<br> (기본값: false, true: 주행 방향 우선, false: 주행 방향 우선이 아님)                              |
 | angle    | Integer | 선택    |       | 결과 표시 개수                               |
-| carType   | Integer | 선택    |       | 톨게이트비 계산을 위한 차종(1~6), 기본값: 1 |
+| carType   | Integer | 선택    |       | 톨게이트 요금 계산을 위한 차종(1~6), 기본값: 1 |
 | guideTop	|Integer| 선택 ||나타낼 안내 정보 개수 |
 |groupByTrafficColor	| Boolean| 선택| |세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
-| useTaxifare   | Integer | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1: 일반택시<br>2: 모범택시<br>3 : 일반택시 와 모범택시 |
+| useTaxifare   | Integer | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1: 일반택시<br>2: 모범택시<br>3: 일반택시와 모범택시 |
 | useStartDirection    | Boolean | 선택    |       | 결과 표시 개수                               |
 
 
