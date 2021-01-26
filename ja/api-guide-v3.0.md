@@ -45,7 +45,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | メソッド | URI                                      |
 | ---- | ---------------------------------------- |
-| GET  | /maps/v3.0/appkeys/{appkey}/searches&query={query}&coordtype&startposition={startposition}&reqcount={reqcount}&spopt={spopt}&radius={radius}&admcode={admcode}&depth={depth}&x1={x1}&y1={y1}&x2={x2}&y2={y2}&sortopt={sortopt}&catecode={catecode} |
+| GET  | /maps/v3.0/appkeys/{appkey}/searches?query={query}&coordtype={coordtype}&startposition={startposition}&reqcount={reqcount}&spopt={spopt}&radius={radius}&admcode={admcode}&depth={depth}&x1={x1}&y1={y1}&x2={x2}&y2={y2}&sortopt={sortopt}&catecode={catecode} |
 
 [Path parameter]
 
@@ -1638,7 +1638,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | beforeCount   | Integer | 任意 |       | 基準時間以前の時間の探索数 |
 | afterCount   | Integer | 任意 |       | 基準時間以降の時間の探索数 |
 | interval   | Integer | 任意 |       | 基準時間以前/以降の時間Interval(分) |
-| useTaxifare   | int | 選択  |       | 予想タクシー料金照会有無<br>例) useTaxifare=1<br>0：未使用<br> 1：一般タクシー<br>2：模範タクシー |
+| useTaxifare   | int | 選択  |       | 予想タクシー料金照会有無<br>例) useTaxifare=1<br>0：未使用<br> 1：一般タクシー<br>2：模範タクシー<br>3：一般タクシーと模範タクシー |
 
 #### レスポンス
 
@@ -1889,6 +1889,164 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | route.data.guides[0].type       | String | 道路タイプ                     |
 | route.data.guides[0].traffic_color       | String | 道路交通色                      |
 
+
+### 6\. 複数の経由地を追加100
+
+* 出発地点から目的地までの経路を探索して探索した経路情報を返します。
+* 経由地は最大100個まで追加できます。
+* 経由地を6個以上指定する必要がある場合は使用することを推奨します。
+
+
+#### リクエスト
+
+[URI]
+
+| メソッド | URI                                      |
+| ---- | ---------------------------------------- |
+| POST  | /maps/v3.0/appkeys/{appkey}/route-normal-via|
+
+[Path parameter]
+
+| 名前    | タイプ    | 必須かどうか | 有効範囲 | 説明    |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 必須   |       | 固有のAppkey |
+
+[Request Parameters]
+
+| 名前      | タイプ    | 必須かどうか | 有効範囲 | 説明                                      |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| startX   | String | 必須   |       | 出発地X座標                                |
+| startY   | String | 必須   |       | 出発地Y座標                                |
+| endX     | String | 必須   |       | 到着地X座標                                |
+| endY     | String | 必須   |       | 到着地Y座標                                |
+| option   | String | 必須   |       | 経路探索オプション<br>探索オプション','単位でリクエスト<br>例) option=real_traffic,real_traffic2<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle：二輪車 |
+| coordType    | String | 必須   |       | 座標タイプ(TW, WGS84)
+| viaList    | Array | 任意   |       | 経由地情報                              |
+| via[0].viaX    | String | 任意   |       | 経由地X座標                              |
+| via[0].viaY    | String| 任意   |       | 経由地Y座標                              |
+| useAngle    | String | 任意   |       | 出発地地点の走行方向オプション<br> (デフォルト値：false。 true：走行 方向優先、false：走行方向優先しない)                              |
+| angle    | Integer | 任意   |       | 結果表示数                               |
+| carType   | Integer | 任意   |       | 料金所費用計算のための車種(1～6)、デフォルト値：1 |
+| guideTop	|Integer| 任意 ||表示する案内情報数 |
+|groupByTrafficColor	| Boolean| 任意| |詳細経路リスト(paths)情報を道路交通色別にまとめて返すかどうか	|
+| useTaxifare   | Integer | 任意  |       | 予想タクシー料金照会<br>例) useTaxifare=1<br>0：未使用<br> 1：一般タクシー<br>2：模範タクシー<br>3：一般タクシーと模範タクシー |
+| useStartDirection    | Boolean | 任意   |       | 結果表示数                               |
+
+
+#### レスポンス
+
+##### レスポンス本文
+```
+{
+    "route": {
+        "data": {
+            "file_name": "",
+            "toll_fee": 500,
+            "taxiFare": 44100,
+            "paths": [
+                {
+                    "coords": [
+                        {
+                            "x": 126.98738167260602,
+                            "y": 37.56100472071098
+                        },
+                        {
+                            "x": 126.98745666577292,
+                            "y": 37.561004722056495
+                        },
+                        {
+                            "x": 126.98788162917526,
+                            "y": 37.560929738395224
+                        },
+                        {
+                            "x": 126.98810661103511,
+                            "y": 37.56084641878082
+                        },
+                        {
+                            "x": 126.98823160224156,
+                            "y": 37.5607547650072
+                        },
+                        {
+                            "x": 126.9882940996141,
+                            "y": 37.56064644538208
+                        }
+                    ],
+                    "speed": 30,
+                    "distance": 95,
+                    "spend_time": 12,
+                    "road_code": 5,
+                    "traffic_color": "#00ff60"
+                } ...
+            ],
+            "guides": [
+                {
+                    "name": "漢南IC",
+                    "distance": 0,
+                    "speed": 0,
+                    "road_code": 0,
+                    "score": 0,
+                    "type": "IC",
+                    "coords": [
+                        {
+                            "x": 127.01735503801878,
+                            "y": 37.522301421437476
+                        }
+                    ],
+                    "traffic_color": ""
+                }...
+                ],
+                "traffic_color": "#fff000"
+                }
+            ],
+            "option": "real_traffic",
+            "spend_time": 5580,
+            "distance": 45931
+        }
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### フィールド
+
+| 名前                         | タイプ     | 説明                                      |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | ヘッダ領域                                   |
+| header.isSuccessful         | Boolean | 成否                                   |
+| header.resultCode           | Integer | 失敗コード                                   |
+| header.resultMessage        | String  | 失敗メッセージ                                  |
+| route			                  | Object  | 本文領域                                   |
+| route.data                   | Object  | 経路情報                                   |
+| route.data.file_name          | String | 経路周辺POI検索のためのバイナリファイル名           |
+| route.data.option              | String | 探索オプション                      |
+| route.data.spend_time           | Integer | 所要時間(秒)                             |
+| route.data.distance           | Integer | 距離(m)                          |
+| route.data.total_fee    | Integer | 料金所の料金                            |
+| route.data.taxiFare    | Integer | 予想タクシー料金                            |
+| route.data.paths	 | Array | 詳細経路リスト                            |
+| route.data.paths[0].coords | Array | 詳細座標リスト                          |
+| route.data.paths[0].coords[0].x   | Double | X座標                           |
+| route.data.paths[0].coords[0].y         | Double | Y座標                       |
+| route.data.paths[0].speed          | Integer | 速度                                  |
+| route.data.paths[0].spend_time          | Integer | 所要時間(秒)                                  |
+| route.data.paths[0].distance             | Integer | 距離(m)                        |
+| route.data.paths[0].road_code             | Integer | 道路種別コード                       |
+| route.data.paths[0].traffic_color       | String | 道路交通色                        |
+| route.data.guides       | Array | 主要道路情報リスト                     |
+| route.data.guides[0].coords       | Array | 詳細座標リスト                      |
+| route.data.guides[0].coords[0].x       | Array | X座標                      |
+| route.data.guides[0].coords[0].y       | Array | Y座標                      |
+| route.data.guides[0].distance       | Integer | 距離(m)                        |
+| route.data.guides[0].name       | String | 道路名                        |
+| route.data.guides[0].road_code       | Integer | 道路種別コード                       |
+| route.data.guides[0].score       | Integer | 比重                        |
+| route.data.guides[0].speed       | Integer | 速度(km)                       |
+| route.data.guides[0].type       | String | 道路タイプ                       |
+| route.data.guides[0].traffic_color       | String | 道路交通色                        |
 
 ## Static Map
 
