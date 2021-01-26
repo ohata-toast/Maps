@@ -1,5 +1,9 @@
 ## Application Service > Maps > リリースノート
 
+### 2021. 01. 26.
+#### 機能追加
+* [API] 「複数の経由地追加100」APIを追加
+
 ### 2020. 12. 29.
 #### バグ修正
 * [API] ReverseGeocoding TW座標リクエストバグを修正
