@@ -45,7 +45,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | メソッド | URI                                      |
 | ---- | ---------------------------------------- |
-| GET  | /maps/v3.0/appkeys/{appkey}/searches&query={query}&coordtype&startposition={startposition}&reqcount={reqcount}&spopt={spopt}&radius={radius}&admcode={admcode}&depth={depth}&x1={x1}&y1={y1}&x2={x2}&y2={y2}&sortopt={sortopt}&catecode={catecode} |
+| GET  | /maps/v3.0/appkeys/{appkey}/searches?query={query}&coordtype={coordtype}&startposition={startposition}&reqcount={reqcount}&spopt={spopt}&radius={radius}&admcode={admcode}&depth={depth}&x1={x1}&y1={y1}&x2={x2}&y2={y2}&sortopt={sortopt}&catecode={catecode} |
 
 [Path parameter]
 
