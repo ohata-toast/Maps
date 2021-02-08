@@ -1925,7 +1925,6 @@ In the order of gas, premium gas, light oil, and LPG |
 | endX   | String | Required |                 | Destination X-coordinate                                     |
 | endY   | String | Required |                 | Destination Y-coordinate                                     |
 | option | String | Required |                 | Path search option<br>Search options separated with “,”<br>e.g. option=real_traffic,real_traffic2<br>real_traffic: Real-time recommendation 1<br>real\_traffic\_freeroad: Real-time \(Free\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler |
-
 | coordType    | String | Required    |       | Coordinate type (TW, WGS84)
 | viaList    | Array | Optional    |       | Stop information                               |
 | via[0].viaX    | String | Optional    |       | Stop X-coordinate                               |
