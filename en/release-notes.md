@@ -1,5 +1,9 @@
 ## Application Service > Maps > Release Notes
 
+### January 26, 2021
+#### More Features
+* [API] “Added multi-stops 100” API added
+
 ### August 25, 2020
 #### More Features 
 * [SDK] Added API sharing the same symbols on the marker from the map 
