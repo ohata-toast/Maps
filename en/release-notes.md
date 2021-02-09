@@ -4,6 +4,33 @@
 #### More Features
 * [API] “Added multi-stops 100” API added
 
+### December 29, 2020
+
+#### Bug Fixes
+
+* [API] ReverseGeocoding TW coordinate request bug fixed
+
+### November 24, 2020
+
+#### More Features
+
+- Expected Taxi Fare added to the [API] normal path exploration response
+- Expected Taxi Fare added to the [API] path prediction exploration response
+
+#### Feature Updates
+
+- Abnormal termination error fixed that used to occur frequently in the [SDK] background
+
+### October 27, 2020
+#### Functions added
+* Initial [SDK] map option property added
+* Setup for initial map options supported through [SDK]XML attributes (Android)
+* Setup for initial map options supported through [SDK]Interface Builder (iOS)
+
+#### Improvements
+* Fixed the error where [SDK] marker's icon image often fails to update (iOS)
+* Fixed the error where the previous marker is often left on the map when calling [SDK] INVClusterManager#invalidate (iOS)
+
 ### August 25, 2020
 #### More Features 
 * [SDK] Added API sharing the same symbols on the marker from the map 
