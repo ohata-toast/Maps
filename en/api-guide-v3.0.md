@@ -1247,7 +1247,7 @@ In the order of gas, premium gas, light oil, and LPG |
 |guideTop	|Integer| Optional ||Guide data count to expose |
 |groupByTrafficColor	| Boolean| Optional | |Return list of route details by each group of traffic color	|
 |saveFile	| Boolean| Optional | |Save binary files to search POI around the route	|
-
+| useTaxifare   | int | Optional   |       | Determines whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
 
 
 #### Response
@@ -1646,6 +1646,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | beforeCount   | Integer | Optional  |      | Navigation count before base time  |
 | afterCount   | Integer | Optional    |       | Navigation count after base time |
 | interval   | Integer | Optional    |       | Inverval (minute) before/after base time  |
+| useTaxifare   | int | Optional   |       | Determines whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
 
 #### Response
 
@@ -1894,6 +1895,89 @@ In the order of gas, premium gas, light oil, and LPG |
 | route.data.guides[0].type       | String | Road type              |
 | route.data.guides[0].traffic_color       | String | Road traffic color     |
 
+### 6\. Added multi-stops 100
+
+* Navigates the path from the starting point to the destination and returns the navigated path information.
+* Up to 100 stops can be added.
+* Recommended when at least 6 stops need to be designated.
+
+
+#### Request
+
+[URI]
+
+| Method | URI                                          |
+| ------ | -------------------------------------------- |
+| POST   | /maps/v3.0/appkeys/{appkey}/route-normal-via |
+
+[Path parameter]
+
+| Name   | Type   | Required | Effective range | Description   |
+| ------ | ------ | -------- | --------------- | ------------- |
+| appkey | String | Required |                 | Unique Appkey |
+
+[Request Parameters]
+
+| Name   | Type   | Required | Effective range | Description                                                  |
+| ------ | ------ | -------- | --------------- | ------------------------------------------------------------ |
+| startX | String | Required |                 | Starting point X-coordinate                                  |
+| startY | String | Required |                 | Starting point Y-coordinate                                  |
+| endX   | String | Required |                 | Destination X-coordinate                                     |
+| endY   | String | Required |                 | Destination Y-coordinate                                     |
+| option | String | Required |                 | Path search option<br>Search options separated with “,”<br>e.g. option=real_traffic,real_traffic2<br>real_traffic: Real-time recommendation 1<br>real\_traffic\_freeroad: Real-time \(Free\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler |
+| coordType    | String | Required    |       | Coordinate type (TW, WGS84)
+| viaList    | Array | Optional    |       | Stop information                               |
+| via[0].viaX    | String | Optional    |       | Stop X-coordinate                               |
+| via[0].viaY    | String | Optional    |       | Stop Y-coordinate                               |
+| useAngle    | String | Optional    |       | Option of the moving direction of the starting point<br> (Default: false, true: driving direction is prioritized, false: driving direction is not prioritized)                              |
+| angle    | Integer | Optional    |       | Result display count                               |
+| carType   | Integer | Optional    |       | Car type for tollgate calculation (1-6), default: 1 |
+| guideTop	|Integer| Optional ||The number of information messages to show |
+|groupByTrafficColor	| Boolean| Optional| |Whether to return detailed path list information coded and grouped with road traffic colors	|
+| useTaxifare   | Integer | Optional   |       | Whether to check predicted taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis|
+| useStartDirection    | Boolean | Optional    |       | Result display count                               |
+
+
+#### Response
+
+##### Response body
+
+##### Field
+
+| Name                               | Type    | Description                                       |
+| ---------------------------------- | ------- | ------------------------------------------------- |
+| header                             | Object  | Header area                                       |
+| header.isSuccessful                | Boolean | Success or not                                    |
+| header.resultCode                  | Integer | Failure code                                      |
+| header.resultMessage               | String  | Failure message                                   |
+| route                              | Object  | Body area                                         |
+| route.data                         | Object  | Path info                                         |
+| route.data.file_name               | String  | Binary filename to search for POI around the path |
+| route.data.option                  | String  | Search option                                     |
+| route.data.spend_time              | Integer | Elapsed time (seconds)                            |
+| route.data.distance                | Integer | Distance (m)                                      |
+| route.data.total_fee               | Integer | Tollgate fee                                      |
+| route.data.taxiFare                | Integer | Expected amount of taxi fare                      |
+| route.data.paths                   | Array   | Detailed path list                                |
+| route.data.paths[0].coords         | Array   | Detailed coordinates list                         |
+| route.data.paths[0].coords[0].x    | Double  | X-coordinate                                      |
+| route.data.paths[0].coords[0].y    | Double  | Y-coordinate                                      |
+| route.data.paths[0].speed          | Integer | speed                                             |
+| route.data.paths[0].spend_time     | Integer | Elapsed time (seconds)                            |
+| route.data.paths[0].distance       | Integer | Distance (m)                                      |
+| route.data.paths[0].road_code      | Integer | Road type code                                    |
+| route.data.paths[0].traffic_color  | String  | Road traffic color                                |
+| route.data.guides                  | Array   | Major road information list                       |
+| route.data.guides[0].coords        | Array   | Detailed coordinates list                         |
+| route.data.guides[0].coords[0].x   | Array   | X-coordinate                                      |
+| route.data.guides[0].coords[0].y   | Array   | Y-coordinate                                      |
+| route.data.guides[0].distance      | Integer | Distance (m)                                      |
+| route.data.guides[0].name          | String  | Road name                                         |
+| route.data.guides[0].road_code     | Integer | Road type code                                    |
+| route.data.guides[0].score         | Integer | Importance                                        |
+| route.data.guides[0].speed         | Integer | Speed (km)                                        |
+| route.data.guides[0].type          | String  | Road type                                         |
+| route.data.guides[0].traffic_color | String  | Road traffic color                                |
 
 ## Static Map
 
