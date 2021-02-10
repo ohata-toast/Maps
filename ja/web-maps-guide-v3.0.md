@@ -7,7 +7,7 @@ Maps Webマップを使用するのに必要なJavaScript基盤Web APIを説明�
 
 ### 事前準備
 - APIを使用するにはアプリケーションキーが必要です。
-- アプリケーションキーは、**TOAST Console**上部にある**URL & Appkey**メニューで確認できます。
+- アプリケーションキーは、**NHN Cloud Console**上部にある**URL & Appkey**メニューで確認できます。
 
 ### リクエスト共通情報
 
@@ -22,8 +22,8 @@ Maps Webマップを使用するのに必要なJavaScript基盤Web APIを説明�
 
 ### 1. Webマップ
 
-JavaScript基盤のTOAST Maps APIを利用してWebブラウザにマップを表示する方法を説明します。
-TOAST Maps APIは、WGS84(EPSG:4326)座標を使用します。
+JavaScript基盤のNHN Cloud Maps APIを利用してWebブラウザにマップを表示する方法を説明します。
+NHN Cloud Maps APIは、WGS84(EPSG:4326)座標を使用します。
 
 
 #### 主要Maps API案内

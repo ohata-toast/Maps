@@ -7,7 +7,7 @@ Maps 웹 지도를 사용하는 데 필요한 JavaScript 기반 웹 API를 설�
  
 ### Prerequisites 사전 준비
 - API를 사용하려면 Appkey가 필요합니다.
-- Appkey는 **TOAST Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
+- Appkey는 **NHN Cloud Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
 
 ### 요청 공통 정보 Common Request Information
 
@@ -22,8 +22,8 @@ Maps 웹 지도를 사용하는 데 필요한 JavaScript 기반 웹 API를 설�
 
 ### 1. 웹 지도
 
-JavaScript 기반 TOAST Maps API를 이용해 웹 브라우저에 지도를 표시하는 방법을 설명합니다.
-TOAST Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
+JavaScript 기반 NHN Cloud Maps API를 이용해 웹 브라우저에 지도를 표시하는 방법을 설명합니다.
+NHN Cloud Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
 
 
 #### 주요 Maps API 안내

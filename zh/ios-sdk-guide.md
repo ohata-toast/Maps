@@ -5,10 +5,10 @@ Describes the basic project configuration method to enable iNavi maps on iOS.
 - To enable iNavi maps, **Appkey** is required for authentication. 
 
 #### Enable Service 
-- Go to **[NHN TOAST Console]**, select a service and click Application Service > Maps. 
+- Go to **[NHN Cloud Console]**, select a service and click Application Service > Maps. 
 
 #### Check Appkey 
-- To check your appkey, go to **URL & Appkey** on top of the **TOAST Console**. 
+- To check your appkey, go to **URL & Appkey** on top of the **NHN Cloud Console**. 
 
 
 ### Project Configuration 
@@ -182,4 +182,4 @@ For more details on Maps SDK, see [API Center for iNavi Maps](http://imapsapi.in
 
 [moveCamera()] : [https://inavi-systems.github.io/inavi-maps-sdk-reference/ios/Classes/InaviMapView.html#/c:objc(cs)InaviMapView(im)moveCamera:](https://inavi-systems.github.io/inavi-maps-sdk-reference/ios/Classes/InaviMapView.html#/c:objc(cs)InaviMapView(im)moveCamera:)
 
-[NHN TOAST Console] : [https://console.toast.com/](https://console.toast.com/)
+[NHN Cloud Console] : [https://console.toast.com/](https://console.toast.com/)

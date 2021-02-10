@@ -2,7 +2,7 @@
 
 To use service, the Maps Service must be enabled. Then, the Maps, Search, and Navigate APIs become available. 
 
-This document describes how to enable or disable service on **TOAST Console** and check statistics. 
+This document describes how to enable or disable service on **NHN Cloud Console** and check statistics. 
 
 ### Enable Service
 
