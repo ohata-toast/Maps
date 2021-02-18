@@ -5,10 +5,10 @@ Describes the basic project configuration method to enable iNavi maps on Android
 - To enable iNavi maps, **Appkey** is required for authentication. 
 
 #### Enable Service 
-- Go to **[NHN TOAST Console]**, select a service and click Application Service > Maps. 
+- Go to **[NHN Cloud Console]**, select a service and click Application Service > Maps. 
 
 #### Check Appkey 
-- To check your appkey, go to **URL & Appkey** on top of the **TOAST Console**. 
+- To check your appkey, go to **URL & Appkey** on top of the **NHN Cloud Console**. 
 
 
 ### Project Configuration
@@ -165,4 +165,4 @@ For more details on Maps SDK, see [API Center for iNavi Maps](http://imapsapi.in
 [CameraUpdate] : [https://inavi-systems.github.io/inavi-maps-sdk-reference/android/com/inavi/mapsdk/maps/CameraUpdate.html](https://inavi-systems.github.io/inavi-maps-sdk-reference/android/com/inavi/mapsdk/maps/CameraUpdate.html)
 [CameraUpdateBuilder] : [https://inavi-systems.github.io/inavi-maps-sdk-reference/android/com/inavi/mapsdk/maps/CameraUpdateBuilder.html](https://inavi-systems.github.io/inavi-maps-sdk-reference/android/com/inavi/mapsdk/maps/CameraUpdateBuilder.html)
 
-[NHN TOAST Console] : [https://console.toast.com/](https://console.toast.com/)
+[NHN Cloud Console] : [https://console.toast.com/](https://console.toast.com/)

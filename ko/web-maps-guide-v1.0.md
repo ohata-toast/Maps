@@ -6,7 +6,7 @@ Maps 웹 지도를 사용하는 데 필요한 API를 설명합니다.
 
 ### 사전 준비
 - API를 사용하려면 앱키가 필요합니다.
-- 앱키는 **TOAST Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
+- 앱키는 **NHN Cloud Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
 
 ### 요청 공통 정보
 
@@ -21,16 +21,16 @@ Maps 웹 지도를 사용하는 데 필요한 API를 설명합니다.
 
 ### 1. 웹 지도
 
-JavaScript 기반 TOAST Maps API를 이용해 웹 브라우저에 지도를 표시하는 방법을 설명합니다.
-TOAST Maps API는 팅크웨어 좌표를 사용합니다. 축약해서 TW 좌표, TW X 좌표, TW Y 좌표로 표시합니다.
+JavaScript 기반 NHN Cloud Maps API를 이용해 웹 브라우저에 지도를 표시하는 방법을 설명합니다.
+NHN Cloud Maps API는 팅크웨어 좌표를 사용합니다. 축약해서 TW 좌표, TW X 좌표, TW Y 좌표로 표시합니다.
 메서드에서 옵션 파라미터는 [param]으로 표시합니다. 옵션 파라미터는 생략할 수 있습니다.
 
-> ※ TOAST Maps API에서 사용하는 좌표는 팅크웨어 전용 좌표로만 사용됩니다.
+> ※ NHN Cloud Maps API에서 사용하는 좌표는 팅크웨어 전용 좌표로만 사용됩니다.
 > <br>팅크웨어 좌표를 경위도 좌표(WGS84)로 변환하려면 THINKMAP.tw_Wgs84() 함수를 이용합니다.
 > 반대로 경위도 좌표(WGS84)를 팅크웨어 좌표로 변환하려면 THINKMAP.wgs84_Tw() 함수를 이용합니다.
 
-#### 주요 TOAST Maps API 안내
-##### 추가적인 TOAST Maps API 사용법은 <a href="http://developers1.inavi.com:8086?key=19b6272o5" target="_blank" rel="nofollow">Thinkware API Center</a>를 참고하시기 바랍니다.
+#### 주요 NHN Cloud Maps API 안내
+##### 추가적인 NHN Cloud Maps API 사용법은 <a href="http://developers1.inavi.com:8086?key=19b6272o5" target="_blank" rel="nofollow">Thinkware API Center</a>를 참고하시기 바랍니다.
 
 | API 명                                    | Parameter               | Returns                                  | 설명                                       |
 | ---------------------------------------- | ----------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -64,7 +64,7 @@ TOAST Maps API는 팅크웨어 좌표를 사용합니다. 축약해서 TW 좌표
 |                                          | wgs_lat : Number        |                                          | 변환할 WGS84 위도 좌표                          |
 
 
-#### TOAST Maps API 사용
+#### NHN Cloud Maps API 사용
 ```
 // 지도 사용을 위한 js 파일을 선언합니다.
 <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/map.js"></script>
@@ -197,7 +197,7 @@ TOAST Maps API는 팅크웨어 좌표를 사용합니다. 축약해서 TW 좌표
 
 ### 2. 정적(static) 지도
 
-#### TOAST Maps API 정적(static) 지도 사용
+#### NHN Cloud Maps API 정적(static) 지도 사용
 ```
 // 정적(static) 지도 사용을 위한 js 파일을 선언합니다.
 <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js"></script>
@@ -228,10 +228,10 @@ TOAST Maps API는 팅크웨어 좌표를 사용합니다. 축약해서 TW 좌표
 
 ### 3. 모바일 웹 지도
 
-Android/iOS WebView로 하이브리드 형태의 앱을 개발할 때 TOAST Maps API를 이용해 JavaScript 기반의  웹 지도와 동일한 API로 사용할 수 있습니다.
+Android/iOS WebView로 하이브리드 형태의 앱을 개발할 때 NHN Cloud Maps API를 이용해 JavaScript 기반의  웹 지도와 동일한 API로 사용할 수 있습니다.
 API 관련해서는 [1. 웹 지도](#1-web)를 참고하시기 바랍니다.
 
-#### TOAST Maps API Mobile에서 사용
+#### NHN Cloud Maps API Mobile에서 사용
 ```
 <!DOCTYPE html>
 <html>

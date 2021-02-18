@@ -7,7 +7,7 @@ Describes APIs that are required to use the Maps Service.
 ### Prerequisites 
 
 * Appkey is required to use APIs. 
-* To check your appkey, go to **URL & Appkey** on top of the **TOAST Console**. 
+* To check your appkey, go to **URL & Appkey** on top of the **NHN Cloud Console**. 
 
 ### Common Request Information
 

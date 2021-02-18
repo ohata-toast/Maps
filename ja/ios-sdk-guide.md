@@ -5,10 +5,10 @@ iOSプラットフォームでinaviマップを使用するためのプロジェ
 - inaviマップを使用するには認証用の**Appkey**が必要です。
 
 #### サービス有効化
-- **[NHN TOAST Console]**でサービスを選択し、Application Service > Mapsをクリックします。
+- **[NHN Cloud Console]**でサービスを選択し、Application Service > Mapsをクリックします。
 
 #### Appkey確認
-- **Appkey**は、**TOAST Console**上部の**URL & Appkey**メニューで確認できます。
+- **Appkey**は、**NHN Cloud Console**上部の**URL & Appkey**メニューで確認できます。
 
 
 ### Project環境構成
@@ -185,4 +185,4 @@ Maps SDKの使用方法は[iNavi Maps APIセンター](http://imapsapi.inavi.com
 
 [moveCamera()] : [https://inavi-systems.github.io/inavi-maps-sdk-reference/ios/Classes/InaviMapView.html#/c:objc(cs)InaviMapView(im)moveCamera:](https://inavi-systems.github.io/inavi-maps-sdk-reference/ios/Classes/InaviMapView.html#/c:objc(cs)InaviMapView(im)moveCamera:)
 
-[NHN TOAST Console] : [https://console.toast.com/](https://console.toast.com/)
+[NHN Cloud Console] : [https://console.toast.com/](https://console.toast.com/)

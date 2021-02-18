@@ -7,7 +7,7 @@
 ### 사전 준비
 
 * API를 사용하려면 Appkey가 필요합니다.
-* Appkey는 **TOAST Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
+* Appkey는 **NHN Cloud Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
 
 ### 요청 공통 정보
 

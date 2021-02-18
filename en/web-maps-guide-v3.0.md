@@ -7,7 +7,7 @@ Describes JavaScript-based web APIs required to use web maps.
 
 ### Prerequisites 
 - Appkey is required to use APIs. 
-- To check your appkey, go to **URL & Appkey** on top of the **TOAST Console**. 
+- To check your appkey, go to **URL & Appkey** on top of the **NHN Cloud Console**. 
 
 ### Common Request Information
 
@@ -22,8 +22,8 @@ Describes JavaScript-based web APIs required to use web maps.
 
 ### 1. Web Maps
 
-Describes how to show maps on the web browser by using Javascript-based TOAST Maps API. 
-TOAST Maps API adopts Thinkware coordinates
+Describes how to show maps on the web browser by using Javascript-based NHN Cloud Maps API. 
+NHN Cloud Maps API adopts Thinkware coordinates
 
 
 #### Guide for Maps API

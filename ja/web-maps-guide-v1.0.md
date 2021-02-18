@@ -6,7 +6,7 @@ Maps Webマップを使用するのに必要なAPIを説明します。
 
 ### 事前準備
 - APIを使用するにはアプリケーションキーが必要です。
-- アプリケーションキーは、**TOAST Console**上部にある**URL & Appkey**メニューで確認できます。
+- アプリケーションキーは、**NHN Cloud Console**上部にある**URL & Appkey**メニューで確認できます。
 
 ### リクエスト共通情報
 
@@ -21,16 +21,16 @@ Maps Webマップを使用するのに必要なAPIを説明します。
 
 ### 1. Webマップ
 
-JavaScript基盤のTOAST Maps APIを利用して、Webブラウザにマップを表示する方法を説明します。
-TOAST Maps APIは、THINKWARE座標を使用します。縮約してTW座標、TW X座標、TW Y座標で表示します。
+JavaScript基盤のNHN Cloud Maps APIを利用して、Webブラウザにマップを表示する方法を説明します。
+NHN Cloud Maps APIは、THINKWARE座標を使用します。縮約してTW座標、TW X座標、TW Y座標で表示します。
 メソッドでオプションのパラメータは[param]と表示します。オプションのパラメータは省略できます。
 
-> ※ TOAST Maps APIで使用する座標は、THINKWARE専用座標にのみ使用されます。
+> ※ NHN Cloud Maps APIで使用する座標は、THINKWARE専用座標にのみ使用されます。
 > <br>THINKWARE座標を経緯度座標(WGS84)に変換するには、THINKMAP.tw_Wgs84()関数を利用します。
 > 反対に経緯度座標(WGS84)をTHINKWARE座標に変換するには、THINKMAP.wgs84_Tw()関数を利用します。
 
-#### 主要TOAST Maps API案内
-##### TOAST Maps APIの詳細な使用方法は、<a href="http://developers1.inavi.com:8086?key=19b6272o5" target="_blank" rel="nofollow">Thinkware API Center</a>を参照してください。
+#### 主要NHN Cloud Maps API案内
+##### NHN Cloud Maps APIの詳細な使用方法は、<a href="http://developers1.inavi.com:8086?key=19b6272o5" target="_blank" rel="nofollow">Thinkware API Center</a>を参照してください。
 
 | API名                                | Parameter               | Returns                                  | 説明                              |
 | ---------------------------------------- | ----------------------- | ---------------------------------------- | ---------------------------------------- |
@@ -64,7 +64,7 @@ TOAST Maps APIは、THINKWARE座標を使用します。縮約してTW座標、T
 |                                          | wgs_lat : Number        |                                          | 変換するWGS84緯度座標                 |
 
 
-#### TOAST Maps APIの使用
+#### NHN Cloud Maps APIの使用
 ```
 // マップを使用するためのjsファイルを宣言します。
 <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/map.js"></script>
@@ -197,7 +197,7 @@ TOAST Maps APIは、THINKWARE座標を使用します。縮約してTW座標、T
 
 ### 2. 静的(static)マップ
 
-#### TOAST Maps API静的(static)マップ使用
+#### NHN Cloud Maps API静的(static)マップ使用
 ```
 // 静的(static)マップを使用するためのjsファイルを宣言します。
 <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js"></script>
@@ -228,10 +228,10 @@ TOAST Maps APIは、THINKWARE座標を使用します。縮約してTW座標、T
 
 ### 3. モバイルWebマップ
 
-Android/iOS WebViewで使用できるハイブリッド型のアプリを開発する時、TOAST Maps APIを利用し、JavaScript基盤のWebマップと同じAPIで使用できます。
+Android/iOS WebViewで使用できるハイブリッド型のアプリを開発する時、NHN Cloud Maps APIを利用し、JavaScript基盤のWebマップと同じAPIで使用できます。
 APIの詳細は、[1. Webマップ](#1-web)を参照してください。
 
-#### TOAST Maps APIをMobileで使用
+#### NHN Cloud Maps APIをMobileで使用
 ```
 <!DOCTYPE html>
 <html>

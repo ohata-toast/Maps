@@ -28,7 +28,7 @@ Describes APIs that are required to use web maps.
 ### Prerequisites
 
 - Appkey is required to use APIs. 
-- To check your appkey, go to **URL & Appkey** on top of the **TOAST Console**. 
+- To check your appkey, go to **URL & Appkey** on top of the **NHN Cloud Console**. 
 
 ### Common Request Information
 
@@ -43,15 +43,15 @@ Describes APIs that are required to use web maps.
 
 ### 1. Web Maps 
 
-Describes how to display maps on the web browser by using Javascript-based TOAST Maps API.  
-TOAST Maps API adopts Thinkware coordinates: TW, TW X, or TW Y coordinates, in short. 
+Describes how to display maps on the web browser by using Javascript-based NHN Cloud Maps API.  
+NHN Cloud Maps API adopts Thinkware coordinates: TW, TW X, or TW Y coordinates, in short. 
 Optional parameters are displayed as [param] for method: they can be omitted.
 
-> ※ TOAST Maps API adopts Thinkware-only coordinates. 
+> ※ NHN Cloud Maps API adopts Thinkware-only coordinates. 
 > <br>To convert Thinkware coordinates into Latitude/Longitude (WGS84), use the THINKMAP.tw_Wgs84() function. On the contrary, to convert Latitude/Longitude (WGS84) into Thinkware coordinates, use the THINKMAP.wgs84_Tw() function.
 
-#### Guide for Main TOAST Maps APIs 
-##### For more details on using TOAST Maps APIs, see <a href="http://developers1.inavi.com:8086?key=19b6272o5" target="_blank" rel="nofollow">Thinkware API Center</a>.
+#### Guide for Main NHN Cloud Maps APIs 
+##### For more details on using NHN Cloud Maps APIs, see <a href="http://developers1.inavi.com:8086?key=19b6272o5" target="_blank" rel="nofollow">Thinkware API Center</a>.
 
 | API Name                                                     | Parameter                        | Returns                                                      | Description                                                  |
 | ------------------------------------------------------------ | -------------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
@@ -99,7 +99,7 @@ Optional parameters are displayed as [param] for method: they can be omitted.
 |                                                              | param.lat : number               |                                                              | Latitude                                                     |
 
 
-#### Enable TOAST Maps API
+#### Enable NHN Cloud Maps API
 ```
 <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v2.0/map.js"></script>
 <script>
@@ -256,7 +256,7 @@ Optional parameters are displayed as [param] for method: they can be omitted.
 
 ### 2. Static Maps
 
-#### Enable Static TOAST Maps API 
+#### Enable Static NHN Cloud Maps API 
 ```
 // Declare js file to enable static maps.
 <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v2.0/staticMap.js"></script>
@@ -287,10 +287,10 @@ Optional parameters are displayed as [param] for method: they can be omitted.
 
 ### 3. Mobile Web Maps
 
-Enable TOAST Maps API, which serves as the same API for Javascript-based web maps, to develop hybrid apps with Android/iOS WebView. 
+Enable NHN Cloud Maps API, which serves as the same API for Javascript-based web maps, to develop hybrid apps with Android/iOS WebView. 
 Regarding the API, see [1. Web Maps](#1-web) . 
 
-#### Available for TOAST Maps API Mobile
+#### Available for NHN Cloud Maps API Mobile
 ```
 <!DOCTYPE html>
 <html>
