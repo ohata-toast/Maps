@@ -7,7 +7,7 @@ Maps 서비스를 사용하는 데 필요한 API를 설명합니다.
 ### 사전 준비
 
 * API를 사용하려면 앱키가 필요합니다.
-* 앱키는 **TOAST Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
+* 앱키는 **NHN Cloud Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
 
 ### 요청 공통 정보
 

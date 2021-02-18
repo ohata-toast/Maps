@@ -174,4 +174,4 @@ inaviMap.moveCamera(cameraUpdate)
 [CameraUpdate] : [https://inavi-systems.github.io/inavi-maps-sdk-reference/android/com/inavi/mapsdk/maps/CameraUpdate.html](https://inavi-systems.github.io/inavi-maps-sdk-reference/android/com/inavi/mapsdk/maps/CameraUpdate.html)
 [CameraUpdateBuilder] : [https://inavi-systems.github.io/inavi-maps-sdk-reference/android/com/inavi/mapsdk/maps/CameraUpdateBuilder.html](https://inavi-systems.github.io/inavi-maps-sdk-reference/android/com/inavi/mapsdk/maps/CameraUpdateBuilder.html)
 
-[NHN TOAST Console] : [https://console.toast.com/](https://console.toast.com/)
+[NHN Cloud Console] : [https://console.toast.com/](https://console.toast.com/)
