@@ -69,7 +69,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | y1            | String | 任意 |       | Y1座標<br>spopt値が0の場合、基準点Y座標<br>spopt値が1の場合、Extentの左上Y座標<br>spopt値が2の場合、基準点Y座標 |
 | x2            | String | 任意 |       | X2座標<br>spopt値が1の場合、Extentの右下X座標、spopt値が2の場合、使用しない |
 | y2            | String | 任意 |       | Y2座標<br>spopt値が1の場合、Extentの右下Y座標、spopt値が2の場合、使用しない |
-| sortopt       | String | 任意 |       | ソートoption<br>1：名称順ソート<br>2：距離順ソート(座標を入力した場合)<br>3：名前マッチ→距離順ソート(座標を入力した場合)<br>4：検索ワードWeightソート(エンジン基準)<br>5：検索ワードWeightソート + length(エンジン基準)<br>6：お気に入りカテゴリー優先ソート[V8.1.5未サポート]<br>7：最新データ順ソート<br>8：検索ワードWeightソート(Landmark>距離>PoiWeight) + 距離順(座標を入力した場合)<br>* sortopt値が未設定の場合、4に設定 |
+| sortopt       | String | 任意 |       | ソートoption<br>1：名称順ソート<br>2：距離順ソート(座標を入力した場合)<br>3：名前マッチ(座標を入力した場合、座標から距離順で追加ソート)<br>4：検索ワード重みソート(エンジン基準)<br>* sortopt値が未設定の場合、4に設定 |
 
 
 #### レスポンス
