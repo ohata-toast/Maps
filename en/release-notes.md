@@ -1,5 +1,10 @@
 ## Application Service > Maps > Release Notes
 
+### February 23, 2021
+#### More Features
+* [SDK] Added API to set sizes of map symbols
+* [SDK] Supports 3D effect for buildings when setting map tilt angle
+ 
 ### January 26, 2021
 #### More Features
 * [API] “Added multi-stops 100” API added
