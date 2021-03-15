@@ -5,7 +5,7 @@ Android 플랫폼에서 아이나비 지도를 사용하기 위한 프로젝트 
 - 아이나비 지도를 사용하기 위해서는 인증을 위한 **Appkey**가 필요합니다.
 
 #### 서비스 활성화
-- **[NHN NHN Cloud Console]** 에서 서비스 선택 후 Application Service > Maps를 클릭합니다
+- **[NHN Cloud Console]** 에서 서비스 선택 후 Application Service > Maps를 클릭합니다
 
 #### Appkey 확인
 - **Appkey**는 **NHN Cloud Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
@@ -13,6 +13,9 @@ Android 플랫폼에서 아이나비 지도를 사용하기 위한 프로젝트 
 
 ### Project 환경 구성
 아이나비 지도 SDK는 Bintray를 통해 별도 배포되므로, 다음과 같이 프로젝트 및 앱 모듈 레벨의 build.gradle 파일에 저장소 설정과 아이나비 지도 SDK에 대한 의존성을 추가합니다.
+>` SDK 0.6.1 버전부터 새로운 지도 저장소로 배포됩니다. 이전 지도 저장소를 이용하시는 경우 지도 저장소를 변경해야 합니다.`
+>- 기존 - https://dl.bintray.com/inavi-systems/maps/
+>- `신규 - https://inavisystems.jfrog.io/artifactory/maps/`
 
 ```gradle
 /* Root Project build.gradle */
@@ -23,7 +26,7 @@ allprojects {
         ...
         // 아이나비 지도 저장소
         maven {
-            url 'https://dl.bintray.com/inavi-systems/maps/'
+            url 'https://inavisystems.jfrog.io/artifactory/maps/'
         }
     }
 }
@@ -33,7 +36,7 @@ allprojects {
 /* App Module build.gradle */
 
 dependencies {
-    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.6.0'
+    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.6.1'
 }
 ```
 

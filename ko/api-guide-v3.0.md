@@ -785,6 +785,10 @@
 }
 ```
 
+
+
+
+
 ##### 필드
 
 | 이름                   | 타입      | 설명       |
@@ -797,6 +801,158 @@
 | coordinate.coordtype | String  | 변환 좌표 형태 |
 | coordinate.x         | String  | 변환 X 좌표   |
 | coordinate.y         | String  | 변환 Y 좌표   |
+
+
+### 6\. 주변 카테고리 검색
+
+* 기준 좌표를 기준으로 주변 카테고리 검색기능을 지원합니다.
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/nearby-category-searches?depth={depth}&x1={x1}&y1={y1}&x2={x2}&y2={y2}&radius={radius}&catecode={catecode}&coordtype={coordtype}&reqcount={reqcount}  |
+
+[Path parameter]
+
+| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 필수    |       | 고유의 앱키 |
+
+[Query Parameters]
+
+| 이름        | 타입     | 필수 여부 |  설명                                   |
+| --------- | ------ | ----- |  ------------------------------------ |
+| catecode         | String | 필수   | 카테고리 코드 |
+| spopt         | Integer | 필수   | 1 : Extent(x1,y1,x2,y2) <br> 2 : 반경검색(x1,y1,radius)                                   |
+| x1         | String | 필수(spopt 참조)    | 기준 X1좌표 |
+| y1         | String | 필수(spopt 참조)    | 기준 Y1좌표 |
+| x2         | String | 필수(spopt 참조)    | 기준 X2좌표 |
+| y2         | String | 필수(spopt 참조)    | 기준 Y2 좌표 |
+| radius         | String | 필수(spopt 참조)    | 반경(m) |
+| depth | String | 선택    | 0 : 전체 depth <br> 1 : depth1 <br> 2 : depth2 <br> 3 : depth3|
+| sortopt | String | 선택    | 정렬 옵션 <br> 1 : 거리순 <br> 2 : 명칭순<br> 3: 휘발유 가격순 (주유소 검색시) <br> 4 : 고급휘발유 가격순 (주유소 검색시)<br> 5 : 경유 가격순 (주유소 검색시)<br> 6 : LPG 가격순 (주유소 검색시)<br> 7 : 평점순|
+| reqcount | String | 선택    | 표시할 검색 결과 개수|
+
+#### 응답
+
+##### 응답 본문
+
+```
+{
+	"cate": {
+			"result": true,
+			"totalcount": 10,
+			"count": 10,
+			"poi": [
+					{
+							"poiid": 717788,
+							"depth": 0,
+							"dpx": "127.110762",
+							"dpy": "37.402184",
+							"rpx": "127.110862",
+							"rpy": "37.402334",
+							"name1": "팅크웨어(주)",
+							"name2": "아이나비(본사)",
+							"name3": "THINKWARE",
+							"name4": "INAVI",
+							"admcode": "4113510900",
+							"jibun": "678",
+							"address": "경기도 성남시 분당구 삼평동",
+							"roadname": "경기도 성남시 분당구 판교역로",
+							"roadjibun": "240",
+							"detailaddress": "삼환하이펙스 A동 8층,9층",
+							"catecode": "130600",
+							"catename": "기업",
+							"dp_catecode": "000",
+							"userid": "",
+							"imagecount": 0,
+							"userimagecount": 0,
+							"badgeflag": false,
+							"distance": 27,
+							"tel": "1577-4242",
+							"islandmark": true,
+							"visitscore": "35.74",
+							"landmarkscore": "10",
+							"popularity": false,
+							"pop_tv": false,
+							"pop_sns": false,
+							"pop_hot": false,
+							"pop_hit": false,
+							"pop_top": "경기_1,분당구_1",
+							"updateTS": "2019-12-12 00:00:00",
+							"hasoildata": false,
+							"hasdetailinfo": true,
+							"hassubpoi": true,
+							"subpoi": {
+									"count": 1
+							}
+					}
+        ],
+        "hasgasstation": false
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### 필드
+
+##### 필드
+
+| 이름                                 | 타입      | 설명                                       |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | 헤더 영역                                    |
+| header.isSuccessful                | Boolean | 성공 여부                                    |
+| header.resultCode                  | Integer | 실패 코드                                    |
+| header.resultMessage               | String  | 실패 메시지                                   |
+| cate                                | Object  | 본문 영역                                    |
+| cate.result                         | Boolean | 성공 여부                                    |
+| cate.totalcount                     | Integer | 전체 검색 결과 대상 개수                           |
+| cate.count                          | Integer | 검색 결과 개수                                 |
+| cate.poi                        | Array   | POI 검색 결과 목록                             |
+| cate.poi[0].poiid               | Integer | POI ID                                   |
+| cate.poi[0].depth             | String  | POI 하위 시설물 depth                                 |
+| cate.poi[0].dpx                 | String  | display X 좌표(WGS84의 경우 longitude)         |
+| cate.poi[0].dpy                 | String  | display Y 좌표(WGS84의 경우 latitude)          |
+| cate.poi[0].rpx                 | String  | 탐색 X 좌표(WGS84의 경우 longitude)              |
+| cate.poi[0].rpy                 | String  | 탐색 Y 좌표(WGS84의 경우 latitude)               |
+| cate.poi[0].name1               | String  | 정식 명칭                                    |
+| cate.poi[0].name2               | String  | 축약 명칭                                    |
+| cate.poi[0].name3               | String  | 확장 명칭 1                                  |
+| cate.poi[0].name4               | String  | 확장 명칭 2                                  |
+| cate.poi[0].admcode             | String  | 행정코드                                    |
+| cate.poi[0].jibun               | String  | 지번                                       |
+| cate.poi[0].address             | String  | 주소                                       |
+| cate.poi[0].roadname            | String  | 새주소 도로명                                  |
+| cate.poi[0].roadjibun           | String  | 새주소 지번                                   |
+| cate.poi[0].detailaddress       | String  | 상세 주소                                    |
+| cate.poi[0].catecode            | String  | 분류 코드                                    |
+| cate.poi[0].catename            | String  | 분류 명칭                                    |
+| cate.poi[0].tel                | String  | 전화번호 1                                   |
+| cate.poi[0].distance                | Integer  | 거리                                   |
+| cate.poi[0].imagecount          | Integer | POI 이미지 개수                               |
+| cate.poi[0].hasoildata          | Boolean | 유가 데이터 존재 유무                             |
+| cate.poi[0].oildata             | Object  | 유가 데이터 정보                                |
+| cate.poi[0].oilda.tag_price     | Integer | 휘발유 가격                                   |
+| cate.poi[0].oilda.hg_price      | Integer | 고급휘발유 가격                                 |
+| cate.poi[0].oilda.d_price       | Integer | 경유 가격                                    |
+| cate.poi[0].oilda.l_price       | Integer | LPG 가격                                   |
+| cate.poi[0].oilda.updatetime    | String  | 업데이트 시간                                  |
+| cate.poi[0].oilda.priceinfo     | String  | 최고, 최저 유가 정보<br>(H : 최고, L : 최저, X : 해당없음)<br>휘발유, 고급휘발유, 경유, LPG 순 |
+| cate.poi[0].oilda.wash          | Boolean | 세차 시설 여부                                 |
+| cate.poi[0].oilda.fix           | Boolean | 정비 가능 여부                                 |
+| cate.poi[0].oilda.mart          | Boolean | 매점 여부                                    |
+| cate.poi[0].hassubpoi          | Boolean | 하위 시설물 데이터 존재 유무          |
+| cate.poi[0].subpoi          | Object | 하위 시설물 정보                                 |
+| cate.poi[0].subpoi.count          | Integer | 하위 시설물 개수                                 |
+| cate.poi[0].subpoi.poi          | Array |  POI 정보와 동일                            |
+
 
 
 ## Geocoding API(지오코딩 API)
