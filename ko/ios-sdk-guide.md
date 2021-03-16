@@ -5,7 +5,7 @@ iOS 플랫폼에서 아이나비 지도를 사용하기 위한 프로젝트 기�
 - 아이나비 지도를 사용하기 위해서는 인증을 위한 **Appkey**가 필요합니다.
 
 #### 서비스 활성화
-- **[NHN Cloud Console]** 에서 서비스 선택 후 Application Service > Maps를 클릭합니다
+- **NHN Cloud Console**에서 서비스를 선택한 후 Application Service > Maps를 클릭합니다.
 
 #### Appkey 확인
 - **Appkey**는 **NHN Cloud Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.

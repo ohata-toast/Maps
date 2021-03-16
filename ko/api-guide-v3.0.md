@@ -805,7 +805,7 @@
 
 ### 6\. 주변 카테고리 검색
 
-* 기준 좌표를 기준으로 주변 카테고리 검색기능을 지원합니다.
+* 기준 좌표를 기준으로 주변 카테고리 검색 기능을 지원합니다.
 
 #### 요청
 
@@ -832,8 +832,8 @@
 | x2         | String | 필수(spopt 참조)    | 기준 X2좌표 |
 | y2         | String | 필수(spopt 참조)    | 기준 Y2 좌표 |
 | radius         | String | 필수(spopt 참조)    | 반경(m) |
-| depth | String | 선택    | 0 : 전체 depth <br> 1 : depth1 <br> 2 : depth2 <br> 3 : depth3|
-| sortopt | String | 선택    | 정렬 옵션 <br> 1 : 거리순 <br> 2 : 명칭순<br> 3: 휘발유 가격순 (주유소 검색시) <br> 4 : 고급휘발유 가격순 (주유소 검색시)<br> 5 : 경유 가격순 (주유소 검색시)<br> 6 : LPG 가격순 (주유소 검색시)<br> 7 : 평점순|
+| depth | String | 선택    | 0: 전체 depth <br> 1: depth1 <br> 2: depth2 <br> 3: depth3|
+| sortopt | String | 선택    | 정렬 옵션 <br> 1: 거리순 <br> 2: 명칭순<br> 3: 휘발유 가격순(주유소 검색 시) <br> 4: 고급휘발유 가격순(주유소 검색 시)<br> 5: 경유 가격순(주유소 검색 시)<br> 6: LPG 가격순(주유소 검색 시)<br> 7: 평점순|
 | reqcount | String | 선택    | 표시할 검색 결과 개수|
 
 #### 응답
@@ -944,7 +944,7 @@
 | cate.poi[0].oilda.d_price       | Integer | 경유 가격                                    |
 | cate.poi[0].oilda.l_price       | Integer | LPG 가격                                   |
 | cate.poi[0].oilda.updatetime    | String  | 업데이트 시간                                  |
-| cate.poi[0].oilda.priceinfo     | String  | 최고, 최저 유가 정보<br>(H : 최고, L : 최저, X : 해당없음)<br>휘발유, 고급휘발유, 경유, LPG 순 |
+| cate.poi[0].oilda.priceinfo     | String  | 최고, 최저 유가 정보<br>(H: 최고, L: 최저, X: 해당없음)<br>휘발유, 고급휘발유, 경유, LPG순 |
 | cate.poi[0].oilda.wash          | Boolean | 세차 시설 여부                                 |
 | cate.poi[0].oilda.fix           | Boolean | 정비 가능 여부                                 |
 | cate.poi[0].oilda.mart          | Boolean | 매점 여부                                    |
