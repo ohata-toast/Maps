@@ -5,7 +5,7 @@ iOSプラットフォームでinaviマップを使用するためのプロジェ
 - inaviマップを使用するには認証用の**Appkey**が必要です。
 
 #### サービス有効化
-- **[NHN Cloud Console]**でサービスを選択し、Application Service > Mapsをクリックします。
+- **NHN Cloud Console**でサービスを選択してApplication Service > Mapsをクリックします
 
 #### Appkey確認
 - **Appkey**は、**NHN Cloud Console**上部の**URL & Appkey**メニューで確認できます。
