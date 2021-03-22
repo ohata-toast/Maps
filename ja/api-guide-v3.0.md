@@ -49,13 +49,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Query Parameters]
 
-| 名前        | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
+| 名前        | タイプ | 要否 | 有効範囲 | 説明                                   |
 | ------------- | ------ | ----- | ----- | ---------------------------------------- |
 | query         | String | 必須 |       | 検索ワード                                  |
 | coordtype     | String | 任意 |       | 座標形式<br>0：TW座標<br>1：WGS84座標<br>2：TM座標 |
@@ -313,13 +313,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Query Parameters]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明                 |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明                 |
 | ----- | ------ | ----- | ----- | ---------------------- |
 | query | String | 必須 | 50バイト | ハングル/英語/数字50バイト(ハングル25文字) |
 
@@ -412,13 +412,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Query Parameters]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明                                   |
 | ----- | ------ | ----- | ----- | ---------------------------------------- |
 | poiid | String | 必須 | 186個 | POI ID<br>poiidをセパレータ","で区切って入力<br>(複数可能186個まで)<br>例) poiid=123,234,567 |
 
@@ -607,13 +607,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Query Parameters]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲                           | 説明         |
+| 名前 | タイプ | 要否 | 有効範囲                           | 説明         |
 | ----- | ------ | ----- | ---------------------------------------- | ------------------- |
 | poiid | String | 必須 |                                          | POI ID<br>複数サポートされない |
 | x1    | String | 任意 | 現在地またはマップ中心座標<br>X、Y座標がすべてNULLまたは0の場合、距離計算を実行しない |                     |
@@ -754,13 +754,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Query Parameters]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲                        | 説明                          |
+| 名前 | タイプ | 要否 | 有効範囲                        | 説明                          |
 | --------- | ------ | ----- | ------------------------------------- | ------------------------------------ |
 | coordtype | String | 必須 |                                       | 0：WGS84 → TM <br> 1：TM → WGS84 |
 | x         | String | 必須 | 現在地またはマップ中心座標<br>WGS84座標またはTM座標 |                                      |
@@ -784,6 +784,10 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
   }
 }
 ```
+
+
+
+
 
 ##### フィールド
 
@@ -812,22 +816,24 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前    | タイプ    | 必須かどうか | 有効範囲 | 説明    |
+| 名前   | タイプ   | 要否 | 有効範囲 | 説明   |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 必須   |       | 固有のアプリケーションキー |
+| appkey | String | 必須  |       | 固有のアプリケーションキー |
 
 [Query Parameters]
 
-| 名前       | タイプ    | 必須かどうか | 説明                                  |
+| 名前      | タイプ   | 要否 | 説明                                 |
 | --------- | ------ | ----- |  ------------------------------------ |
-| depth | Integer | 必須   | 0 :全体depth <br> 1 : depth1 <br> 2 : depth2 <br> 3 : depth3|
-| spopt         | Integer | 必須  | 1：Extent(x1,y1,x2,y2) <br> 2：半径検索(x1,y1,radius)                                   |
-| catecode         | String | 必須  | カテゴリーコード |
+| catecode         | String | 必須 | カテゴリーコード |
+| spopt         | Integer | 必須 | 1：Extent(x1,y1,x2,y2) <br> 2：半径検索(x1,y1,radius)                                   |
 | x1         | String | 必須(spopt参照)    | 基準X1座標 |
 | y1         | String | 必須(spopt参照)    | 基準Y1座標 |
 | x2         | String | 必須(spopt参照)    | 基準X2座標 |
 | y2         | String | 必須(spopt参照)    | 基準Y2座標 |
 | radius         | String | 必須(spopt参照)    | 半径(m) |
+| depth | String | 任意  | 0：全体depth <br> 1： depth1 <br> 2： depth2 <br> 3： depth3|
+| sortopt | String | 任意  | ソートオプション <br> 1：距離順 <br> 2：名称順<br> 3：レギュラー価格順(ガソリンスタンド検索時) <br> 4：ハイオク価格順(ガソリンスタンド検索時)<br> 5：軽油価格順(ガソリンスタンド検索時)<br> 6：LPG価格順(ガソリンスタンド検索時)<br> 7：スコア順|
+| reqcount | String | 任意  | 表示する検索結果数|
 
 #### レスポンス
 
@@ -835,54 +841,54 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ```
 {
-    "cate": {
-        "result": true,
-        "totalcount": 7,
-        "count": 1,
-        "poi": [
-            {
-                "poiid": 717788,
-                "depth": 0,
-                "dpx": "127.110762",
-                "dpy": "37.402184",
-                "rpx": "127.110862",
-                "rpy": "37.402334",
-                "name1": "THINKWARE (株)",
-                "name2": "inavi(本社)",
-                "name3": "THINKWARE",
-                "name4": "INAVI",
-                "admcode": "4113510900",
-                "jibun": "678",
-                "address": "京畿道城南市盆唐区三坪洞",
-                "roadname": "京畿道城南市盆唐区板橋駅路",
-                "roadjibun": "240",
-                "detailaddress": "Samhwan HIPEX A棟8階、9階",
-                "catecode": "130600",
-                "catename": "企業",
-                "dp_catecode": "000",
-                "userid": "",
-                "imagecount": 0,
-                "userimagecount": 0,
-                "badgeflag": false,
-                "distance": 40,
-                "tel": "15774242",
-                "islandmark": true,
-                "visitscore": "7.12",
-                "landmarkscore": "10",
-                "popularity": false,
-                "pop_tv": false,
-                "pop_sns": false,
-                "pop_hot": false,
-                "pop_hit": false,
-                "pop_top": "京畿_,盆唐区_2",
-                "updateTS": "2019-05-02 00:00:00",
-                "hasoildata": false,
-                "hasdetailinfo": true,
-                "hassubpoi": true,
-                "subpoi": {
-                    "count": 1
-                }
-            }
+	"cate": {
+			"result": true,
+			"totalcount": 10,
+			"count": 10,
+			"poi": [
+					{
+							"poiid": 717788,
+							"depth": 0,
+							"dpx": "127.110762",
+							"dpy": "37.402184",
+							"rpx": "127.110862",
+							"rpy": "37.402334",
+							"name1": "THINKWARE (株)",
+							"name2": "inavi(本社)",
+							"name3": "THINKWARE",
+							"name4": "INAVI",
+							"admcode": "4113510900",
+							"jibun": "678",
+							 "address": "京畿道城南市盆唐区三坪洞",
+							"roadname": "京畿道城南市盆唐区板橋駅路",
+							"roadjibun": "240",
+							"detailaddress": "Samhwan HIPEX A棟8階、9階",
+							"catecode": "130600",
+							"catename": "企業",
+							"dp_catecode": "000",
+							"userid": "",
+							"imagecount": 0,
+							"userimagecount": 0,
+							"badgeflag": false,
+							"distance": 27,
+							"tel": "1577-4242",
+							"islandmark": true,
+							"visitscore": "35.74",
+							"landmarkscore": "10",
+							"popularity": false,
+							"pop_tv": false,
+							"pop_sns": false,
+							"pop_hot": false,
+							"pop_hit": false,
+							pop_top": "京畿_、盆唐区_2",
+							"updateTS": "2019-12-12 00:00:00",
+							"hasoildata": false,
+							"hasdetailinfo": true,
+							"hassubpoi": true,
+							"subpoi": {
+									"count": 1
+							}
+					}
         ],
         "hasgasstation": false
     },
@@ -898,178 +904,53 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-| 名前                                | タイプ     | 説明                                      |
+| 名前                               | タイプ    | 説明                                     |
 | ---------------------------------- | ------- | ---------------------------------------- |
-| header                             | Object  | ヘッダ領域                                   |
-| header.isSuccessful                | Boolean | 成否                                   |
-| header.resultCode                  | Integer | 失敗コード                                   |
-| header.resultMessage               | String  | 失敗メッセージ                                  |
-| cate                                | Object  | 本文領域                                   |
-| cate.result                         | Boolean | 成否                                   |
-| cate.totalcount                     | Integer | 全体検索結果対象数                           |
-| cate.count                          | Integer | 検索結果数                                 |
-| cate.poi                        | Array   | POI検索結果リスト                            |
+| header                             | Object  | ヘッダ領域                                  |
+| header.isSuccessful                | Boolean | 成否                                  |
+| header.resultCode                  | Integer | 失敗コード                                  |
+| header.resultMessage               | String  | 失敗メッセージ                                 |
+| cate                                | Object  | 本文領域                                  |
+| cate.result                         | Boolean | 成否                                  |
+| cate.totalcount                     | Integer | 全体検索結果対象数                          |
+| cate.count                          | Integer | 検索結果数                                |
+| cate.poi                        | Array   | POI検索結果リスト                           |
 | cate.poi[0].poiid               | Integer | POI ID                                   |
+| cate.poi[0].depth             | String  | POI下位施設depth                                 |
 | cate.poi[0].dpx                 | String  | display X座標(WGS84の場合longitude)         |
 | cate.poi[0].dpy                 | String  | display Y座標(WGS84の場合latitude)          |
 | cate.poi[0].rpx                 | String  | 探索X座標(WGS84の場合longitude)              |
 | cate.poi[0].rpy                 | String  | 探索Y座標(WGS84の場合latitude)               |
-| cate.poi[0].name1               | String  | 正式名称                                   |
-| cate.poi[0].name2               | String  | 縮約名称                                   |
+| cate.poi[0].name1               | String  | 正式名称                                  |
+| cate.poi[0].name2               | String  | 縮約名称                                  |
 | cate.poi[0].name3               | String  | 拡張名称1                                  |
 | cate.poi[0].name4               | String  | 拡張名称2                                  |
-| cate.poi[0].admcode             | String  | 行政コード                                   |
-| cate.poi[0].jibun               | String  | 地番                                       |
-| cate.poi[0].address             | String  | 住所                                      |
-| cate.poi[0].roadname            | String  | 新住所の道路名                                  |
-| cate.poi[0].roadjibun           | String  | 新住所の地番                                   |
-| cate.poi[0].detailaddress       | String  | 詳細住所                                   |
-| cate.poi[0].catecode            | String  | 分類コード                                   |
-| cate.poi[0].catename            | String  | 分類名称                                   |
-| cate.poi[0].fulladdress         | String  | 全体住所(行政住所+地番+詳細住所)                      |
-| cate.poi[0].zip                 | String  | 郵便番号                                    |
-| cate.poi[0].homeage             | String  | Webサイトurl                                 |
-| cate.poi[0].email               | String  | メール                                     |
-| cate.poi[0].howtogo             | String  | 交通アクセス                                      |
-| cate.poi[0].tel1                | String  | 電話番号1                                   |
-| cate.poi[0].tel2                | String  | 電話番号2                                   |
-| cate.poi[0].fax1                | String  | Fax番号1                                   |
-| cate.poi[0].fax2                | String  | Fax番号2                                   |
-| cate.poi[0].icode               | String  | ICODE                                    |
-| cate.poi[0].detail_count        | Integer | 分類詳細項目数                              |
-| cate.poi[0].etc_count           | Integer | 分類その他項目数                              |
-| cate.poi[0].imagecount          | Integer | POIイメージ数                               |
-| cate.poi[0].hasoildata          | Boolean | ガソリン価格データ存在有無                             |
-| cate.poi[0].detailinfo          | Array   | 分類詳細項目                                |
-| cate.poi[0].detailinfo[0].name  | String  | 分類詳細項目説明                             |
-| cate.poi[0].detailinfo[0].value | String  | 分類詳細項目内容                             |
-| cate.poi[0].etcinfo             | Array   | 分類その他項目                                |
-| cate.poi[0].etcinfo[0].name     | String  | 分類その他項目説明                             |
-| cate.poi[0].etcinfo[0].value    | String  | 分類その他項目内容                             |
-| cate.poi[0].oildata             | Object  | ガソリン価格データ情報                               |
-| cate.poi[0].oilda.tag_price     | Integer | レギュラー価格                                  |
-| cate.poi[0].oilda.hg_price      | Integer | ハイオク価格                                |
-| cate.poi[0].oilda.d_price       | Integer | 軽油価格                                   |
-| cate.poi[0].oilda.l_price       | Integer | LPG価格                                  |
-| cate.poi[0].oilda.updatetime    | String  | アップデート時間                                 |
-| cate.poi[0].oilda.priceinfo     | String  | 最高、最低ガソリン価格情報<br>(H：最高、 L：最低、 X：該当なし)<br>レギュラー、ハイオク、軽油、LPG順 |
-| cate.poi[0].oilda.wash          | Boolean | 洗車施設有無                                 |
-| cate.poi[0].oilda.fix           | Boolean | 整備可否                                 |
-| cate.poi[0].oilda.mart          | Boolean | 売店有無                                    |
-| cate.poi[0].hassubpoi          | Boolean | 下位施設データ存在有無          |
-| cate.poi[0].subpoi          | Object | 下位施設情報                                |
-| cate.poi[0].subpoi.count          | Integer | 下位施設数                                 |
-| cate.poi[0].subpoi.poi          | Array |  POI情報と同じ                            |
-## Geocoding API
-
-### 1\. 住所検索\(住所→座標\)
-
-* 住所から座標(TW座標/WGS84座標/TM座標)を検索します。
-
-#### リクエスト
-
-[URI]
-
-| メソッド | URI                                      |
-| ---- | ---------------------------------------- |
-| GET  | /maps/v3.0/appkeys/{appkey}/coordinates?query={query}&coordtype={coordtype}&startposition={startposition}&reqcount={reqcount}&admcode={admcode} |
-
-[Path parameter]
-
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
-| ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 必須 |       | 固有のアプリケーションキー |
-
-[Query Parameters]
-
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明                              |
-| ------------- | ------ | ----- | ----- | ---------------------------------------- |
-| query         | String | 必須 |       | 検索ワード                               |
-| coordtype     | String | 任意 |       | 座標形式<br>0：TW座標<br>1：WGS84座標<br>2：TM座標 |
-| startposition | String | 任意 |       | 検索開始位置<br>0：最初の位置<br>未入力時は0で照会 |
-| reqcount      | String | 任意 |       | 検索リクエスト数<br>0に設定するとMax Countを返す |
-| admcode       | String | 任意 |       | 行政コード                           |
-
-#### レスポンス
-
-##### レスポンス本文
-
-```
-{
-  "header": {
-    "isSuccessful": true,
-    "resultCode": 0,
-    "resultMessage": ""
-  },
-	"address": {
-        "result": true,
-        "totalcount": 6.0,
-        "admtotalcount": 6.0,
-        "admcount": 3.0,
-        "res_type": "NNYN",
-        "adm": [
-            {
-                "type": 2.0,
-                "posx": "126.689009",
-                "posy": "36.157903",
-                "admcode": "4477038000",
-                "jibun": "",
-                "address": "忠清南道舒川郡板橋面",
-                "roadname": "",
-                "roadjibun": "",
-                "accuracy": 3.0,
-                "distance": 1.2081825E7
-            },
-            {
-                "type": 2.0,
-                "posx": "126.521977",
-                "posy": "36.547422",
-                "admcode": "4480037030",
-                "jibun": "",
-                "address": "忠清南道洪城郡西部面板橋里",
-                "roadname": "",
-                "roadjibun": "",
-                "accuracy": 3.0,
-                "distance": 1.2082085E7
-            },
-            {
-                "type": 2.0,
-                "posx": "126.699108",
-                "posy": "36.167844",
-                "admcode": "4477038021",
-                "jibun": "",
-                "address": "忠清南道舒川郡板橋面板橋里",
-                "roadname": "",
-                "roadjibun": "",
-                "accuracy": 3.0,
-                "distance": 1.2083048E7
-            }
-        ]
-    }
-}
-```
-
-##### フィールド
-
-| 名前                   | タイプ  | 説明                                   |
-| ------------------------ | ------- | ---------------------------------------- |
-| header                   | Object  | ヘッダ領域  |
-| header.isSuccessful      | Boolean | 成否  |
-| header.resultCode        | Integer | 失敗コード  |
-| header.resultMessage     | String  | 失敗メッセージ |
-| address                  | Object  | 本文領域                                |
-| address.result           | Boolean | 成否                                |
-| address.totalcount       | Integer | 全体検索結果対象数                        |
-| address.res_type         | String  | 検索結果Type名称<br>名称、カテゴリー、住所、電話番号順<br>(例) NYNN：名称No、カテゴリーYES、住所NO、電話番号NO |
-| address.adm              | Array   | 検索結果                            |
-| address.adm[0].type      | String  | 検索type<br>1：行政系検索<br>2：地番検索<br>3：新住所検索 |
-| address.adm[0].posx      | String  | X座標                            |
-| address.adm[0].posy      | String  | Y座標                            |
-| address.adm[0].admcode   | String  | 行政コード                           |
-| address.adm[0].address   | String  | 住所                              |
-| address.adm[0].roadname  | String  | 新住所の道路名                           |
-| address.adm[0].roadjibun | String  | 新住所の地番                            |
-| address.adm[0].accuracy  | Integer | 地番の正確度<br>0：正確検索<br>1：枝番拡張<br>例) 963-2と検索すると、963-X検索結果を返す<br>2：親番拡張<br>例) 963-2と検索すると、96X検索結果を返す<br>3：法定洞同座標<br>例)三坪洞までのみ入力される場合<br>4：洞単位以上の座標または法定洞座標<br>例)盆唐区までのみ入力される場合 |
+| cate.poi[0].admcode             | String  | 行政コード                                  |
+| cate.poi[0].jibun               | String  | 地番                                      |
+| cate.poi[0].address             | String  | 住所                                     |
+| cate.poi[0].roadname            | String  | 新住所の道路名                                 |
+| cate.poi[0].roadjibun           | String  | 新住所の地番                                  |
+| cate.poi[0].detailaddress       | String  | 詳細住所                                  |
+| cate.poi[0].catecode            | String  | 分類コード                                  |
+| cate.poi[0].catename            | String  | 分類名称                                  |
+| cate.poi[0].tel                | String  | 電話番号1                                   |
+| cate.poi[0].distance                | Integer  | 距離                                 |
+| cate.poi[0].imagecount          | Integer | POIイメージ数                              |
+| cate.poi[0].hasoildata          | Boolean | ガソリン価格データ存在有無                            |
+| cate.poi[0].oildata             | Object  | ガソリン価格データ情報                              |
+| cate.poi[0].oilda.tag_price     | Integer | レギュラー価格                                 |
+| cate.poi[0].oilda.hg_price      | Integer | ハイオク価格                               |
+| cate.poi[0].oilda.d_price       | Integer | 軽油価格                                  |
+| cate.poi[0].oilda.l_price       | Integer | LPG価格                                 |
+| cate.poi[0].oilda.updatetime    | String  | アップデート時間                                |
+| cate.poi[0].oilda.priceinfo     | String  | 最高、最低ガソリン価格情報<br>(H：最高、L：最低、X：該当なし)<br>レギュラー、ハイオク、軽油、LPG順 |
+| cate.poi[0].oilda.wash          | Boolean | 洗車施設有無                                |
+| cate.poi[0].oilda.fix           | Boolean | 整備可否                                |
+| cate.poi[0].oilda.mart          | Boolean | 売店有無                                   |
+| cate.poi[0].hassubpoi          | Boolean | 下位施設データ存在有無         |
+| cate.poi[0].subpoi          | Object | 下位施設情報                               |
+| cate.poi[0].subpoi.count          | Integer | 下位施設数                                |
+| cate.poi[0].subpoi.poi          | Array |  POI情報と同じ                           |
 
 
 
@@ -1089,13 +970,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Query Parameters]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明                              |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明                              |
 | --------- | ------ | ----- | ----- | ---------------------------------------- |
 | posX      | String | 必須 |       | X座標                            |
 | posY      | String | 必須 |       | Y座標                            |
@@ -1208,13 +1089,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Request Parameters]
 
-| 名前   | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
+| 名前   | タイプ | 要否 | 有効範囲 | 説明                                   |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
 | startX   | String | 必須 |       | 出発地X座標                             |
 | startY   | String | 必須 |       | 出発地Y座標                             |
@@ -1360,13 +1241,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Request Parameters]
 
-| 名前   | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
+| 名前   | タイプ | 要否 | 有効範囲 | 説明                                   |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
 | startX   | String | 必須 |       | 出発地X座標                             |
 | startY   | String | 必須 |       | 出発地Y座標                             |
@@ -1438,13 +1319,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Request Parameters]
 
-| 名前   | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
+| 名前   | タイプ | 要否 | 有効範囲 | 説明                                   |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
 | data    | Array |     |       | 出発地情報Array (最大50個)                         |
 | data[0].startX   | String | 必須 |       | 出発地X座標                             |
@@ -1520,13 +1401,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Request Parameters]
 
-| 名前   | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
+| 名前   | タイプ | 要否 | 有効範囲 | 説明                                   |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
 | data    | Array |     |       | 出発地情報Array (最大50個)                       |
 | data[0].endX   | String | 必須 |       | 到着地X座標                             |
@@ -1602,13 +1483,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前 | タイプ | 必須かどうか | 有効範囲 | 説明 |
+| 名前 | タイプ | 要否 | 有効範囲 | 説明 |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Request Parameters]
 
-| 名前   | タイプ | 必須かどうか | 有効範囲 | 説明                                   |
+| 名前   | タイプ | 要否 | 有効範囲 | 説明                                   |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
 | startX    | String | 必須 |       | 出発地X座標
 | startY    | String | 必須 |       | 出発地Y座標
@@ -1907,13 +1788,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前    | タイプ    | 必須かどうか | 有効範囲 | 説明    |
+| 名前    | タイプ    | 要否 | 有効範囲 | 説明    |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須   |       | 固有のAppkey |
 
 [Request Parameters]
 
-| 名前      | タイプ    | 必須かどうか | 有効範囲 | 説明                                      |
+| 名前      | タイプ    | 要否 | 有効範囲 | 説明                                      |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
 | startX   | String | 必須   |       | 出発地X座標                                |
 | startY   | String | 必須   |       | 出発地Y座標                                |
@@ -2064,13 +1945,13 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 [Path parameter]
 
-| 名前  | タイプ  | 必須かどうか | 有効範囲 | 説明  |
+| 名前  | タイプ  | 要否 | 有効範囲 | 説明  |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 必須 |       | 固有のアプリケーションキー |
 
 [Request Query Parameters]
 
-| 名前    | タイプ  | 必須かどうか | 有効範囲 | 説明                                    |
+| 名前    | タイプ  | 要否 | 有効範囲 | 説明                                    |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
 | lon   | String | 必須 |       | リクエストするlongitude(経度)座標        |
 | lat   | String | 必須 |       | リクエストするlatitude(緯度)座標          |

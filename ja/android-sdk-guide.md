@@ -5,7 +5,7 @@ Androidプラットフォームでinaviマップを使用するためのプロ�
 - inaviマップを使用するには、認証用の**Appkey**が必要です。
 
 #### サービス有効化
-- **[NHN Cloud Console]**でサービスを選択し、Application Service > Mapsをクリックします。
+- **NHN Cloud Console**でサービスを選択してApplication Service > Mapsをクリックします
 
 #### Appkey確認
 - **Appkey**は、**NHN Cloud Console**上部の**URL & Appkey**メニューで確認できます。
@@ -13,6 +13,10 @@ Androidプラットフォームでinaviマップを使用するためのプロ�
 
 ### Project環境構成
 inavi SDKはBintrayを通して別途配布されるため、次のようにプロジェクトおよびアプリモジュールレベルのbuild.gradleファイルに保存場所の設定とinaviマップSDKに対する依存性を追加します。
+>` SDK 0.6.1バージョンから新しいマップ保存場所へ配布されます。以前のマップ保存場所を利用している場合、マップ保存場所を変更する必要があります。`
+>- 従来 - https://dl.bintray.com/inavi-systems/maps/
+>- `新規 - https://inavisystems.jfrog.io/artifactory/maps/`
+
 ```gradle
 /* Root Project build.gradle */
 
@@ -22,7 +26,7 @@ allprojects {
         ...
         // inaviマップ保存場所
         maven {
-            url 'https://dl.bintray.com/inavi-systems/maps/'
+            url 'https://inavisystems.jfrog.io/artifactory/maps/'
         }
     }
 }
@@ -32,7 +36,7 @@ allprojects {
 /* App Module build.gradle */
 
 dependencies {
-    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.6.0'
+    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.6.1'
 }
 ```
 

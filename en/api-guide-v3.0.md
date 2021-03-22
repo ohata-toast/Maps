@@ -69,7 +69,7 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
 | y1            | String | Optional |             | Y1 coordinates<br>Y coordinate of the control point, if spopt is 0<br>Y coordinate on top left of Extent, if spopt is 1<br>Y coordinate of the control point, if spopt is 2 |
 | x2            | String | Optional |             | X2 coordinates<br>X coordinate on bottom right of Extent, if spopt is 1; disabled if spopt is 2 |
 | y2            | String | Optional |             | Y2 coordinates<br>Y coordinate on bottom right of Extent, if spopt is 1; disabled if spopt is 2 |
-| sortopt       | String | Optional |             | Sorting option<br>1: Sort by name<br>2: Sort by distance (with coordinates)<br>3: Match names ->Sort by distance (with coordinates)<br>4: Sort by weight of a search word (for engine)<br>5: Sort by weight + length of a search word (for engine)<br>6: Sort by preferred category [V8.1.5 is not supported]<br>7: Sort by most-updated data <br>8: Sort by weight in the order of (Landmark>Distance>PoiWeight) + distance (if coordinates are available) of a search word <br>*Set 4, if sortopt is not set |
+| sortopt       | String | Optional |             | Sort options<br>1: Sort by name<br>2: Sort by distance (If coordinates are set)<br>3: Name match (Additionally sort by distance if coordinates are set)<br>4: Sort by search keyword weight (based on the engine)* Set to 4 if sortopt value is not set |
 
 
 #### Response
