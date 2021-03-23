@@ -69,7 +69,7 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
 | y1            | String | Optional |             | Y1 coordinates<br>Y coordinate of the control point, if spopt is 0<br>Y coordinate on top left of Extent, if spopt is 1<br>Y coordinate of the control point, if spopt is 2 |
 | x2            | String | Optional |             | X2 coordinates<br>X coordinate on bottom right of Extent, if spopt is 1; disabled if spopt is 2 |
 | y2            | String | Optional |             | Y2 coordinates<br>Y coordinate on bottom right of Extent, if spopt is 1; disabled if spopt is 2 |
-| sortopt       | String | Optional |             | Sorting option<br>1: Sort by name<br>2: Sort by distance (with coordinates)<br>3: Match names ->Sort by distance (with coordinates)<br>4: Sort by weight of a search word (for engine)<br>5: Sort by weight + length of a search word (for engine)<br>6: Sort by preferred category [V8.1.5 is not supported]<br>7: Sort by most-updated data <br>8: Sort by weight in the order of (Landmark>Distance>PoiWeight) + distance (if coordinates are available) of a search word <br>*Set 4, if sortopt is not set |
+| sortopt       | String | Optional |             | Sort options<br>1: Sort by name<br>2: Sort by distance (If coordinates are set)<br>3: Name match (Additionally sort by distance if coordinates are set)<br>4: Sort by search keyword weight (based on the engine)* Set to 4 if sortopt value is not set |
 
 
 #### Response
@@ -801,11 +801,11 @@ In the order of gas, premium gas, light oil, and LPG |
 | coordinate.y         | String  | Y coordinates for conversion |
 
 
-### 6\. Search of Nearby Categories
+### 6\. Local category search
 
-* Search is supported for nearby categories based on base coordinates. 
+* Supports local category search based on the reference coordinates.
 
-#### Request 
+#### Request
 
 [URI]
 
@@ -815,77 +815,79 @@ In the order of gas, premium gas, light oil, and LPG |
 
 [Path parameter]
 
-| Name     | Type     | Required | Valid Range | Description     |
+| Name     | Type     | Required? | Valid range | Description     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | Required    |       | Original appkey |
+| appkey | String | Required    |       | Unique app key |
 
 [Query Parameters]
 
-| Name        | Type     | Required |  Description                                   |
+| Name        | Type     | Required? |  Description                                    |
 | --------- | ------ | ----- |  ------------------------------------ |
-| depth | Integer | Required    | 0 : Total depth <br> 1 : depth1 <br> 2 : depth2 <br> 3 : depth3|
-| spopt         | Integer | Required   | 1 : Extent(x1,y1,x2,y2) <br> 2 : Search radius (x1,y1,radius)                                   |
-| catecode         | String | Required   | Category Code |
-| x1         | String | Required (see spopt)    | Base X1 coordinate |
-| y1         | String | Required (see spopt)    | Base Y1 coordinate |
-| x2         | String | Required (see spopt)    | Base X2 coordinate |
-| y2         | String | Required (see spopt)    | Base Y2 coordinate |
-| radius         | String | Required (see spopt)    | Radius (m) |
+| catecode         | String | Required   | 카테고리 코드 |
+| spopt         | Integer | Required   | 1 : Extent(x1,y1,x2,y2) <br> 2 : 반경검색(x1,y1,radius)                                   |
+| x1         | String | Required (see spopt)    | Reference X1 coordinates |
+| y1         | String | Required (see spopt)    | Reference Y1 coordinates |
+| x2         | String | Required (see spopt)    | Reference X2 coordinates |
+| y2         | String | Required (see spopt)    | Reference Y2 coordinates |
+| radius         | String | Required (see spopt)   | Radius (m) |
+| depth | String | Optional    | 0: All depth <br> 1: depth1 <br> 2: depth2 <br> 3: depth3|
+| sortopt | String | Optional    | Sorting option <br> 1: Distance <br> 2: Name<br> 3: Gas price (when searching for gas station) <br> 4: Premium gasoline price (when searching for gas station)<br> 5: 경유 가격순(주유소 검색 시)<br> 6: LPG price (when searching for gas station)<br> 7: Ratings|
+| reqcount | String | Optional    | 표시할 검색 결과 개수|
 
 #### Response
 
-##### Response Body 
+##### Response Body
 
 ```
 {
-    "cate": {
-        "result": true,
-        "totalcount": 7,
-        "count": 1,
-        "poi": [
-            {
-                "poiid": 717788,
-                "depth": 0,
-                "dpx": "127.110762",
-                "dpy": "37.402184",
-                "rpx": "127.110862",
-                "rpy": "37.402334",
-                "name1": "Thinkware (Inc.)",
-                "name2": "iNavi(HQ)",
-                "name3": "THINKWARE",
-                "name4": "INAVI",
-                "admcode": "4113510900",
-                "jibun": "678",
-                "address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do",
-                "roadname": "Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
-                "roadjibun": "240",
-                "detailaddress": "Floor 8 and 9 of Samhwan HIPEX Building A"
-                "catecode": "130600",
-                "catename": "Company",
-                "dp_catecode": "000",
-                "userid": "",
-                "imagecount": 0,
-                "userimagecount": 0,
-                "badgeflag": false,
-                "distance": 40,
-                "tel": "15774242",
-                "islandmark": true,
-                "visitscore": "7.12",
-                "landmarkscore": "10",
-                "popularity": false,
-                "pop_tv": false,
-                "pop_sns": false,
-                "pop_hot": false,
-                "pop_hit": false,
-                "pop_top": "Gyeonggi_,Bundang-gu_2",
-                "updateTS": "2019-05-02 00:00:00",
-                "hasoildata": false,
-                "hasdetailinfo": true,
-                "hassubpoi": true,
-                "subpoi": {
-                    "count": 1
-                }
-            }
+	"cate": {
+			"result": true,
+			"totalcount": 10,
+			"count": 10,
+			"poi": [
+					{
+							"poiid": 717788,
+							"depth": 0,
+							"dpx": "127.110762",
+							"dpy": "37.402184",
+							"rpx": "127.110862",
+							"rpy": "37.402334",
+							"name1": "Thinkware",
+							"name2": "iNavy (headquarter)",
+							"name3": "THINKWARE",
+							"name4": "INAVI",
+							"admcode": "4113510900",
+							"jibun": "678",
+							"address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do",
+							"roadname": "Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
+							"roadjibun": "240",
+							"detailaddress": "Samhwan Hipex A building 8, 9F",
+							"catecode": "130600",
+							"catename": "Company",
+							"dp_catecode": "000",
+							"userid": "",
+							"imagecount": 0,
+							"userimagecount": 0,
+							"badgeflag": false,
+							"distance": 27,
+							"tel": "1577-4242",
+							"islandmark": true,
+							"visitscore": "35.74",
+							"landmarkscore": "10",
+							"popularity": false,
+							"pop_tv": false,
+							"pop_sns": false,
+							"pop_hot": false,
+							"pop_hit": false,
+							"pop_top": "Gyeonggi_1,Bundaing-gu_1",
+							"updateTS": "2019-12-12 00:00:00",
+							"hasoildata": false,
+							"hasdetailinfo": true,
+							"hassubpoi": true,
+							"subpoi": {
+									"count": 1
+							}
+					}
         ],
         "hasgasstation": false
     },
@@ -903,66 +905,54 @@ In the order of gas, premium gas, light oil, and LPG |
 
 | Name                                 | Type      | Description                                       |
 | ---------------------------------- | ------- | ---------------------------------------- |
-| header                             | Object  | Header area                                     |
-| header.isSuccessful                | Boolean | Successful or not                                     |
-| header.resultCode                  | Integer | Failure code                                     |
-| header.resultMessage               | String  | Failure message                                    |
-| cate                                | Object  | Body area                                     |
-| cate.result                         | Boolean | Successful or not                                     |
-| cate.totalcount                     | Integer | Total number of search results                           |
-| cate.count                          | Integer | Number of search results                                  |
-| cate.poi                        | Array   | List of POI search results                              |
+| header                             | Object  | Header area                                    |
+| header.isSuccessful                | Boolean | Success                                    |
+| header.resultCode                  | Integer | Failure code                                    |
+| header.resultMessage               | String  | Failure message                                   |
+| cate                                | Object  | Body area                                    |
+| cate.result                         | Boolean | Success                                    |
+| cate.totalcount                     | Integer | Number of targets for all search results                           |
+| cate.count                          | Integer | Number of search results                                |
+| cate.poi                        | Array   | POI search result list                             |
 | cate.poi[0].poiid               | Integer | POI ID                                   |
-| cate.poi[0].dpx                 | String  | X coordinates for display (longitude for WGS84)         |
-| cate.poi[0].dpy                 | String  | Y coordinates for display (latitude for WGS84)          |
-| cate.poi[0].rpx                 | String  | X coordinates for navigation (longitutde for WGS84)              |
-| cate.poi[0].rpy                 | String  | Y coordinates for navigation (latitude for WGS84)               |
-| cate.poi[0].name1               | String  | Official name                                     |
-| cate.poi[0].name2               | String  | Short name                                     |
-| cate.poi[0].name3               | String  | Expanded name 1                                  |
-| cate.poi[0].name4               | String  | Expanded name 2                                  |
-| cate.poi[0].admcode             | String  | Administrative code                                     |
-| cate.poi[0].jibun               | String  | Land-lot number                                       |
-| cate.poi[0].address             | String  | Address                                        |
-| cate.poi[0].roadname            | String  | Road name for new address system                                   |
-| cate.poi[0].roadjibun           | String  | Land-lot number for new address system                                    |
-| cate.poi[0].detailaddress       | String  | Address details                                     |
-| cate.poi[0].catecode            | String  | Classification code                                     |
-| cate.poi[0].catename            | String  | Classification name                                     |
-| cate.poi[0].fulladdress         | String  | Full address (administrative+ land-lot number + details)                       |
-| cate.poi[0].zip                 | String  | Zip code                                      |
-| cate.poi[0].homeage             | String  | Url for website                                 |
-| cate.poi[0].email               | String  | Email                                       |
-| cate.poi[0].howtogo             | String  | How to Access                                      |
-| cate.poi[0].tel1                | String  | Phone number 1                                   |
-| cate.poi[0].tel2                | String  | Phone number 2                                   |
-| cate.poi[0].fax1                | String  | Fax number 1                                   |
-| cate.poi[0].fax2                | String  | Fax number 2                                   |
-| cate.poi[0].icode               | String  | ICODE                                    |
-| cate.poi[0].detail_count        | Integer | Number of detail classification items                              |
-| cate.poi[0].etc_count           | Integer | Number of other classification items                               |
-| cate.poi[0].imagecount          | Integer | Number of POI images                                |
-| cate.poi[0].hasoildata          | Boolean | Availability of oil data                              |
-| cate.poi[0].detailinfo          | Array   | Detail classification item                                 |
-| cate.poi[0].detailinfo[0].name  | String  | Description of detail classification item                          |
-| cate.poi[0].detailinfo[0].value | String  | Content of detail classification item                              |
-| cate.poi[0].etcinfo             | Array   | Other classification item                                 |
-| cate.poi[0].etcinfo[0].name     | String  | Description of other classification item                              |
-| cate.poi[0].etcinfo[0].value    | String  | Content of other classification item                              |
-| cate.poi[0].oildata             | Object  | Oil price data                                |
-| cate.poi[0].oilda.tag_price     | Integer | Gas price                                |
-| cate.poi[0].oilda.hg_price      | Integer | Premium gas price                                 |
-| cate.poi[0].oilda.d_price       | Integer | Light oil price                                   |
+| cate.poi[0].depth             | String  | POI sub-facilities depth                                 |
+| cate.poi[0].dpx                 | String  | display X coordinates (longitude for WGS84)         |
+| cate.poi[0].dpy                 | String  | display Y coordinates (latitude for WGS84)          |
+| cate.poi[0].rpx                 | String  | Navigate X coordinates (longitude for WGS84)              |
+| cate.poi[0].rpy                 | String  | display Y coordinates (latitude for WGS84)               |
+| cate.poi[0].name1               | String  | Formal name                                    |
+| cate.poi[0].name2               | String  | Abbreviated name                                    |
+| cate.poi[0].name3               | String  | Extended name 1                                  |
+| cate.poi[0].name4               | String  | Extended name 2                                  |
+| cate.poi[0].admcode             | String  | Administration code                                    |
+| cate.poi[0].jibun               | String  | Street address                                       |
+| cate.poi[0].address             | String  | Address                                       |
+| cate.poi[0].roadname            | String  | New address street name                                  |
+| cate.poi[0].roadjibun           | String  | New street address                                   |
+| cate.poi[0].detailaddress       | String  | Full address                                    |
+| cate.poi[0].catecode            | String  | Classification code                                    |
+| cate.poi[0].catename            | String  | Classification name                                    |
+| cate.poi[0].tel                | String  | Phone number 1                                   |
+| cate.poi[0].distance                | Integer  | Distance                                   |
+| cate.poi[0].imagecount          | Integer | Number of POI images                               |
+| cate.poi[0].hasoildata          | Boolean | Oil price availability                             |
+| cate.poi[0].oildata             | Object  | Oil price info                                |
+| cate.poi[0].oilda.tag_price     | Integer | Gasoline price                                   |
+| cate.poi[0].oilda.hg_price      | Integer | Premium gasoline price                                 |
+| cate.poi[0].oilda.d_price       | Integer | Diesel price                                    |
 | cate.poi[0].oilda.l_price       | Integer | LPG price                                   |
-| cate.poi[0].oilda.updatetime    | String  | Updated time                                 |
-| cate.poi[0].oilda.priceinfo     | String  | Highest/Lowest oil price data<br>(H: Highest, L: Lowest, X:N/A)<br> In the order of gas, premium gas, light oil, and LPG |
-| cate.poi[0].oilda.wash          | Boolean | Availability of a car wash |
-| cate.poi[0].oilda.fix           | Boolean | Availability of a car repair shop                                 |
-| cate.poi[0].oilda.mart          | Boolean | Availability of a store                                   |
-| cate.poi[0].hassubpoi          | Boolean | Availability of sub-facility data          |
-| cate.poi[0].subpoi          | Object | Sub-facility information                                 |
+| cate.poi[0].oilda.updatetime    | String  | Update time                                  |
+| cate.poi[0].oilda.priceinfo     | String  | Highest, lowest oil price<br>(H : highest, L : lowest, X : n/a)<br>In order of gasoline, premium gasoline, diesel, and LPG |
+| cate.poi[0].oilda.wash          | Boolean | Car-wash facility availability                                 |
+| cate.poi[0].oilda.fix           | Boolean | Maintenance service availability                                 |
+| cate.poi[0].oilda.mart          | Boolean | Store availability                                     |
+| cate.poi[0].hassubpoi          | Boolean | Sub-facility data availability          |
+| cate.poi[0].subpoi          | Object | Sub-facility info                                 |
 | cate.poi[0].subpoi.count          | Integer | Number of sub-facilities                                 |
-| cate.poi[0].subpoi.poi          | Array |  Same as POI information                            |
+| cate.poi[0].subpoi.poi          | Array |  Same as POI info                             |
+
+
+             |
 
 ## Geocoding API
 
@@ -1247,7 +1237,7 @@ In the order of gas, premium gas, light oil, and LPG |
 |guideTop	|Integer| Optional ||Guide data count to expose |
 |groupByTrafficColor	| Boolean| Optional | |Return list of route details by each group of traffic color	|
 |saveFile	| Boolean| Optional | |Save binary files to search POI around the route	|
-
+| useTaxifare   | int | Optional   |       | Determines whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
 
 
 #### Response
@@ -1646,6 +1636,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | beforeCount   | Integer | Optional  |      | Navigation count before base time  |
 | afterCount   | Integer | Optional    |       | Navigation count after base time |
 | interval   | Integer | Optional    |       | Inverval (minute) before/after base time  |
+| useTaxifare   | int | Optional   |       | Determines whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
 
 #### Response
 
@@ -1894,6 +1885,89 @@ In the order of gas, premium gas, light oil, and LPG |
 | route.data.guides[0].type       | String | Road type              |
 | route.data.guides[0].traffic_color       | String | Road traffic color     |
 
+### 6\. Added multi-stops 100
+
+* Navigates the path from the starting point to the destination and returns the navigated path information.
+* Up to 100 stops can be added.
+* Recommended when at least 6 stops need to be designated.
+
+
+#### Request
+
+[URI]
+
+| Method | URI                                          |
+| ------ | -------------------------------------------- |
+| POST   | /maps/v3.0/appkeys/{appkey}/route-normal-via |
+
+[Path parameter]
+
+| Name   | Type   | Required | Effective range | Description   |
+| ------ | ------ | -------- | --------------- | ------------- |
+| appkey | String | Required |                 | Unique Appkey |
+
+[Request Parameters]
+
+| Name   | Type   | Required | Effective range | Description                                                  |
+| ------ | ------ | -------- | --------------- | ------------------------------------------------------------ |
+| startX | String | Required |                 | Starting point X-coordinate                                  |
+| startY | String | Required |                 | Starting point Y-coordinate                                  |
+| endX   | String | Required |                 | Destination X-coordinate                                     |
+| endY   | String | Required |                 | Destination Y-coordinate                                     |
+| option | String | Required |                 | Path search option<br>Search options separated with “,”<br>e.g. option=real_traffic,real_traffic2<br>real_traffic: Real-time recommendation 1<br>real\_traffic\_freeroad: Real-time \(Free\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler |
+| coordType    | String | Required    |       | Coordinate type (TW, WGS84)
+| viaList    | Array | Optional    |       | Stop information                               |
+| via[0].viaX    | String | Optional    |       | Stop X-coordinate                               |
+| via[0].viaY    | String | Optional    |       | Stop Y-coordinate                               |
+| useAngle    | String | Optional    |       | Option of the moving direction of the starting point<br> (Default: false, true: driving direction is prioritized, false: driving direction is not prioritized)                              |
+| angle    | Integer | Optional    |       | Result display count                               |
+| carType   | Integer | Optional    |       | Car type for tollgate calculation (1-6), default: 1 |
+| guideTop	|Integer| Optional ||The number of information messages to show |
+|groupByTrafficColor	| Boolean| Optional| |Whether to return detailed path list information coded and grouped with road traffic colors	|
+| useTaxifare   | Integer | Optional   |       | Whether to check predicted taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis|
+| useStartDirection    | Boolean | Optional    |       | Result display count                               |
+
+
+#### Response
+
+##### Response body
+
+##### Field
+
+| Name                               | Type    | Description                                       |
+| ---------------------------------- | ------- | ------------------------------------------------- |
+| header                             | Object  | Header area                                       |
+| header.isSuccessful                | Boolean | Success or not                                    |
+| header.resultCode                  | Integer | Failure code                                      |
+| header.resultMessage               | String  | Failure message                                   |
+| route                              | Object  | Body area                                         |
+| route.data                         | Object  | Path info                                         |
+| route.data.file_name               | String  | Binary filename to search for POI around the path |
+| route.data.option                  | String  | Search option                                     |
+| route.data.spend_time              | Integer | Elapsed time (seconds)                            |
+| route.data.distance                | Integer | Distance (m)                                      |
+| route.data.total_fee               | Integer | Tollgate fee                                      |
+| route.data.taxiFare                | Integer | Expected amount of taxi fare                      |
+| route.data.paths                   | Array   | Detailed path list                                |
+| route.data.paths[0].coords         | Array   | Detailed coordinates list                         |
+| route.data.paths[0].coords[0].x    | Double  | X-coordinate                                      |
+| route.data.paths[0].coords[0].y    | Double  | Y-coordinate                                      |
+| route.data.paths[0].speed          | Integer | speed                                             |
+| route.data.paths[0].spend_time     | Integer | Elapsed time (seconds)                            |
+| route.data.paths[0].distance       | Integer | Distance (m)                                      |
+| route.data.paths[0].road_code      | Integer | Road type code                                    |
+| route.data.paths[0].traffic_color  | String  | Road traffic color                                |
+| route.data.guides                  | Array   | Major road information list                       |
+| route.data.guides[0].coords        | Array   | Detailed coordinates list                         |
+| route.data.guides[0].coords[0].x   | Array   | X-coordinate                                      |
+| route.data.guides[0].coords[0].y   | Array   | Y-coordinate                                      |
+| route.data.guides[0].distance      | Integer | Distance (m)                                      |
+| route.data.guides[0].name          | String  | Road name                                         |
+| route.data.guides[0].road_code     | Integer | Road type code                                    |
+| route.data.guides[0].score         | Integer | Importance                                        |
+| route.data.guides[0].speed         | Integer | Speed (km)                                        |
+| route.data.guides[0].type          | String  | Road type                                         |
+| route.data.guides[0].traffic_color | String  | Road traffic color                                |
 
 ## Static Map
 
