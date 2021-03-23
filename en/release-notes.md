@@ -1,5 +1,14 @@
 ## Application Service > Maps > Release Notes
 
+### March 23, 2021
+#### More Features
+* [API] Added options for sorting local category search and showing the number of search results
+
+#### Feature Updates
+* [SDK] Improved SDK stability
+* [SDK] Changed Android SDK deployment Repository
+
+
 ### February 23, 2021
 #### More Features
 * [SDK] Added API to set sizes of map symbols
