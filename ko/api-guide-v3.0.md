@@ -903,8 +903,6 @@
 
 ##### 필드
 
-##### 필드
-
 | 이름                                 | 타입      | 설명                                       |
 | ---------------------------------- | ------- | ---------------------------------------- |
 | header                             | Object  | 헤더 영역                                    |
@@ -953,7 +951,160 @@
 | cate.poi[0].subpoi.count          | Integer | 하위 시설물 개수                                 |
 | cate.poi[0].subpoi.poi          | Array |  POI 정보와 동일                            |
 
+### 7\. 공간 검색
 
+* 입력 받은 행정코드 및 행정명칭을 폴리곤 좌표로 반환합니다.
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI                                      |
+| ---- | ---------------------------------------- |
+| POST  | /maps/v3.0/appkeys/{appkey}/adminToPolygon  |
+
+[Path parameter]
+
+| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 필수    |       | 고유의 앱키 |
+
+[Query Parameters]
+
+| 이름        | 타입     | 필수 여부 |  설명                                   |
+| --------- | ------ | ----- |  ------------------------------------ |
+| coordtype         | Integer | 필수   | 좌표 타입<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
+| mode         | Integer | 필수   | 조회 구역 범위 <br> 0: ALL <br>          |
+| query         | String | 필수   | 행정코드 및 행정명칭 |
+
+
+#### 응답
+
+##### 응답 본문
+
+```
+{
+    "result": true,
+    "count": 1,
+    "polygondata": [
+        {
+            "admincode": "4136025921",
+            "count": 1,
+            "polygonlist": [
+                {
+                    "count": 413,
+                    "polygon": [
+                        {
+                            "x": 127.207296,
+                            "y": 37.665605
+                        },
+                        {
+                            "x": 127.208346,
+                            "y": 37.665080
+                        },
+                        ...
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+##### 필드
+
+| 이름                                 | 타입      | 설명                                       |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | 헤더 영역                                    |
+| header.isSuccessful                | Boolean | 성공 여부                                    |
+| header.resultCode                  | Integer | 실패 코드                                    |
+| header.resultMessage               | String  | 실패 메시지                                   |
+| result                         | Boolean | 성공 여부                                    |
+| count                          | Integer | 검색 결과 개수                                 |
+| polygondata                        | Array   | 폴리곤 데이터                             |
+| polygondata[0].admincode               | String | 검색한 AdminCode 값(mode에 따라 자릿수가 달라짐)                                   |
+| polygondata[0].count             | Integer  | 폴리곤 개수                           |
+| polygondata[0].polygonlist     | Array  | 폴리곤         |
+| polygondata[0].polygonlist[0].count     | Integer  | 포인트 개수      |
+| polygondata[0].polygonlist[0].polygon     | Array  | 폴리곤 좌표 리스트      |
+| polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X 좌표      |
+| polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y 좌표      |
+
+
+### 8\. 폴리곤 내 행정/법정동 검색
+
+* 입력 받은 폴리곤 좌표를 행정코드로 반환합니다.
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI                                      |
+| ---- | ---------------------------------------- |
+| POST  | /maps/v3.0/appkeys/{appkey}/polygonToAdmin  |
+
+[Path parameter]
+
+| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 필수    |       | 고유의 앱키 |
+
+[Query Parameters]
+
+| 이름        | 타입     | 필수 여부 |  설명                                   |
+| --------- | ------ | ----- |  ------------------------------------ |
+| coordtype         | Integer | 필수   | 좌표 타입<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
+| polygon     | Array  |필수 | 폴리곤 좌표 리스트      |
+| polygon[0].x   | Integer  | 필수| X 좌표      |
+| polygon[0].y   | Integer  | 필수 | Y 좌표      |
+
+
+
+#### 응답
+
+##### 응답 본문
+
+```
+{
+    "result": true,
+    "admincodes": {
+        "count": 3,
+        "admincodelist": [
+            {
+                "AdminCode": "4136025921",
+                "Address": "경기도 남양주시 진건읍 사능리"
+            },
+            {
+                "AdminCode": "4136025926",
+                "Address": "경기도 남양주시 진건읍 송능리"
+            },
+            {
+                "AdminCode": "4136025900",
+                "Address": "경기도 남양주시 진건읍"
+            }
+        ]
+    }
+}
+```
+
+##### 필드
+
+| 이름                                 | 타입      | 설명                                       |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | 헤더 영역                                    |
+| header.isSuccessful                | Boolean | 성공 여부                                    |
+| header.resultCode                  | Integer | 실패 코드                                    |
+| header.resultMessage               | String  | 실패 메시지                                   |
+| result                         | Boolean | 성공 여부                                    |
+| count                          | Integer | 검색 결과 개수                                 |
+| polygondata                        | Array   | 폴리곤 데이터                             |
+| polygondata[0].admincode               | String | 검색한 AdminCode 값(mode에 따라 자릿수가 달라짐)                                   |
+| polygondata[0].count             | Integer  | 폴리곤 개수                           |
+| polygondata[0].polygonlist     | Array  | 폴리곤         |
+| polygondata[0].polygonlist[0].count     | Integer  | 포인트 개수      |
+| polygondata[0].polygonlist[0].polygon     | Array  | 폴리곤 좌표 리스트      |
+| polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X 좌표      |
+| polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y 좌표      |
 
 ## Geocoding API(지오코딩 API)
 
@@ -2030,6 +2181,105 @@
 | route.data.guides[0].speed       | Integer | 속도(km)                       |
 | route.data.guides[0].type       | String | 도로 타입                        |
 | route.data.guides[0].traffic_color       | String | 도로 교통 색상                        |
+
+### 7\.	경유지 간 경로 정보 요약
+
+* 출발지에서 목적지까지의 경로를 탐색하여 탐색한 경로 정보를 반환합니다.
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
+
+[Path parameter]
+
+| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 필수    |       | 고유의 Appkey |
+
+[Request Parameters]
+
+| 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| startX   | String | 필수    |       | 출발지 X 좌표                                 |
+| startY   | String | 필수    |       | 출발지 Y 좌표                                 |
+| endX     | String | 필수    |       | 도착지 X 좌표                                 |
+| endY     | String | 필수    |       | 도착지 Y 좌표                                 |
+| via1X    | String | 선택    |       | 경유지 1 X 좌표                               |
+| via1Y    | String | 선택    |       | 경유지 1 Y 좌표                               |
+| via2X    | String | 선택    |       | 경유지 2 X 좌표                               |
+| via2Y    | String | 선택    |       | 경유지 2 Y 좌표                               |
+| via3X    | String | 선택    |       | 경유지 3 X 좌표                               |
+| via3Y    | String | 선택    |       | 경유지 3 Y 좌표                               |
+| via4X    | String | 선택    |       | 경유지 4 X 좌표                               |
+| via4Y    | String | 선택    |       | 경유지 4 Y 좌표                               |
+| via5X    | String | 선택    |       | 경유지 5 X 좌표                               |
+| via5Y    | String | 선택    |       | 경유지 5 Y 좌표                               |
+| option   | String | 필수    |       | 경로 탐색 옵션<br>탐색 옵션 하나만 가능<br>예) option=real_traffic<br>real_traffic: 실시간 추천 1<br>real\_traffic\_freeroad: 실시간\(무료\)<br>real_traffic2: 실시간 추천 2<br>short\_distance\_priority: 단거리<br>motorcycle: 이륜차 |
+| carType   | Integer | 선택    |       | 톨게이트비 계산을 위한 차종(1~6), 기본값: 1 |
+| coordType   | String | 필수    |       | input, output 좌표 타입, 하나만 입력 가능(TW, WGS84) |
+|guideTop	|Integer| 선택 ||나타낼 안내 정보 개수 |
+|groupByTrafficColor	| Boolean| 선택| |세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
+|saveFile	| Boolean| 선택| |경로 주변 POI 검색을 위한 바이너리 파일 저장 여부	|
+| useTaxifare   | int | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br>1: 일반택시<br>2: 모범택시<br>3: 일반택시와 모범택시 |
+
+#### 응답
+
+##### 응답 본문
+```
+{
+    "route": {
+        "data": {
+            "option": "real_traffic",
+            "spend_time": 6420,
+            "distance": 57726,
+            "toll_fee": 0,
+            "totalTaxiFare": "57420,83100",
+            "detailDistance": [
+                {
+                    "position": "0|1",
+                    "distance": 31168
+                },
+                {
+                    "position": "1|2",
+                    "distance": 12934
+                },
+                {
+                    "position": "2|3",
+                    "distance": 13624
+                }
+            ]
+        }
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### 필드
+
+| 이름                          | 타입      | 설명                                       |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | 헤더 영역                                    |
+| header.isSuccessful         | Boolean | 성공 여부                                    |
+| header.resultCode           | Integer | 실패 코드                                    |
+| header.resultMessage        | String  | 실패 메시지                                   |
+| route			                  | Object  | 본문 영역                                    |
+| route.data                   | Array  | 경로 정보                                    |
+| route.data[0].option              | String | 탐색 옵션                       |
+| route.data[0].spend_time           | Integer | 소요 시간(초)                             |
+| route.data[0].distance           | Integer | 거리(m)                          |
+| route.data[0].toll_fee           | Integer | 거리(m)                          |
+| route.data[0].totalTaxiFare           | Integer | 거리(m)                          |
+| route.data[0].detailDistance           | Array | 경유지요약정보                          |
+| route.data[0].detailDistance[0].position           | String |  위치<br>경유지가 1개일 경우 0\|1: 출발지 → 경유지 1, 1\|2: 경유지 1 → 목적지          |
+| route.data[0].detailDistance[0].distance           | Integer |  거리(m)            |
 
 ## Static Map(정적 지도)
 
