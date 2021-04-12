@@ -953,7 +953,7 @@
 
 ### 7\. 공간 검색
 
-* 입력 받은 행정코드 및 행정명칭을 폴리곤 좌표로 반환합니다.
+* 입력된 행정코드 및 행정명칭을 폴리곤 좌표로 반환합니다.
 
 #### 요청
 
@@ -1033,7 +1033,7 @@
 
 ### 8\. 폴리곤 내 행정/법정동 검색
 
-* 입력 받은 폴리곤 좌표를 행정코드로 반환합니다.
+* 입력된 폴리곤 좌표를 행정코드로 반환합니다.
 
 #### 요청
 
@@ -2277,7 +2277,7 @@
 | route.data[0].distance           | Integer | 거리(m)                          |
 | route.data[0].toll_fee           | Integer | 거리(m)                          |
 | route.data[0].totalTaxiFare           | Integer | 거리(m)                          |
-| route.data[0].detailDistance           | Array | 경유지요약정보                          |
+| route.data[0].detailDistance           | Array | 경유지 요약 정보                          |
 | route.data[0].detailDistance[0].position           | String |  위치<br>경유지가 1개일 경우 0\|1: 출발지 → 경유지 1, 1\|2: 경유지 1 → 목적지          |
 | route.data[0].detailDistance[0].distance           | Integer |  거리(m)            |
 
