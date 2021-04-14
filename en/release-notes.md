@@ -1,4 +1,9 @@
 ## Application Service > Maps > Release Notes
+### April 13, 2021
+#### More Features
+* [API] Added the API that searches for administrative/legal-status neighborhoods within polygons
+* [API] Added the API that searches for space
+* [API] Added the API that summarizes path information between stopovers
 
 ### March 23, 2021
 #### More Features
