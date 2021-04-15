@@ -951,8 +951,160 @@ In the order of gas, premium gas, light oil, and LPG |
 | cate.poi[0].subpoi.count          | Integer | Number of sub-facilities                                 |
 | cate.poi[0].subpoi.poi          | Array |  Same as POI info                             |
 
+### 7\. Search for space
 
-             |
+* Returns the entered administration code and name as polygon coordinates.
+
+#### Request
+
+[URI]
+
+| Method  | URI                                      |
+| ---- | ---------------------------------------- |
+| POST  | /maps/v3.0/appkeys/{appkey}/adminToPolygon  |
+
+[Path parameter]
+
+| Name     | Type     | Required? | Valid range | Description     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | Required    |       | Unique app key |
+
+[Query Parameters]
+
+| Name        | Type     | Required? |  Description                                   |
+| --------- | ------ | ----- |  ------------------------------------ |
+| coordtype         | Integer | Required   | Coordinate type<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
+| mode         | Integer | Required   | Range of viewed district <br> 0: ALL <br>          |
+| query         | String | Required   | Administration codes and names |
+
+
+#### Response
+
+##### Response Body
+
+```
+{
+    "result": true,
+    "count": 1,
+    "polygondata": [
+        {
+            "admincode": "4136025921",
+            "count": 1,
+            "polygonlist": [
+                {
+                    "count": 413,
+                    "polygon": [
+                        {
+                            "x": 127.207296,
+                            "y": 37.665605
+                        },
+                        {
+                            "x": 127.208346,
+                            "y": 37.665080
+                        },
+                        ...
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+##### Field
+
+| Name                                 | Type      | Description                                       |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | Header area                                    |
+| header.isSuccessful                | Boolean | Success                                    |
+| header.resultCode                  | Integer | Failure code                                    |
+| header.resultMessage               | String  | Failure message                                   |
+| result                         | Boolean | Success                                    |
+| count                          | Integer | Number of search results                                 |
+| polygondata                        | Array   | Polygon data                             |
+| polygondata[0].admincode               | String | AdminCode values searched for (digits vary by the mode)                                   |
+| polygondata[0].count             | Integer  | Polygon count                           |
+| polygondata[0].polygonlist     | Array  | Polygon         |
+| polygondata[0].polygonlist[0].count     | Integer  | Point count      |
+| polygondata[0].polygonlist[0].polygon     | Array  | List of polygon coordinates      |
+| polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X-coordinate      |
+| polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y-coordinate      |
+
+
+### 8\. Search for administrative/legal-status neighborhoods within polygons
+
+* Returns the entered administration code and name as polygon coordinates.
+
+#### Request
+
+[URI]
+
+| Method  | URI                                      |
+| ---- | ---------------------------------------- |
+| POST  | /maps/v3.0/appkeys/{appkey}/polygonToAdmin  |
+
+[Path parameter]
+
+| Name     | Type     | Required? | Valid range | Description     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | Required    |       | Unique app key |
+
+[Query Parameters]
+
+| Name        | Type     | Required? |  Description                                   |
+| --------- | ------ | ----- |  ------------------------------------ |
+| coordtype         | Integer | Required   | Coordinate type<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
+| polygon     | Array  |Required | List of polygon coordinates      |
+| polygon[0].x   | Integer  | Required| X-coordinate      |
+| polygon[0].y   | Integer  | Required | Y-coordinate      |
+
+
+
+#### Response
+
+##### Response Body
+
+```
+{
+    "result": true,
+    "admincodes": {
+        "count": 3,
+        "admincodelist": [
+            {
+                "AdminCode": "4136025921",
+                "Address": "Sareung-ri, Jingeon-eup, Namyangju-si, Gyeonggi-do"
+            },
+            {
+                "AdminCode": "4136025926",
+                "Address": "Songreung-ri, Jingeon-eup, Namyangju-si, Gyeonggi-do"
+            },
+            {
+                "AdminCode": "4136025900",
+                "Address": "Jingeon-eup, Namyangju-si, Gyeonggi-do"
+            }
+        ]
+    }
+}
+```
+
+##### Field
+
+| Name                                 | Type      | Description                                       |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | Header area                                    |
+| header.isSuccessful                | Boolean | Success                                    |
+| header.resultCode                  | Integer | Failure code                                    |
+| header.resultMessage               | String  | Failure message                                   |
+| result                         | Boolean | Success                                    |
+| count                          | Integer | Number of search results                                 |
+| polygondata                        | Array   | Polygon data                             |
+| polygondata[0].admincode               | String | AdminCode values searched for (digits vary by the mode)                                   |
+| polygondata[0].count             | Integer  | Polygon count                           |
+| polygondata[0].polygonlist     | Array  | Polygon         |
+| polygondata[0].polygonlist[0].count     | Integer  | Point count      |
+| polygondata[0].polygonlist[0].polygon     | Array  | List of polygon coordinates      |
+| polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X-coordinate      |
+| polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y-coordinate      |
 
 ## Geocoding API
 
@@ -1968,6 +2120,102 @@ In the order of gas, premium gas, light oil, and LPG |
 | route.data.guides[0].speed         | Integer | Speed (km)                                        |
 | route.data.guides[0].type          | String  | Road type                                         |
 | route.data.guides[0].traffic_color | String  | Road traffic color                                |
+
+### 7\.	Summarize path information between stopovers
+
+* Finds the path from the starting point to the destination and returns the information of the found path.
+
+#### Request
+
+[URI]
+
+| Method  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal-summary?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
+
+[Path parameter]
+
+| Name     | Type     | Required? | Valid range | Description     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | Required    |       | Unique Appkey |
+
+[Request Parameters]
+
+| Name       | Type     | Required? | Valid range | Description                                       |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| startX   | String | Required    |       | X-coordinate of starting point                                 |
+| startY   | String | Required    |       | Y-coordinate of starting point                                 |
+| endX     | String | Required    |       | X-coordinate of destination                                 |
+| endY     | String | Required    |       | Y-coordinate of destination                                 |
+| via1X    | String | Optional    |       | X-coordinate of stopover 1                               |
+| via1Y    | String | Optional    |       | Y-coordinate of stopover 1                               |
+| via2X    | String | Optional    |       | X-coordinate of stopover 2                               |
+| via2Y    | String | Optional    |       | Y-coordinate of stopover 2                               |
+| via3X    | String | Optional    |       | X-coordinate of stopover 3                               |
+| via3Y    | String | Optional    |       | Y-coordinate of stopover 3                               |
+| via4X    | String | Optional    |       | X-coordinate of stopover 4                               |
+| via4Y    | String | Optional    |       | Y-coordinate of stopover 4                               |
+| via5X    | String | Optional    |       | X-coordinate of stopover 5                               |
+| via5Y    | String | Optional    |       | Y-coordinate of stopover 5                               |
+| option   | String | Required    |       | Path finding option<br>Only one path finding option is allowed<br>e.g. option=real_traffic<br>real_traffic: real-time recommendation 1<br>real\_traffic\_freeroad: real-time\(free\)<br>real_traffic2: real-time recommendation 2<br>short\_distance\_priority: short distance<br>motorcycle: two-wheeler |
+| carType   | Integer | Optional    |       | Car type to calculate the toll gate charge (1 - 6), default: 1 |
+| coordType   | String | Required    |       | input, output coordinate type, enter only one of these (TW, WGS84) |
+| useTaxifare   | int | Optional   |       | Whether to show the expected taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br>1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+
+#### Response
+
+##### Response Body
+```
+{
+    "route": {
+        "data": {
+            "option": "real_traffic",
+            "spend_time": 6420,
+            "distance": 57726,
+            "toll_fee": 0,
+            "totalTaxiFare": "57420,83100",
+            "detailDistance": [
+                {
+                    "position": "0|1",
+                    "distance": 31168
+                },
+                {
+                    "position": "1|2",
+                    "distance": 12934
+                },
+                {
+                    "position": "2|3",
+                    "distance": 13624
+                }
+            ]
+        }
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### Field
+
+| Name                          | Type      | Description                                       |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | Header area                                    |
+| header.isSuccessful         | Boolean | Success                                    |
+| header.resultCode           | Integer | Failure code                                    |
+| header.resultMessage        | String  | Failure message                                   |
+| route			                  | Object  | Body area                                    |
+| route.data                   | Array  | Route information                                    |
+| route.data[0].option              | String | Path-finding option                       |
+| route.data[0].spend_time           | Integer | Time required (in sec)                             |
+| route.data[0].distance           | Integer | Distance (m)                          |
+| route.data[0].toll_fee           | Integer | Distance (m)                          |
+| route.data[0].totalTaxiFare           | Integer | Distance (m)                          |
+| route.data[0].detailDistance           | Array | Stopover summary                          |
+| route.data[0].detailDistance[0].position           | String |  Location<br>If there is only one stopover, 0\|1: Starting point → Stopover 1, 1\|2: Stopover 1 → Destination          |
+| route.data[0].detailDistance[0].distance           | Integer |  Distance (m)            |
 
 ## Static Map
 

@@ -2192,7 +2192,7 @@
 
 | 메서드  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal-summary?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
 
 [Path parameter]
 
@@ -2221,9 +2221,6 @@
 | option   | String | 필수    |       | 경로 탐색 옵션<br>탐색 옵션 하나만 가능<br>예) option=real_traffic<br>real_traffic: 실시간 추천 1<br>real\_traffic\_freeroad: 실시간\(무료\)<br>real_traffic2: 실시간 추천 2<br>short\_distance\_priority: 단거리<br>motorcycle: 이륜차 |
 | carType   | Integer | 선택    |       | 톨게이트비 계산을 위한 차종(1~6), 기본값: 1 |
 | coordType   | String | 필수    |       | input, output 좌표 타입, 하나만 입력 가능(TW, WGS84) |
-|guideTop	|Integer| 선택 ||나타낼 안내 정보 개수 |
-|groupByTrafficColor	| Boolean| 선택| |세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
-|saveFile	| Boolean| 선택| |경로 주변 POI 검색을 위한 바이너리 파일 저장 여부	|
 | useTaxifare   | int | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br>1: 일반택시<br>2: 모범택시<br>3: 일반택시와 모범택시 |
 
 #### 응답
