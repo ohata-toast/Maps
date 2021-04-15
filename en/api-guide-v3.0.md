@@ -2131,7 +2131,7 @@ In the order of gas, premium gas, light oil, and LPG |
 
 | Method  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal-summary?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
 
 [Path parameter]
 
@@ -2160,9 +2160,6 @@ In the order of gas, premium gas, light oil, and LPG |
 | option   | String | Required    |       | Path finding option<br>Only one path finding option is allowed<br>e.g. option=real_traffic<br>real_traffic: real-time recommendation 1<br>real\_traffic\_freeroad: real-time\(free\)<br>real_traffic2: real-time recommendation 2<br>short\_distance\_priority: short distance<br>motorcycle: two-wheeler |
 | carType   | Integer | Optional    |       | Car type to calculate the toll gate charge (1 - 6), default: 1 |
 | coordType   | String | Required    |       | input, output coordinate type, enter only one of these (TW, WGS84) |
-|guideTop	|Integer| Optional ||Count of guide information to show |
-|groupByTrafficColor	| Boolean| Optional| |Whether to code and group detailed path list information by road traffic colors before returning them	|
-|saveFile	| Boolean| Optional| |Whether to save binary files to search for POIs around the path	|
 | useTaxifare   | int | Optional   |       | Whether to show the expected taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br>1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
 
 #### Response
