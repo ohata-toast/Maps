@@ -15,7 +15,6 @@ UMOS Map Studio는 ㈜42dot과 ㈜아이나비시스템즈가 공동으로 개�
 
 <img src="https://static.toastoven.net/prod_maps/maps-studio-2.png">
 <img src="https://static.toastoven.net/prod_maps/maps-studio-2-1.png">
-<br>
 
 ## UMOS Map Studio 사용 방법
 
