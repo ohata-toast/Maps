@@ -902,8 +902,6 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 ##### フィールド
 
-##### フィールド
-
 | 名前                               | タイプ    | 説明                                     |
 | ---------------------------------- | ------- | ---------------------------------------- |
 | header                             | Object  | ヘッダ領域                                  |
@@ -952,7 +950,160 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | cate.poi[0].subpoi.count          | Integer | 下位施設数                                |
 | cate.poi[0].subpoi.poi          | Array |  POI情報と同じ                           |
 
+### 7\. 空間検索
 
+* 入力された行政コードおよび行政名称をポリゴン座標で返します。
+
+#### リクエスト
+
+[URI]
+
+| メソッド | URI                                      |
+| ---- | ---------------------------------------- |
+| POST  | /maps/v3.0/appkeys/{appkey}/adminToPolygon  |
+
+[Path parameter]
+
+| 名前   | タイプ   | 必須かどうか | 有効範囲 | 説明   |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 必須  |       | 固有のアプリケーションキー |
+
+[Query Parameters]
+
+| 名前      | タイプ   | 必須かどうか | 説明                                 |
+| --------- | ------ | ----- |  ------------------------------------ |
+| coordtype         | Integer | 必須 | 座標タイプ<br>Default：1 <br> 0：TW <br> 1：WGS84 |
+| mode         | Integer | 必須 | 照会区域範囲 <br> 0: ALL <br>          |
+| query         | String | 必須 | 行政コードおよび行政名称 |
+
+
+#### レスポンス
+
+##### レスポンス本文
+
+```
+{
+    "result": true,
+    "count": 1,
+    "polygondata": [
+        {
+            "admincode": "4136025921",
+            "count": 1,
+            "polygonlist": [
+                {
+                    "count": 413,
+                    "polygon": [
+                        {
+                            "x": 127.207296,
+                            "y": 37.665605
+                        },
+                        {
+                            "x": 127.208346,
+                            "y": 37.665080
+                        },
+                        ...
+                    ]
+                }
+            ]
+        }
+    ]
+}
+```
+
+##### フィールド
+
+| 名前                               | タイプ    | 説明                                     |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | ヘッダ領域                                  |
+| header.isSuccessful                | Boolean | 成否                                  |
+| header.resultCode                  | Integer | 失敗コード                                  |
+| header.resultMessage               | String  | 失敗メッセージ                                 |
+| result                         | Boolean | 成否                                  |
+| count                          | Integer | 検索結果数                                |
+| polygondata                        | Array   | ポリゴンデータ                           |
+| polygondata[0].admincode               | String | 検索したAdminCode値(modeによって桁数が変わる)                                   |
+| polygondata[0].count             | Integer  | ポリゴン数                          |
+| polygondata[0].polygonlist     | Array  | ポリゴン        |
+| polygondata[0].polygonlist[0].count     | Integer  | ポイント数     |
+| polygondata[0].polygonlist[0].polygon     | Array  | ポリゴン座標リスト    |
+| polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X座標    |
+| polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y座標    |
+
+
+### 8\. ポリゴン内の行政/法定洞検索
+
+* 入力されたポリゴン座標を行政コードで返します。
+
+#### リクエスト
+
+[URI]
+
+| メソッド | URI                                      |
+| ---- | ---------------------------------------- |
+| POST  | /maps/v3.0/appkeys/{appkey}/polygonToAdmin  |
+
+[Path parameter]
+
+| 名前   | タイプ   | 必須かどうか | 有効範囲 | 説明   |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 必須  |       | 固有のアプリケーションキー |
+
+[Query Parameters]
+
+| 名前      | タイプ   | 必須かどうか | 説明                                 |
+| --------- | ------ | ----- |  ------------------------------------ |
+| coordtype         | Integer | 必須 | 座標タイプ<br>Default：1 <br> 0：TW <br> 1：WGS84 |
+| polygon     | Array  |必須 | ポリゴン座標リスト    |
+| polygon[0].x   | Integer  | 必須| X座標    |
+| polygon[0].y   | Integer  | 必須 | Y座標    |
+
+
+
+#### レスポンス
+
+##### レスポンス本文
+
+```
+{
+    "result": true,
+    "admincodes": {
+        "count": 3,
+        "admincodelist": [
+            {
+                "AdminCode": "4136025921",
+                "Address": "京畿道南楊州市眞乾邑思陵里"
+            },
+            {
+                "AdminCode": "4136025926",
+                "Address": "京畿道南楊州市眞乾邑松陵里"
+            },
+            {
+                "AdminCode": "4136025900",
+                "Address": "京畿道南楊州市眞乾邑"
+            }
+        ]
+    }
+}
+```
+
+##### フィールド
+
+| 名前                               | タイプ    | 説明                                     |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | ヘッダ領域                                  |
+| header.isSuccessful                | Boolean | 成否                                  |
+| header.resultCode                  | Integer | 失敗コード                                  |
+| header.resultMessage               | String  | 失敗メッセージ                                 |
+| result                         | Boolean | 成否                                  |
+| count                          | Integer | 検索結果数                                |
+| polygondata                        | Array   | ポリゴンデータ                           |
+| polygondata[0].admincode               | String | 検索したAdminCode値(modeによって桁数が変わる)                                   |
+| polygondata[0].count             | Integer  | ポリゴン数                          |
+| polygondata[0].polygonlist     | Array  | ポリゴン        |
+| polygondata[0].polygonlist[0].count     | Integer  | ポイント数     |
+| polygondata[0].polygonlist[0].polygon     | Array  | ポリゴン座標リスト    |
+| polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X座標    |
+| polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y座標    |
 
 ## Reverse Geocoding API
 
@@ -1928,6 +2079,105 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | route.data.guides[0].speed       | Integer | 速度(km)                       |
 | route.data.guides[0].type       | String | 道路タイプ                       |
 | route.data.guides[0].traffic_color       | String | 道路交通色                        |
+
+### 7\.	経由地間の経路情報要約
+
+* 出発地から目的地までの経路を探索して探索した経路情報を返します。
+
+#### リクエスト
+
+[URI]
+
+| メソッド | URI                                      |
+| ---- | ---------------------------------------- |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
+
+[Path parameter]
+
+| 名前   | タイプ   | 必須かどうか | 有効範囲 | 説明   |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 必須  |       | 固有のAppkey |
+
+[Request Parameters]
+
+| 名前     | タイプ   | 必須かどうか | 有効範囲 | 説明                                     |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| startX   | String | 必須  |       | 出発地X座標                               |
+| startY   | String | 必須  |       | 出発地Y座標                               |
+| endX     | String | 必須  |       | 到着地X座標                               |
+| endY     | String | 必須  |       | 到着地Y座標                               |
+| via1X    | String | オプション  |       | 経由地1 X座標                             |
+| via1Y    | String | オプション  |       | 経由地1 Y座標                             |
+| via2X    | String | オプション  |       | 経由地2 X座標                             |
+| via2Y    | String | オプション  |       | 経由地2 Y座標                             |
+| via3X    | String | オプション  |       | 経由地3 X座標                             |
+| via3Y    | String | オプション  |       | 経由地3 Y座標                             |
+| via4X    | String | オプション  |       | 経由地4 X座標                             |
+| via4Y    | String | オプション  |       | 経由地4 Y座標                             |
+| via5X    | String | オプション  |       | 経由地5 X座標                             |
+| via5Y    | String | オプション  |       | 経由地5 Y座標                             |
+| option   | String | 必須  |       | 経路探索オプション<br>探索オプションは1つのみ可能<br>例) option=real_traffic<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle：二輪車 |
+| carType   | Integer | オプション  |       | 料金所費を計算するための車種(1～6)、デフォルト値：1 |
+| coordType   | String | 必須  |       | input、output座標タイプ、1つのみ入力可能(TW、WGS84) |
+|guideTop	|Integer| 任意 ||表示する案内情報の数 |
+|groupByTrafficColor	| Boolean| オプション| |詳細経路リスト(paths)情報を道路交通色別にまとめて返すかどうか	|
+|saveFile	| Boolean| オプション| |経路周辺POI検索を行うためのバイナリファイルを保存するかどうか	|
+| useTaxifare   | int | オプション |       | 予想タクシー料金照会を行うかどうか<br>例) useTaxifare=1<br>0：未使用<br>1：一般タクシー<br>2：模範タクシー<br>3：一般タクシーと模範タクシー |
+
+#### レスポンス
+
+##### レスポンス本文
+```
+{
+    "route": {
+        "data": {
+            "option": "real_traffic",
+            "spend_time": 6420,
+            "distance": 57726,
+            "toll_fee": 0,
+            "totalTaxiFare": "57420,83100",
+            "detailDistance": [
+                {
+                    "position": "0|1",
+                    "distance": 31168
+                },
+                {
+                    "position": "1|2",
+                    "distance": 12934
+                },
+                {
+                    "position": "2|3",
+                    "distance": 13624
+                }
+            ]
+        }
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### フィールド
+
+| 名前                        | タイプ    | 説明                                     |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | ヘッダ領域                                  |
+| header.isSuccessful         | Boolean | 成否                                  |
+| header.resultCode           | Integer | 失敗コード                                  |
+| header.resultMessage        | String  | 失敗メッセージ                                 |
+| route			                  | Object  | 本文領域                                  |
+| route.data                   | Array  | 経路情報                                  |
+| route.data[0].option              | String | 探索オプション                     |
+| route.data[0].spend_time           | Integer | 所要時間(秒)                             |
+| route.data[0].distance           | Integer | 距離(m)                          |
+| route.data[0].toll_fee           | Integer | 距離(m)                          |
+| route.data[0].totalTaxiFare           | Integer | 距離(m)                          |
+| route.data[0].detailDistance           | Array | 経由地要約情報                        |
+| route.data[0].detailDistance[0].position           | String | 位置<br>経由地が1個の場合、0\|1：出発地→経由地1, 1\|2：経由地1 →目的地         |
+| route.data[0].detailDistance[0].distance           | Integer | 距離(m)            |
 
 ## Static Map
 
