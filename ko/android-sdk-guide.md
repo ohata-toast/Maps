@@ -36,7 +36,7 @@ allprojects {
 /* App Module build.gradle */
 
 dependencies {
-    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.6.1'
+    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.7.0'
 }
 ```
 
@@ -163,6 +163,20 @@ moveCamera() 함수에 파라미터를 전달하여 호출하면 카메라가 �
 val cameraUpdate = CameraUpdate.targetTo(LatLng(36.99473, 127.81832))
 cameraUpdate.setAnimationType(CameraAnimationType.Fly, 3000)
 inaviMap.moveCamera(cameraUpdate)
+```
+
+#### 나만의 지도 스타일 만들기
+`Map Studio` 서비스를 이용하시면 폰트는 물론, 지도 색상, 범례 아이콘까지 원하는대로 바꿔 나만의 특별한 지도를 제작할 수 있고 최신 버전 SDK에서 제공하는 API를 이용하시면 커스텀 스타일을 지도에 적용할 수 있습니다.
+```kotlin
+// Kotlin
+InaviMapSdk.getInstance(this).authSuccessCallback = object: InaviMapSdk.AuthSuccessCallback{
+    override fun onAuthSuccess(mapStyleList: MutableList<MapStyle>) {
+        // 지도 초기화 인증이 완료되면 지도 스타일 리스트를 콜백으로 전달
+    }
+}
+
+// 저장된 커스텀 스타일 리스트의 첫 번째 커스텀 스타일을 지도에 적용
+inaviMap.customMapStyle = InaviMapSdk.getInstance(context).savedCustomMapStyles.firstOrNull()
 ```
 
 
