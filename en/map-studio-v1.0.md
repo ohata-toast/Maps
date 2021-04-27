@@ -30,7 +30,7 @@ Second, you can collaborate with your coworkers to update and utilize the same s
 - Click the Deploy button on the Edit Style screen or from the list.
 
 **5. Use the deployed map**
-- You can use the map style deployed using NHN Cloud API
+- You can use the map style deployed using NHN Cloud API.
 
 
 <h3> Please visit the  <a href="https://tap.umos.ai/map-studio" target="_blank" rel="nofollow">UMOS Map Studio official website</a>
