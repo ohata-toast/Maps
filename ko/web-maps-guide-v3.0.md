@@ -172,9 +172,9 @@ NHN Cloud Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
     // 생성된 지도 객체의 지도 스타일을 Map Studio로 작성한 스타일로 변경합니다.
 
     map.setStyle("{StyleJsonUrl}");
-    //StyleJosnUrl은 Map Studiod에서 스타일 배포 시 배포 코드 참조
+    //StyleJosnUrl은 Map Studio에서 스타일 배포 시 배포 코드 참조
 
-    //지도 초기화 시 스타일 사용을 할 경우
+    //지도 초기화 시 스타일을 사용할 경우
     <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
 
 </script>

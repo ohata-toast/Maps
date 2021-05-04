@@ -166,7 +166,7 @@ inaviMap.moveCamera(cameraUpdate)
 ```
 
 #### 나만의 지도 스타일 만들기
-`Map Studio` 서비스를 이용하시면 폰트는 물론, 지도 색상, 범례 아이콘까지 원하는대로 바꿔 나만의 특별한 지도를 제작할 수 있고 최신 버전 SDK에서 제공하는 API를 이용하시면 커스텀 스타일을 지도에 적용할 수 있습니다.
+`Map Studio` 서비스를 이용하면 폰트는 물론, 지도 색상, 범례 아이콘까지 원하는 대로 바꿔 나만의 특별한 지도를 제작할 수 있습니다. 또한, 최신 버전 SDK에서 제공하는 API를 이용하면 커스텀 스타일을 지도에 적용할 수 있습니다.
 ```kotlin
 // Kotlin
 InaviMapSdk.getInstance(this).authSuccessCallback = object: InaviMapSdk.AuthSuccessCallback{

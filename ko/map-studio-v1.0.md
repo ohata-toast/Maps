@@ -33,5 +33,5 @@ Map Studio는 ㈜42dot과 ㈜아이나비시스템즈가 공동으로 개발한 
 - NHN Cloud API를 활용해 배포된 지도 스타일을 사용할 수 있습니다.
 
 
-<h3> 보다 자세한 Map Studio 사용방법은  <a href="https://tap.umos.ai/map-studio" target="_blank" rel="nofollow">Map Studio 공식 홈페이지</a>에서
+<h3> 보다 자세한 Map Studio 사용 방법은 <a href="https://tap.umos.ai/map-studio" target="_blank" rel="nofollow">Map Studio 공식 홈페이지</a>에서
 확인할 수 있습니다.
