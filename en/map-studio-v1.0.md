@@ -8,7 +8,7 @@ Here, you will learn about the features of Map Studio and how to get started.
 First, you can create your own unique map by modifying not only fonts but also map colors and legends icons as you want.
 
 <img src="https://static.toastoven.net/prod_maps/maps-studio-1.png">
-
+<br>
 Second, you can collaborate with your coworkers to update and utilize the same shared style more 'quickly' and 'efficiently'.
 
 <img src="https://static.toastoven.net/prod_maps/maps-studio-2.png">

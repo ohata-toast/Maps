@@ -1,6 +1,6 @@
 ## Application Service > Maps > Release Notes
 
-### 2021. 05. 11.
+### May 11, 2021
 #### More Features
 * [API] Added an API that changes the style of web map
 * [API] Added an API that supports custom map style created with web map Map Studio service
