@@ -34,4 +34,4 @@ Second, you can collaborate with your coworkers to update and utilize the same s
 
 
 <h3> Please visit the  <a href="https://tap.umos.ai/map-studio" target="_blank" rel="nofollow">Map Studio official website</a>
-for more information on how to use Map Studio.
+for more information on how to use Map Studio.</h3>
