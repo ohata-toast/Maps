@@ -166,7 +166,7 @@ camUpdate.animationDuration = 3
 mapView.moveCamera(camUpdate)
 ```
 
-#### 나만의 지도 스타일 만들기
+#### Create your own map style
 `Map Studio` serves you to create your own unique map by allowing you to modify not only fonts but also map colors and legends icons as you want. Also, with the APIs from the latest SDK version, you can apply your own custom style to your map.
 ```swift
 // Swift
