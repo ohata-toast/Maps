@@ -3,7 +3,7 @@
 Map Studio is a map-style editing tool co-developed by 42dot Inc. and INAVI Systems Corp.
 Here, you will learn about the features of Map Studio and how to get started.
 
-## UMOS Map Studio features
+## Map Studio features
 
 First, you can create your own unique map by modifying not only fonts but also map colors and legends icons as you want.
 
