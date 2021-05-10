@@ -1,11 +1,11 @@
 ## Application Service > Maps > Web Map Guide > Map Studio Guide
 
-UMOS Map Studio is a map-style editing tool co-developed by 42dot Inc. and INAVI Systems Corp.
-Here, you will learn about the features of UMOS Map Studio and how to get started.
+Map Studio is a map-style editing tool co-developed by 42dot Inc. and INAVI Systems Corp.
+Here, you will learn about the features of Map Studio and how to get started.
 
 ## UMOS Map Studio features
 
-First, you can create your own customized map by changing fonts and legend icons to map generation methods.
+First, you can create your own unique map by modifying not only fonts but also map colors and legends icons as you want.
 
 <img src="https://static.toastoven.net/prod_maps/maps-studio-1.png">
 
@@ -14,7 +14,7 @@ Second, you can collaborate with your coworkers to update and utilize the same s
 <img src="https://static.toastoven.net/prod_maps/maps-studio-2.png">
 <img src="https://static.toastoven.net/prod_maps/maps-studio-2-1.png">
 
-## How to use UMOS Map Studio
+## How to use Map Studio
 
 **1. Create workspace**
 -	Workspace is a sketchbook where users can draw a map. Any users with enough permissions to edit a workspace can freely create and publish a new map.
@@ -33,5 +33,5 @@ Second, you can collaborate with your coworkers to update and utilize the same s
 - You can use the map style deployed using NHN Cloud API.
 
 
-<h3> Please visit the  <a href="https://tap.umos.ai/map-studio" target="_blank" rel="nofollow">UMOS Map Studio official website</a>
-for more information on how to use UMOS Map Studio.
+<h3> Please visit the  <a href="https://tap.umos.ai/map-studio" target="_blank" rel="nofollow">Map Studio official website</a>
+for more information on how to use Map Studio.
