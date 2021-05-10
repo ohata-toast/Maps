@@ -166,6 +166,17 @@ camUpdate.animationDuration = 3
 mapView.moveCamera(camUpdate)
 ```
 
+#### Create your own map style
+`Map Studio` serves you to create your own unique map by allowing you to modify not only fonts but also map colors and legends icons as you want. Also, with the APIs from the latest SDK version, you can apply your own custom style to your map.
+```swift
+// Swift
+INVMapSdk.sharedInstance().delegate = self
+func authSuccess(_ customMapStyles: [INVMapStyle]) {
+    // Delivers the array of map styles as a callback upon completion of map initialization authentication
+}
+// Applies the first custom style from the array of the saved custom styles to the map
+mapView.customMapStyle = INVMapSdk.sharedInstance().savedCustomMapStyles.first
+```
 
 ### Guide for Main Maps SDK 
 For more details on Maps SDK, see [API Center for iNavi Maps](http://imapsapi.inavi.com/).

@@ -1,5 +1,12 @@
 ## Application Service > Maps > 릴리스 노트
 
+### 2021. 05. 11.
+#### 기능 추가
+* [API] 웹 지도 스타일 변경 API 추가
+* [API] 웹 지도 Map Studio 서비스로 제작된 커스텀 지도 스타일을 지원하는 API 추가
+* [Console] Map Studio 소개 페이지 추가
+* [SDK] Map Studio 서비스로 제작된 커스텀 지도 스타일을 지원하는 API 추가
+
 ### 2021. 04. 13.
 #### 기능 추가
 * [API] 폴리곤 내 행정/법정동 검색 API 추가

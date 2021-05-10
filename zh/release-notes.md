@@ -1,5 +1,18 @@
 ## Application Service > Maps > Release Notes
 
+### May 11, 2021
+#### More Features
+* [API] Added an API that changes the style of web map
+* [API] Added an API that supports custom map style created with web map Map Studio service
+* [Console] Added Map Studio introduction page
+* [SDK] Added an API that supports custom map style created with Map Studio service
+
+### April 13, 2021
+#### More Features
+* [API] Added the API that searches for administrative/legal-status neighborhoods within polygons
+* [API] Added the API that searches for space
+* [API] Added the API that summarizes path information between stopovers
+
 ### March 23, 2021
 #### More Features
 * [API] Added options for sorting local category search and showing the number of search results

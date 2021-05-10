@@ -168,3 +168,14 @@ NHN Cloud Maps API adopts Thinkware coordinates
     console.log(screen_pixel.pxY);
 </script>
 ```
+#### Changing map style
+```html
+<script type="text/javascript">
+    //  Changes the map style of the created map object to the style created with Map Studio.
+    map.setStyle("{StyleJsonUrl}");
+    //For StyleJosnUrl, refer to the deployment code provided when Map Studio deployed the style
+    //When using a style during map initialization
+    <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
+
+</script>
+```
