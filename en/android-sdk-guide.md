@@ -36,7 +36,7 @@ allprojects {
 /* App Module build.gradle */
 
 dependencies {
-    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.6.1'
+    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.7.0'
 }
 ```
 
@@ -154,6 +154,19 @@ Since callback is supported for animation and camera events, you can implement c
 val cameraUpdate = CameraUpdate.targetTo(LatLng(36.99473, 127.81832))
 cameraUpdate.setAnimationType(CameraAnimationType.Fly, 3000)
 inaviMap.moveCamera(cameraUpdate)
+```
+
+#### Create your own map style
+`Map Studio` serves you to create your own unique map by allowing you to modify not only fonts but also map colors and legends icons as you want. Also, with the APIs from the latest SDK version, you can apply your own custom style to your map.
+```kotlin
+// Kotlin
+InaviMapSdk.getInstance(this).authSuccessCallback = object: InaviMapSdk.AuthSuccessCallback{
+    override fun onAuthSuccess(mapStyleList: MutableList<MapStyle>) {
+        // Delivers the list of map styles as a callback upon completion of map initialization authentication
+    }
+}
+// Applies the first custom style from the list of the saved custom styles to the map
+inaviMap.customMapStyle = InaviMapSdk.getInstance(context).savedCustomMapStyles.firstOrNull()
 ```
 
 
