@@ -1,5 +1,12 @@
 ## Application Service > Maps > リリースノート
 
+### 2021. 05. 11.
+#### 機能追加
+* [API] Webマップスタイル変更APIを追加
+* [API] WebマップMap Studioサービスで作成されたカスタムマップのスタイルをサポートするAPIを追加
+* [Console] Map Studioの紹介ページを追加
+* [SDK] Map Studioサービスで作成されたカスタムマップのスタイルをサポートするAPIを追加
+
 ### 2021. 04. 13.
 #### 機能追加
 * [API]ポリゴン内の行政/法定洞検索APIを追加
