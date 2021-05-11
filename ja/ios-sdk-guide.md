@@ -169,6 +169,17 @@ camUpdate.animationDuration = 3
 mapView.moveCamera(camUpdate)
 ```
 
+#### 自分だけのマップスタイルの作成
+`Map Studio`サービスを利用すると、フォントはもちろん、マップの色、凡例アイコンまで自由に変更して自分だけの特別なマップを作成できます。また最新バージョンのSDKで提供するAPIを利用すると、カスタムスタイルをマップに適用できます。
+```swift
+// Swift
+INVMapSdk.sharedInstance().delegate = self
+func authSuccess(_ customMapStyles: [INVMapStyle]) {
+        // マップ初期化認証が完了すると、マップスタイルの配列をコールバックに渡す
+}
+// 保存されたカスタムスタイルの配列の最初のカスタムスタイルをマップに適用
+mapView.customMapStyle = INVMapSdk.sharedInstance().savedCustomMapStyles.first
+```
 
 ### 主要Maps SDK案内
 Maps SDKの使用方法は[iNavi Maps APIセンター](http://imapsapi.inavi.com/)を参照してください。
