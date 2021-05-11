@@ -36,7 +36,7 @@ allprojects {
 /* App Module build.gradle */
 
 dependencies {
-    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.6.1'
+    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.7.0'
 }
 ```
 
@@ -157,6 +157,19 @@ cameraUpdate.setAnimationType(CameraAnimationType.Fly, 3000)
 inaviMap.moveCamera(cameraUpdate)
 ```
 
+#### 自分だけのマップスタイルの作成
+`Map Studio`サービスを利用すると、フォントはもちろん、マップの色、凡例アイコンまで自由に変更して自分だけの特別なマップを作成できます。また最新バージョンのSDKで提供するAPIを利用すると、カスタムスタイルをマップに適用できます。
+```kotlin
+// Kotlin
+InaviMapSdk.getInstance(this).authSuccessCallback = object: InaviMapSdk.AuthSuccessCallback{
+    override fun onAuthSuccess(mapStyleList: MutableList<MapStyle>) {
+        // マップ初期化認証が完了すると、マップスタイルリストをコールバックに渡す
+    }
+}
+// 保存されたカスタムスタイルリストの最初のカスタムスタイルをマップに適用
+inaviMap.customMapStyle = InaviMapSdk.getInstance(context).savedCustomMapStyles.firstOrNull()
+```
+
 
 ### 主要iNavi Maps SDK案内
 Maps SDKの使用方法は[iNavi Maps APIセンター](http://imapsapi.inavi.com/)を参照してください。
@@ -170,4 +183,3 @@ Maps SDKの使用方法は[iNavi Maps APIセンター](http://imapsapi.inavi.com
 [CameraUpdateBuilder] : [https://inavi-systems.github.io/inavi-maps-sdk-reference/android/com/inavi/mapsdk/maps/CameraUpdateBuilder.html](https://inavi-systems.github.io/inavi-maps-sdk-reference/android/com/inavi/mapsdk/maps/CameraUpdateBuilder.html)
 
 [NHN Cloud Console] : [https://console.toast.com/](https://console.toast.com/)
-

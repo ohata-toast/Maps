@@ -33,7 +33,6 @@ NHN Cloud Maps APIは、WGS84(EPSG:4326)座標を使用します。
 | API名                                 | Parameter                        | Returns                                  | 説明                              |
 | ---------------------------------------- | -------------------------------- | ---------------------------------------- | ---------------------------------------- |
 | new inavi.maps.Map(options)  | options.container : string                 | inavi.maps.Mapマップオブジェクト | マップを表示するDOMエレメントのID             |
-|                                          | options.type : string             |                                          | マップのタイプ <br> 'NORMAL' ：一般マップ、<br> 'SATTELITE' ：航空写真<br>default: 'NORMAL' |
 |                                          | options.center : LngLatLike       |                                          | マップの中心座標               |
 |                                          | options.zoom : number            |                                          | マップのレベル                                |
 |                                          | options.heading : number             |                                          | 北を基準に反時計方向に回転した角度 |
@@ -49,7 +48,6 @@ NHN Cloud Maps APIは、WGS84(EPSG:4326)座標を使用します。
 |                                          | options.logoScaleControl : LogoScaleControlOptions             |                                          | ロゴおよびスケール表示コントロールオプション |
 |                                          | options.compassControl : CompassControlOptions             |                                          | 羅針盤表示コントロールオプション |
 |                                          | options.zoomControl : ZoomControlOptions             |                                          | 拡大縮小表示コントロールオプション |
-| changeType(type)                         | type : string                    |                                          | マップのタイプ <br> 'NORMAL'：一般マップ、<br> 'SATTELITE'：航空<br>default：'NORMAL' |
 | on(eventType, listener) | eventType : string              |                                          | load,<br>zoomstart, zoom, zoomend,<br>rotatestart, rotate, rotateend,<br>tiltstart, tilt, tiltend,<br>click, dblclick,<br>mousedown, mouseup, mousemove,<br>mouseenter, mouseleave, mouseover, mouseout,<br>contextmenu,<br>wheel,<br>touchstart, touchend, touchcancel, touchmove,<br>movestart, move, moveend,<br>dragstart, drag, dragend|
 |                                          | listener : Function             |                                          | 登録するリスナー                               |
 | once(eventType, listener) | eventType : string              |                                          | load,<br>zoomstart, zoom, zoomend,<br>rotatestart, rotate, rotateend,<br>tiltstart, tilt, tiltend,<br>click, dblclick,<br>mousedown, mouseup, mousemove,<br>mouseenter, mouseleave, mouseover, mouseout,<br>contextmenu,<br>wheel,<br>touchstart, touchend, touchcancel, touchmove,<br>movestart, move, moveend,<br>dragstart, drag, dragend|
@@ -166,5 +164,16 @@ NHN Cloud Maps APIは、WGS84(EPSG:4326)座標を使用します。
     var screen_pixel = inavi.maps.LngLat.convertToPixel(wgs84);
     console.log(screen_pixel.pxX);
     console.log(screen_pixel.pxY);
+</script>
+```
+#### マップスタイルの変更
+```html
+<script type="text/javascript">
+    // 作成されたマップオブジェクトのマップスタイルをMap Studioで作成したスタイルに変更します。
+    map.setStyle("{StyleJsonUrl}");
+    //StyleJosnUrlはMap Studioでスタイル配布時の配布コードを参照
+    //マップの初期化時にスタイルを使用する場合
+    <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
+
 </script>
 ```
