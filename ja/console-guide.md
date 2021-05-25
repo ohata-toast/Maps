@@ -16,12 +16,12 @@ URLとアプリケーションキーは、Maps API(マップ、検索、探索)�
 APIを呼び出した時間別、日別、月別統計をMaps APIの詳細API別に確認できます。
 統計データは10分単位でアップデートされます。
 
-![](http://static.toastoven.net/prod_maps/img_02.JPG)
+![](https://static.toastoven.net/prod_maps/maps-console-statistics.png)
 
 ### 種別コード検索
 統合検索API使用時に、検索オプションとして使用できる種別コードを確認できます。
 
-![](http://static.toastoven.net/prod_maps/img_03.JPG)
+![](https://static.toastoven.net/prod_maps/maps-console-typecode.png)
 
 ### サービスの無効化
 Mapsサービスの使用を中止するには**コンソール**で**プロジェクト選択 > プロジェクト設定 > サービス無効化** ボタンをクリックします。

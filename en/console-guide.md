@@ -16,12 +16,12 @@ URL and appkeys serve as URI to call Maps API (Maps, Search, and Navigate).
 You may check statistics on API calls by the hour, day, or month for each Maps API details. 
 Statistics are updated at every 10 minutes. 
 
-![](http://static.toastoven.net/prod_maps/img_02.JPG)
+![](https://static.toastoven.net/prod_maps/maps-console-statistics.png)
 
 ### Search Codes by Type 
 As a search option for the integrated search API, available codes can be found by type. 
 
-![](http://static.toastoven.net/prod_maps/img_03.JPG)
+![](https://static.toastoven.net/prod_maps/maps-console-typecode.png)
 
 ### Disable Service
 To disable the Maps service, go to **console** and click the **Select Project > Project Settings > Disable Service** button.
