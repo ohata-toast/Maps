@@ -1260,29 +1260,38 @@
     },
     "location": {
         "result": true,
-        "posx": "126.947265",
-        "posy": "37.384033",
-        "roadname": "경기도 안양시 동안구 귀인로",
-        "roadjibun": "59",
+        "hasAdmAddress": true,
+        "adm": {
+            "posx": "127.110425",
+            "posy": "37.402109",
+            "address": "경기도 성남시 분당구 삼평동",
+            "distance": 0,
+            "bldname": "삼환하이펙스A동",
+            "admcode": "4113510900",
+            "postcode": "13493",
+            "jibun": "678",
+            "roadname": "경기도 성남시 분당구 판교역로",
+            "roadjibun": "240"
+        },
         "adm_address": {
-            "address": "경기도 안양시 동안구 범계동",
-            "admcode": "4117361000",
-            "address_category3": "범계동",
+            "address": "경기도 성남시 분당구 삼평동",
+            "admcode": "4113565500",
+            "address_category3": "삼평동",
             "address_category4": "",
-            "jibun": "921",
+            "jibun": "678",
             "address_category1": "경기도",
-            "address_category2": "안양시 동안구",
-            "cut_address": "경기 안양시 동안구 범계동"
+            "address_category2": "성남시 분당구",
+            "cut_address": "경기 성남시 분당구 삼평동"
         },
         "legal_address": {
-            "address": "경기도 안양시 동안구 호계동",
-            "admcode": "4117310400",
-            "address_category3": "호계동",
+            "address": "경기도 성남시 분당구 삼평동",
+            "admcode": "4113510900",
+            "address_category3": "삼평동",
             "address_category4": "",
-            "jibun": "921",
+            "jibun": "678",
             "address_category1": "경기도",
-            "address_category2": "안양시 동안구",
-            "cut_address": "경기 안양시 동안구 호계동"
+            "address_category2": "성남시 분당구",
+            "cut_address": "경기 성남시 분당구 삼평동"
         }
     }
 }
@@ -1298,12 +1307,18 @@
 | header.resultMessage   | String  | 실패 메시지                                   |
 | location               | Object  | 본문 영역                                    |
 | location.result        | Boolean | 성공 여부                                    |
-| location.posx      | String  | X 좌표                                     |
-| location.posy      | String  | Y 좌표                                     |
-| location.roadname  | String  | 새 주소 도로명                                 |
-| location.roadjibun | String  | 새 주소 지번                                  |
+| location.adm.posx      | String  | X 좌표                                     |
+| location.adm.posy      | String  | Y 좌표                                     |
+| location.adm.distance   | String  | 거리(m)                                    |
+| location.adm.bldname   | String  | 건물이름                                    |
+| location.adm.admcode   | String  | 행정 코드                                    |
+| location.adm.postcode   | String  | 우편번호                                    |
+| location.adm.jibun     | String  | 지번                                       |
+| location.adm.roadname  | String  | 새 주소 도로명                                 |
+| location.adm.roadjibun | String  | 새 주소 지번                                  |
 | location.adm_address           | Object  | 행정동 주소 정보                           |
 | location.adm_address.admcode   | String  | 행정 코드                                    |
+| location.adm_address.postcode   | String  | 우편번호                                    |
 | location.adm_address.address   | String  | 주소                                       |
 | location.adm_address.jibun     | String  | 지번                                       |
 | location.adm_address.address_category1     | String  |   도/시                      |
@@ -1311,7 +1326,7 @@
 | location.adm_address.address_category3     | String  |   읍/면/동                 |
 | location.adm_address.address_category4     | String  |   리                  |
 | location.adm_address.cut_address     | String  |                         |
-| location.legal_address           | Object  | 행정동 주소 정보                           |
+| location.legal_address           | Object  | 법정동 주소 정보                           |
 | location.legal_address.admcode   | String  | 행정 코드                                    |
 | location.legal_address.address   | String  | 주소                                       |
 | location.legal_address.jibun     | String  | 지번                                       |
