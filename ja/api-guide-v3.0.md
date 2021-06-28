@@ -1148,36 +1148,36 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
         "result": true,
         "hasAdmAddress": true,
         "adm": {
-            "posx": "126.947265",
-            "posy": "37.384033",
-            "address": "京畿道安養市東安区虎溪洞",
+            "posx": "127.110425",
+            "posy": "37.402109",
+            "address": "京畿道城南市盆唐区サムピョン洞",
             "distance": 0,
-            "bldname": "",
-            "admcode": "4117310400",
-            "postcode": "14079",
-            "jibun": "921",
-            "roadname": "京畿道安養市東安区貴仁路",
-            "roadjibun": "59"
+            "bldname": "Samhwan HIPEXA洞",
+            "admcode": "4113510900",
+            "postcode": "13493",
+            "jibun": "678",
+            "roadname": "京畿道城南市盆唐区パンギョ駅路",
+            "roadjibun": "240"
         },
         "adm_address": {
-            "address": "京畿道安養市東安区虎溪2洞",
-            "admcode": "4117359000",
-            "address_category3": "虎溪2洞",
+            "address": "京畿道城南市盆唐区サムピョン洞",
+            "admcode": "4113565500",
+            "address_category3": "サムピョン洞",
             "address_category4": "",
-            "jibun": "921",
+            "jibun": "678",
             "address_category1": "京畿道",
-            "address_category2": "安養市東安区",
-            "cut_address": "京畿道安養市東安区虎溪2洞"
+            "address_category2": "城南市盆唐区",
+            "cut_address": "京畿城南市盆唐区サムピョン洞"
         },
         "legal_address": {
-            "address": "京畿道安養市東安区虎溪洞",
-            "admcode": "4117310400",
-            "address_category3": "虎溪洞",
+            "address": "京畿道城南市盆唐区サムピョン洞",
+            "admcode": "4113510900",
+            "address_category3": "サムピョン洞",
             "address_category4": "",
-            "jibun": "921",
+            "jibun": "678",
             "address_category1": "京畿道",
-            "address_category2": "安養市東安区",
-            "cut_address": "京畿道安養市東安区虎溪洞"
+            "address_category2": "城南市盆唐区",
+            "cut_address": "京畿城南市盆唐区サムピョン洞"
         }
     }
 }
@@ -1192,19 +1192,18 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | header.resultMessage   | String  | 失敗メッセージ                                  |
 | location               | Object  | 本文領域                                   |
 | location.result        | Boolean | 成否                                   |
-| location.hasAdmAddress        | Boolean | 行政住所を返すかどうか                                    |
-| location.adm           | Object  | 法定住所情報                          |
 | location.adm.posx      | String  | X座標                                    |
 | location.adm.posy      | String  | Y座標                                    |
-| location.adm.admcode  | String  | 法定コード                                 |
-| location.adm.address  | String  | 住所                                 |
-| location.adm.jibun  | String  | 地番                                  |
-| location.adm.roadname  | String  | 新住所の道路名                            |
-| location.adm.roadjibun | String  | 新住所の地番                             |
-| location.adm.bldname  | String  | 建物名(該当する時のみ)                              |
-| location.adm.postcode  | String  | 郵便番号                  |
+| location.adm.distance   | String  | 距離(m)                                    |
+| location.adm.bldname   | String  | 建物名                                   |
+| location.adm.admcode   | String  | 行政コード                                   |
+| location.adm.postcode   | String  | 郵便番号                                   |
+| location.adm.jibun     | String  | 地番                                       |
+| location.adm.roadname  | String  | 新住所の道路名                                 |
+| location.adm.roadjibun | String  | 新住所の地番                                  |
 | location.adm_address           | Object  | 行政洞住所情報                         |
 | location.adm_address.admcode   | String  | 行政コード                                   |
+| location.adm_address.postcode   | String  | 郵便番号                                   |
 | location.adm_address.address   | String  | 住所                                      |
 | location.adm_address.jibun     | String  | 地番                                      |
 | location.adm_address.address_category1     | String  |  道/市                     |
