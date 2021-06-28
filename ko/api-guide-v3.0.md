@@ -1310,7 +1310,7 @@
 | location.adm.posx      | String  | X 좌표                                     |
 | location.adm.posy      | String  | Y 좌표                                     |
 | location.adm.distance   | String  | 거리(m)                                    |
-| location.adm.bldname   | String  | 건물이름                                    |
+| location.adm.bldname   | String  | 건물 이름                                    |
 | location.adm.admcode   | String  | 행정 코드                                    |
 | location.adm.postcode   | String  | 우편번호                                    |
 | location.adm.jibun     | String  | 지번                                       |
