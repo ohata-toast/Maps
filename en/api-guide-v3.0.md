@@ -1263,38 +1263,37 @@ In the order of gas, premium gas, light oil, and LPG |
     },
     "location": {
         "result": true,
-        "hasAdmAddress": true,
+	  "hasAdmAddress": true,
         "adm": {
-            "posx": "126.947265",
-            "posy": "37.384033",
-            "address": "Hogye-dong, Dongan-gu, Anyang-si, Gyeonggi-do",
+            "posx": "127.110425",
+            "posy": "37.402109",
+            "address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do",
             "distance": 0,
-            "bldname": "",
-            "admcode": "4117310400",
-            "postcode": "14079",
-            "jibun": "921",
-            "roadname": "Gwiin-ro, Dongan-gu, Anyang-si, Gyeonggi-do",
-            "roadjibun": "59"
+            "bldname": ""Samhwan Hipex A building"",
+            "admcode": "4113510900",
+            "postcode": "13493",
+            "jibun": "678",
+            "roadname": "Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
+            "roadjibun": "240"
         },
-        "adm_address": {
-            "address": "Hogye 2-dong, Dongan-gu, Anyang-si, Gyeonggi-do",
-            "admcode": "4117359000",
-            "address_category3": "Hogye 2-dong",
-            "address_category4": "",
-            "jibun": "921",
-            "address_category1": "Gyeonggi-do",
-            "address_category2": "Dongan-gu, Anyang-si",
-            "cut_address": "Hogye 2-dong, Dongan-gu, Anyang-si, Gyeonggi-do"
+	"adm_address": {
+	  "address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do",
+            "admcode": "4113565500",
+            "address_category3": "Sampyeong-dong",
+	    "address_category4": "",
+	    "jibun": "678",
+	    "address_category1": "Gyeonggi-do",
+	    "address_category2": "Bundang-gu, Seongnam-si",
+            "cut_address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do"
         },
         "legal_address": {
-            "address": "Hogye-dong, Dongan-gu, Anyang-si, Gyeonggi-do"
-	    "admcode": "4117310400",
-            "address_category3": "Hogye-dong",
-            "address_category4": "",
-            "jibun": "921",
-            "address_category1": "Gyeonggi-do",
-            "address_category2": "Dongan-gu, Anyang-si",
-            "cut_address": "Hogye-dong, Dongan-gu, Anyang-si, Gyeonggi-do"
+	    "address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do",
+            "admcode": "4113510900",
+            "address_category3": "Sampyeong-dong",
+	    "address_category4": "",
+	    "jibun": "678",
+	    "address_category2": "Bundang-gu, Seongnam-si",
+            "cut_address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do"
         }
     }
 }
@@ -1311,39 +1310,34 @@ In the order of gas, premium gas, light oil, and LPG |
 | header.resultMessage   | String  | Failure message                             |
 | location               | Object  | Body area                                   |
 | location.result        | Boolean | Successful or not                           |
-| location.hasAdmAddress        | Boolean | Return administrative address or not                                 |
-| location.adm           | Object  | Legal address information                    |
-| location.adm.posx      | String  | X coordinates                                 |
-| location.adm.posy      | String  | Y coordinates                                     |
-| location.adm.admcode  | String  | Legal code                                  |
-| location.adm.address  | String  | Address                                 |
-| location.adm.jibun  | String  | Land-lot number                           |
-| location.adm.roadname  | String  | Road name for new address system                                  |
-| location.adm.roadjibun | String  | Land-lot number for new address system                                  |
-| location.adm.bldname  | String  | Building name (only when available)                              |
-| location.adm.postcode  | String  | Zip code                   |
-| location.adm_address           | Object  | Administrative addres sinformation                       |
+| location.adm.posx      | String  | X-coordinate                                     |
+| location.adm.posy      | String  | Y-coordinate                                     |
+| location.adm.distance   | String  | Distance (m)                                    |
+| location.adm.bldname   | String  | Building name                                    |
+| location.adm.admcode   | String  | Administrative code                                    |
+| location.adm.postcode   | String  | Postal code                                    |
+| location.adm.jibun     | String  | Lot number address                                       |
+| location.adm.roadname  | String  | New road name address                                 |
+| location.adm.roadjibun | String  | New lot number address                                  |
+| location.adm_address           | Object  | Administrative addres sinformation                            |
 | location.adm_address.admcode   | String  | Administrative code                                    |
-| location.adm_address.address   | String  | Address                                    |
-| location.adm_address.jibun     | String  | Land-lot number                                |
+| location.adm_address.postcode   | String  | Postal code                                    |
+| location.adm_address.address   | String  | Address                                       |
+| location.adm_address.jibun     | String  | Lot number addres                                       |
 | location.adm_address.address_category1     | String  |   do/si                      |
 | location.adm_address.address_category2     | String  |   si/gun/gu                   |
 | location.adm_address.address_category3     | String  |   eup/myeon/dong                 |
 | location.adm_address.address_category4     | String  |   ri                  |
 | location.adm_address.cut_address     | String  |                         |
-| location.legal_address           | Object  | Legal address information                     |
-| location.legal_address.admcode   | String  | Legal code                                    |
-| location.legal_address.address   | String  | Address                                      |
-| location.legal_address.jibun     | String  | Land-lot number                              |
+| location.legal_address           | Object  | Legal-status neighborhood address                           |
+| location.legal_address.admcode   | String  | Administrative code                                    |
+| location.legal_address.address   | String  | Address                                       |
+| location.legal_address.jibun     | String  | Lot number addres                                       |
 | location.legal_address.address_category1     | String  |  do/si                       |
-| location.legal_address.address_category2     | String  |  si/gun/gu                      |
+| location.legal_address.address_category2     | String  |  si/gun/gu                       |
 | location.legal_address.address_category3     | String  |  eup/myeon/dong                      |
 | location.legal_address.address_category4     | String  |  ri                       |
 | location.legal_address.cut_address     | String  |                         |
-
-
-
-
 
 ## Navigate
 
