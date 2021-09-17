@@ -984,30 +984,37 @@
 
 ```
 {
-    "result": true,
-    "count": 1,
-    "polygondata": [
-        {
-            "admincode": "4136025921",
-            "count": 1,
-            "polygonlist": [
-                {
-                    "count": 413,
-                    "polygon": [
-                        {
-                            "x": 127.207296,
-                            "y": 37.665605
-                        },
-                        {
-                            "x": 127.208346,
-                            "y": 37.665080
-                        },
-                        ...
-                    ]
-                }
-            ]
-        }
-    ]
+    "polygon": {
+        "result": true,
+        "count": 1,
+        "polygondata": [
+            {
+                "admincode": "4136025921",
+                "count": 1,
+                "polygonlist": [
+                    {
+                        "count": 413,
+                        "polygon": [
+                            {
+                                "x": 127.207296,
+                                "y": 37.665605
+                            },
+                            {
+                                "x": 127.208346,
+                                "y": 37.665080
+                            },
+                            ...
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "header": {
+     "isSuccessful": true,
+     "resultCode": 0,
+     "resultMessage": ""
+    }
 }
 ```
 
@@ -1019,16 +1026,17 @@
 | header.isSuccessful                | Boolean | 성공 여부                                    |
 | header.resultCode                  | Integer | 실패 코드                                    |
 | header.resultMessage               | String  | 실패 메시지                                   |
-| result                         | Boolean | 성공 여부                                    |
-| count                          | Integer | 검색 결과 개수                                 |
-| polygondata                        | Array   | 폴리곤 데이터                             |
-| polygondata[0].admincode               | String | 검색한 AdminCode 값(mode에 따라 자릿수가 달라짐)                                   |
-| polygondata[0].count             | Integer  | 폴리곤 개수                           |
-| polygondata[0].polygonlist     | Array  | 폴리곤         |
-| polygondata[0].polygonlist[0].count     | Integer  | 포인트 개수      |
-| polygondata[0].polygonlist[0].polygon     | Array  | 폴리곤 좌표 리스트      |
-| polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X 좌표      |
-| polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y 좌표      |
+| polygon                         | Object | 본문 영역                                    |
+| polygon.result                         | Boolean | 성공 여부                                    |
+| polygon.count                          | Integer | 검색 결과 개수                                 |
+| polygon.polygondata                        | Array   | 폴리곤 데이터                             |
+| polygon.polygondata[0].admincode               | String | 검색한 AdminCode 값(mode에 따라 자릿수가 달라짐)                                   |
+| polygon.polygondata[0].count             | Integer  | 폴리곤 개수                           |
+| polygon.polygondata[0].polygonlist     | Array  | 폴리곤         |
+| polygon.polygondata[0].polygonlist[0].count     | Integer  | 포인트 개수      |
+| polygon.polygondata[0].polygonlist[0].polygon     | Array  | 폴리곤 좌표 리스트      |
+| polygon.polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X 좌표      |
+| polygon.polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y 좌표      |
 
 
 ### 8\. 폴리곤 내 행정/법정동 검색
@@ -1066,23 +1074,30 @@
 
 ```
 {
-    "result": true,
-    "admincodes": {
-        "count": 3,
-        "admincodelist": [
-            {
-                "AdminCode": "4136025921",
-                "Address": "경기도 남양주시 진건읍 사능리"
-            },
-            {
-                "AdminCode": "4136025926",
-                "Address": "경기도 남양주시 진건읍 송능리"
-            },
-            {
-                "AdminCode": "4136025900",
-                "Address": "경기도 남양주시 진건읍"
-            }
-        ]
+    "header": {
+            "isSuccessful": true,
+            "resultCode": 0,
+            "resultMessage": ""
+    },
+    "adm": {
+        "result": true,
+        "admincodes": {
+            "count": 3,
+            "admincodelist": [
+                {
+                    "AdminCode": "4136025921",
+                    "Address": "경기도 남양주시 진건읍 사능리"
+                },
+                {
+                    "AdminCode": "4136025926",
+                    "Address": "경기도 남양주시 진건읍 송능리"
+                },
+                {
+                    "AdminCode": "4136025900",
+                    "Address": "경기도 남양주시 진건읍"
+                }
+            ]
+        }
     }
 }
 ```
@@ -1095,16 +1110,107 @@
 | header.isSuccessful                | Boolean | 성공 여부                                    |
 | header.resultCode                  | Integer | 실패 코드                                    |
 | header.resultMessage               | String  | 실패 메시지                                   |
-| result                         | Boolean | 성공 여부                                    |
-| count                          | Integer | 검색 결과 개수                                 |
-| polygondata                        | Array   | 폴리곤 데이터                             |
-| polygondata[0].admincode               | String | 검색한 AdminCode 값(mode에 따라 자릿수가 달라짐)                                   |
-| polygondata[0].count             | Integer  | 폴리곤 개수                           |
-| polygondata[0].polygonlist     | Array  | 폴리곤         |
-| polygondata[0].polygonlist[0].count     | Integer  | 포인트 개수      |
-| polygondata[0].polygonlist[0].polygon     | Array  | 폴리곤 좌표 리스트      |
-| polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X 좌표      |
-| polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y 좌표      |
+| adm                         | Object | 본문 영역                                    |
+| adm.result                         | Boolean | 성공 여부                                    |
+| adm.count                          | Integer | 검색 결과 개수                                 |
+| adm.polygondata                        | Array   | 폴리곤 데이터                             |
+| adm.polygondata[0].admincode               | String | 검색한 AdminCode 값(mode에 따라 자릿수가 달라짐)                                   |
+| adm.polygondata[0].count             | Integer  | 폴리곤 개수                           |
+| adm.polygondata[0].polygonlist     | Array  | 폴리곤         |
+| adm.polygondata[0].polygonlist[0].count     | Integer  | 포인트 개수      |
+| adm.polygondata[0].polygonlist[0].polygon     | Array  | 폴리곤 좌표 리스트      |
+| adm.polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X 좌표      |
+| adm.polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y 좌표      |
+
+### 9\. 건물군 입구점 조회
+
+* 입력된 폴리곤 좌표에 해당하는 입구점 개수와 좌표를 반환합니다.
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI                                      |
+| ---- | ---------------------------------------- |
+| POST  | /maps/v3.0/appkeys/{appkey}/searchEntryPoint  |
+
+[Path parameter]
+
+| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 필수    |       | 고유의 앱키 |
+
+[Query Parameters]
+
+| 이름        | 타입     | 필수 여부 |  설명                                   |
+| --------- | ------ | ----- |  ------------------------------------ |
+| coordtype         | Integer | 선택   | 좌표 타입<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
+| type     | Integer  |선택 | 차후 기능 추가 예정<br>현재는 동작에 영향 없음      |
+| posX   | String  | 필수| X 좌표      |
+| posY   | String  | 필수 | Y 좌표      |
+
+
+
+#### 응답
+
+##### 응답 본문
+
+```
+{
+    "data": {
+        "result": true,
+        "count": 5,
+        "entrypoints": [
+            {
+                "x": 126.936249,
+                "y": 37.54713,
+                "type": 0
+            },
+            {
+                "x": 126.935912,
+                "y": 37.547139,
+                "type": 0
+            },
+            {
+                "x": 126.936687,
+                "y": 37.547097,
+                "type": 0
+            },
+            {
+                "x": 126.936674,
+                "y": 37.546655,
+                "type": 0
+            },
+            {
+                "x": 126.936099,
+                "y": 37.546389,
+                "type": 0
+            }
+        ]
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### 필드
+
+| 이름                                 | 타입      | 설명                                       |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | 헤더 영역                                    |
+| header.isSuccessful                | Boolean | 성공 여부                                    |
+| header.resultCode                  | Integer | 실패 코드                                    |
+| header.resultMessage               | String  | 실패 메시지                                   |
+| data                         | Object | 본문 영역                                    |
+| data.result                         | Boolean | 성공 여부                                    |
+| data.count                          | Integer | 조회된 건물군 입구점 개수                                 |
+| data.entrypoints                        | Object   | 조회된 건물군 입구점 좌표 목록                             |
+| data.entrypoints[0].x               | Double | x좌표                                   |
+| data.entrypoints[0].y             | Double  | y좌표                           |
+| data.entrypoints[0].type     | Integer  | 차후 기능 추가 예정         |
 
 ## Geocoding API(지오코딩 API)
 
