@@ -65,10 +65,10 @@
 | radius        | String | 선택      |           | 반경<br>spopt 값이 2인 경우 사용<br>미터 단위                |
 | admcode       | String | 선택      |           | 행정 코드                                                     |
 | depth         | String | 선택      |           | 하위 시설물 요구 수준<br>0: 0 POI 표출 시 부모/Sub를 구분하지 않고 모두 표출<br>1: 1 POI 표출 시 부모 POI만 표출하고 Sub-POI는 카운트만 제공<br>2: 2 POI 표출 시 부모 POI 하위에 Sub-POI를 따로 그룹화해 표출<br>3: 3 POI 표출 시 부모 POI 하위에 Sub-POI를 따로 그룹화해 표출,<br> Sub-POI 내에 하위 Sub-POI가 존재하는 경우 하위 depth 표출<br>* 옵션 선택이 없는 경우 Default는 0으로 설정됨 |
-| x1            | String | 선택      |           | X1 좌표<br>spopt 값이 0인 경우 기준점 X 좌표<br>spopt 값이 1인 경우 Extent의 왼쪽 상단 X 좌표<br>spopt 값이 2인 경우 기준점 X 좌표 |
-| y1            | String | 선택      |           | Y1 좌표<br>spopt 값이 0인 경우 기준점 Y 좌표<br>spopt 값이 1인 경우 Extent의 왼쪽 상단 Y 좌표<br>spopt 값이 2인 경우 기준점 Y 좌표 |
-| x2            | String | 선택      |           | X2 좌표<br>spopt 값이 1인 경우 Extent의 오른쪽 하단 X 좌표, spopt 값이 2인 경우 사용 안함 |
-| y2            | String | 선택      |           | Y2 좌표<br>spopt 값이 1인 경우 Extent의 오른쪽 하단 Y 좌표, spopt 값이 2인 경우 사용 안함 |
+| x1            | String | 선택      |           | x1 좌표<br>spopt 값이 0인 경우 기준점 x 좌표<br>spopt 값이 1인 경우 Extent의 왼쪽 상단 x 좌표<br>spopt 값이 2인 경우 기준점 x 좌표 |
+| y1            | String | 선택      |           | y2 좌표<br>spopt 값이 0인 경우 기준점 y 좌표<br>spopt 값이 1인 경우 Extent의 왼쪽 상단 y 좌표<br>spopt 값이 2인 경우 기준점 y 좌표 |
+| x2            | String | 선택      |           | x2 좌표<br>spopt 값이 1인 경우 Extent의 오른쪽 하단 x 좌표, spopt 값이 2인 경우 사용 안함 |
+| y2            | String | 선택      |           | y2 좌표<br>spopt 값이 1인 경우 Extent의 오른쪽 하단 y 좌표, spopt 값이 2인 경우 사용 안함 |
 | sortopt       | String | 선택      |           | 정렬 옵션<br>1: 명칭순 정렬<br>2: 거리순 정렬(좌표를 입력한 경우)<br>3: 이름 매치(좌표를 입력한 경우 좌표로부터 거리순으로 추가 정렬)<br>4: 검색어 가중치 정렬(엔진 기준)<br>* sortopt 값이 설정되지 않은 경우 4로 설정 |
 | catecode      | String | 선택      |           | 선호 카테고리<br>선호 카테고리 검색 시 검색어에 카테고리 명칭을 입력한 경우, 검색어 우선 정책에 의해 입력한 선호 카테고리보다 검색어를 기준으로 검색됨<br>예) 검색어: "미용실" , 선호 카테고리: "100000"(음식점) -> 미용실 기준으로 검색 됨 |
 
@@ -234,10 +234,10 @@
 | search.poi                       | Array   | POI 검색 결과 목록                             |
 | search.poi[0].poiid              | Integer | POI ID                                   |
 | search.poi[0].depth              | String  | POI depth                                |
-| search.poi[0].dpx                | String  | display X 좌표(WGS84의 경우 longitude)         |
-| search.poi[0].dpy                | String  | display Y 좌표(WGS84의 경우 latitude)          |
-| search.poi[0].rpx                | String  | 탐색 X 좌표(WGS84의 경우 longitude)              |
-| search.poi[0].rpy                | String  | 탐색 Y 좌표(WGS84의 경우 latitude)               |
+| search.poi[0].dpx                | String  | display x 좌표(WGS84의 경우 longitude)         |
+| search.poi[0].dpy                | String  | display y 좌표(WGS84의 경우 latitude)          |
+| search.poi[0].rpx                | String  | 탐색 x 좌표(WGS84의 경우 longitude)              |
+| search.poi[0].rpy                | String  | 탐색 y 좌표(WGS84의 경우 latitude)               |
 | search.poi[0].name1              | String  | 정식 명칭                                    |
 | search.poi[0].name2              | String  | 축약 명칭                                    |
 | search.poi[0].name3              | String  | 확장 명칭 1                                  |
@@ -275,8 +275,8 @@
 | search.tel                       | Array   | TEL 검색 결과 목록(POI 정보와 동일)                |
 | search.adm                       | Array   | ADM 검색 결과 목록                             |
 | search.adm[0].type               | String  | 검색 유형<br>1: 행정계 검색<br>2: 지번 검색<br>3: 새주소 검색 |
-| search.adm[0].posx               | String  | X 좌표(WGS84의 경우 longitude)                 |
-| search.adm[0].posy               | String  | Y 좌표(WGS84의 경우 latitude)                  |
+| search.adm[0].posx               | String  | x 좌표(WGS84의 경우 longitude)                 |
+| search.adm[0].posy               | String  | y 좌표(WGS84의 경우 latitude)                  |
 | search.adm[0].admcode            | String  | 행정 코드                                     |
 | search.adm[0].address            | String  | 주소                                       |
 | search.adm[0].jibun              | String  | 지번                                       |
@@ -546,10 +546,10 @@
 | poi.count                          | Integer | 검색 결과 개수                                               |
 | poi.poiinfo                        | Array   | POI 검색 결과 목록                                           |
 | poi.poiinfo[0].poiid               | Integer | POI ID                                                       |
-| poi.poiinfo[0].dpx                 | String  | display X 좌표(WGS84의 경우 longitude)                       |
-| poi.poiinfo[0].dpy                 | String  | display Y 좌표(WGS84의 경우 latitude)                        |
-| poi.poiinfo[0].rpx                 | String  | 탐색 X 좌표(WGS84의 경우 longitude)                          |
-| poi.poiinfo[0].rpy                 | String  | 탐색 Y 좌표(WGS84의 경우 latitude)                           |
+| poi.poiinfo[0].dpx                 | String  | display x 좌표(WGS84의 경우 longitude)                       |
+| poi.poiinfo[0].dpy                 | String  | display y 좌표(WGS84의 경우 latitude)                        |
+| poi.poiinfo[0].rpx                 | String  | 탐색 x 좌표(WGS84의 경우 longitude)                          |
+| poi.poiinfo[0].rpy                 | String  | 탐색 y 좌표(WGS84의 경우 latitude)                           |
 | poi.poiinfo[0].name1               | String  | 정식 명칭                                                    |
 | poi.poiinfo[0].name2               | String  | 축약 명칭                                                    |
 | poi.poiinfo[0].name3               | String  | 확장 명칭 1                                                  |
@@ -616,8 +616,8 @@
 | 이름  | 타입   | 필수 여부 | 유효 범위                                                    | 설명                         |
 | ----- | ------ | --------- | ------------------------------------------------------------ | ---------------------------- |
 | poiid | String | 필수      |                                                              | POI ID<br>여러 개 지원 안 됨 |
-| x1    | String | 선택      | 현 위치 또는 지도 중심 좌표<br>X, Y 좌표가 모두 NULL 또는 0일 경우 거리 계산을 수행하지 않음 |                              |
-| y1    | String | 선택      | 현위치 또는 지도 중심 좌표<br>X, Y 좌표가 모두 NULL 또는 0일 경우 거리 계산을 수행하지 않음 |                              |
+| x1    | String | 선택      | 현 위치 또는 지도 중심 좌표<br>x, y 좌표가 모두 NULL 또는 0일 경우 거리 계산을 수행하지 않음 |                              |
+| y1    | String | 선택      | 현위치 또는 지도 중심 좌표<br>x, y 좌표가 모두 NULL 또는 0일 경우 거리 계산을 수행하지 않음 |                              |
 
 #### 응답
 
@@ -695,10 +695,10 @@
 | subpoi.poi                       | Array   | POI 검색 결과 목록                             |
 | subpoi.poi[0].poiid              | Integer | POI ID                                   |
 | subpoi.poi[0].depth              | String  | POI depth                                |
-| subpoi.poi[0].dpx                | String  | display X 좌표(WGS84의 경우 longitude)         |
-| subpoi.poi[0].dpy                | String  | display Y 좌표(WGS84의 경우 latitude)          |
-| subpoi.poi[0].rpx                | String  | 탐색 X 좌표(WGS84의 경우 longitude)              |
-| subpoi.poi[0].rpy                | String  | 탐색 Y 좌표(WGS84의 경우 latitude)               |
+| subpoi.poi[0].dpx                | String  | display x 좌표(WGS84의 경우 longitude)         |
+| subpoi.poi[0].dpy                | String  | display y 좌표(WGS84의 경우 latitude)          |
+| subpoi.poi[0].rpx                | String  | 탐색 x 좌표(WGS84의 경우 longitude)              |
+| subpoi.poi[0].rpy                | String  | 탐색 y 좌표(WGS84의 경우 latitude)               |
 | subpoi.poi[0].name1              | String  | 정식 명칭                                    |
 | subpoi.poi[0].name2              | String  | 축약 명칭                                    |
 | subpoi.poi[0].name3              | String  | 확장 명칭 1                                  |
@@ -799,8 +799,8 @@
 | header.resultMessage | String  | 실패 메시지   |
 | coordinate           | Object  | 본문 영역    |
 | coordinate.coordtype | String  | 변환 좌표 형태 |
-| coordinate.x         | String  | 변환 X 좌표   |
-| coordinate.y         | String  | 변환 Y 좌표   |
+| coordinate.x         | String  | 변환 x 좌표   |
+| coordinate.y         | String  | 변환 y 좌표   |
 
 
 ### 6\. 주변 카테고리 검색
@@ -827,10 +827,10 @@
 | --------- | ------ | ----- |  ------------------------------------ |
 | catecode         | String | 필수   | 카테고리 코드 |
 | spopt         | Integer | 필수   | 1 : Extent(x1,y1,x2,y2) <br> 2 : 반경검색(x1,y1,radius)                                   |
-| x1         | String | 필수(spopt 참조)    | 기준 X1좌표 |
-| y1         | String | 필수(spopt 참조)    | 기준 Y1좌표 |
-| x2         | String | 필수(spopt 참조)    | 기준 X2좌표 |
-| y2         | String | 필수(spopt 참조)    | 기준 Y2 좌표 |
+| x1         | String | 필수(spopt 참조)    | 기준 x1 좌표 |
+| y1         | String | 필수(spopt 참조)    | 기준 y1 좌표 |
+| x2         | String | 필수(spopt 참조)    | 기준 x2 좌표 |
+| y2         | String | 필수(spopt 참조)    | 기준 y2 좌표 |
 | radius         | String | 필수(spopt 참조)    | 반경(m) |
 | depth | String | 선택    | 0: 전체 depth <br> 1: depth1 <br> 2: depth2 <br> 3: depth3|
 | sortopt | String | 선택    | 정렬 옵션 <br> 1: 거리순 <br> 2: 명칭순<br> 3: 휘발유 가격순(주유소 검색 시) <br> 4: 고급휘발유 가격순(주유소 검색 시)<br> 5: 경유 가격순(주유소 검색 시)<br> 6: LPG 가격순(주유소 검색 시)<br> 7: 평점순|
@@ -916,10 +916,10 @@
 | cate.poi                        | Array   | POI 검색 결과 목록                             |
 | cate.poi[0].poiid               | Integer | POI ID                                   |
 | cate.poi[0].depth             | String  | POI 하위 시설물 depth                                 |
-| cate.poi[0].dpx                 | String  | display X 좌표(WGS84의 경우 longitude)         |
-| cate.poi[0].dpy                 | String  | display Y 좌표(WGS84의 경우 latitude)          |
-| cate.poi[0].rpx                 | String  | 탐색 X 좌표(WGS84의 경우 longitude)              |
-| cate.poi[0].rpy                 | String  | 탐색 Y 좌표(WGS84의 경우 latitude)               |
+| cate.poi[0].dpx                 | String  | display x 좌표(WGS84의 경우 longitude)         |
+| cate.poi[0].dpy                 | String  | display y 좌표(WGS84의 경우 latitude)          |
+| cate.poi[0].rpx                 | String  | 탐색 x 좌표(WGS84의 경우 longitude)              |
+| cate.poi[0].rpy                 | String  | 탐색 y 좌표(WGS84의 경우 latitude)               |
 | cate.poi[0].name1               | String  | 정식 명칭                                    |
 | cate.poi[0].name2               | String  | 축약 명칭                                    |
 | cate.poi[0].name3               | String  | 확장 명칭 1                                  |
@@ -984,30 +984,37 @@
 
 ```
 {
-    "result": true,
-    "count": 1,
-    "polygondata": [
-        {
-            "admincode": "4136025921",
-            "count": 1,
-            "polygonlist": [
-                {
-                    "count": 413,
-                    "polygon": [
-                        {
-                            "x": 127.207296,
-                            "y": 37.665605
-                        },
-                        {
-                            "x": 127.208346,
-                            "y": 37.665080
-                        },
-                        ...
-                    ]
-                }
-            ]
-        }
-    ]
+    "polygon": {
+        "result": true,
+        "count": 1,
+        "polygondata": [
+            {
+                "admincode": "4136025921",
+                "count": 1,
+                "polygonlist": [
+                    {
+                        "count": 413,
+                        "polygon": [
+                            {
+                                "x": 127.207296,
+                                "y": 37.665605
+                            },
+                            {
+                                "x": 127.208346,
+                                "y": 37.665080
+                            },
+                            ...
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "header": {
+     "isSuccessful": true,
+     "resultCode": 0,
+     "resultMessage": ""
+    }
 }
 ```
 
@@ -1019,16 +1026,17 @@
 | header.isSuccessful                | Boolean | 성공 여부                                    |
 | header.resultCode                  | Integer | 실패 코드                                    |
 | header.resultMessage               | String  | 실패 메시지                                   |
-| result                         | Boolean | 성공 여부                                    |
-| count                          | Integer | 검색 결과 개수                                 |
-| polygondata                        | Array   | 폴리곤 데이터                             |
-| polygondata[0].admincode               | String | 검색한 AdminCode 값(mode에 따라 자릿수가 달라짐)                                   |
-| polygondata[0].count             | Integer  | 폴리곤 개수                           |
-| polygondata[0].polygonlist     | Array  | 폴리곤         |
-| polygondata[0].polygonlist[0].count     | Integer  | 포인트 개수      |
-| polygondata[0].polygonlist[0].polygon     | Array  | 폴리곤 좌표 리스트      |
-| polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X 좌표      |
-| polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y 좌표      |
+| polygon                         | Object | 본문 영역                                    |
+| polygon.result                         | Boolean | 성공 여부                                    |
+| polygon.count                          | Integer | 검색 결과 개수                                 |
+| polygon.polygondata                        | Array   | 폴리곤 데이터                             |
+| polygon.polygondata[0].admincode               | String | 검색한 AdminCode 값(mode에 따라 자릿수가 달라짐)                                   |
+| polygon.polygondata[0].count             | Integer  | 폴리곤 개수                           |
+| polygon.polygondata[0].polygonlist     | Array  | 폴리곤         |
+| polygon.polygondata[0].polygonlist[0].count     | Integer  | 포인트 개수      |
+| polygon.polygondata[0].polygonlist[0].polygon     | Array  | 폴리곤 좌표 리스트      |
+| polygon.polygondata[0].polygonlist[0].polygon[0].x     | Integer  | x 좌표      |
+| polygon.polygondata[0].polygonlist[0].polygon[0].y   | Integer  | y 좌표      |
 
 
 ### 8\. 폴리곤 내 행정/법정동 검색
@@ -1055,8 +1063,8 @@
 | --------- | ------ | ----- |  ------------------------------------ |
 | coordtype         | Integer | 필수   | 좌표 타입<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
 | polygon     | Array  |필수 | 폴리곤 좌표 리스트      |
-| polygon[0].x   | Integer  | 필수| X 좌표      |
-| polygon[0].y   | Integer  | 필수 | Y 좌표      |
+| polygon[0].x   | Integer  | 필수| x 좌표      |
+| polygon[0].y   | Integer  | 필수 | y 좌표      |
 
 
 
@@ -1066,23 +1074,30 @@
 
 ```
 {
-    "result": true,
-    "admincodes": {
-        "count": 3,
-        "admincodelist": [
-            {
-                "AdminCode": "4136025921",
-                "Address": "경기도 남양주시 진건읍 사능리"
-            },
-            {
-                "AdminCode": "4136025926",
-                "Address": "경기도 남양주시 진건읍 송능리"
-            },
-            {
-                "AdminCode": "4136025900",
-                "Address": "경기도 남양주시 진건읍"
-            }
-        ]
+    "header": {
+            "isSuccessful": true,
+            "resultCode": 0,
+            "resultMessage": ""
+    },
+    "adm": {
+        "result": true,
+        "admincodes": {
+            "count": 3,
+            "admincodelist": [
+                {
+                    "AdminCode": "4136025921",
+                    "Address": "경기도 남양주시 진건읍 사능리"
+                },
+                {
+                    "AdminCode": "4136025926",
+                    "Address": "경기도 남양주시 진건읍 송능리"
+                },
+                {
+                    "AdminCode": "4136025900",
+                    "Address": "경기도 남양주시 진건읍"
+                }
+            ]
+        }
     }
 }
 ```
@@ -1095,16 +1110,107 @@
 | header.isSuccessful                | Boolean | 성공 여부                                    |
 | header.resultCode                  | Integer | 실패 코드                                    |
 | header.resultMessage               | String  | 실패 메시지                                   |
-| result                         | Boolean | 성공 여부                                    |
-| count                          | Integer | 검색 결과 개수                                 |
-| polygondata                        | Array   | 폴리곤 데이터                             |
-| polygondata[0].admincode               | String | 검색한 AdminCode 값(mode에 따라 자릿수가 달라짐)                                   |
-| polygondata[0].count             | Integer  | 폴리곤 개수                           |
-| polygondata[0].polygonlist     | Array  | 폴리곤         |
-| polygondata[0].polygonlist[0].count     | Integer  | 포인트 개수      |
-| polygondata[0].polygonlist[0].polygon     | Array  | 폴리곤 좌표 리스트      |
-| polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X 좌표      |
-| polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y 좌표      |
+| adm                         | Object | 본문 영역                                    |
+| adm.result                         | Boolean | 성공 여부                                    |
+| adm.count                          | Integer | 검색 결과 개수                                 |
+| adm.polygondata                        | Array   | 폴리곤 데이터                             |
+| adm.polygondata[0].admincode               | String | 검색한 AdminCode 값(mode에 따라 자릿수가 달라짐)                                   |
+| adm.polygondata[0].count             | Integer  | 폴리곤 개수                           |
+| adm.polygondata[0].polygonlist     | Array  | 폴리곤         |
+| adm.polygondata[0].polygonlist[0].count     | Integer  | 포인트 개수      |
+| adm.polygondata[0].polygonlist[0].polygon     | Array  | 폴리곤 좌표 리스트      |
+| adm.polygondata[0].polygonlist[0].polygon[0].x     | Integer  | x 좌표      |
+| adm.polygondata[0].polygonlist[0].polygon[0].y   | Integer  | y 좌표      |
+
+### 9\. 건물군 입구점 조회
+
+* 입력된 폴리곤 좌표에 해당하는 입구점 개수와 좌표를 반환합니다.
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI                                      |
+| ---- | ---------------------------------------- |
+| POST  | /maps/v3.0/appkeys/{appkey}/searchEntryPoint  |
+
+[Path parameter]
+
+| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 필수    |       | 고유의 앱키 |
+
+[Query Parameters]
+
+| 이름        | 타입     | 필수 여부 |  설명                                   |
+| --------- | ------ | ----- |  ------------------------------------ |
+| coordtype         | Integer | 선택   | 좌표 타입<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
+| type     | Integer  |선택 | 차후 기능 추가 예정<br>현재는 동작에 영향 없음      |
+| posX   | String  | 필수| x 좌표      |
+| posY   | String  | 필수 | y 좌표      |
+
+
+
+#### 응답
+
+##### 응답 본문
+
+```
+{
+    "data": {
+        "result": true,
+        "count": 5,
+        "entrypoints": [
+            {
+                "x": 126.936249,
+                "y": 37.54713,
+                "type": 0
+            },
+            {
+                "x": 126.935912,
+                "y": 37.547139,
+                "type": 0
+            },
+            {
+                "x": 126.936687,
+                "y": 37.547097,
+                "type": 0
+            },
+            {
+                "x": 126.936674,
+                "y": 37.546655,
+                "type": 0
+            },
+            {
+                "x": 126.936099,
+                "y": 37.546389,
+                "type": 0
+            }
+        ]
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### 필드
+
+| 이름                                 | 타입      | 설명                                       |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | 헤더 영역                                    |
+| header.isSuccessful                | Boolean | 성공 여부                                    |
+| header.resultCode                  | Integer | 실패 코드                                    |
+| header.resultMessage               | String  | 실패 메시지                                   |
+| data                         | Object | 본문 영역                                    |
+| data.result                         | Boolean | 성공 여부                                    |
+| data.count                          | Integer | 조회된 건물군 입구점 개수                                 |
+| data.entrypoints                        | Object   | 조회된 건물군 입구점 좌표 목록                             |
+| data.entrypoints[0].x               | Double | x 좌표                                   |
+| data.entrypoints[0].y             | Double  | y 좌표                           |
+| data.entrypoints[0].type     | Integer  | 차후 기능 추가 예정         |
 
 ## Geocoding API(지오코딩 API)
 
@@ -1209,8 +1315,8 @@
 | address.res_type         | String  | 검색 결과 타입 명칭<br>명칭, 카테고리, 주소, 전화번호순<br>예) NYNN: 명칭 <span style="color:red">N</span>O, 카테고리 <span style="color:red">Y</span>ES, 주소 <span style="color:red">N</span>O, 전화번호 <span style="color:red">N</span>O |
 | address.adm              | Array   | 검색결과                                                     |
 | address.adm[0].type      | String  | 검색 type<br>1: 행정계 검색<br>2: 지번 검색<br>3: 새 주소 검색 |
-| address.adm[0].posx      | String  | X 좌표                                                       |
-| address.adm[0].posy      | String  | Y 좌표                                                       |
+| address.adm[0].posx      | String  | x 좌표                                                       |
+| address.adm[0].posy      | String  | y 좌표                                                       |
 | address.adm[0].admcode   | String  | 행정 코드                                                     |
 | address.adm[0].address   | String  | 주소                                                         |
 | address.adm[0].roadname  | String  | 새 주소 도로명                                               |
@@ -1243,8 +1349,8 @@
 
 | 이름      | 타입   | 필수 여부 | 유효 범위 | 설명                                                         |
 | --------- | ------ | --------- | --------- | ------------------------------------------------------------ |
-| posX      | String | 필수      |           | X 좌표                                                       |
-| posY      | String | 필수      |           | Y 좌표                                                       |
+| posX      | String | 필수      |           | x 좌표                                                       |
+| posY      | String | 필수      |           | y 좌표                                                       |
 | coordtype | String | 선택      |           | 요청 좌표 형식<br>0: TW 좌표<br>1: WGS84 좌표<br>미 입력 시 TW 좌표 기준 검색 |
 
 #### 응답
@@ -1307,8 +1413,8 @@
 | header.resultMessage   | String  | 실패 메시지                                   |
 | location               | Object  | 본문 영역                                    |
 | location.result        | Boolean | 성공 여부                                    |
-| location.adm.posx      | String  | X 좌표                                     |
-| location.adm.posy      | String  | Y 좌표                                     |
+| location.adm.posx      | String  | x 좌표                                     |
+| location.adm.posy      | String  | y 좌표                                     |
 | location.adm.distance   | String  | 거리(m)                                    |
 | location.adm.bldname   | String  | 건물 이름                                    |
 | location.adm.admcode   | String  | 행정 코드                                    |
@@ -1364,20 +1470,20 @@
 
 | 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| startX   | String | 필수    |       | 출발지 X 좌표                                 |
-| startY   | String | 필수    |       | 출발지 Y 좌표                                 |
-| endX     | String | 필수    |       | 도착지 X 좌표                                 |
-| endY     | String | 필수    |       | 도착지 Y 좌표                                 |
-| via1X    | String | 선택    |       | 경유지 1 X 좌표                               |
-| via1Y    | String | 선택    |       | 경유지 1 Y 좌표                               |
-| via2X    | String | 선택    |       | 경유지 2 X 좌표                               |
-| via2Y    | String | 선택    |       | 경유지 2 Y 좌표                               |
-| via3X    | String | 선택    |       | 경유지 3 X 좌표                               |
-| via3Y    | String | 선택    |       | 경유지 3 Y 좌표                               |
-| via4X    | String | 선택    |       | 경유지 4 X 좌표                               |
-| via4Y    | String | 선택    |       | 경유지 4 Y 좌표                               |
-| via5X    | String | 선택    |       | 경유지 5 X 좌표                               |
-| via5Y    | String | 선택    |       | 경유지 5 Y 좌표                               |
+| startX   | String | 필수    |       | 출발지 x 좌표                                 |
+| startY   | String | 필수    |       | 출발지 y 좌표                                 |
+| endX     | String | 필수    |       | 도착지 x 좌표                                 |
+| endY     | String | 필수    |       | 도착지 y 좌표                                 |
+| via1X    | String | 선택    |       | 경유지 1 x 좌표                               |
+| via1Y    | String | 선택    |       | 경유지 1 y 좌표                               |
+| via2X    | String | 선택    |       | 경유지 2 x 좌표                               |
+| via2Y    | String | 선택    |       | 경유지 2 y 좌표                               |
+| via3X    | String | 선택    |       | 경유지 3 x 좌표                               |
+| via3Y    | String | 선택    |       | 경유지 3 y 좌표                               |
+| via4X    | String | 선택    |       | 경유지 4 x 좌표                               |
+| via4Y    | String | 선택    |       | 경유지 4 y 좌표                               |
+| via5X    | String | 선택    |       | 경유지 5 x 좌표                               |
+| via5Y    | String | 선택    |       | 경유지 5 y 좌표                               |
 | option   | String | 필수    |       | 경로 탐색 옵션<br>탐색 옵션 하나만 가능<br>예) option=real_traffic<br>real_traffic: 실시간 추천 1<br>real\_traffic\_freeroad: 실시간\(무료\)<br>real_traffic2: 실시간 추천 2<br>short\_distance\_priority: 단거리<br>motorcycle: 이륜차 |
 | carType   | Integer | 선택    |       | 톨게이트비 계산을 위한 차종(1~6), 기본값: 1 |
 | coordType   | String | 필수    |       | input, output 좌표 타입, 하나만 입력 가능(TW, WGS84) |
@@ -1473,8 +1579,8 @@
 | route.data.taxiFare    | Integer | 예상 택시 요금                             |
 | route.data.paths	 | Array | 세부 경로 목록                             |
 | route.data.paths[0].coords | Array | 상세 좌표 목록                           |
-| route.data.paths[0].coords[0].x   | Double | X 좌표                            |
-| route.data.paths[0].coords[0].y         | Double | Y 좌표                        |
+| route.data.paths[0].coords[0].x   | Double | x 좌표                            |
+| route.data.paths[0].coords[0].y         | Double | y 좌표                        |
 | route.data.paths[0].speed          | Integer | 속도                                   |
 | route.data.paths[0].spend_time          | Integer | 소요 시간(초)                                  |
 | route.data.paths[0].distance             | Integer | 거리(m)                        |
@@ -1482,8 +1588,8 @@
 | route.data.paths[0].traffic_color       | String | 도로 교통 색상                        |
 | route.data.guides       | Array | 주요 도로 정보 목록                      |
 | route.data.guides[0].coords       | Array | 상세 좌표 목록                       |
-| route.data.guides[0].coords[0].x       | Array | X 좌표                       |
-| route.data.guides[0].coords[0].y       | Array | Y 좌표                       |
+| route.data.guides[0].coords[0].x       | Array | x 좌표                       |
+| route.data.guides[0].coords[0].y       | Array | y 좌표                       |
 | route.data.guides[0].distance       | Integer | 거리(m)                        |
 | route.data.guides[0].name       | String | 도로명                        |
 | route.data.guides[0].road_code       | Integer | 도로 종별 코드                        |
@@ -1516,20 +1622,20 @@
 
 | 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| startX   | String | 필수    |       | 출발지 X 좌표                                 |
-| startY   | String | 필수    |       | 출발지 Y 좌표                                 |
-| endX     | String | 필수    |       | 도착지 X 좌표                                 |
-| endY     | String | 필수    |       | 도착지 Y 좌표                                 |
-| via1X    | String | 선택    |       | 경유지 1 X 좌표                               |
-| via1Y    | String | 선택    |       | 경유지 1 Y 좌표                               |
-| via2X    | String | 선택    |       | 경유지 2 X 좌표                               |
-| via2Y    | String | 선택    |       | 경유지 2 Y 좌표                               |
-| via3X    | String | 선택    |       | 경유지 3 X 좌표                               |
-| via3Y    | String | 선택    |       | 경유지 3 Y 좌표                               |
-| via4X    | String | 선택    |       | 경유지 4 X 좌표                               |
-| via4Y    | String | 선택    |       | 경유지 4 Y 좌표                               |
-| via5X    | String | 선택    |       | 경유지 5 X 좌표                               |
-| via5Y    | String | 선택    |       | 경유지 5 Y 좌표                               |
+| startX   | String | 필수    |       | 출발지 x 좌표                                 |
+| startY   | String | 필수    |       | 출발지 y 좌표                                 |
+| endX     | String | 필수    |       | 도착지 x 좌표                                 |
+| endY     | String | 필수    |       | 도착지 y 좌표                                 |
+| via1X    | String | 선택    |       | 경유지 1 x 좌표                               |
+| via1Y    | String | 선택    |       | 경유지 1 y 좌표                               |
+| via2X    | String | 선택    |       | 경유지 2 x 좌표                               |
+| via2Y    | String | 선택    |       | 경유지 2 y 좌표                               |
+| via3X    | String | 선택    |       | 경유지 3 x 좌표                               |
+| via3Y    | String | 선택    |       | 경유지 3 y 좌표                               |
+| via4X    | String | 선택    |       | 경유지 4 x 좌표                               |
+| via4Y    | String | 선택    |       | 경유지 4 y 좌표                               |
+| via5X    | String | 선택    |       | 경유지 5 x 좌표                               |
+| via5Y    | String | 선택    |       | 경유지 5 y 좌표                               |
 | option   | String | 필수    |       | 경로 탐색 옵션<br>탐색 option ',' 단위로 요청<br>예) ex) option=real_traffic,real_traffic2<br>real_traffic: 실시간 추천 1<br>real\_traffic\_freeroad: 실시간 \(무료\)<br>real_traffic2: 실시간 추천 2<br>short\_distance\_priority: 단거리<br>motorcycle: 이륜차 |
 | coordType   | String | 필수    |       | input, output 좌표 타입, 하나만 입력 가능(TW, WGS84) |
 
@@ -1595,11 +1701,11 @@
 | 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
 | data    | Array |     |       | 출발지 정보 배열 (MAX 50개)                            |
-| data[0].startX   | String | 필수    |       | 출발지 X 좌표                                 |
-| data[0].startY   | String | 필수    |       | 출발지 Y 좌표                                 |
+| data[0].startX   | String | 필수    |       | 출발지 x 좌표                                 |
+| data[0].startY   | String | 필수    |       | 출발지 y 좌표                                 |
 | data[0].startIdx   | String | 필수    |       | 출발지 식별ID                                 |
-| endX     | String | 필수    |       | 도착지 X 좌표                                 |
-| endY     | String | 필수    |       | 도착지 Y 좌표                                 |
+| endX     | String | 필수    |       | 도착지 x 좌표                                 |
+| endY     | String | 필수    |       | 도착지 y 좌표                                 |
 | orderby    | String | 필수    |       | 정렬 기준(<br> 0: distance_desc<br>1: distance_asc<br>2: time_desc <br>3: time_asc<br>)                               |
 | coordType    | String | 필수    |       | 좌표 타입(TW, WGS84)
 | resultCount    | Integer | 선택    |       | 결과 표시 개수                               |
@@ -1648,8 +1754,8 @@
 | route.data                   | Array  | 경로 정보                                    |
 | route.data[0].spend_time           | Integer | 소요 시간(초)                             |
 | route.data[0].distance           | Integer | 거리(m)                          |
-| route.data[0].startX           | String | 출발지 X좌표                          |
-| route.data[0].startY           | String | 출발지 Y좌표                          |
+| route.data[0].startX           | String | 출발지 x 좌표                          |
+| route.data[0].startY           | String | 출발지 y 좌표                          |
 | route.data[0].startIdx           | String | 출발지 식별 ID                          |
 
 
@@ -1677,11 +1783,11 @@
 | 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
 | data    | Array |     |       | 출발지 정보 배열 (MAX 50개)                             |
-| data[0].endX   | String | 필수    |       | 도착지 X 좌표                                 |
-| data[0].endY   | String | 필수    |       | 도착지 Y 좌표                                 |
+| data[0].endX   | String | 필수    |       | 도착지 x 좌표                                 |
+| data[0].endY   | String | 필수    |       | 도착지 y 좌표                                 |
 | data[0].endIdx   | String | 필수    |       | 도착지 식별 ID                                |
-| startX     | String | 필수    |       | 출발지 X 좌표                                 |
-| startY     | String | 필수    |       | 출발지 Y 좌표                                 |
+| startX     | String | 필수    |       | 출발지 x 좌표                                 |
+| startY     | String | 필수    |       | 출발지 y 좌표                                 |
 | orderby    | String | 필수    |       | 정렬 기준(<br> 0: distance_desc<br>1: distance_asc<br>2: time_desc <br>3: time_asc<br>)                              |
 | coordType    | String | 필수    |       | 좌표 타입(TW, WGS84)
 | resultCount    | Integer | 선택    |       | 결과 표시 개수                               |
@@ -1730,8 +1836,8 @@
 | route.data                   | Array  | 경로 정보                                    |
 | route.data[0].spend_time           | Integer | 소요 시간(초)                              |
 | route.data[0].distance           | Integer | 거리(m)                          |
-| route.data[0].endX           | String | 도착지 X 좌표                          |
-| route.data[0].endY           | String | 도착지 Y 좌표                          |
+| route.data[0].endX           | String | 도착지 x 좌표                          |
+| route.data[0].endY           | String | 도착지 y 좌표                          |
 | route.data[0].endIdx           | String | 도착지 식별 ID                          |
 
 
@@ -1760,26 +1866,26 @@
 
 | 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| startX    | String | 필수   |       | 출발지 X 좌표
-| startY    | String | 필수   |       | 출발지 Y 좌표
-| endX   | String | 필수    |       | 도착지 X 좌표                                 |
-| endY   | String | 필수    |       | 도착지 Y 좌표                                 |
+| startX    | String | 필수   |       | 출발지 x 좌표
+| startY    | String | 필수   |       | 출발지 y 좌표
+| endX   | String | 필수    |       | 도착지 x 좌표                                 |
+| endY   | String | 필수    |       | 도착지 y 좌표                                 |
 | type     | String | 필수    |       | 기준 시간(출발, 도착)<br> start: 출발 시간 기준<br>end: 도착 시간 기준                                 |
 | year     | Integer | 필수    |       | 기준년(예: 2019)                                 |
 | month     | Integer | 필수    |       | 기준월                                 |
 | day    | Integer | 필수    |       | 기준일 		|
 | hour     | Integer | 필수    |       | 기준 시간(시)                                 |
 | minutes    | Integer | 필수    |       | 기준 시간(분) 		|
-| via1X   | String | 선택    |       |  경유지 1 X 좌표                               |
-| via1Y   | String | 선택    |       |  경유지 1 Y 좌표                               |
-| via2X   | String | 선택    |       |  경유지 2 X 좌표                               |
-| via2Y   | String | 선택    |       |  경유지 2 Y 좌표                               |
-| via3X   | String | 선택    |       |  경유지 3 X 좌표                               |
-| via3Y   | String | 선택    |       |  경유지 3 Y 좌표                               |
-| via4X   | String | 선택    |       |  경유지 4 X 좌표                               |
-| via4Y   | String | 선택    |       |  경유지 4 Y 좌표                               |
-| via5X   | String | 선택    |       |  경유지 5 X 좌표                               |
-| via5Y   | String | 선택    |       |  경유지 5 Y 좌표                               |
+| via1X   | String | 선택    |       |  경유지 1 x 좌표                               |
+| via1Y   | String | 선택    |       |  경유지 1 y 좌표                               |
+| via2X   | String | 선택    |       |  경유지 2 x 좌표                               |
+| via2Y   | String | 선택    |       |  경유지 2 y 좌표                               |
+| via3X   | String | 선택    |       |  경유지 3 x 좌표                               |
+| via3Y   | String | 선택    |       |  경유지 3 y 좌표                               |
+| via4X   | String | 선택    |       |  경유지 4 x 좌표                               |
+| via4Y   | String | 선택    |       |  경유지 4 y 좌표                               |
+| via5X   | String | 선택    |       |  경유지 5 x 좌표                               |
+| via5Y   | String | 선택    |       |  경유지 5 y 좌표                               |
 | coordType    | String | 선택    |       | 좌표 타입(TW, WGS84)<br> 기본값: WGS84
 | useTrafficColor   | Boolean | 선택    |       | 도로 교통 색상 반환 유무(true, false)<br> 기본값: false |
 | guideTop   | Integer | 선택    |       | 할 안내 정보 개수 |
@@ -2019,8 +2125,8 @@
 | route.data.times[0].end_time.minutes	 | Object | 분       |
 | route.data.paths	 | Array | 세부 경로 목록                             |
 | route.data.paths[0].coords | Array | 상세 좌표 목록                           |
-| route.data.paths[0].coords[0].x   | Double | X 좌표                            |
-| route.data.paths[0].coords[0].y         | Double | Y 좌표                        |
+| route.data.paths[0].coords[0].x   | Double | x 좌표                            |
+| route.data.paths[0].coords[0].y         | Double | y 좌표                        |
 | route.data.paths[0].speed          | Integer | 속도                                   |
 | route.data.paths[0].spend_time          | Integer | 소요 시간(초)                                  |
 | route.data.paths[0].distance             | Integer | 거리(m)                        |
@@ -2028,8 +2134,8 @@
 | route.data.paths[0].traffic_color       | String | 도로 교통 색상                        |
 | route.data.guides       | Array | 주요 도로 정보 목록                      |
 | route.data.guides[0].coords       | Array | 상세 좌표 목록                       |
-| route.data.guides[0].coords[0].x       | Array | X 좌표                       |
-| route.data.guides[0].coords[0].y       | Array | Y 좌표                       |
+| route.data.guides[0].coords[0].x       | Array | x 좌표                       |
+| route.data.guides[0].coords[0].y       | Array | y 좌표                       |
 | route.data.guides[0].distance       | Integer | 거리(m)                        |
 | route.data.guides[0].name       | String | 도로명                        |
 | route.data.guides[0].road_code       | Integer | 도로 종별 코드                        |
@@ -2064,15 +2170,15 @@
 
 | 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| startX   | String | 필수    |       | 출발지 X 좌표                                 |
-| startY   | String | 필수    |       | 출발지 Y 좌표                                 |
-| endX     | String | 필수    |       | 도착지 X 좌표                                 |
-| endY     | String | 필수    |       | 도착지 Y 좌표                                 |
+| startX   | String | 필수    |       | 출발지 x 좌표                                 |
+| startY   | String | 필수    |       | 출발지 y 좌표                                 |
+| endX     | String | 필수    |       | 도착지 x 좌표                                 |
+| endY     | String | 필수    |       | 도착지 y 좌표                                 |
 | option   | String | 필수    |       | 경로 탐색 옵션<br>탐색 옵션 ',' 단위로 요청<br>예) option=real_traffic,real_traffic2<br>real_traffic: 실시간 추천 1<br>real\_traffic\_freeroad: 실시간 \(무료\)<br>real_traffic2: 실시간 추천 2<br>short\_distance\_priority: 단거리<br>motorcycle: 이륜차 |
 | coordType    | String | 필수    |       | 좌표 타입(TW, WGS84)
 | viaList    | Array | 선택    |       | 경유지 정보                               |
-| via[0].viaX    | String | 선택    |       | 경유지 X좌표                               |
-| via[0].viaY    | String| 선택    |       | 경유지 Y좌표                               |
+| via[0].viaX    | String | 선택    |       | 경유지 x 좌표                               |
+| via[0].viaY    | String| 선택    |       | 경유지 y 좌표                               |
 | useAngle    | String | 선택    |       | 출발 지점의 주행 방향 옵션<br> (기본값: false, true: 주행 방향 우선, false: 주행 방향 우선이 아님)                              |
 | angle    | Integer | 선택    |       | 결과 표시 개수                               |
 | carType   | Integer | 선택    |       | 톨게이트 요금 계산을 위한 차종(1~6), 기본값: 1 |
@@ -2178,8 +2284,8 @@
 | route.data.taxiFare    | Integer | 예상 택시 요금                             |
 | route.data.paths	 | Array | 세부 경로 목록                             |
 | route.data.paths[0].coords | Array | 상세 좌표 목록                           |
-| route.data.paths[0].coords[0].x   | Double | X 좌표                            |
-| route.data.paths[0].coords[0].y         | Double | Y 좌표                        |
+| route.data.paths[0].coords[0].x   | Double | x 좌표                            |
+| route.data.paths[0].coords[0].y         | Double | y 좌표                        |
 | route.data.paths[0].speed          | Integer | 속도                                   |
 | route.data.paths[0].spend_time          | Integer | 소요 시간(초)                                  |
 | route.data.paths[0].distance             | Integer | 거리(m)                        |
@@ -2187,8 +2293,8 @@
 | route.data.paths[0].traffic_color       | String | 도로 교통 색상                        |
 | route.data.guides       | Array | 주요 도로 정보 목록                      |
 | route.data.guides[0].coords       | Array | 상세 좌표 목록                       |
-| route.data.guides[0].coords[0].x       | Array | X 좌표                       |
-| route.data.guides[0].coords[0].y       | Array | Y 좌표                       |
+| route.data.guides[0].coords[0].x       | Array | x 좌표                       |
+| route.data.guides[0].coords[0].y       | Array | y 좌표                       |
 | route.data.guides[0].distance       | Integer | 거리(m)                        |
 | route.data.guides[0].name       | String | 도로명                        |
 | route.data.guides[0].road_code       | Integer | 도로 종별 코드                        |
@@ -2219,20 +2325,20 @@
 
 | 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| startX   | String | 필수    |       | 출발지 X 좌표                                 |
-| startY   | String | 필수    |       | 출발지 Y 좌표                                 |
-| endX     | String | 필수    |       | 도착지 X 좌표                                 |
-| endY     | String | 필수    |       | 도착지 Y 좌표                                 |
-| via1X    | String | 선택    |       | 경유지 1 X 좌표                               |
-| via1Y    | String | 선택    |       | 경유지 1 Y 좌표                               |
-| via2X    | String | 선택    |       | 경유지 2 X 좌표                               |
-| via2Y    | String | 선택    |       | 경유지 2 Y 좌표                               |
-| via3X    | String | 선택    |       | 경유지 3 X 좌표                               |
-| via3Y    | String | 선택    |       | 경유지 3 Y 좌표                               |
-| via4X    | String | 선택    |       | 경유지 4 X 좌표                               |
-| via4Y    | String | 선택    |       | 경유지 4 Y 좌표                               |
-| via5X    | String | 선택    |       | 경유지 5 X 좌표                               |
-| via5Y    | String | 선택    |       | 경유지 5 Y 좌표                               |
+| startX   | String | 필수    |       | 출발지 x 좌표                                 |
+| startY   | String | 필수    |       | 출발지 y 좌표                                 |
+| endX     | String | 필수    |       | 도착지 x 좌표                                 |
+| endY     | String | 필수    |       | 도착지 y 좌표                                 |
+| via1X    | String | 선택    |       | 경유지 1 x 좌표                               |
+| via1Y    | String | 선택    |       | 경유지 1 y 좌표                               |
+| via2X    | String | 선택    |       | 경유지 2 x 좌표                               |
+| via2Y    | String | 선택    |       | 경유지 2 y 좌표                               |
+| via3X    | String | 선택    |       | 경유지 3 x 좌표                               |
+| via3Y    | String | 선택    |       | 경유지 3 y 좌표                               |
+| via4X    | String | 선택    |       | 경유지 4 x 좌표                               |
+| via4Y    | String | 선택    |       | 경유지 4 y 좌표                               |
+| via5X    | String | 선택    |       | 경유지 5 x 좌표                               |
+| via5Y    | String | 선택    |       | 경유지 5 y 좌표                               |
 | option   | String | 필수    |       | 경로 탐색 옵션<br>탐색 옵션 하나만 가능<br>예) option=real_traffic<br>real_traffic: 실시간 추천 1<br>real\_traffic\_freeroad: 실시간\(무료\)<br>real_traffic2: 실시간 추천 2<br>short\_distance\_priority: 단거리<br>motorcycle: 이륜차 |
 | carType   | Integer | 선택    |       | 톨게이트비 계산을 위한 차종(1~6), 기본값: 1 |
 | coordType   | String | 필수    |       | input, output 좌표 타입, 하나만 입력 가능(TW, WGS84) |
