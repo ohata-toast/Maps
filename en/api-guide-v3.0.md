@@ -813,13 +813,13 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 [Path parameter]
 
-| Name     | Type     | Required? | Valid range | Description     |
+| Name     | Type     | Required | Valid range | Description     |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
 [Query Parameters]
 
-| Name        | Type     | Required? |  Description                                    |
+| Name        | Type     | Required |  Description                                    |
 | --------- | ------ | ----- |  ------------------------------------ |
 | catecode         | String | Required   | Category code |
 | spopt         | Integer | Required   | 1 : Extent(x1,y1,x2,y2) <br> 2 : Radius search (x1,y1,radius)                                   |
@@ -961,13 +961,13 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 [Path parameter]
 
-| Name     | Type     | Required? | Valid range | Description     |
+| Name     | Type     | Required | Valid range | Description     |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
 [Query Parameters]
 
-| Name        | Type     | Required? |  Description                                   |
+| Name        | Type     | Required |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
 | coordtype         | Integer | Required   | Coordinate type<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
 | mode         | Integer | Required   | Range of viewed district <br> 0: ALL <br>          |
@@ -1049,13 +1049,13 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 [Path parameter]
 
-| Name     | Type     | Required? | Valid range | Description     |
+| Name     | Type     | Required | Valid range | Description     |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
 [Query Parameters]
 
-| Name        | Type     | Required? |  Description                                   |
+| Name        | Type     | Required |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
 | coordtype         | Integer | Required   | Coordinate type<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
 | polygon     | Array  |Required | List of polygon coordinates      |
@@ -1132,13 +1132,13 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 [Path parameter]
 
-| Name     | Type     | Required? | Valid range | Description     |
+| Name     | Type     | Required | Valid range | Description     |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
 [Query Parameters]
 
-| Name        | Type     | Required? |  Description                                   |
+| Name        | Type     | Required |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
 | coordtype         | Integer | Optional   | Coordinate type<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
 | type     | Integer  |Optional | Feature to be added<br>Currently, no effect on operation      |
@@ -1476,13 +1476,15 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | via4Y    | String | Optional |       | Y coordinates at stopover 4      |
 | via5X    | String | Optional |       | X coordinates at stopover 5      |
 | via5Y    | String | Optional |       | Y coordinates at stopover 5   |
-| option   | String | Required |       | Optional route navigation<br>Only one option is available<br>e.g.) option=real_traffic<br>real_traffic: Real-time recommendation1<br>real\_traffic\_freeroad: Real-time \(free\)<br>real_traffic2: Real-time recommendation2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler |
+| option   | String | Required |       | Route navigation option<br>Only one option can be used<br>e.g.) option=real_traffic<br>real_traffic: Real-time recommendation1<br>real\_traffic\_freeroad: Real-time \(free\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler<br>recommendation: Recommendation |
 | carType   | Integer | Optional |       | Vehicle types to calculate toll fees (1~6); default is 1 |
 | coordType   | String | Required |       | Only one is available out of Input/Output coordinate types (TW or WGS84) |
 |guideTop	|Integer| Optional ||Guide data count to expose |
 |groupByTrafficColor	| Boolean| Optional | |Return list of route details by each group of traffic color	|
 |saveFile	| Boolean| Optional | |Save binary files to search POI around the route	|
-| useTaxifare   | int | Optional   |       | Determines whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+| useTaxifare   | Integer | Optional   |       | Whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+| searchByAddress   | Boolean | Optional   |       | Whether to use address-based route navigation<br>Default: false |
+| usageType   | Integer | Optional   |       | Vehicle usage type<br>Default: 0<br>Normal: 0<br>Taxi: 1<br>(Applied only when the route navigation option is recommendation) |
 
 
 #### Response
@@ -1627,7 +1629,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | via4Y    | String | Optional |       | Y coordinates at stopover 4   |
 | via5X    | String | Optional |       | X coordinates at stopover 5   |
 | via5Y    | String | Optional |       | Y coordinates at stopover 5   |
-| option   | String | Required |       | Optional search navigation<br>Only one navigation option is available <br>e.g.) option=real_traffic<br>real_traffic: Real-time recommendation1<br>real\_traffic\_freeroad: Real-time (free of charge\)<br>real_traffic2: Real-time recommendation2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler |
+| option   | String | Required |       | Route navigation option<br>Request with navigation options separated by ','<br>e.g.) option=real_traffic,real_traffic2<br>real_traffic: Real-time recommendation1<br>real\_traffic\_freeroad: Real-time (free of charge\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler |
 | coordType   | String | Required |       | Only one is available out of Input/Output coordinate types (TW or WGS84) |
 
 
@@ -1883,7 +1885,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | beforeCount   | Integer | Optional  |      | Navigation count before base time  |
 | afterCount   | Integer | Optional    |       | Navigation count after base time |
 | interval   | Integer | Optional    |       | Inverval (minute) before/after base time  |
-| useTaxifare   | int | Optional   |       | Determines whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+| useTaxifare   | Integer | Optional   |       | Whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
 
 #### Response
 
@@ -2163,7 +2165,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | startY | String | Required |                 | Starting point Y-coordinate                                  |
 | endX   | String | Required |                 | Destination X-coordinate                                     |
 | endY   | String | Required |                 | Destination Y-coordinate                                     |
-| option | String | Required |                 | Path search option<br>Search options separated with ','<br>e.g. option=real_traffic,real_traffic2<br>real_traffic: Real-time recommendation 1<br>real\_traffic\_freeroad: Real-time \(Free\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler |
+| option | String | Required |                 | Route navigation option<br>Request with navigation options separated by ','<br>e.g. option=real_traffic,real_traffic2<br>real_traffic: Real-time recommendation 1<br>real\_traffic\_freeroad: Real-time \(Free\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler<br>recommendation: Recommendation |
 | coordType    | String | Required    |       | Coordinate type (TW, WGS84)
 | viaList    | Array | Optional    |       | Stop information                               |
 | via[0].viaX    | String | Optional    |       | Stop X-coordinate                               |
@@ -2175,6 +2177,8 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 |groupByTrafficColor	| Boolean| Optional| |Whether to return detailed path list information coded and grouped with road traffic colors	|
 | useTaxifare   | Integer | Optional   |       | Whether to check predicted taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis|
 | useStartDirection    | Boolean | Optional    |       | Result display count                               |
+| searchByAddress   | Boolean | Optional   |       | Whether to use address-based route navigation<br>Default: false |
+| usageType   | Integer | Optional   |       | Vehicle usage type<br>Default: 0<br>Normal: 0<br>Taxi: 1<br>(Applied only when the route navigation option is recommendation) |
 
 
 #### Response
@@ -2306,13 +2310,13 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 [Path parameter]
 
-| Name     | Type     | Required? | Valid range | Description     |
+| Name     | Type     | Required | Valid range | Description     |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique Appkey |
 
 [Request Parameters]
 
-| Name       | Type     | Required? | Valid range | Description                                       |
+| Name       | Type     | Required | Valid range | Description                                       |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
 | startX   | String | Required    |       | X-coordinate of starting point                                 |
 | startY   | String | Required    |       | Y-coordinate of starting point                                 |
@@ -2328,10 +2332,12 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | via4Y    | String | Optional    |       | Y-coordinate of stopover 4                               |
 | via5X    | String | Optional    |       | X-coordinate of stopover 5                               |
 | via5Y    | String | Optional    |       | Y-coordinate of stopover 5                               |
-| option   | String | Required    |       | Path finding option<br>Only one path finding option is allowed<br>e.g. option=real_traffic<br>real_traffic: real-time recommendation 1<br>real\_traffic\_freeroad: real-time\(free\)<br>real_traffic2: real-time recommendation 2<br>short\_distance\_priority: short distance<br>motorcycle: two-wheeler |
+| option   | String | Required    |       | Route navigation option<br>Only one option can be used<br>e.g. option=real_traffic<br>real_traffic: real-time recommendation 1<br>real\_traffic\_freeroad: real-time\(free\)<br>real_traffic2: real-time recommendation 2<br>short\_distance\_priority: short distance<br>motorcycle: two-wheeler<br>recommendation: Recommendation |
 | carType   | Integer | Optional    |       | Car type to calculate the toll gate charge (1 - 6), default: 1 |
 | coordType   | String | Required    |       | input, output coordinate type, enter only one of these (TW, WGS84) |
-| useTaxifare   | int | Optional   |       | Whether to show the expected taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br>1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+| useTaxifare   | Integer | Optional   |       | Whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+| searchByAddress   | Boolean | Optional   |       | Whether to use address-based route navigation<br>Default: false |
+| usageType   | Integer | Optional   |       | Vehicle usage type<br>Default: 0<br>Normal: 0<br>Taxi: 1<br>(Applied only when the route navigation option is recommendation) |
 
 #### Response
 
