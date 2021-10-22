@@ -1,5 +1,17 @@
 ## Application Service > Maps > Release Notes
 
+### October 26, 2021
+#### Added Features
+* [API] Added parameters to Route Navigation API
+    * usageType: Vehicle usage type
+    * searchByAddress: Whether to use address-based route navigation
+* [API] Added parameters to Added Multi-Stops 100 API
+    * usageType: Vehicle usage type
+    * searchByAddress: Whether to use address-based route navigation
+* [API] Added parameters to Summarize Path Information Between Stopovers API
+    * usageType: Vehicle usage type
+    * searchByAddress: Whether to use address-based route navigation
+
 ### September 28, 2021
 #### Added Features
 * [API] Added an API for querying building group entry points
