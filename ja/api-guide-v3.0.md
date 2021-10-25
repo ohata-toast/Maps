@@ -1367,13 +1367,15 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | via4Y    | String | 任意 |       | 経由地4 y座標                           |
 | via5X    | String | 任意 |       | 経由地5 x座標                           |
 | via5Y    | String | 任意 |       | 経由地5 y座標                           |
-| option   | String | 必須 |       | 経路検索オプション<br>探索オプション1つのみ可能<br>例) option=real_traffic<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle:二輪車 |
+| option   | String | 必須 |       | 経路検索オプション<br>探索オプション1つのみ可能<br>例) option=real_traffic<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle：二輪車<br>recommendation：推薦 |
 | carType   | Integer | 任意 |       | 料金所費用計算のための車種(1～6)、default：1 |
 | coordType   | String | 必須 |       | input、output座標タイプ、1つのみ入力可能(TW、WGS84) |
 |guideTop	|Integer| 任意 ||表示する案内情報数 |
 |groupByTrafficColor	| Boolean| 選択| |詳細経路リスト(paths)情報を交通色別にグルーピングして返すかどうか	|
 |saveFile	| Boolean| 選択| |経路周辺POI検索のためのbinaryファイルを保存するかどうか	|
-| useTaxifare   | int | 選択  |       | 予想タクシー料金照会有無<br>例) useTaxifare=1<br>0：未使用<br> 1：一般タクシー<br>2：模範タクシー |
+| useTaxifare   | Integer | 選択 |       | 予想タクシー料金照会有無<br>例) useTaxifare=1<br>0：未使用<br> 1：一般タクシー<br>2：模範タクシー |
+| searchByAddress   | Boolean | 選択  |       | 住所ベースの経路探索を行うか<br>Default：false |
+| usageType   | Integer | 選択  |       | 車両の用途<br>Default：0<br>一般：0<br>タクシー：1<br>(パス探索オプションがrecommendationの場合にのみ適用) |
 
 
 
@@ -1775,7 +1777,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | beforeCount   | Integer | 任意 |       | 基準時間以前の時間の探索数 |
 | afterCount   | Integer | 任意 |       | 基準時間以降の時間の探索数 |
 | interval   | Integer | 任意 |       | 基準時間以前/以降の時間Interval(分) |
-| useTaxifare   | int | 選択  |       | 予想タクシー料金照会有無<br>例) useTaxifare=1<br>0：未使用<br> 1：一般タクシー<br>2：模範タクシー<br>3：一般タクシーと模範タクシー |
+| useTaxifare   | Integer | 選択 |       | 予想タクシー料金照会を行うか<br>例) useTaxifare=1<br>0：未使用<br> 1：一般タクシー<br>2：模範タクシー<br>3：一般タクシーと模範タクシー |
 
 #### レスポンス
 
@@ -2056,7 +2058,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | startY   | String | 必須   |       | 出発地y座標                                |
 | endX     | String | 必須   |       | 到着地x座標                                |
 | endY     | String | 必須   |       | 到着地y座標                                |
-| option   | String | 必須   |       | 経路探索オプション<br>探索オプション','単位でリクエスト<br>例) option=real_traffic,real_traffic2<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle：二輪車 |
+| option   | String | 必須  |       | 経路探索オプション<br>探索オプション','単位でリクエスト<br>例) option=real_traffic,real_traffic2<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle：二輪車<br>recommendation：推薦 |
 | coordType    | String | 必須   |       | 座標タイプ(TW, WGS84)
 | viaList    | Array | 任意   |       | 経由地情報                              |
 | via[0].viaX    | String | 任意   |       | 経由地x座標                              |
@@ -2068,6 +2070,8 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 |groupByTrafficColor	| Boolean| 任意| |詳細経路リスト(paths)情報を道路交通色別にまとめて返すかどうか	|
 | useTaxifare   | Integer | 任意  |       | 予想タクシー料金照会<br>例) useTaxifare=1<br>0：未使用<br> 1：一般タクシー<br>2：模範タクシー<br>3：一般タクシーと模範タクシー |
 | useStartDirection    | Boolean | 任意   |       | 結果表示数                               |
+| searchByAddress   | Boolean | 選択  |       | 住所ベースの経路探索を行うか<br>Default：false |
+| usageType   | Integer | 選択  |       | 車両の用途<br>Default：0<br>一般：0<br>タクシー：1<br>(パス探索オプションがrecommendationの場合にのみ適用) |
 
 
 #### レスポンス
@@ -2221,13 +2225,12 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | via4Y    | String | オプション  |       | 経由地4 y座標                             |
 | via5X    | String | オプション  |       | 経由地5 x座標                             |
 | via5Y    | String | オプション  |       | 経由地5 y座標                             |
-| option   | String | 必須  |       | 経路探索オプション<br>探索オプションは1つのみ可能<br>例) option=real_traffic<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle：二輪車 |
+| option   | String | 必須 |       | 経路探索オプション<br>探索オプションは1つのみ可能<br>例) option=real_traffic<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle：二輪車<br>recommendation：推薦 |
 | carType   | Integer | オプション  |       | 料金所費を計算するための車種(1～6)、デフォルト値：1 |
 | coordType   | String | 必須  |       | input、output座標タイプ、1つのみ入力可能(TW、WGS84) |
-|guideTop	|Integer| 任意 ||表示する案内情報の数 |
-|groupByTrafficColor	| Boolean| オプション| |詳細経路リスト(paths)情報を道路交通色別にまとめて返すかどうか	|
-|saveFile	| Boolean| オプション| |経路周辺POI検索を行うためのバイナリファイルを保存するかどうか	|
-| useTaxifare   | int | オプション |       | 予想タクシー料金照会を行うかどうか<br>例) useTaxifare=1<br>0：未使用<br>1：一般タクシー<br>2：模範タクシー<br>3：一般タクシーと模範タクシー |
+| useTaxifare   | Integer | オプション |       | 予想タクシー料金照会を行うかどうか<br>例) useTaxifare=1<br>0：未使用<br>1：一般タクシー<br>2：模範タクシー<br>3：一般タクシーと模範タクシー |
+| searchByAddress   | Boolean | 選択  |       | 住所ベースの経路探索を行うか<br>Default：false |
+| usageType   | Integer | 選択  |       | 車両の用途<br>Default：0<br>一般：0<br>タクシー：1<br>(パス探索オプションがrecommendationの場合にのみ適用) |
 
 #### レスポンス
 

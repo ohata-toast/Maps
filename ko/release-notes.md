@@ -1,5 +1,17 @@
 ## Application Service > Maps > 릴리스 노트
 
+### 2021. 10. 26.
+#### 기능 추가
+* [API] 경로 탐색 API 파라미터 추가
+    * usageType: 차량 용도
+    * searchByAddress: 주소 기반 경로 탐색 여부
+* [API] 다중 경유지 추가 100 API 파라미터 추가
+    * usageType: 차량 용도
+    * searchByAddress: 주소 기반 경로 탐색 여부
+* [API] 경유지 간 경로 정보 요약 API 파라미터 추가
+    * usageType: 차량 용도
+    * searchByAddress: 주소 기반 경로 탐색 여부
+    
 ### 2021. 09. 28.
 #### 기능 추가
 * [API] 건물군 입구점 조회 API 추가

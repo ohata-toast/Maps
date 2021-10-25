@@ -1,5 +1,17 @@
 ## Application Service > Maps > リリースノート
 
+### 2021. 10. 26.
+#### 機能追加
+* [API]経路探索APIのパラメータ追加
+    * usageType：車両の用途
+    * searchByAddress：住所ベースの経路探索を行うか
+* [API] 多重経由地追加100 APIパラメータ追加
+    * usageType：車両の用途
+    * searchByAddress：住所ベースの経路探索を行うか
+* [API]経由地間の経路情報要約APIのパラメータ追加
+    * usageType：車両の用途
+    * searchByAddress：住所ベースの経路探索を行うか
+
 ### 2021. 09. 28.
 #### 機能追加
 * [API] 建物群入口点照会APIを追加
