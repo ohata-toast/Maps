@@ -74,11 +74,13 @@ NHN Cloud Maps API adopts Thinkware coordinates
 #### Enable Maps API 
 ```html
 <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap"></script>
-<div id="div_map"></div>
+<div id="div_map" style="width:500px; height:500px;"></div>
 <script type="text/javascript">
+    var map;
+    
     function initMap() {
-        //Expose the map on declared DIV. 
-        var map = new inavi.maps.Map({
+        //선언한 DIV에 지도를 표출합니다.
+        map = new inavi.maps.Map({
             container: "div_map",
             center: {
                 lng: 127.11,
@@ -95,9 +97,11 @@ NHN Cloud Maps API adopts Thinkware coordinates
 ```html
 <script type="text/javascript">
     // Change map type of created map object. 
-    // General:NORMAL, Aerial background:SATTELITE
+    // General:NORMAL, Aerial background:SATELLITE
     // Change into aerial background map.
-    map.setType("SATTELITE");
+    window.onload = function (){
+        map.setType("SATELLITE");
+    };
 </script>
 ```
 
@@ -105,10 +109,12 @@ NHN Cloud Maps API adopts Thinkware coordinates
 ```html
 <script type="text/javascript">
     //Register move events on the map. 
-    map.addListener("click", clickHandler)
+    window.onload = function (){
+        map.on("move", moveHandler);
+    }
 
     //Callback function when map event occurs
-    function clickHandler(event){
+    function moveHandler(event){
         console.log("event callback!");
     }
 </script>
@@ -118,7 +124,9 @@ NHN Cloud Maps API adopts Thinkware coordinates
 ```html
 <script type="text/javascript">
     //Remove move events from the map. 
-    map.off("move", moveHandler)
+    window.onload = function (){
+        map.off("move", moveHandler)
+    }
 </script>
 ```
 
@@ -126,56 +134,64 @@ NHN Cloud Maps API adopts Thinkware coordinates
 ```html
 <script type="text/javascript">
     // Add marker objects on the map. 
-    var marker = new inavi.maps.Marker({
-        map: map,
-        position: {
-            lng: 127.11,
-            lat: 37.40
-        }
-    });
+    window.onload = function (){
+        var marker = new inavi.maps.Marker({
+            map: map,
+            position: {
+                lng: 127.11,
+                lat: 37.40
+            }
+        });
 
-    // Move marker objects. 
-    marker.setPosition({lng: 127.2, lat: 37.5});
+        // Move marker objects. 
+        marker.setPosition({lng: 127.110513, lat: 37.402027});
+    }
 </script>
 ```
 
 #### Convert Screen Pixel Coordinates into WGS Coordinates 
 ```html
 <script type="text/javascript">
-    // Convert screen pixel coordinates into WGS coordinates. 
-    var screen_pixel = {
-        pxX: 100,
-        pxY: 100
-    };
+    window.onload = function (){
+        // Convert screen pixel coordinates into WGS coordinates. 
+        var screen_pixel = {
+            x: 100,
+            y: 100
+        };
 
-    var wgs84 = inavi.maps.Pixel.convertToLngLat(screen_pixel);
-    console.log(wgs84.lon);
-    console.log(wgs84.lat);
+        var wgs84 = inavi.maps.Pixel.convertToLngLat(map,screen_pixel);
+        console.log(wgs84.lng);
+        console.log(wgs84.lat);
+    }
 </script>
 ```
 
 #### Convert WGS Coordinates into Screen Pixel Coordinates 
 ```html
 <script type="text/javascript">
-    // Convert WGS coordinates into screen pixel coordinates. 
-    var wgs84 = {
-        lon: 127.11074994024005,
-        lat: 37.40215870673785
-    };
+    window.onload = function (){
+        // Convert WGS coordinates into screen pixel coordinates. 
+        var wgs84 = {
+            lng: 127.11074994024005,
+            lat: 37.40215870673785
+        };
 
-    var screen_pixel = inavi.maps.LngLat.convertToPixel(wgs84);
-    console.log(screen_pixel.pxX);
-    console.log(screen_pixel.pxY);
+        var screen_pixel = inavi.maps.LngLat.convertToPixel(map,wgs84);
+        console.log(screen_pixel.x);
+        console.log(screen_pixel.y);
+    }
 </script>
 ```
 #### Changing map style
 ```html
+// Changes the map style of the created map object to the style created with Map Studio.
 <script type="text/javascript">
-    //  Changes the map style of the created map object to the style created with Map Studio.
-    map.setStyle("{StyleJsonUrl}");
-    //For StyleJosnUrl, refer to the deployment code provided when Map Studio deployed the style
-    //When using a style during map initialization
-    <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
-
+    window.onload = function (){
+        //For StyleJosnUrl, refer to the deployment code provided when Map Studio deployed the style
+        map.setStyle("{StyleJsonUrl}");
+    }
 </script>
+
+// When using a style during map initialization
+<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
 ```
