@@ -72,11 +72,13 @@ NHN Cloud Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
 #### Maps API 사용
 ```html
 <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap"></script>
-<div id="div_map"></div>
+<div id="div_map" style="width:500px; height:500px;"></div>
 <script type="text/javascript">
+    var map;
+    
     function initMap() {
         //선언한 DIV에 지도를 표출합니다.
-        var map = new inavi.maps.Map({
+        map = new inavi.maps.Map({
             container: "div_map",
             center: {
                 lng: 127.11,
@@ -95,7 +97,9 @@ NHN Cloud Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
     // 생성된 지도 객체의 지도 Type을 변경합니다.
     // 일반: NORMAL, 항공배경: SATTELITE
     // 항공배경지도로 변경합니다.
-    map.setType("SATTELITE");
+    window.onload = function (){
+        map.setType("SATELLITE");
+    };
 </script>
 ```
 
@@ -103,10 +107,11 @@ NHN Cloud Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
 ```html
 <script type="text/javascript">
     //지도에 move 이벤트를 등록합니다.
-    map.addListener("click", clickHandler)
+    window.onload = function (){
+        map.on("move", moveHandler);
+    }
 
-    //지도 이벤트 발생 시 콜백 함수
-    function clickHandler(event){
+    function moveHandler(event){
         console.log("event callback!");
     }
 </script>
@@ -116,7 +121,9 @@ NHN Cloud Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
 ```html
 <script type="text/javascript">
     //지도에 move 이벤트를 제거합니다.
-    map.off("move", moveHandler)
+    window.onload = function (){
+        map.off("move", moveHandler)
+    }
 </script>
 ```
 
@@ -124,58 +131,65 @@ NHN Cloud Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
 ```html
 <script type="text/javascript">
     // 지도에 마커 객체를 추가합니다.
-    var marker = new inavi.maps.Marker({
-        map: map,
-        position: {
-            lng: 127.11,
-            lat: 37.40
-        }
-    });
+    window.onload = function (){
+        var marker = new inavi.maps.Marker({
+            map: map,
+            position: {
+                lng: 127.11,
+                lat: 37.40
+            }
+        });
 
-    // 마커 객체를 이동시킵니다.
-    marker.setPosition({lng: 127.2, lat: 37.5});
+        // 마커 객체를 이동시킵니다.
+        marker.setPosition({lng: 127.110513, lat: 37.402027});
+    }
 </script>
 ```
 
 #### 화면 픽셀 좌표를 WGS 좌표로 변환
 ```html
 <script type="text/javascript">
-    // 화면 픽셀 좌표를 WGS 좌표로 변환합니다.
-    var screen_pixel = {
-        pxX: 100,
-        pxY: 100
-    };
+    window.onload = function (){
+        // 화면 픽셀 좌표를 WGS 좌표로 변환합니다.
+        var screen_pixel = {
+            x: 100,
+            y: 100
+        };
 
-    var wgs84 = inavi.maps.Pixel.convertToLngLat(screen_pixel);
-    console.log(wgs84.lon);
-    console.log(wgs84.lat);
+        var wgs84 = inavi.maps.Pixel.convertToLngLat(map,screen_pixel);
+        console.log(wgs84.lng);
+        console.log(wgs84.lat);
+    }
 </script>
 ```
 
 #### WGS 좌표를 화면 픽셀 좌표로 변환
 ```html
 <script type="text/javascript">
-    // WGS 좌표를 화면 픽셀 좌표로 변환합니다.
-    var wgs84 = {
-        lon: 127.11074994024005,
-        lat: 37.40215870673785
-    };
+    window.onload = function (){
+        // WGS 좌표를 화면 픽셀 좌표로 변환합니다.
+        var wgs84 = {
+            lng: 127.11074994024005,
+            lat: 37.40215870673785
+        };
 
-    var screen_pixel = inavi.maps.LngLat.convertToPixel(wgs84);
-    console.log(screen_pixel.pxX);
-    console.log(screen_pixel.pxY);
+        var screen_pixel = inavi.maps.LngLat.convertToPixel(map,wgs84);
+        console.log(screen_pixel.x);
+        console.log(screen_pixel.y);
+    }
 </script>
 ```
+
 #### 지도 스타일 변경
 ```html
+// 생성된 지도 객체의 지도 스타일을 Map Studio로 작성한 스타일로 변경합니다.
 <script type="text/javascript">
-    // 생성된 지도 객체의 지도 스타일을 Map Studio로 작성한 스타일로 변경합니다.
-
-    map.setStyle("{StyleJsonUrl}");
-    //StyleJosnUrl은 Map Studio에서 스타일 배포 시 배포 코드 참조
-
-    //지도 초기화 시 스타일을 사용할 경우
-    <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
-
+    window.onload = function (){
+        // StyleJsonUrl은 Map Studio에서 스타일 배포 시 배포 코드 참조
+        map.setStyle("{StyleJsonUrl}");
+    }
 </script>
+
+// 지도 초기화 시 스타일을 적용 할 경우에는 기존 스크립트 대신 아래 스크립트를 사용합니다.
+<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
 ```

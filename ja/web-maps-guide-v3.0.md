@@ -72,11 +72,13 @@ NHN Cloud Maps APIは、WGS84(EPSG:4326)座標を使用します。
 #### Maps API使用
 ```html
 <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap"></script>
-<div id="div_map"></div>
+<div id="div_map" style="width:500px; height:500px;"></div>
 <script type="text/javascript">
+    var map;
+    
     function initMap() {
         //宣言したDIVにマップを表示します。
-        var map = new inavi.maps.Map({
+        map = new inavi.maps.Map({
             container: "div_map",
             center: {
                 lng: 127.11,
@@ -95,7 +97,9 @@ NHN Cloud Maps APIは、WGS84(EPSG:4326)座標を使用します。
     // 作成されたマップオブジェクトのマップTypeを変更します。
     // 一般：NORMAL、航空写真：SATTELITE
     // 航空写真に変更します。
-    map.setType("SATTELITE");
+    window.onload = function (){
+        map.setType("SATELLITE");
+    };
 </script>
 ```
 
@@ -103,10 +107,12 @@ NHN Cloud Maps APIは、WGS84(EPSG:4326)座標を使用します。
 ```html
 <script type="text/javascript">
     //マップにmoveイベントを登録します。
-    map.addListener("click", clickHandler)
+    window.onload = function (){
+        map.on("move", moveHandler);
+    }
 
     //マップイベント発生時のコールバック関数
-    function clickHandler(event){
+    function moveHandler(event){
         console.log("event callback!");
     }
 </script>
@@ -116,7 +122,9 @@ NHN Cloud Maps APIは、WGS84(EPSG:4326)座標を使用します。
 ```html
 <script type="text/javascript">
     //マップのmoveイベントを削除します。
-    map.off("move", moveHandler)
+     window.onload = function (){
+        map.off("move", moveHandler)
+    }
 </script>
 ```
 
@@ -124,56 +132,64 @@ NHN Cloud Maps APIは、WGS84(EPSG:4326)座標を使用します。
 ```html
 <script type="text/javascript">
     // マップにマーカーオブジェクトを追加します。
-    var marker = new inavi.maps.Marker({
-        map: map,
-        position: {
-            lng: 127.11,
-            lat: 37.40
-        }
-    });
+    window.onload = function (){
+        var marker = new inavi.maps.Marker({
+            map: map,
+            position: {
+                lng: 127.11,
+                lat: 37.40
+            }
+        });
 
-    // マーカーオブジェクトを移動させます。
-    marker.setPosition({lng: 127.2, lat: 37.5});
+        // マーカーオブジェクトを移動させます。
+        marker.setPosition({lng: 127.110513, lat: 37.402027});
+    }
 </script>
 ```
 
 #### 画面ピクセル座標をWGS座標に変換
 ```html
 <script type="text/javascript">
-    // 画面ピクセル座標をWGS座標に変換します。
-    var screen_pixel = {
-        pxX: 100,
-        pxY: 100
-    };
+    window.onload = function (){
+        // 画面ピクセル座標をWGS座標に変換します。
+        var screen_pixel = {
+            x: 100,
+            y: 100
+        };
 
-    var wgs84 = inavi.maps.Pixel.convertToLngLat(screen_pixel);
-    console.log(wgs84.lon);
-    console.log(wgs84.lat);
+        var wgs84 = inavi.maps.Pixel.convertToLngLat(map,screen_pixel);
+        console.log(wgs84.lng);
+        console.log(wgs84.lat);
+    }
 </script>
 ```
 
 #### WGS座標を画面ピクセル座標に変換
 ```html
 <script type="text/javascript">
-    // WGS座標を画面ピクセル座標に変換します。
-    var wgs84 = {
-        lon: 127.11074994024005,
-        lat: 37.40215870673785
-    };
+    window.onload = function (){
+        // WGS座標を画面ピクセル座標に変換します。
+        var wgs84 = {
+            lng: 127.11074994024005,
+            lat: 37.40215870673785
+        };
 
-    var screen_pixel = inavi.maps.LngLat.convertToPixel(wgs84);
-    console.log(screen_pixel.pxX);
-    console.log(screen_pixel.pxY);
+        var screen_pixel = inavi.maps.LngLat.convertToPixel(map,wgs84);
+        console.log(screen_pixel.x);
+        console.log(screen_pixel.y);
+    }
 </script>
 ```
 #### マップスタイルの変更
 ```html
+// 作成されたマップオブジェクトのマップスタイルをMap Studioで作成したスタイルに変更します。
 <script type="text/javascript">
-    // 作成されたマップオブジェクトのマップスタイルをMap Studioで作成したスタイルに変更します。
-    map.setStyle("{StyleJsonUrl}");
-    //StyleJosnUrlはMap Studioでスタイル配布時の配布コードを参照
-    //マップの初期化時にスタイルを使用する場合
-    <script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
-
+    window.onload = function (){
+        //StyleJosnUrlはMap Studioでスタイル配布時の配布コードを参照
+        map.setStyle("{StyleJsonUrl}");
+    }
 </script>
+    
+// マップの初期化時にスタイルを使用する場合
+<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
 ```
