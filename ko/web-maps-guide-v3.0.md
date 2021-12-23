@@ -3,15 +3,15 @@
 Maps 웹 지도를 사용하는 데 필요한 JavaScript 기반 웹 API를 설명합니다.
 
 
-## Common API Information 공통 정보
+## 공통 정보
 
-### Prerequisites 사전 준비
+### 사전 준비
 - API를 사용하려면 Appkey가 필요합니다.
 - Appkey는 **NHN Cloud Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
 
 ### 요청 공통 정보
 
-#### URL Information
+#### URL 정보
 
 | Item       | URL                                      |
 | --------- | ---------------------------------------- |
