@@ -1,5 +1,9 @@
 ## Application Service > Maps > Release Notes
 
+### December 28, 2021
+#### Feature Updates
+* [API] Improved so that a request is processed normally even if the 'User-Agent' header value is unavailable
+
 ### October 26, 2021
 #### Added Features
 * [API] Added parameters to Route Navigation API
@@ -59,12 +63,12 @@
 - [SDK] Fixed an abnormal termination error that used to occur intermittently when launched in the background
 
 ### October 27, 2020
-#### Functions added
+#### Added Features
 * [SDK] Initial map option property added
 * [SDK] Setup for initial map options supported through XML attributes (Android)
 * [SDK] Setup for initial map options supported through Interface Builder (iOS)
 
-#### Improvements
+#### Feature Updates
 * [SDK] Fixed the error where marker's icon image often fails to update (iOS)
 * [SDK] Fixed the error where the previous marker is often left on the map when calling INVClusterManager#invalidate (iOS)
 
@@ -107,7 +111,7 @@
 
 #### Feature Updates
 * [API] Changed the search engine
-* [API] Improved Reverse Geocoding Vaildation Check
+* [API] Improved Reverse Geocoding Validation Check
 * [SDK] Improved usability of tilt gestures (Android)
 
 #### Bug Fixes
@@ -252,7 +256,7 @@
 	* Added a type of coordinates available for query (TW coordinates only -> TW and WGS84 coordinates)
 
 ### March 23, 2017
-#### New Product Releases
+#### New Product Release
 * The API service is an optimized web map solution based on the web map service, providing web maps, integrated search, and route navigation.
     * All API services are available at once, including iNavi's specialized maps, search, and getting directions.
     * Various map features are available via web maps API, including movement, zoom-in/out, and aerial maps.
