@@ -21,7 +21,7 @@
 
 | Header 명   | 값                              |
 | ---- | -------------------------------- |
-| User-Agent | Windows or Android or Mac OS  |
+| User-Agent | `Windows` or `Android` or `Mac OS` |
 
 ### 응답 공통 정보
 
