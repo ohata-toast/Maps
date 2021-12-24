@@ -17,6 +17,12 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | ---- | -------------------------------- |
 | Real | https://api-maps.cloud.toast.com |
 
+#### Header情報
+
+| Header 名   | 値                             |
+| ---- | -------------------------------- |
+| User-Agent | `Windows`, `Android`, `Mac OS` |
+
 ### レスポンス共通情報
 
 #### 検索API
