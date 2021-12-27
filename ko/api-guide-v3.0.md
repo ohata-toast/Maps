@@ -17,6 +17,12 @@
 | ---- | -------------------------------- |
 | Real | https://api-maps.cloud.toast.com |
 
+#### Header 정보
+
+| Header 명   | 값                              |
+| ---- | -------------------------------- |
+| User-Agent | `Windows`, `Android`, `Mac OS` |
+
 ### 응답 공통 정보
 
 #### 검색 API

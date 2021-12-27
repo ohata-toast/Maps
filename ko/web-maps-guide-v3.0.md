@@ -3,15 +3,15 @@
 Maps 웹 지도를 사용하는 데 필요한 JavaScript 기반 웹 API를 설명합니다.
 
 
-## Common API Information 공통 정보
+## 공통 정보
 
-### Prerequisites 사전 준비
+### 사전 준비
 - API를 사용하려면 Appkey가 필요합니다.
 - Appkey는 **NHN Cloud Console** 상단 **URL & Appkey** 메뉴에서 확인할 수 있습니다.
 
-### 요청 공통 정보 Common Request Information
+### 요청 공통 정보
 
-#### URL Information
+#### URL 정보
 
 | Item       | URL                                      |
 | --------- | ---------------------------------------- |
@@ -37,8 +37,7 @@ NHN Cloud Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
 |                                          | options.zoom : number            |                                          | 지도의 레벨                                   |
 |                                          | options.heading : number             |                                          | 북쪽을 기준으로 반시계 방향으로 회전한 각도 |
 |                                          | options.tilt : number             |                                          | 지도를 눕혔을 때의 기울기 |
-|                                          | options.maxZoom : number             |                                          | 북쪽을 기준으로 반시계 방향으로 회전한 각도 |
-|                                          | options.heading : number             |                                          | 최대 확대 레벨 |
+|                                          | options.maxZoom : number             |                                          | 최대 확대 레벨 |
 |                                          | options.hash : boolean             |                                          | 주소 표시줄에 지도 정보 표시 여부 |
 |                                          | options.zoomable : boolean             |                                          | 확대 가능 여부 |
 |                                          | options.draggable : boolean             |                                          | 드래그 가능 여부 |
@@ -65,8 +64,8 @@ NHN Cloud Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
 |                                          | option.opacity : number          |                                          | 투명도                                      |
 | inavi.maps.LngLat.convertToPixel(lngLat) | lngLat.lng : number               | 화면 픽셀 좌표 | WGS84 경도                                 |
 |                                          | lngLat.lat : number               |                                          | WGS84 위도                                 |
-| inavi.maps.Pixel.convertToLngLat(pixel) | pixel.pxX : number               | 경위도 좌표 | 화면 픽셀 x 좌표                                       |
-|                                          | pixel.pxY : number               |                                          | 화면 픽셀 y 좌표                                       |
+| inavi.maps.Pixel.convertToLngLat(pixel) | pixel.x : number               | 경위도 좌표 | 화면 픽셀 x 좌표                                       |
+|                                          | pixel.y : number               |                                          | 화면 픽셀 y 좌표                                       |
 
 
 #### Maps API 사용
@@ -95,7 +94,7 @@ NHN Cloud Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
 ```html
 <script type="text/javascript">
     // 생성된 지도 객체의 지도 Type을 변경합니다.
-    // 일반: NORMAL, 항공배경: SATTELITE
+    // 일반: NORMAL, 항공배경: SATELLITE
     // 항공배경지도로 변경합니다.
     window.onload = function (){
         map.setType("SATELLITE");
