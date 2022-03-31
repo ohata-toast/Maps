@@ -1,5 +1,6 @@
 ## Application Service > Maps > Web Map Guide > Map Studio Guide
 
+**Map Studio is not a service provided by NHN Cloud.**
 Map Studio is a map-style editing tool co-developed by 42dot Inc. and INAVI Systems Corp.
 Here, you will learn about the features of Map Studio and how to get started.
 
@@ -37,5 +38,5 @@ Second, you can collaborate with your coworkers to update and utilize the same s
 for more information on how to use Map Studio.</h3>
 
 > * The service is provided by individual communication providers.
-> * For services provided by individual communication providers, NHN only serves as the agent and is not directly charged with sales.
-> * Individual communication providers hold obligations and responsibilities for their services, and NHN shall not be held liable for any issues arising out of such services.
+> * For services provided by individual communication providers, NHN Cloud Corp. only serves as the agent and is not directly charged with sales.
+> * Individual communication providers hold obligations and responsibilities for their services, and NHN Cloud Corp. shall not be held liable for any issues arising out of such services.
