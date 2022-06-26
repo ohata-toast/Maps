@@ -59,7 +59,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name          | Type   | Required | Valid Range | Description                                                  |
 | ------------- | ------ | -------- | ----------- | ------------------------------------------------------------ |
@@ -323,7 +323,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name  | Type   | Required | Valid Range | Description                                            |
 | ----- | ------ | -------- | ----------- | ------------------------------------------------------ |
@@ -422,7 +422,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name  | Type   | Required | Valid Range | Description                                                  |
 | ----- | ------ | -------- | ----------- | ------------------------------------------------------------ |
@@ -617,7 +617,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name  | Type   | Required | Valid Range                                                  | Description                                |
 | ----- | ------ | -------- | ------------------------------------------------------------ | ------------------------------------------ |
@@ -764,7 +764,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name      | Type   | Required | Valid Range                                                  | Description                          |
 | --------- | ------ | -------- | ------------------------------------------------------------ | ------------------------------------ |
@@ -823,7 +823,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name        | Type     | Required |  Description                                    |
 | --------- | ------ | ----- |  ------------------------------------ |
@@ -971,7 +971,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name        | Type     | Required |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
@@ -1059,7 +1059,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name        | Type     | Required |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
@@ -1142,7 +1142,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name        | Type     | Required |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
@@ -1234,7 +1234,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name          | Type   | Required | Valid Range | Description                                                  |
 | ------------- | ------ | -------- | ----------- | ------------------------------------------------------------ |
@@ -1347,7 +1347,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name      | Type   | Required | Valid Range | Description                                                  |
 | --------- | ------ | -------- | ----------- | ------------------------------------------------------------ |
@@ -2420,7 +2420,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Request Query Parameters]
+[Request Query Parameter]
 
 | Name   | Type  | Required | Valid Range | Description                             |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |

@@ -53,7 +53,7 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name          | Type   | Required | Valid Range | Description                                                  |
 | ------------- | ------ | -------- | ----------- | ------------------------------------------------------------ |
@@ -318,7 +318,7 @@ in the order of gas, premium gas, light oil, and LPG |
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name  | Type   | Required | Valid Range | Description                                            |
 | ----- | ------ | -------- | ----------- | ------------------------------------------------------ |
@@ -417,7 +417,7 @@ in the order of gas, premium gas, light oil, and LPG |
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name  | Type   | Required | Valid Range | Description                                                  |
 | ----- | ------ | -------- | ----------- | ------------------------------------------------------------ |
@@ -612,7 +612,7 @@ in the order of gas, premium gas, light oil, and LPG |
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name  | Type   | Required | Valid Range                                                  | Description                                |
 | ----- | ------ | -------- | ------------------------------------------------------------ | ------------------------------------------ |
@@ -760,7 +760,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name      | Type   | Required | Valid Range                                                  | Description                          |
 | --------- | ------ | -------- | ------------------------------------------------------------ | ------------------------------------ |
@@ -819,7 +819,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name        | Type     | Required? |  Description                                    |
 | --------- | ------ | ----- |  ------------------------------------ |
@@ -969,7 +969,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name        | Type     | Required? |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
@@ -1049,7 +1049,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name        | Type     | Required? |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
@@ -1126,7 +1126,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name          | Type   | Required | Valid Range | Description                                                  |
 | ------------- | ------ | -------- | ----------- | ------------------------------------------------------------ |
@@ -1242,7 +1242,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | Name      | Type   | Required | Valid Range | Description                                                  |
 | --------- | ------ | -------- | ----------- | ------------------------------------------------------------ |
@@ -2237,7 +2237,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | ------ | ------ | -------- | ----------- | ------------- |
 | appkey | String | Required |             | Origin appkey |
 
-[Request Query Parameters]
+[Request Query Parameter]
 
 | Name   | Type  | Required | Valid Range | Description                             |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
