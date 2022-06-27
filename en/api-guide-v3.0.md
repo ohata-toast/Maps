@@ -1214,6 +1214,76 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | data.entrypoints[0].y             | Double  | Y-coordinate                           |
 | data.entrypoints[0].type     | Integer  | Feature to be added         |
 
+### 10\. Address Validation
+
+* Validates the entered address.
+
+#### Request
+
+[URI]
+
+| Method  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/addr-searches  |
+
+[Path parameter]
+
+| Name     | Type     | Required | Valid Range | Description     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | Required    |       | Unique appkey |
+
+[Query Parameter]
+
+| Name        | Type     | Required |  Description                                   |
+| --------- | ------ | ----- |  ------------------------------------ |
+| addr     | String  | Required | Address to search      |
+| coordtype         | String | Optional   | Coordinate type<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
+| startposition   | String  | Optional | Position to start the search<br>0: First position. If not entered, search from 0      |
+| reqcount   | String  | Optional | Number of search requests<br>When set to 0, returns the maximum number      |
+
+
+
+#### Response
+
+##### Response Body
+
+```
+{
+    "search": {
+        "data": [
+            {
+                "posx": "127.110662",
+                "posy": "37.402125",
+                "address": "240, Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
+                "admcode": "4113510900"
+            }
+        ],
+        "count": 1
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### Field
+
+| Name                                 | Type      | Description                                       |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | Header area                                    |
+| header.isSuccessful                | Boolean | Successful or not                                    |
+| header.resultCode                  | Integer | Failure code                                    |
+| header.resultMessage               | String  | Failure message                                   |
+| search                         | Object | Body area                                    |
+| search.data                         | Array | Search Results                                    |
+| search.data[0].posx                          | String | X coordinate                                 |
+| search.data[0].posy                        | String | Y coordinate                             |
+| search.data[0].address               | String | Address                                   |
+| search.data[0].admcode             | String  | Administrative code                            |
+| search.count             | Integer  | Number of search results
+
 ## Geocoding API
 
 ### 1\. Search of Address \(Address \-\> Coordinates\)
