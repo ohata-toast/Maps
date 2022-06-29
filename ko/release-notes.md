@@ -1,5 +1,9 @@
 ## Application Service > Maps > 릴리스 노트
 
+### 2022. 06. 30.
+#### 기능 추가
+* [API] 주소 검증 API 추가
+
 ### 2021. 12. 28.
 #### 기능 개선
 * [API] 'User-Agent' Header 값이 없어도 정상 처리되도록 개선

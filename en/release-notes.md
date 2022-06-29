@@ -1,5 +1,9 @@
 ## Application Service > Maps > Release Notes
 
+### June 30, 2022
+#### Added Features
+* [API] Added the address validation API
+
 ### December 28, 2021
 #### Feature Updates
 * [API] Improved so that a request is processed normally even if the 'User-Agent' header value is unavailable
@@ -15,7 +19,7 @@
 * [API] Added parameters to Summarize Path Information Between Stopovers API
     * usageType: Vehicle usage type
     * searchByAddress: Whether to use address-based route navigation
-
+    
 ### September 28, 2021
 #### Added Features
 * [API] Added an API for querying building group entry points
@@ -136,12 +140,14 @@
 #### Added Features
 * [API] Added Search Nearby Categories API
 	* Added the search of base coordinates X and Y, space and radius categories
+
 #### Feature Updates
 * [API] Added building names and zip codes for reverse geocoding
 * [API] Deleted catecode for integrated search
 * [SDK] Default animation value to be disabled when marker display status is changed
 * [SDK] Set Animation API to be added when marker display status is changed
 * [SDK] Changed the INVMarker#infoWindow attribute to nullable (iOS)
+
 #### Bug fixes
 * [API] Updated validation check on day 2 of spopt for integrated search
 * [API] Updated validation check for the query of POI sub-facilities
@@ -172,6 +178,7 @@
 	* Added the LocationIcon feature (changing the shape and position of location icons)
 	* Added InvRoute (to expose routes on the map)
 	* Applied Deprecated for InvMultiLine (replaced by InvRoute)
+
 #### Feature Updates
 * [API] Changed to WGS84, which is the default coordinates of v3.0 API
 * Added StaticMap API Image files

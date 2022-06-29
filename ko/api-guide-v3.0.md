@@ -59,7 +59,7 @@
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 필수    |       | 고유의 Appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | 이름          | 타입   | 필수 여부 | 유효 범위 | 설명                                                         |
 | ------------- | ------ | --------- | --------- | ------------------------------------------------------------ |
@@ -323,7 +323,7 @@
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 필수    |       | 고유의 Appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | 이름    | 타입     | 필수 여부 | 유효 범위 | 설명                     |
 | ----- | ------ | ----- | ----- | ---------------------- |
@@ -422,7 +422,7 @@
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 필수    |       | 고유의 Appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | 이름  | 타입   | 필수 여부 | 유효 범위 | 설명                                                         |
 | ----- | ------ | --------- | --------- | ------------------------------------------------------------ |
@@ -617,7 +617,7 @@
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 필수    |       | 고유의 Appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | 이름  | 타입   | 필수 여부 | 유효 범위                                                    | 설명                         |
 | ----- | ------ | --------- | ------------------------------------------------------------ | ---------------------------- |
@@ -764,7 +764,7 @@
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 필수    |       | 고유의 Appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | 이름      | 타입   | 필수 여부 | 유효 범위                                              | 설명                               |
 | --------- | ------ | --------- | ------------------------------------------------------ | ---------------------------------- |
@@ -827,7 +827,7 @@
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 필수    |       | 고유의 앱키 |
 
-[Query Parameters]
+[Query Parameter]
 
 | 이름        | 타입     | 필수 여부 |  설명                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
@@ -975,7 +975,7 @@
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 필수    |       | 고유의 앱키 |
 
-[Query Parameters]
+[Query Parameter]
 
 | 이름        | 타입     | 필수 여부 |  설명                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
@@ -1063,7 +1063,7 @@
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 필수    |       | 고유의 앱키 |
 
-[Query Parameters]
+[Query Parameter]
 
 | 이름        | 타입     | 필수 여부 |  설명                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
@@ -1146,7 +1146,7 @@
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 필수    |       | 고유의 앱키 |
 
-[Query Parameters]
+[Query Parameter]
 
 | 이름        | 타입     | 필수 여부 |  설명                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
@@ -1218,6 +1218,76 @@
 | data.entrypoints[0].y             | Double  | y 좌표                           |
 | data.entrypoints[0].type     | Integer  | 차후 기능 추가 예정         |
 
+### 10\. 주소 검증
+
+* 입력된 주소를 검증합니다.
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/addr-searches  |
+
+[Path parameter]
+
+| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 필수    |       | 고유의 앱키 |
+
+[Query Parameter]
+
+| 이름        | 타입     | 필수 여부 |  설명                                   |
+| --------- | ------ | ----- |  ------------------------------------ |
+| addr     | String  | 필수 | 검색할 주소      |
+| coordtype         | String | 선택   | 좌표 타입<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
+| startposition   | String  | 선택 | 검색 시작 위치<br>0: 첫 번째 위치, 미입력 시 0으로 조회      |
+| reqcount   | String  | 선택 | 검색 요청 개수<br>0으로 설정 시 최대 개수 반환      |
+
+
+
+#### 응답
+
+##### 응답 본문
+
+```
+{
+    "search": {
+        "data": [
+            {
+                "posx": "127.110662",
+                "posy": "37.402125",
+                "address": "경기도 성남시 분당구 판교역로 240",
+                "admcode": "4113510900"
+            }
+        ],
+        "count": 1
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### 필드
+
+| 이름                                 | 타입      | 설명                                       |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | 헤더 영역                                    |
+| header.isSuccessful                | Boolean | 성공 여부                                    |
+| header.resultCode                  | Integer | 실패 코드                                    |
+| header.resultMessage               | String  | 실패 메시지                                   |
+| search                         | Object | 본문 영역                                    |
+| search.data                         | Array | 검색 결과                                    |
+| search.data[0].posx                          | String | x 좌표                                 |
+| search.data[0].posy                        | String | y 좌표                             |
+| search.data[0].address               | String | 주소                                   |
+| search.data[0].admcode             | String  | 행정 코드                            |
+| search.count             | Integer  | 검색 결과 개수                            |
+
 ## Geocoding API(지오코딩 API)
 
 ### 1\. 주소 검색\(주소 \-\> 좌표\)
@@ -1238,7 +1308,7 @@
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 필수    |       | 고유의 Appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | 이름          | 타입   | 필수 여부 | 유효 범위 | 설명                                                      |
 | ------------- | ------ | --------- | --------- | --------------------------------------------------------- |
@@ -1319,7 +1389,7 @@
 | address.result           | Boolean | 성공 여부                                                    |
 | address.totalcount       | Integer | 전체 검색 결과 대상 개수                                     |
 | address.res_type         | String  | 검색 결과 타입 명칭<br>명칭, 카테고리, 주소, 전화번호순<br>예) NYNN: 명칭 <span style="color:red">N</span>O, 카테고리 <span style="color:red">Y</span>ES, 주소 <span style="color:red">N</span>O, 전화번호 <span style="color:red">N</span>O |
-| address.adm              | Array   | 검색결과                                                     |
+| address.adm              | Array   | 검색 결과                                                    |
 | address.adm[0].type      | String  | 검색 type<br>1: 행정계 검색<br>2: 지번 검색<br>3: 새 주소 검색 |
 | address.adm[0].posx      | String  | x 좌표                                                       |
 | address.adm[0].posy      | String  | y 좌표                                                       |
@@ -1351,7 +1421,7 @@
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 필수    |       | 고유의 Appkey |
 
-[Query Parameters]
+[Query Parameter]
 
 | 이름      | 타입   | 필수 여부 | 유효 범위 | 설명                                                         |
 | --------- | ------ | --------- | --------- | ------------------------------------------------------------ |
@@ -2431,7 +2501,7 @@
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | 필수    |       | 고유의 Appkey |
 
-[Request Query Parameters]
+[Request Query Parameter]
 
 | 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |

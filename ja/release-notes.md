@@ -1,5 +1,9 @@
 ## Application Service > Maps > リリースノート
 
+### 2022. 06. 30.
+#### 機能追加
+* [API]住所検証APIの追加
+
 ### 2021. 12. 28.
 #### 機能改善
 * [API] 'User-Agent' Header値がなくても正常に処理されるように改善
