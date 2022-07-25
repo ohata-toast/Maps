@@ -1,5 +1,10 @@
 ## Application Service > Maps > Release Notes
 
+### July 26, 2022
+#### Added Features
+* [Console] Added the excel extraction feature for statistics pages
+    * Hourly, daily, monthly
+
 ### June 30, 2022
 #### Added Features
 * [API] Added the address validation API
@@ -128,7 +133,7 @@
 * [SDK] Added Marker Clustering
 
 #### Feature Updates
-* [CONSOLE] Added Japanese fonts
+* [Console] Added Japanese fonts
 
 #### Bug Fixes
 * [SDK] Fixed an error where the outline was displayed abnormally intermittently when displaying INVRoute
