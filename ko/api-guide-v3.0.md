@@ -1244,7 +1244,8 @@
 | coordtype         | String | 선택   | 좌표 타입<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
 | startposition   | String  | 선택 | 검색 시작 위치<br>0: 첫 번째 위치, 미입력 시 0으로 조회      |
 | reqcount   | String  | 선택 | 검색 요청 개수<br>0으로 설정 시 최대 개수 반환      |
-
+| posx     | String  | 선택 | X좌표      |
+| posy     | String  | 선택 | Y좌표      |
 
 
 #### 응답
@@ -1286,6 +1287,7 @@
 | search.data[0].posy                        | String | y 좌표                             |
 | search.data[0].address               | String | 주소                                   |
 | search.data[0].admcode             | String  | 행정 코드                            |
+| search.data[0].distance             | Double  | 입력된 좌표 와의 거리(단위: m)<br>(posx, posy 입력 시 출력)                            |
 | search.count             | Integer  | 검색 결과 개수                            |
 
 ## Geocoding API(지오코딩 API)
