@@ -1240,8 +1240,8 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | coordtype         | String | Optional   | Coordinate type<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
 | startposition   | String  | Optional | Position to start the search<br>0: First position. If not entered, search from 0      |
 | reqcount   | String  | Optional | Number of search requests<br>When set to 0, returns the maximum number      |
-| posx     | String  | Optional | X coordinate      |
-| posy     | String  | Optional | Y coordinate      |
+| posx     | String  | Optional | X coordinates     |
+| posy     | String  | Optional | Y coordinates     |
 
 
 #### Response
