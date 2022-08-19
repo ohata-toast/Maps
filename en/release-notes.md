@@ -1,5 +1,12 @@
 ## Application Service > Maps > Release Notes
 
+### August 23, 2022
+#### Added Features
+* [API] Added parameters to the address validation API
+    * posx: X coordinates
+    * posy: Y coordinates
+    * Improved so that, when posx and posy are entered, the results are ordered from closest to farthest from the entered coordinates
+
 ### July 26, 2022
 #### Added Features
 * [Console] Added the excel extraction feature for statistics pages
