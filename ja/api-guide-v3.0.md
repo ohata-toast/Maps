@@ -1243,7 +1243,8 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | coordtype         | String | 選択 | 座標タイプ<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
 | startposition   | String  | 任意 | 検索開始位置<br>0:最初の位置、未入力時は0で照会    |
 | reqcount   | String  | 任意 | 検索リクエスト数<br>0に設定時は最大数を返す     |
-
+| posx     | String  | 任意 | X座標     |
+| posy     | String  | 任意 | Y座標     |
 
 
 #### レスポンス
@@ -1285,6 +1286,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | search.data[0].posy                        | String | y座標                           |
 | search.data[0].address               | String | 住所                                 |
 | search.data[0].admcode             | String  | 行政コード                          |
+| search.data[0].distance             | Double  | 入力された座標との距離(単位：m)<br>(posx、posy入力時に出力)                            |
 | search.count             | Integer  | 検索結果数                          |
 
 ## Reverse Geocoding API

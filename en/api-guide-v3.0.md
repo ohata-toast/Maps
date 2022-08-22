@@ -1240,7 +1240,8 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | coordtype         | String | Optional   | Coordinate type<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
 | startposition   | String  | Optional | Position to start the search<br>0: First position. If not entered, search from 0      |
 | reqcount   | String  | Optional | Number of search requests<br>When set to 0, returns the maximum number      |
-
+| posx     | String  | Optional | X coordinates     |
+| posy     | String  | Optional | Y coordinates     |
 
 
 #### Response
@@ -1282,6 +1283,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | search.data[0].posy                        | String | Y coordinate                             |
 | search.data[0].address               | String | Address                                   |
 | search.data[0].admcode             | String  | Administrative code                            |
+| search.data[0].distance             | Double  | Distance from the entered coordinates (unit: m)<br>(output when posx and posy are entered)                            |
 | search.count             | Integer  | Number of search results
 
 ## Geocoding API
