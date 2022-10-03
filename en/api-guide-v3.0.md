@@ -1528,7 +1528,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 | Method | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight} |
 
 [Path parameter]
 
@@ -1563,6 +1563,8 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | useTaxifare   | Integer | Optional   |       | Whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
 | searchByAddress   | Boolean | Optional   |       | Whether to use address-based route navigation<br>Default: false |
 | usageType   | Integer | Optional   |       | Vehicle usage type<br>Default: 0<br>Normal: 0<br>Taxi: 1<br>(Applied only when the route navigation option is recommendation) |
+| carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
+| carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
 
 
 #### Response
@@ -1681,7 +1683,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 | Method | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-summary?option={option}&coordType={coordType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-summary?option={option}&coordType={coordType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&carHeight={carHeight}&carWeight={carWeight} |
 
 [Path parameter]
 
@@ -1709,7 +1711,8 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | via5Y    | String | Optional |       | Y coordinates at stopover 5   |
 | option   | String | Required |       | Route navigation option<br>Request with navigation options separated by ','<br>e.g.) option=real_traffic,real_traffic2<br>real_traffic: Real-time recommendation1<br>real\_traffic\_freeroad: Real-time (free of charge\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler |
 | coordType   | String | Required |       | Only one is available out of Input/Output coordinate types (TW or WGS84) |
-
+| carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
+| carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
 
 #### Response
 
@@ -1923,7 +1926,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 | Method | URI                                                          |
 | ------ | ------------------------------------------------------------ |
-| GET    | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval} |
+| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}&carHeight={carHeight}&carWeight={carWeight}|
 
 [Path parameter]
 
@@ -1964,6 +1967,8 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | afterCount   | Integer | Optional    |       | Navigation count after base time |
 | interval   | Integer | Optional    |       | Inverval (minute) before/after base time  |
 | useTaxifare   | Integer | Optional   |       | Whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+| carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
+| carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
 
 #### Response
 
@@ -2257,6 +2262,8 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | useStartDirection    | Boolean | Optional    |       | Result display count                               |
 | searchByAddress   | Boolean | Optional   |       | Whether to use address-based route navigation<br>Default: false |
 | usageType   | Integer | Optional   |       | Vehicle usage type<br>Default: 0<br>Normal: 0<br>Taxi: 1<br>(Applied only when the route navigation option is recommendation) |
+| carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
+| carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
 
 
 #### Response
@@ -2384,7 +2391,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 | Method  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal-summary?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal-summary?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight} |
 
 [Path parameter]
 
@@ -2416,6 +2423,8 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | useTaxifare   | Integer | Optional   |       | Whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
 | searchByAddress   | Boolean | Optional   |       | Whether to use address-based route navigation<br>Default: false |
 | usageType   | Integer | Optional   |       | Vehicle usage type<br>Default: 0<br>Normal: 0<br>Taxi: 1<br>(Applied only when the route navigation option is recommendation) |
+| carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
+| carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
 
 #### Response
 
