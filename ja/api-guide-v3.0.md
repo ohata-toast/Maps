@@ -1419,7 +1419,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | メソッド | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight} |
 
 [Path parameter]
 
@@ -1454,6 +1454,8 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | useTaxifare   | Integer | 選択 |       | 予想タクシー料金照会有無<br>例) useTaxifare=1<br>0：未使用<br> 1：一般タクシー<br>2：模範タクシー |
 | searchByAddress   | Boolean | 選択  |       | 住所ベースの経路探索を行うか<br>Default：false |
 | usageType   | Integer | 選択  |       | 車両の用途<br>Default：0<br>一般：0<br>タクシー：1<br>(パス探索オプションがrecommendationの場合にのみ適用) |
+| carHeight   | Integer | 選択 |       | 車両の高さ情報<br>Default: 0 |
+| carWeight   | Integer | 選択 |       | 車両の重量情報<br>Default: 0 |
 
 
 
@@ -1573,7 +1575,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | メソッド | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-summary?option={option}&coordType={coordType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-summary?option={option}&coordType={coordType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&carHeight={carHeight}&carWeight={carWeight} |
 
 [Path parameter]
 
@@ -1601,6 +1603,8 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | via5Y    | String | 任意 |       | 経由地5 y座標                           |
 | option   | String | 必須 |       | 経路検索オプション<br>検索オプションをカンマ（,）区切りでリクエスト<br>例) option=real_traffic,real_traffic2<br>real_traffic：リアルタイム推薦1<br>real\_traffic\_freeroad：リアルタイム\(無料\)<br>real_traffic2：リアルタイム推薦2<br>short\_distance\_priority：短距離<br>motorcycle:二輪車 |
 | coordType   | String | 必須 |       | input、output座標タイプ、1つのみ入力可能(TW、WGS84) |
+| carHeight   | Integer | 選択 |       | 車両の高さ情報<br>Default: 0 |
+| carWeight   | Integer | 選択 |       | 車両の重量情報<br>Default: 0 |
 
 
 #### レスポンス
@@ -1815,7 +1819,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | メソッド | URI                                      |
 | ---- | ---------------------------------------- |
-| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}|
+| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}&carHeight={carHeight}&carWeight={carWeight}|
 
 [Path parameter]
 
@@ -1856,6 +1860,8 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | afterCount   | Integer | 任意 |       | 基準時間以降の時間の探索数 |
 | interval   | Integer | 任意 |       | 基準時間以前/以降の時間Interval(分) |
 | useTaxifare   | Integer | 選択 |       | 予想タクシー料金照会を行うか<br>例) useTaxifare=1<br>0：未使用<br> 1：一般タクシー<br>2：模範タクシー<br>3：一般タクシーと模範タクシー |
+| carHeight   | Integer | 選択 |       | 車両の高さ情報<br>Default: 0 |
+| carWeight   | Integer | 選択 |       | 車両の重量情報<br>Default: 0 |
 
 #### レスポンス
 
@@ -2150,7 +2156,8 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | useStartDirection    | Boolean | 任意   |       | 結果表示数                               |
 | searchByAddress   | Boolean | 選択  |       | 住所ベースの経路探索を行うか<br>Default：false |
 | usageType   | Integer | 選択  |       | 車両の用途<br>Default：0<br>一般：0<br>タクシー：1<br>(パス探索オプションがrecommendationの場合にのみ適用) |
-
+| carHeight   | Integer | 選択 |       | 車両の高さ情報<br>Default: 0 |
+| carWeight   | Integer | 選択 |       | 車両の重量情報<br>Default: 0 |
 
 #### レスポンス
 
@@ -2277,7 +2284,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | メソッド | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal-summary?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight} |
 
 [Path parameter]
 
@@ -2309,6 +2316,8 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | useTaxifare   | Integer | オプション |       | 予想タクシー料金照会を行うかどうか<br>例) useTaxifare=1<br>0：未使用<br>1：一般タクシー<br>2：模範タクシー<br>3：一般タクシーと模範タクシー |
 | searchByAddress   | Boolean | 選択  |       | 住所ベースの経路探索を行うか<br>Default：false |
 | usageType   | Integer | 選択  |       | 車両の用途<br>Default：0<br>一般：0<br>タクシー：1<br>(パス探索オプションがrecommendationの場合にのみ適用) |
+| carHeight   | Integer | 選択 |       | 車両の高さ情報<br>Default: 0 |
+| carWeight   | Integer | 選択 |       | 車両の重量情報<br>Default: 0 |
 
 #### レスポンス
 
