@@ -1,5 +1,19 @@
 ## Application Service > Maps > Release Notes
 
+### October 4, 2022
+#### Added Features
+* [API] Added parameters to APIs for navigation 
+    * carHeight: Car height
+    * carWeight: Car weight
+    * APIs to which parameters are added
+        * Route Navigation
+        * Summary of Route Navigation
+        * Search of Estimated Routes
+        * Added multi-stops 100
+        * Summarize path information between stopovers
+* [SDK] Added an API that sets hybrid and aerial map type
+* [SDK] Added Conversion of Coordinates API
+
 ### August 23, 2022
 #### Added Features
 * [API] Added parameters to the address validation API
