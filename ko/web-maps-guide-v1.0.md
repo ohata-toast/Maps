@@ -14,8 +14,8 @@ Maps 웹 지도를 사용하는 데 필요한 API를 설명합니다.
 
 | 항목        | URL                                      |
 | --------- | ---------------------------------------- |
-| 지도        | https://api-maps.cloud.toast.com/maps/js/v1.0/map.js |
-| 정적(static) 지도 | https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js |
+| 지도        | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js |
+| 정적(static) 지도 | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/staticMap.js |
 
 ## 웹 지도
 
@@ -67,7 +67,7 @@ NHN Cloud Maps API는 팅크웨어 좌표를 사용합니다. 축약해서 TW �
 #### NHN Cloud Maps API 사용
 ```
 // 지도 사용을 위한 js 파일을 선언합니다.
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/map.js"></script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js"></script>
 <script>
 	// 지도 사용을 위한 인증을 진행합니다.
 	Map.authentification("appKey");
@@ -200,7 +200,7 @@ NHN Cloud Maps API는 팅크웨어 좌표를 사용합니다. 축약해서 TW �
 #### NHN Cloud Maps API 정적(static) 지도 사용
 ```
 // 정적(static) 지도 사용을 위한 js 파일을 선언합니다.
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js"></script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/staticMap.js"></script>
 
 // 지도를 담을 IMG를 생성합니다.
 <img id='staticMapImg' alt="" src="">
@@ -252,7 +252,7 @@ API 관련해서는 [1. 웹 지도](#1-web)를 참고하시기 바랍니다.
     	</style>
 
 		// 지도 사용을 위한 js 파일을 선언합니다.
-		<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/map.js"></script>
+		<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js"></script>
 		<script>
 			// 지도 사용을 위한 인증을 진행합니다.
 			Map.authentification("appKey");

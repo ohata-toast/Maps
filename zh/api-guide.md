@@ -15,7 +15,7 @@ Describes APIs that are required to use the Maps Service.
 
 | Environment | Domain                           |
 | ----------- | -------------------------------- |
-| Real        | https://api-maps.cloud.toast.com |
+| Real        | https://kr1-maps.api.nhncloudservice.com |
 
 ### Common Response Information
 
@@ -1323,7 +1323,7 @@ e.g.) Search Word: "Beauty salon", Preferred Category: "100000"(restaurant) ->Se
 #### Parsing for easy view of route navigation results 
 
 ```
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/route.js" > </script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/route.js" > </script>
 <script type="text/javascript">
 function fnRouteParse(data){ // Detail result of route navigation 
 

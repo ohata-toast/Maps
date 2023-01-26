@@ -15,7 +15,7 @@ Maps 웹 지도를 사용하는 데 필요한 JavaScript 기반 웹 API를 설�
 
 | Item       | URL                                      |
 | --------- | ---------------------------------------- |
-| Map        | https://api-maps.cloud.toast.com |
+| Map        | https://kr1-maps.api.nhncloudservice.com |
 
 
 ## 웹 지도
@@ -70,7 +70,7 @@ NHN Cloud Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
 
 #### Maps API 사용
 ```html
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap"></script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap"></script>
 <div id="div_map" style="width:500px; height:500px;"></div>
 <script type="text/javascript">
     var map;
@@ -190,5 +190,5 @@ NHN Cloud Maps API는 WGS84(EPSG:4326) 좌표를 사용합니다.
 </script>
 
 // 지도 초기화 시 스타일을 적용 할 경우에는 기존 스크립트 대신 아래 스크립트를 사용합니다.
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
 ```

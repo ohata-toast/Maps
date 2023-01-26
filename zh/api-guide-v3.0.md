@@ -1,6 +1,6 @@
 ## Application Service > Maps > API User Guide v3.0
 
-Describes the Search by iNavi's historic engine technology, Geocoding, Reverse Geocoding, Route Navigation (Getting Directions), and Static Map API.
+This guide describes how to use features such as search, geocoding, reverse geocoding, route navigation (pathfinding), and Static Map API, which are based on iNavi's long-established navigation engine technology.
 
 ## Common API Information
 
@@ -15,7 +15,13 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
 
 | Environment | Domain                           |
 | ----------- | -------------------------------- |
-| Real        | https://api-maps.cloud.toast.com |
+| Real        | https://kr1-maps.api.nhncloudservice.com |
+
+#### Header Information
+
+| Header Name   | Value                              |
+| ---- | -------------------------------- |
+| User-Agent | `Windows`, `Android`, `Mac OS` |
 
 ### Common Response Information
 
@@ -37,7 +43,7 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
 
 ### 1\. Integrated Search
 
-* Search integrated information on key words, such as business name, phone number, and address.
+* Search integrated information on keywords, such as business name, phone number, and address.
 
 #### Request
 
@@ -69,8 +75,8 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
 | y1            | String | Optional |             | Y1 coordinates<br>Y coordinate of the control point, if spopt is 0<br>Y coordinate on top left of Extent, if spopt is 1<br>Y coordinate of the control point, if spopt is 2 |
 | x2            | String | Optional |             | X2 coordinates<br>X coordinate on bottom right of Extent, if spopt is 1; disabled if spopt is 2 |
 | y2            | String | Optional |             | Y2 coordinates<br>Y coordinate on bottom right of Extent, if spopt is 1; disabled if spopt is 2 |
-| sortopt       | String | Optional |             | Sort options<br>1: Sort by name<br>2: Sort by distance (If coordinates are set)<br>3: Name match (Additionally sort by distance if coordinates are set)<br>4: Sort by search keyword weight (based on the engine)* Set to 4 if sortopt value is not set |
-
+| sortopt       | String | Optional |             | Sorting option<br>1: Sort by name<br>2: Sort by distance (If coordinates are set)<br>3: Name match (Additionally sort by distance if coordinates are set)<br>4: Sort by search word weight (based on the engine)* Set to 4 if sortopt value is not set |
+| catecode      | String | Optional      |           | Preferred category<br>If a category name is entered in the search word when searching for a preferred category, the priority of search is on the search word rather than the entered preferred category according to the search word priority policy<br>For example, Search word: "beauty salon" , Preferred category: "100000 "(restaurant) -> search is performed based on beauty salon |
 
 #### Response
 
@@ -108,7 +114,7 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
                 "rpx": "169039",
                 "rpy": "517941",
                 "name1": "Samhwan HIPEX",
-                "name2": "HIPIEX",
+                "name2": "HIPEX",
                 "name3": "Samhwan HIPEX",
                 "name4": "HIPEX",
                 "admcode": "4113510900",
@@ -219,7 +225,7 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
 | search.result                    | Boolean | Successful or not                    |
 | search.type                      | Integer | 0: General search<br>1: Search for reference |
 | search.totalcount                | Integer | Total number of search results |
-| search.count                     | IntegerS | Number of search results |
+| search.count                     | Integer | Number of search results |
 | search.poitotalcount             | Integer | Total number of search results (Thinkware POI) |
 | search.poicount                  | Integer | Number of search results (Thinkware POI) |
 | search.tel_poitotalcount         | Integer | Total number of search results (Tel POI) |
@@ -262,11 +268,10 @@ Describes the Search by iNavi's historic engine technology, Geocoding, Reverse G
 | search.poi[0].oildata            | Object  | Oil price data                  |
 | search.poi[0].oildata.g_price    | Integer | Gas price                            |
 | search.poi[0].oildata.hg_price   | Integer | Premium gas price                       |
-| search.poi[0].oildata.d_price    | Integer | Light oil price                          |
+| search.poi[0].oildata.d_price    | Integer | Diesel price                          |
 | search.poi[0].oildata.l_price    | Integer | LPG price                              |
 | search.poi[0].oildata.updatetime | String  | Updated time                             |
-| search.poi[0].oildata.priceinfo  | String  | Highest/Lowest oil price data<br/>(H: Highest, L: Lowest, X: N/A)
-in the order of gas, premium gas, light oil, and LPG |
+| search.poi[0].oildata.priceinfo  | String  | Highest/Lowest oil price information<br>(H: Highest, L: Lowest, X: N/A)<br>In the order of gas, premium gas, diesel, and LPG |
 | search.poi[0].oildata.wash       | Boolean | Availability of a car wash       |
 | search.poi[0].oildata.fix        | Boolean | Availability of a car repair shop     |
 | search.poi[0].oildata.mart       | Boolean | Availability of a store        |
@@ -292,9 +297,9 @@ in the order of gas, premium gas, light oil, and LPG |
 | search\.oilprice\.max\_hg\_price | Integer | Highest premium gas price                |
 | search\.oilprice\.min\_hg\_price | Integer | Lowest premium gas price   |
 | search\.oilprice\.avg\_hg\_price | Integer | Average premium gas price                |
-| search.oilprice.max_d_price      | Integer | Highest light oil price          |
-| search.oilprice.min_d_price      | Integer | Lowest light oil price                   |
-| search.oilprice.avg_d_price      | Integer | Average light oil price                  |
+| search.oilprice.max_d_price      | Integer | Highest diesel price          |
+| search.oilprice.min_d_price      | Integer | Lowest diesel price                   |
+| search.oilprice.avg_d_price      | Integer | Average diesel price                  |
 | search.oilprice.max_l_price      | Integer | Highest LPG price                        |
 | search.oilprice.min_l_price      | Integer | Lowest LPG price                       |
 | search.oilprice.avg_l_price      | Integer | Average LPG price                        |
@@ -586,10 +591,10 @@ in the order of gas, premium gas, light oil, and LPG |
 | poi.poiinfo[0].oildata             | Object  | Oil price data                                               |
 | poi.poiinfo[0].oilda.tag_price     | Integer | Gas price                                                    |
 | poi.poiinfo[0].oilda.hg_price      | Integer | Premium gas price                                            |
-| poi.poiinfo[0].oilda.d_price       | Integer | Light oil price                                              |
+| poi.poiinfo[0].oilda.d_price       | Integer | Diesel price                                              |
 | poi.poiinfo[0].oilda.l_price       | Integer | LPG price                                                    |
 | poi.poiinfo[0].oilda.updatetime    | String  | Updated time                                                 |
-| poi.poiinfo[0].oilda.priceinfo     | String  | Highest/Lowest oil price data<br>(H: Highest, L: Lowest, X: N/A)<br>In the order of gas, premium gas, light oil, and LPG |
+| poi.poiinfo[0].oilda.priceinfo     | String  | Highest/Lowest oil price information<br>(H: Highest, L: Lowest, X: N/A)<br>In the order of gas, premium gas, diesel, and LPG |
 | poi.poiinfo[0].oilda.wash          | Boolean | Availability of a car wash                                     |
 | poi.poiinfo[0].oilda.fix           | Boolean | Availability of a car repair shop                              |
 | poi.poiinfo[0].oilda.mart          | Boolean | Availability of a store                                      |
@@ -728,11 +733,10 @@ in the order of gas, premium gas, light oil, and LPG |
 | subpoi.poi[0].oildata            | Object  | Oil price data                          |
 | subpoi.poi[0].oildata.g_price    | Integer | Gas price                           |
 | subpoi.poi[0].oildata.hg_price   | Integer | Premium gas price                        |
-| subpoi.poi[0].oildata.d_price    | Integer | Light oil price                     |
+| subpoi.poi[0].oildata.d_price    | Integer | Diesel price                     |
 | subpoi.poi[0].oildata.l_price    | Integer | LPG price                                |
 | subpoi.poi[0].oildata.updatetime | String  | Updated time                             |
-| subpoi.poi[0].oildata.priceinfo  | String  | Highest/Lowest oil price data<br/>(H: Highest, L: Lowest, X: N/A)
-In the order of gas, premium gas, light oil, and LPG |
+| subpoi.poi[0].oildata.priceinfo  | String  | Highest/Lowest oil price information<br/>(H: Highest, L: Lowest, X: N/A)<br>In the order of gas, premium gas, diesel, and LPG |
 | subpoi.poi[0].oildata.wash       | Boolean | Availability of a car wash           |
 | subpoi.poi[0].oildata.fix        | Boolean | Availability of a car repair shop    |
 | subpoi.poi[0].oildata.mart       | Boolean | Availability of a store              |
@@ -815,24 +819,24 @@ In the order of gas, premium gas, light oil, and LPG |
 
 [Path parameter]
 
-| Name     | Type     | Required? | Valid range | Description     |
+| Name     | Type     | Required | Valid range | Description     |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
 [Query Parameter]
 
-| Name        | Type     | Required? |  Description                                    |
+| Name        | Type     | Required |  Description                                    |
 | --------- | ------ | ----- |  ------------------------------------ |
-| catecode         | String | Required   | 카테고리 코드 |
-| spopt         | Integer | Required   | 1 : Extent(x1,y1,x2,y2) <br> 2 : 반경검색(x1,y1,radius)                                   |
+| catecode         | String | Required   | Category code |
+| spopt         | Integer | Required   | 1 : Extent(x1,y1,x2,y2) <br> 2 : Radius search (x1,y1,radius)                                   |
 | x1         | String | Required (see spopt)    | Reference X1 coordinates |
 | y1         | String | Required (see spopt)    | Reference Y1 coordinates |
 | x2         | String | Required (see spopt)    | Reference X2 coordinates |
 | y2         | String | Required (see spopt)    | Reference Y2 coordinates |
 | radius         | String | Required (see spopt)   | Radius (m) |
 | depth | String | Optional    | 0: All depth <br> 1: depth1 <br> 2: depth2 <br> 3: depth3|
-| sortopt | String | Optional    | Sorting option <br> 1: Distance <br> 2: Name<br> 3: Gas price (when searching for gas station) <br> 4: Premium gasoline price (when searching for gas station)<br> 5: 경유 가격순(주유소 검색 시)<br> 6: LPG price (when searching for gas station)<br> 7: Ratings|
-| reqcount | String | Optional    | 표시할 검색 결과 개수|
+| sortopt | String | Optional    | Sorting option <br> 1: Distance <br> 2: Name<br> 3: Gas price (when searching for gas station) <br> 4: Premium gasoline price (when searching for gas station)<br> 5: Diesel price (when searching for gas station)<br> 6: LPG price (when searching for gas station)<br> 7: Ratings|
+| reqcount | String | Optional    | Number of search result to display |
 
 #### Response
 
@@ -901,8 +905,6 @@ In the order of gas, premium gas, light oil, and LPG |
 
 ##### Field
 
-##### Field
-
 | Name                                 | Type      | Description                                       |
 | ---------------------------------- | ------- | ---------------------------------------- |
 | header                             | Object  | Header area                                    |
@@ -942,7 +944,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | cate.poi[0].oilda.d_price       | Integer | Diesel price                                    |
 | cate.poi[0].oilda.l_price       | Integer | LPG price                                   |
 | cate.poi[0].oilda.updatetime    | String  | Update time                                  |
-| cate.poi[0].oilda.priceinfo     | String  | Highest, lowest oil price<br>(H : highest, L : lowest, X : n/a)<br>In order of gasoline, premium gasoline, diesel, and LPG |
+| cate.poi[0].oilda.priceinfo     | String  | Highest/Lowest oil price information<br>(H : highest, L : lowest, X : n/a)<br>In order of gasoline, premium gasoline, diesel, and LPG |
 | cate.poi[0].oilda.wash          | Boolean | Car-wash facility availability                                 |
 | cate.poi[0].oilda.fix           | Boolean | Maintenance service availability                                 |
 | cate.poi[0].oilda.mart          | Boolean | Store availability                                     |
@@ -965,13 +967,13 @@ In the order of gas, premium gas, light oil, and LPG |
 
 [Path parameter]
 
-| Name     | Type     | Required? | Valid range | Description     |
+| Name     | Type     | Required | Valid range | Description     |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
 [Query Parameter]
 
-| Name        | Type     | Required? |  Description                                   |
+| Name        | Type     | Required |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
 | coordtype         | Integer | Required   | Coordinate type<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
 | mode         | Integer | Required   | Range of viewed district <br> 0: ALL <br>          |
@@ -984,30 +986,37 @@ In the order of gas, premium gas, light oil, and LPG |
 
 ```
 {
-    "result": true,
-    "count": 1,
-    "polygondata": [
-        {
-            "admincode": "4136025921",
-            "count": 1,
-            "polygonlist": [
-                {
-                    "count": 413,
-                    "polygon": [
-                        {
-                            "x": 127.207296,
-                            "y": 37.665605
-                        },
-                        {
-                            "x": 127.208346,
-                            "y": 37.665080
-                        },
-                        ...
-                    ]
-                }
-            ]
-        }
-    ]
+    "polygon": {
+        "result": true,
+        "count": 1,
+        "polygondata": [
+            {
+                "admincode": "4136025921",
+                "count": 1,
+                "polygonlist": [
+                    {
+                        "count": 413,
+                        "polygon": [
+                            {
+                                "x": 127.207296,
+                                "y": 37.665605
+                            },
+                            {
+                                "x": 127.208346,
+                                "y": 37.665080
+                            },
+                            ...
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    "header": {
+     "isSuccessful": true,
+     "resultCode": 0,
+     "resultMessage": ""
+    }
 }
 ```
 
@@ -1019,21 +1028,22 @@ In the order of gas, premium gas, light oil, and LPG |
 | header.isSuccessful                | Boolean | Success                                    |
 | header.resultCode                  | Integer | Failure code                                    |
 | header.resultMessage               | String  | Failure message                                   |
-| result                         | Boolean | Success                                    |
-| count                          | Integer | Number of search results                                 |
-| polygondata                        | Array   | Polygon data                             |
-| polygondata[0].admincode               | String | AdminCode values searched for (digits vary by the mode)                                   |
-| polygondata[0].count             | Integer  | Polygon count                           |
-| polygondata[0].polygonlist     | Array  | Polygon         |
-| polygondata[0].polygonlist[0].count     | Integer  | Point count      |
-| polygondata[0].polygonlist[0].polygon     | Array  | List of polygon coordinates      |
-| polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X-coordinate      |
-| polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y-coordinate      |
+| polygon                         | Object | Body area                                    |
+| polygon.result                         | Boolean | Success                                    |
+| polygon.count                          | Integer | Number of search results                                 |
+| polygon.polygondata                        | Array   | Polygon data                             |
+| polygon.polygondata[0].admincode               | String | AdminCode values searched for (digits vary by the mode)                                   |
+| polygon.polygondata[0].count             | Integer  | Polygon count                           |
+| polygon.polygondata[0].polygonlist     | Array  | Polygon         |
+| polygon.polygondata[0].polygonlist[0].count     | Integer  | Point count      |
+| polygon.polygondata[0].polygonlist[0].polygon     | Array  | List of polygon coordinates      |
+| polygon.polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X-coordinate      |
+| polygon.polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y-coordinate      |
 
 
-### 8\. Search for administrative/legal-status neighborhoods within polygons
+### 8\. Search for administrative/legal-status neighborhood within polygons
 
-* Returns the entered administration code and name as polygon coordinates.
+* Returns the administration code for input polygon coordinates.
 
 #### Request
 
@@ -1045,13 +1055,13 @@ In the order of gas, premium gas, light oil, and LPG |
 
 [Path parameter]
 
-| Name     | Type     | Required? | Valid range | Description     |
+| Name     | Type     | Required | Valid range | Description     |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique app key |
 
 [Query Parameter]
 
-| Name        | Type     | Required? |  Description                                   |
+| Name        | Type     | Required |  Description                                   |
 | --------- | ------ | ----- |  ------------------------------------ |
 | coordtype         | Integer | Required   | Coordinate type<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
 | polygon     | Array  |Required | List of polygon coordinates      |
@@ -1066,23 +1076,30 @@ In the order of gas, premium gas, light oil, and LPG |
 
 ```
 {
-    "result": true,
-    "admincodes": {
-        "count": 3,
-        "admincodelist": [
-            {
-                "AdminCode": "4136025921",
-                "Address": "Sareung-ri, Jingeon-eup, Namyangju-si, Gyeonggi-do"
-            },
-            {
-                "AdminCode": "4136025926",
-                "Address": "Songreung-ri, Jingeon-eup, Namyangju-si, Gyeonggi-do"
-            },
-            {
-                "AdminCode": "4136025900",
-                "Address": "Jingeon-eup, Namyangju-si, Gyeonggi-do"
-            }
-        ]
+    "header": {
+            "isSuccessful": true,
+            "resultCode": 0,
+            "resultMessage": ""
+    },
+    "adm": {
+        "result": true,
+        "admincodes": {
+            "count": 3,
+            "admincodelist": [
+                {
+                    "AdminCode": "4136025921",
+                    "Address": "Sareung-ri, Jingeon-eup, Namyangju-si, Gyeonggi-do"
+                },
+                {
+                    "AdminCode": "4136025926",
+                    "Address": "Songreung-ri, Jingeon-eup, Namyangju-si, Gyeonggi-do"
+                },
+                {
+                    "AdminCode": "4136025900",
+                    "Address": "Jingeon-eup, Namyangju-si, Gyeonggi-do"
+                }
+            ]
+        }
     }
 }
 ```
@@ -1095,16 +1112,179 @@ In the order of gas, premium gas, light oil, and LPG |
 | header.isSuccessful                | Boolean | Success                                    |
 | header.resultCode                  | Integer | Failure code                                    |
 | header.resultMessage               | String  | Failure message                                   |
-| result                         | Boolean | Success                                    |
-| count                          | Integer | Number of search results                                 |
-| polygondata                        | Array   | Polygon data                             |
-| polygondata[0].admincode               | String | AdminCode values searched for (digits vary by the mode)                                   |
-| polygondata[0].count             | Integer  | Polygon count                           |
-| polygondata[0].polygonlist     | Array  | Polygon         |
-| polygondata[0].polygonlist[0].count     | Integer  | Point count      |
-| polygondata[0].polygonlist[0].polygon     | Array  | List of polygon coordinates      |
-| polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X-coordinate      |
-| polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y-coordinate      |
+| adm                         | Object | Body area                                    |
+| adm.result                         | Boolean | Success                                    |
+| adm.count                          | Integer | Number of search results                                 |
+| adm.polygondata                        | Array   | Polygon data                             |
+| adm.polygondata[0].admincode               | String | AdminCode values searched for (digits vary by the mode)                                   |
+| adm.polygondata[0].count             | Integer  | Polygon count                           |
+| adm.polygondata[0].polygonlist     | Array  | Polygon         |
+| adm.polygondata[0].polygonlist[0].count     | Integer  | Point count      |
+| adm.polygondata[0].polygonlist[0].polygon     | Array  | List of polygon coordinates      |
+| adm.polygondata[0].polygonlist[0].polygon[0].x     | Integer  | X-coordinate      |
+| adm.polygondata[0].polygonlist[0].polygon[0].y   | Integer  | Y-coordinate      |
+
+### 9\. Query Building Group Entry Points
+
+* Returns the number and coordinates of entry points corresponding to the input polygon coordinates.
+
+#### Request
+
+[URI]
+
+| Method  | URI                                      |
+| ---- | ---------------------------------------- |
+| POST  | /maps/v3.0/appkeys/{appkey}/searchEntryPoint  |
+
+[Path parameter]
+
+| Name     | Type     | Required | Valid range | Description     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | Required    |       | Unique app key |
+
+[Query Parameter]
+
+| Name        | Type     | Required |  Description                                   |
+| --------- | ------ | ----- |  ------------------------------------ |
+| coordtype         | Integer | Optional   | Coordinate type<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
+| type     | Integer  |Optional | Feature to be added<br>Currently, no effect on operation      |
+| posX   | String  | Required| X-coordinate      |
+| posY   | String  | Required | Y-coordinate      |
+
+
+
+#### Response
+
+##### Response Body
+
+```
+{
+    "data": {
+        "result": true,
+        "count": 5,
+        "entrypoints": [
+            {
+                "x": 126.936249,
+                "y": 37.54713,
+                "type": 0
+            },
+            {
+                "x": 126.935912,
+                "y": 37.547139,
+                "type": 0
+            },
+            {
+                "x": 126.936687,
+                "y": 37.547097,
+                "type": 0
+            },
+            {
+                "x": 126.936674,
+                "y": 37.546655,
+                "type": 0
+            },
+            {
+                "x": 126.936099,
+                "y": 37.546389,
+                "type": 0
+            }
+        ]
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### Field
+
+| Name                                 | Type      | Description                                       |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | Header area                                    |
+| header.isSuccessful                | Boolean | Success                                    |
+| header.resultCode                  | Integer | Failure code                                    |
+| header.resultMessage               | String  | Failure message                                   |
+| data                         | Object | Body area                                    |
+| data.result                         | Boolean | Success                                    |
+| data.count                          | Integer | Number of queried building group entry points                                 |
+| data.entrypoints                        | Object   | Coordinate list of queried building group entry points                             |
+| data.entrypoints[0].x               | Double | X-coordinate                                   |
+| data.entrypoints[0].y             | Double  | Y-coordinate                           |
+| data.entrypoints[0].type     | Integer  | Feature to be added         |
+
+### 10\. Address Validation
+
+* Validates the entered address.
+
+#### Request
+
+[URI]
+
+| Method  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/addr-searches  |
+
+[Path parameter]
+
+| Name     | Type     | Required | Valid Range | Description     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | Required    |       | Unique appkey |
+
+[Query Parameter]
+
+| Name        | Type     | Required |  Description                                   |
+| --------- | ------ | ----- |  ------------------------------------ |
+| addr     | String  | Required | Address to search      |
+| coordtype         | String | Optional   | Coordinate type<br>Default: 1 <br> 0: TW <br> 1: WGS84 |
+| startposition   | String  | Optional | Position to start the search<br>0: First position. If not entered, search from 0      |
+| reqcount   | String  | Optional | Number of search requests<br>When set to 0, returns the maximum number      |
+| posx     | String  | Optional | X coordinates     |
+| posy     | String  | Optional | Y coordinates     |
+
+
+#### Response
+
+##### Response Body
+
+```
+{
+    "search": {
+        "data": [
+            {
+                "posx": "127.110662",
+                "posy": "37.402125",
+                "address": "240, Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
+                "admcode": "4113510900"
+            }
+        ],
+        "count": 1
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### Field
+
+| Name                                 | Type      | Description                                       |
+| ---------------------------------- | ------- | ---------------------------------------- |
+| header                             | Object  | Header area                                    |
+| header.isSuccessful                | Boolean | Successful or not                                    |
+| header.resultCode                  | Integer | Failure code                                    |
+| header.resultMessage               | String  | Failure message                                   |
+| search                         | Object | Body area                                    |
+| search.data                         | Array | Search Results                                    |
+| search.data[0].posx                          | String | X coordinate                                 |
+| search.data[0].posy                        | String | Y coordinate                             |
+| search.data[0].address               | String | Address                                   |
+| search.data[0].admcode             | String  | Administrative code                            |
+| search.data[0].distance             | Double  | Distance from the entered coordinates (unit: m)<br>(output when posx and posy are entered)                            |
+| search.count             | Integer  | Number of search results
 
 ## Geocoding API
 
@@ -1131,9 +1311,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | Name          | Type   | Required | Valid Range | Description                                                  |
 | ------------- | ------ | -------- | ----------- | ------------------------------------------------------------ |
 | query         | String | Required |             | Search word                                                  |
-| coordtype     | String | Optional |             | Type of coordinates <br/>0: TW coordinates
-1: WGS84 coordinates
-2: TM coordinates |
+| coordtype     | String | Optional |             | Type of coordinates <br/>0: TW coordinates<br>1: WGS84 coordinates<br>2: TM coordinates |
 | startposition | String | Optional |             | Start position of search<br/>0: Initial location; query by 0, if left blank |
 | reqcount      | String | Optional |             | Number of search requests<br/>Return max count, if it is set with 0 |
 | admcode       | String | Optional |             | Administrative code                                          |
@@ -1208,8 +1386,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | address                  | Object  | Body area                                                    |
 | address.result           | Boolean | Successful or not                                            |
 | address.totalcount       | Integer | Total number of search results                               |
-| address.res_type         | String  | Name of search result type<br/>In the order of Name, Category, Address, and Phone Number
-(e.g.) NYNN: No for name, Yes for category, No for address, and No for phone number |
+| address.res_type         | String  | Name of search result type<br/>In the order of Name, Category, Address, and Phone Number<br>(e.g.) NYNN: No for name, Yes for category, No for address, and No for phone number |
 | address.adm              | Array   | Search results                                               |
 | address.adm[0].type      | String  | Type of search<br>1:  Search administrative system<br>2: Search land-lot number<br>3: Search new address system |
 | address.adm[0].posx      | String  | X coordinates                                                |
@@ -1218,7 +1395,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | address.adm[0].address   | String  | Addresss                                                     |
 | address.adm[0].roadname  | String  | Road name for new address system                             |
 | address.adm[0].roadjibun | String  | Land-lot number for new address system                       |
-| address.adm[0].accuracy  | Integer | Accuracy of land-lot numbers<br>0: Search accuracy <br>1: Extend the last digit of land-lot numbers<br>e.g.) For the search of 963-2, return the search result of 963-X.  <br>2 : Extend the initial digit of land-lot numbers<br>e.g) For the search of 963-2, return the search result of 96X <br>3: Coordinates of Dong by the administrative unit <br>e.g.) In case input is available only down to Sampyeong-dong<br>4:  Coordinates of Dong or higher unit, or administrative Dong <br>e.g.) In case input is available down to Bundang-gu only |
+| address.adm[0].accuracy  | Integer | Accuracy of land-lot numbers<br>0: Search accuracy <br>1: Extend the last digit of land-lot numbers<br>e.g.) For the search of 963-2, return the search result of 963-X.  <br>2 : Extend the initial digit of land-lot numbers<br>e.g) For the search of 963-2, return the search result of 96X <br>3: Coordinates of Dong of legal-status neighborhood<br>e.g.) In case input is available only down to Sampyeong-dong<br>4: Coordinates of Dong or higher unit, or legal-status neighborhood<br>e.g.) In case input is available down to Bundang-gu only |
 
 
 
@@ -1265,43 +1442,42 @@ In the order of gas, premium gas, light oil, and LPG |
         "result": true,
         "hasAdmAddress": true,
         "adm": {
-            "posx": "126.947265",
-            "posy": "37.384033",
-            "address": "Hogye-dong, Dongan-gu, Anyang-si, Gyeonggi-do",
+            "posx": "127.110425",
+            "posy": "37.402109",
+            "address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do",
             "distance": 0,
-            "bldname": "",
-            "admcode": "4117310400",
-            "postcode": "14079",
-            "jibun": "921",
-            "roadname": "Gwiin-ro, Dongan-gu, Anyang-si, Gyeonggi-do",
-            "roadjibun": "59"
+            "bldname": ""Samhwan Hipex A building"",
+            "admcode": "4113510900",
+            "postcode": "13493",
+            "jibun": "678",
+            "roadname": "Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
+            "roadjibun": "240"
         },
         "adm_address": {
-            "address": "Hogye 2-dong, Dongan-gu, Anyang-si, Gyeonggi-do",
-            "admcode": "4117359000",
-            "address_category3": "Hogye 2-dong",
+            "address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do",
+            "admcode": "4113565500",
+            "address_category3": "Sampyeong-dong",
             "address_category4": "",
-            "jibun": "921",
+            "jibun": "678",
             "address_category1": "Gyeonggi-do",
-            "address_category2": "Dongan-gu, Anyang-si",
-            "cut_address": "Hogye 2-dong, Dongan-gu, Anyang-si, Gyeonggi-do"
+            "address_category2": "Bundang-gu, Seongnam-si",
+            "cut_address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do"
         },
         "legal_address": {
-            "address": "Hogye-dong, Dongan-gu, Anyang-si, Gyeonggi-do"
-	    "admcode": "4117310400",
-            "address_category3": "Hogye-dong",
+            "address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do",
+            "admcode": "4113510900",
+            "address_category3": "Sampyeong-dong",
             "address_category4": "",
-            "jibun": "921",
+            "jibun": "678",
             "address_category1": "Gyeonggi-do",
-            "address_category2": "Dongan-gu, Anyang-si",
-            "cut_address": "Hogye-dong, Dongan-gu, Anyang-si, Gyeonggi-do"
+            "address_category2": "Bundang-gu, Seongnam-si",
+            "cut_address": "Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do"
         }
     }
 }
 ```
 
 ##### Field
-
 
 | Name                   | Type    | Description                                     |
 | ---------------------- | ------- | ---------------------------------------- |
@@ -1311,39 +1487,34 @@ In the order of gas, premium gas, light oil, and LPG |
 | header.resultMessage   | String  | Failure message                             |
 | location               | Object  | Body area                                   |
 | location.result        | Boolean | Successful or not                           |
-| location.hasAdmAddress        | Boolean | Return administrative address or not                                 |
-| location.adm           | Object  | Legal address information                    |
-| location.adm.posx      | String  | X coordinates                                 |
-| location.adm.posy      | String  | Y coordinates                                     |
-| location.adm.admcode  | String  | Legal code                                  |
-| location.adm.address  | String  | Address                                 |
-| location.adm.jibun  | String  | Land-lot number                           |
-| location.adm.roadname  | String  | Road name for new address system                                  |
-| location.adm.roadjibun | String  | Land-lot number for new address system                                  |
-| location.adm.bldname  | String  | Building name (only when available)                              |
-| location.adm.postcode  | String  | Zip code                   |
-| location.adm_address           | Object  | Administrative addres sinformation                       |
+| location.adm.posx      | String  | X-coordinate                                     |
+| location.adm.posy      | String  | Y-coordinate                                     |
+| location.adm.distance   | String  | Distance (m)                                    |
+| location.adm.bldname   | String  | Building name                                    |
+| location.adm.admcode   | String  | Administrative code                                    |
+| location.adm.postcode   | String  | Postal code                                    |
+| location.adm.jibun     | String  | Lot number address                                       |
+| location.adm.roadname  | String  | New road name address                                 |
+| location.adm.roadjibun | String  | New lot number address                                  |
+| location.adm_address           | Object  | Administrative neighborhood address information                            |
 | location.adm_address.admcode   | String  | Administrative code                                    |
-| location.adm_address.address   | String  | Address                                    |
-| location.adm_address.jibun     | String  | Land-lot number                                |
+| location.adm_address.postcode   | String  | Postal code                                    |
+| location.adm_address.address   | String  | Address                                       |
+| location.adm_address.jibun     | String  | Lot number addres                                       |
 | location.adm_address.address_category1     | String  |   do/si                      |
 | location.adm_address.address_category2     | String  |   si/gun/gu                   |
 | location.adm_address.address_category3     | String  |   eup/myeon/dong                 |
 | location.adm_address.address_category4     | String  |   ri                  |
 | location.adm_address.cut_address     | String  |                         |
-| location.legal_address           | Object  | Legal address information                     |
-| location.legal_address.admcode   | String  | Legal code                                    |
-| location.legal_address.address   | String  | Address                                      |
-| location.legal_address.jibun     | String  | Land-lot number                              |
+| location.legal_address           | Object  | Legal-status neighborhood address                           |
+| location.legal_address.admcode   | String  | Administrative code                                    |
+| location.legal_address.address   | String  | Address                                       |
+| location.legal_address.jibun     | String  | Lot number addres                                       |
 | location.legal_address.address_category1     | String  |  do/si                       |
-| location.legal_address.address_category2     | String  |  si/gun/gu                      |
+| location.legal_address.address_category2     | String  |  si/gun/gu                       |
 | location.legal_address.address_category3     | String  |  eup/myeon/dong                      |
 | location.legal_address.address_category4     | String  |  ri                       |
 | location.legal_address.cut_address     | String  |                         |
-
-
-
-
 
 ## Navigate
 
@@ -1357,7 +1528,7 @@ In the order of gas, premium gas, light oil, and LPG |
 
 | Method | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight} |
 
 [Path parameter]
 
@@ -1383,13 +1554,17 @@ In the order of gas, premium gas, light oil, and LPG |
 | via4Y    | String | Optional |       | Y coordinates at stopover 4      |
 | via5X    | String | Optional |       | X coordinates at stopover 5      |
 | via5Y    | String | Optional |       | Y coordinates at stopover 5   |
-| option   | String | Required |       | Optional route navigation<br>Only one option is available<br>e.g.) option=real_traffic<br>real_traffic: Real-time recommendation1<br>real\_traffic\_freeroad: Real-time \(free\)<br>real_traffic2: Real-time recommendation2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler |
+| option   | String | Required |       | Route navigation option<br>Only one option can be used<br>e.g.) option=real_traffic<br>real_traffic: Real-time recommendation1<br>real\_traffic\_freeroad: Real-time \(free\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler<br>recommendation: Recommendation |
 | carType   | Integer | Optional |       | Vehicle types to calculate toll fees (1~6); default is 1 |
 | coordType   | String | Required |       | Only one is available out of Input/Output coordinate types (TW or WGS84) |
 |guideTop	|Integer| Optional ||Guide data count to expose |
 |groupByTrafficColor	| Boolean| Optional | |Return list of route details by each group of traffic color	|
 |saveFile	| Boolean| Optional | |Save binary files to search POI around the route	|
-| useTaxifare   | int | Optional   |       | Determines whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+| useTaxifare   | Integer | Optional   |       | Whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+| searchByAddress   | Boolean | Optional   |       | Whether to use address-based route navigation<br>Default: false |
+| usageType   | Integer | Optional   |       | Vehicle usage type<br>Default: 0<br>Normal: 0<br>Taxi: 1<br>(Applied only when the route navigation option is recommendation) |
+| carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
+| carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
 
 
 #### Response
@@ -1401,6 +1576,7 @@ In the order of gas, premium gas, light oil, and LPG |
         "data": {
             "file_name": "",
             "toll_fee": 0.0,
+            "taxiFare": 3500,
             "paths": [
                 {
                     "coords": [
@@ -1472,7 +1648,8 @@ In the order of gas, premium gas, light oil, and LPG |
 | route.data.option              | String | Navigation option |
 | route.data.spend_time           | Integer | Required time (second)          |
 | route.data.distance           | Integer | Distance (m)                 |
-| route.data.toLl_fee    | Integer | Toll fee                    |
+| route.data.total_fee    | Integer | Toll fee                    |
+| route.data.taxiFare    | Integer | Estimated taxi fare                             |
 | route.data.paths	 | Array | List of route details       |
 | route.data.paths[0].coords | Array | List of coordinate details |
 | route.data.paths[0].coords[0].x   | Double | X coordinates                 |
@@ -1506,7 +1683,7 @@ In the order of gas, premium gas, light oil, and LPG |
 
 | Method | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-summary?option={option}&coordType={coordType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-summary?option={option}&coordType={coordType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&carHeight={carHeight}&carWeight={carWeight} |
 
 [Path parameter]
 
@@ -1532,9 +1709,10 @@ In the order of gas, premium gas, light oil, and LPG |
 | via4Y    | String | Optional |       | Y coordinates at stopover 4   |
 | via5X    | String | Optional |       | X coordinates at stopover 5   |
 | via5Y    | String | Optional |       | Y coordinates at stopover 5   |
-| option   | String | Required |       | Optional search navigation<br>Only one navigation option is available <br>e.g.) option=real_traffic<br>real_traffic: Real-time recommendation1<br>real\_traffic\_freeroad: Real-time (free of charge\)<br>real_traffic2: Real-time recommendation2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler |
+| option   | String | Required |       | Route navigation option<br>Request with navigation options separated by ','<br>e.g.) option=real_traffic,real_traffic2<br>real_traffic: Real-time recommendation1<br>real\_traffic\_freeroad: Real-time (free of charge\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler |
 | coordType   | String | Required |       | Only one is available out of Input/Output coordinate types (TW or WGS84) |
-
+| carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
+| carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
 
 #### Response
 
@@ -1748,7 +1926,7 @@ In the order of gas, premium gas, light oil, and LPG |
 
 | Method | URI                                                          |
 | ------ | ------------------------------------------------------------ |
-| GET    | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval} |
+| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}&carHeight={carHeight}&carWeight={carWeight}|
 
 [Path parameter]
 
@@ -1788,7 +1966,9 @@ In the order of gas, premium gas, light oil, and LPG |
 | beforeCount   | Integer | Optional  |      | Navigation count before base time  |
 | afterCount   | Integer | Optional    |       | Navigation count after base time |
 | interval   | Integer | Optional    |       | Inverval (minute) before/after base time  |
-| useTaxifare   | int | Optional   |       | Determines whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+| useTaxifare   | Integer | Optional   |       | Whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+| carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
+| carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
 
 #### Response
 
@@ -1800,6 +1980,7 @@ In the order of gas, premium gas, light oil, and LPG |
             "distance": 22621.0,
             "spend_time": 1620.0,
             "toll_fee": 0.0,
+            "taxiFare": 3900,
             "times": [
                 {
                     "index": -2.0,
@@ -2000,7 +2181,8 @@ In the order of gas, premium gas, light oil, and LPG |
 | route.data.option              | String | Navigation option           |
 | route.data.spend_time           | Integer | Required time (second)         |
 | route.data.distance           | Integer | Distance (m)                 |
-| route.data.toLl_fee    | Integer | Toll fee                    |
+| route.data.total_fee    | Integer | Toll fee                    |
+| route.data.taxiFare    | Integer | Estimated taxi fare                             |
 | route.data.times	 | Array | List of route details |
 | route.data.times[0].index	 | Integer | Index as compared to base time (which is applied for 0) |
 | route.data.times[0].spend_time	 | Integer | Required time (second) |
@@ -2066,7 +2248,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | startY | String | Required |                 | Starting point Y-coordinate                                  |
 | endX   | String | Required |                 | Destination X-coordinate                                     |
 | endY   | String | Required |                 | Destination Y-coordinate                                     |
-| option | String | Required |                 | Path search option<br>Search options separated with “,”<br>e.g. option=real_traffic,real_traffic2<br>real_traffic: Real-time recommendation 1<br>real\_traffic\_freeroad: Real-time \(Free\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler |
+| option | String | Required |                 | Route navigation option<br>Request with navigation options separated by ','<br>e.g. option=real_traffic,real_traffic2<br>real_traffic: Real-time recommendation 1<br>real\_traffic\_freeroad: Real-time \(Free\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler<br>recommendation: Recommendation |
 | coordType    | String | Required    |       | Coordinate type (TW, WGS84)
 | viaList    | Array | Optional    |       | Stop information                               |
 | via[0].viaX    | String | Optional    |       | Stop X-coordinate                               |
@@ -2078,11 +2260,89 @@ In the order of gas, premium gas, light oil, and LPG |
 |groupByTrafficColor	| Boolean| Optional| |Whether to return detailed path list information coded and grouped with road traffic colors	|
 | useTaxifare   | Integer | Optional   |       | Whether to check predicted taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis|
 | useStartDirection    | Boolean | Optional    |       | Result display count                               |
+| searchByAddress   | Boolean | Optional   |       | Whether to use address-based route navigation<br>Default: false |
+| usageType   | Integer | Optional   |       | Vehicle usage type<br>Default: 0<br>Normal: 0<br>Taxi: 1<br>(Applied only when the route navigation option is recommendation) |
+| carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
+| carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
 
 
 #### Response
 
-##### Response body
+##### Response Body
+```
+{
+    "route": {
+        "data": {
+            "file_name": "",
+            "toll_fee": 500,
+            "taxiFare": 44100,
+            "paths": [
+                {
+                    "coords": [
+                        {
+                            "x": 126.98738167260602,
+                            "y": 37.56100472071098
+                        },
+                        {
+                            "x": 126.98745666577292,
+                            "y": 37.561004722056495
+                        },
+                        {
+                            "x": 126.98788162917526,
+                            "y": 37.560929738395224
+                        },
+                        {
+                            "x": 126.98810661103511,
+                            "y": 37.56084641878082
+                        },
+                        {
+                            "x": 126.98823160224156,
+                            "y": 37.5607547650072
+                        },
+                        {
+                            "x": 126.9882940996141,
+                            "y": 37.56064644538208
+                        }
+                    ],
+                    "speed": 30,
+                    "distance": 95,
+                    "spend_time": 12,
+                    "road_code": 5,
+                    "traffic_color": "#00ff60"
+                } ...
+            ],
+            "guides": [
+                {
+                    "name": "Hannam IC",
+                    "distance": 0,
+                    "speed": 0,
+                    "road_code": 0,
+                    "score": 0,
+                    "type": "IC",
+                    "coords": [
+                        {
+                            "x": 127.01735503801878,
+                            "y": 37.522301421437476
+                        }
+                    ],
+                    "traffic_color": ""
+                }...
+                ],
+                "traffic_color": "#fff000"
+                }
+            ],
+            "option": "real_traffic",
+            "spend_time": 5580,
+            "distance": 45931
+        }
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
 
 ##### Field
 
@@ -2131,17 +2391,17 @@ In the order of gas, premium gas, light oil, and LPG |
 
 | Method  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal-summary?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal-summary?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight} |
 
 [Path parameter]
 
-| Name     | Type     | Required? | Valid range | Description     |
+| Name     | Type     | Required | Valid range | Description     |
 | ------ | ------ | ----- | ----- | ------ |
 | appkey | String | Required    |       | Unique Appkey |
 
 [Request Parameters]
 
-| Name       | Type     | Required? | Valid range | Description                                       |
+| Name       | Type     | Required | Valid range | Description                                       |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
 | startX   | String | Required    |       | X-coordinate of starting point                                 |
 | startY   | String | Required    |       | Y-coordinate of starting point                                 |
@@ -2157,10 +2417,14 @@ In the order of gas, premium gas, light oil, and LPG |
 | via4Y    | String | Optional    |       | Y-coordinate of stopover 4                               |
 | via5X    | String | Optional    |       | X-coordinate of stopover 5                               |
 | via5Y    | String | Optional    |       | Y-coordinate of stopover 5                               |
-| option   | String | Required    |       | Path finding option<br>Only one path finding option is allowed<br>e.g. option=real_traffic<br>real_traffic: real-time recommendation 1<br>real\_traffic\_freeroad: real-time\(free\)<br>real_traffic2: real-time recommendation 2<br>short\_distance\_priority: short distance<br>motorcycle: two-wheeler |
+| option   | String | Required    |       | Route navigation option<br>Only one option can be used<br>e.g. option=real_traffic<br>real_traffic: real-time recommendation 1<br>real\_traffic\_freeroad: real-time\(free\)<br>real_traffic2: real-time recommendation 2<br>short\_distance\_priority: short distance<br>motorcycle: two-wheeler<br>recommendation: Recommendation |
 | carType   | Integer | Optional    |       | Car type to calculate the toll gate charge (1 - 6), default: 1 |
 | coordType   | String | Required    |       | input, output coordinate type, enter only one of these (TW, WGS84) |
-| useTaxifare   | int | Optional   |       | Whether to show the expected taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br>1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+| useTaxifare   | Integer | Optional   |       | Whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
+| searchByAddress   | Boolean | Optional   |       | Whether to use address-based route navigation<br>Default: false |
+| usageType   | Integer | Optional   |       | Vehicle usage type<br>Default: 0<br>Normal: 0<br>Taxi: 1<br>(Applied only when the route navigation option is recommendation) |
+| carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
+| carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
 
 #### Response
 
@@ -2214,7 +2478,7 @@ In the order of gas, premium gas, light oil, and LPG |
 | route.data[0].toll_fee           | Integer | Distance (m)                          |
 | route.data[0].totalTaxiFare           | Integer | Distance (m)                          |
 | route.data[0].detailDistance           | Array | Stopover summary                          |
-| route.data[0].detailDistance[0].position           | String |  Location<br>If there is only one stopover, 0\|1: Starting point → Stopover 1, 1\|2: Stopover 1 → Destination          |
+| route.data[0].detailDistance[0].position           | String |  Location<br>If there is only one stopover, 0\|1: Starting point -> Stopover 1, 1\|2: Stopover 1 -> Destination          |
 | route.data[0].detailDistance[0].distance           | Integer |  Distance (m)            |
 
 ## Static Map

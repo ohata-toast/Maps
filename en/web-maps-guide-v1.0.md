@@ -14,8 +14,8 @@ Describes APIs that are required to use web maps.
 
 | Item    | URL                                      |
 | --------- | ---------------------------------------- |
-| Map     | https://api-maps.cloud.toast.com/maps/js/v1.0/map.js |
-| Static Map | https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js |
+| Map     | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js |
+| Static Map | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/staticMap.js |
 
 ## Web Maps 
 
@@ -66,7 +66,7 @@ Optional parameters are displayed as [param] for method: they can be omitted.
 #### Enable NHN Cloud Maps API
 ```
 // Declare js file to use maps.
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/map.js"></script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js"></script>
 <script>
 	// Authenticate to enable maps. 
 	Map.authentication("appKey");
@@ -199,7 +199,7 @@ Optional parameters are displayed as [param] for method: they can be omitted.
 #### Enable Static NHN Cloud Maps API 
 ```
 // Declare js file to enable static maps. 
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js"></script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/staticMap.js"></script>
 
 // Create IMG to contain maps. 
 <img id='staticMapImg' alt="" src="">
@@ -251,7 +251,7 @@ Regarding the API, see [1. Web Maps](#1-web) .
     	</style>
 
 		// Declare js file to enable maps. 
-		<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/map.js"></script>
+		<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js"></script>
 		<script>
 			// Authenticate to enable the maps. 
 			Map.authentification("appKey");
