@@ -15,8 +15,8 @@ iOSでMapsサービスを使用する方法を説明します。
 
 | 項目     | URL                                      |
 | --------- | ---------------------------------------- |
-| マップ     | https://api-maps.cloud.toast.com/maps/js/v1.0/map.js |
-| 静的(static)マップ | https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js |
+| マップ     | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js |
+| 静的(static)マップ | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/staticMap.js |
 
 ## マップ
 

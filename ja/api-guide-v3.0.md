@@ -15,7 +15,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | 環境 | ドメイン                          |
 | ---- | -------------------------------- |
-| Real | https://api-maps.cloud.toast.com |
+| Real | https://kr1-maps.api.nhncloudservice.com |
 
 #### Header情報
 

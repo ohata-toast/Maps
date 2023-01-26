@@ -15,8 +15,8 @@ Describes the Maps service for Android users.
 
 | Item    | URL                                      |
 | --------- | ---------------------------------------- |
-| Map     | https://api-maps.cloud.toast.com/maps/js/v1.0/map.js |
-| Static Map | https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js |
+| Map     | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js |
+| Static Map | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/staticMap.js |
 
 ## Maps 
 
@@ -94,7 +94,7 @@ Below shows how to load simple maps.
 	<meta charset="UTF-8">
 	<title> Android API TEST </title>
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/map.js"></script>
+	<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js"></script>
 	<script>
 	    // Authenticate to enable the map service.
 	    Map.authentification("appKey");

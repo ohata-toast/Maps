@@ -14,8 +14,8 @@ Maps Webマップを使用するのに必要なAPIを説明します。
 
 | 項目 | URL                                      |
 | --------- | ---------------------------------------- |
-| マップ | https://api-maps.cloud.toast.com/maps/js/v1.0/map.js |
-| 静的(static)マップ | https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js |
+| マップ | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js |
+| 静的(static)マップ | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/staticMap.js |
 
 ## Webマップ
 
@@ -67,7 +67,7 @@ NHN Cloud Maps APIは、THINKWARE座標を使用します。縮約してTW座標
 #### NHN Cloud Maps APIの使用
 ```
 // マップを使用するためのjsファイルを宣言します。
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/map.js"></script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js"></script>
 <script>
 	// マップを使用するための認証を進行します。
 	Map.authentification("appKey");
@@ -200,7 +200,7 @@ NHN Cloud Maps APIは、THINKWARE座標を使用します。縮約してTW座標
 #### NHN Cloud Maps API静的(static)マップ使用
 ```
 // 静的(static)マップを使用するためのjsファイルを宣言します。
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js"></script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/staticMap.js"></script>
 
 // マップを入れるIMGを作成します。
 <img id='staticMapImg' alt="" src="">
@@ -252,7 +252,7 @@ APIの詳細は、[1. Webマップ](#1-web)を参照してください。
     	</style>
 
 		// マップを使用するためのjsファイルを宣言します。
-		<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/map.js"></script>
+		<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js"></script>
 		<script>
 			// マップを使用するための認証を進行します。
 			Map.authentification("appKey");

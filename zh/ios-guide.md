@@ -15,8 +15,8 @@ Desribes the Maps Service for iOS users.
 
 | Item    | URL                                      |
 | --------- | ---------------------------------------- |
-| Map       | https://api-maps.cloud.toast.com/maps/js/v1.0/map.js |
-| Static Map | https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js |
+| Map       | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js |
+| Static Map | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/staticMap.js |
 
 ## Maps
 

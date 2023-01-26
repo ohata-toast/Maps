@@ -15,7 +15,13 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 | Environment | Domain                           |
 | ----------- | -------------------------------- |
-| Real        | https://api-maps.cloud.toast.com |
+| Real        | https://kr1-maps.api.nhncloudservice.com |
+
+#### Header Information
+
+| Header Name   | Value                              |
+| ---- | -------------------------------- |
+| User-Agent | `Windows`, `Android`, `Mac OS` |
 
 #### Header Information
 

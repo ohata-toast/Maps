@@ -15,7 +15,7 @@ This guide describes JavaScript-based web APIs required to use web maps of Maps.
 
 | Item | URL                              |
 | ---- | -------------------------------- |
-| Map | https://api-maps.cloud.toast.com |
+| Map | https://kr1-maps.api.nhncloudservice.com |
 
 
 ## Web Maps
@@ -70,7 +70,7 @@ NHN Cloud Maps API uses WGS84 (EPSG:4326) coordinates.
 
 #### Enable the Maps API
 ```html
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap"></script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap"></script>
 <div id="div_map" style="width:500px; height:500px;"></div>
 <script type="text/javascript">
     var map;
@@ -190,5 +190,5 @@ NHN Cloud Maps API uses WGS84 (EPSG:4326) coordinates.
 </script>
 
 // When applying styles while initializing the map, use the script below instead of the existing script.
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
 ```
