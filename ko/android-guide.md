@@ -15,8 +15,8 @@ Android 기반으로 Maps 서비스를 사용하는 방법을 설명합니다.
 
 | 항목        | URL                                      |
 | --------- | ---------------------------------------- |
-| 지도        | https://api-maps.cloud.toast.com/maps/js/v1.0/map.js |
-| 정적(static) 지도 | https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js |
+| 지도        | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js |
+| 정적(static) 지도 | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/staticMap.js |
 
 ## 지도
 
@@ -94,7 +94,7 @@ public void setMoveendCB(String result){
 	<meta charset="UTF-8">
 	<title> Android API TEST </title>
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/map.js"></script>
+	<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js"></script>
 	<script>
 	    // 지도 사용을 위한 인증을 진행합니다.
 	    Map.authentification("appKey");

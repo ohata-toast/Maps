@@ -15,7 +15,7 @@ Maps 서비스를 사용하는 데 필요한 API를 설명합니다.
 
 | 환경   | 도메인                              |
 | ---- | -------------------------------- |
-| Real | https://api-maps.cloud.toast.com |
+| Real | https://kr1-maps.api.nhncloudservice.com |
 
 ### 응답 공통 정보
 
@@ -1282,7 +1282,7 @@ Maps 서비스를 사용하는 데 필요한 API를 설명합니다.
 #### 경로 탐색 결과 값을 보기 쉽게 Parsing
 
 ```
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/route.js" > </script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/route.js" > </script>
 <script type="text/javascript">
 function fnRouteParse(data){ // 경로 탐색 상세 결과값
 

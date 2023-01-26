@@ -15,8 +15,8 @@ iOS 기반으로 Maps 서비스를 사용하는 방법을 설명합니다.
 
 | 항목        | URL                                      |
 | --------- | ---------------------------------------- |
-| 지도        | https://api-maps.cloud.toast.com/maps/js/v1.0/map.js |
-| 정적(static) 지도 | https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js |
+| 지도        | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js |
+| 정적(static) 지도 | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/staticMap.js |
 
 ## 지도
 
