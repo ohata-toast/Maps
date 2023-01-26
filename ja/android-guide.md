@@ -15,8 +15,8 @@ AndroidでMapsサービスを使用する方法を説明します。
 
 | 項目      | URL                                      |
 | --------- | ---------------------------------------- |
-| マップ      | https://api-maps.cloud.toast.com/maps/js/v1.0/map.js |
-| 静的(static)マップ | https://api-maps.cloud.toast.com/maps/js/v1.0/staticMap.js |
+| マップ      | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js |
+| 静的(static)マップ | https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/staticMap.js |
 
 ## マップ
 
@@ -94,7 +94,7 @@ public void setMoveendCB(String result){
 	<meta charset="UTF-8">
 	<title> Android API TEST </title>
 	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
-	<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/map.js"></script>
+	<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/map.js"></script>
 	<script>
 	    // マップを使用するための認証を行います。
 	    Map.authentification("appKey");

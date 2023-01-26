@@ -15,7 +15,7 @@
 
 | 환경   | 도메인                              |
 | ---- | -------------------------------- |
-| Real | https://api-maps.cloud.toast.com |
+| Real | https://kr1-maps.api.nhncloudservice.com |
 
 #### Header 정보
 

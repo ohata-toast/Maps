@@ -15,7 +15,7 @@ Describes JavaScript-based web APIs required to use web maps.
 
 | Item | URL                              |
 | ---- | -------------------------------- |
-| Maps | https://api-maps.cloud.toast.com |
+| Maps | https://kr1-maps.api.nhncloudservice.com |
 
 
 ## Web Maps
@@ -73,7 +73,7 @@ NHN Cloud Maps API adopts Thinkware coordinates
 
 #### Enable Maps API 
 ```html
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap"></script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap"></script>
 <div id="div_map" style="width:500px; height:500px;"></div>
 <script type="text/javascript">
     var map;
@@ -193,5 +193,5 @@ NHN Cloud Maps API adopts Thinkware coordinates
 </script>
 
 // When using a style during map initialization
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
 ```
