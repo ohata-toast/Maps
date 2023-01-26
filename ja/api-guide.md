@@ -15,7 +15,7 @@ Mapsサービスを使用するのに必要なAPIを説明します。
 
 | 環境 | ドメイン                      |
 | ---- | -------------------------------- |
-| Real | https://api-maps.cloud.toast.com |
+| Real | https://kr1-maps.api.nhncloudservice.com |
 
 ### レスポンス共通情報
 
@@ -1282,7 +1282,7 @@ Mapsサービスを使用するのに必要なAPIを説明します。
 #### 経路探索結果値を見やすくParsing
 
 ```
-<script type="text/javascript" src="https://api-maps.cloud.toast.com/maps/js/v1.0/route.js" > </script>
+<script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/js/v1.0/route.js" > </script>
 <script type="text/javascript">
 function fnRouteParse(data){ // 経路探索詳細結果値
 
