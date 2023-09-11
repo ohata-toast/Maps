@@ -1536,7 +1536,7 @@
 
 | 메서드  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight}&useStartDirection={useStartDirection} |
 
 [Path parameter]
 
@@ -1565,14 +1565,15 @@
 | option   | String | 필수    |       | 경로 탐색 옵션<br>탐색 옵션 하나만 가능<br>예) option=real_traffic<br>real_traffic: 실시간 추천 1<br>real\_traffic\_freeroad: 실시간\(무료\)<br>real_traffic2: 실시간 추천 2<br>short\_distance\_priority: 단거리<br>motorcycle: 이륜차<br>recommendation: 추천 |
 | carType   | Integer | 선택    |       | 톨게이트비 계산을 위한 차종(1~6), 기본값: 1 |
 | coordType   | String | 필수    |       | input, output 좌표 타입, 하나만 입력 가능(TW, WGS84) |
-|guideTop	|Integer| 선택 ||나타낼 안내 정보 개수 |
-|groupByTrafficColor	| Boolean| 선택| |세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
-|saveFile	| Boolean| 선택| |경로 주변 POI 검색을 위한 바이너리 파일 저장 여부	|
+| guideTop	|Integer| 선택 |       | 표출할 안내 정보 개수 |
+| groupByTrafficColor	| Boolean| 선택| |세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
+| saveFile	| Boolean| 선택| |경로 주변 POI 검색을 위한 바이너리 파일 저장 여부	|
 | useTaxifare   | Integer | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1: 일반택시<br>2: 모범택시<br>3: 일반택시와 모범택시 |
 | searchByAddress   | Boolean | 선택   |       | 주소 기반 경로 탐색 여부<br>Default: false |
 | usageType   | Integer | 선택   |       | 차량 용도<br>Default: 0<br>일반: 0<br>택시: 1<br>(경로 탐색 옵션이 recommendation일 경우에만 적용) |
 | carHeight   | Integer | 선택   |       | 차량 높이 정보<br>Default: 0 |
 | carWeight   | Integer | 선택   |       | 차량 중량 정보<br>Default: 0 |
+| useStartDirection   | Boolean | 선택   |       | 출발지 좌표 기준 탐색 방향 지정 기능 여부<br>Default: false |
 
 
 
@@ -1585,7 +1586,7 @@
         "data": {
             "file_name": "",
             "toll_fee": 0.0,
-						"taxiFare": 3500,
+            "taxiFare": 3500,
             "paths": [
                 {
                     "coords": [
@@ -1692,7 +1693,7 @@
 
 | 메서드  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-summary?option={option}&coordType={coordType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&carHeight={carHeight}&carWeight={carWeight} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-summary?option={option}&coordType={coordType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&carHeight={carHeight}&carWeight={carWeight}&useStartDirection={useStartDirection} |
 
 [Path parameter]
 
@@ -1722,6 +1723,7 @@
 | coordType   | String | 필수    |       | input, output 좌표 타입, 하나만 입력 가능(TW, WGS84) |
 | carHeight   | Integer | 선택   |       | 차량 높이 정보<br>Default: 0 |
 | carWeight   | Integer | 선택   |       | 차량 중량 정보<br>Default: 0 |
+| useStartDirection   | Boolean | 선택   |       | 출발지 좌표 기준 탐색 방향 지정 기능 여부<br>Default: false |
 
 #### 응답
 
@@ -1937,7 +1939,7 @@
 
 | 메서드  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}&carHeight={carHeight}&carWeight={carWeight}|
+| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}&carHeight={carHeight}&carWeight={carWeight}&useStartDirection={useStartDirection}|
 
 [Path parameter]
 
@@ -1971,15 +1973,16 @@
 | via5Y   | String | 선택    |       |  경유지 5 y 좌표                               |
 | coordType    | String | 선택    |       | 좌표 타입(TW, WGS84)<br> 기본값: WGS84
 | useTrafficColor   | Boolean | 선택    |       | 도로 교통 색상 반환 유무(true, false)<br> 기본값: false |
-| guideTop   | Integer | 선택    |       | 할 안내 정보 개수 |
+| guideTop   | Integer | 선택    |       | 표출할 안내 정보 개수 |
 | carType   | Integer | 선택    |       | 톨게이트비 계산을 위한 차종(1~6), 기본값: 1 |
-|groupByTrafficColor	| Boolean| 선택| |세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
+| groupByTrafficColor	| Boolean| 선택| | 세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
 | beforeCount   | Integer | 선택    |       | 기준 시간 이전 시간 탐색 개수 |
 | afterCount   | Integer | 선택    |       | 기준 시간 이후 시간 탐색 개수 |
 | interval   | Integer | 선택    |       | 기준 시간 이전/이후 시간 간격(분) |
 | useTaxifare   | Integer | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1: 일반택시 <br>2: 모범택시 |
 | carHeight   | Integer | 선택   |       | 차량 높이 정보<br>Default: 0 |
 | carWeight   | Integer | 선택   |       | 차량 중량 정보<br>Default: 0 |
+| useStartDirection   | Boolean | 선택   |       | 출발지 좌표 기준 탐색 방향 지정 기능 여부<br>Default: false |
 
 #### 응답
 
@@ -2268,14 +2271,14 @@
 | useAngle    | String | 선택    |       | 출발 지점의 주행 방향 옵션<br> (기본값: false, true: 주행 방향 우선, false: 주행 방향 우선이 아님)                              |
 | angle    | Integer | 선택    |       | 결과 표시 개수                               |
 | carType   | Integer | 선택    |       | 톨게이트 요금 계산을 위한 차종(1~6), 기본값: 1 |
-| guideTop	|Integer| 선택 ||나타낼 안내 정보 개수 |
-|groupByTrafficColor	| Boolean| 선택| |세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
+| guideTop	|Integer| 선택 |       | 표출할 안내 정보 개수 |
+| groupByTrafficColor	| Boolean| 선택| | 세부 경로 목록(paths) 정보를 도로 교통 색상별로 묶어서 반환할지 여부	|
 | useTaxifare   | Integer | 선택   |       | 예상 택시 요금 조회 여부<br>예) useTaxifare=1<br>0: 미사용<br> 1: 일반택시<br>2: 모범택시<br>3: 일반택시와 모범택시 |
-| useStartDirection    | Boolean | 선택    |       | 결과 표시 개수                               |
 | searchByAddress   | Boolean | 선택   |       | 주소 기반 경로 탐색 여부<br>Default: false |
 | usageType   | Integer | 선택   |       | 차량 용도<br>Default: 0<br>일반: 0<br>택시: 1<br>(경로 탐색 옵션이 recommendation일 경우에만 적용) |
 | carHeight   | Integer | 선택   |       | 차량 높이 정보<br>Default: 0 |
 | carWeight   | Integer | 선택   |       | 차량 중량 정보<br>Default: 0 |
+| useStartDirection   | Boolean | 선택   |       | 출발지 좌표 기준 탐색 방향 지정 기능 여부<br>Default: false |
 
 #### 응답
 
@@ -2402,7 +2405,7 @@
 
 | 메서드  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal-summary?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal-summary?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight}&useStartDirection={useStartDirection} |
 
 [Path parameter]
 
@@ -2436,6 +2439,7 @@
 | usageType   | Integer | 선택   |       | 차량 용도<br>Default: 0<br>일반: 0<br>택시: 1<br>(경로 탐색 옵션이 recommendation일 경우에만 적용) |
 | carHeight   | Integer | 선택   |       | 차량 높이 정보<br>Default: 0 |
 | carWeight   | Integer | 선택   |       | 차량 중량 정보<br>Default: 0 |
+| useStartDirection   | Boolean | 선택   |       | 출발지 좌표 기준 탐색 방향 지정 기능 여부<br>Default: false |
 
 #### 응답
 
