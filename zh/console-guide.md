@@ -24,4 +24,4 @@ As a search option for the integrated search API, available codes can be found b
 ![](https://static.toastoven.net/prod_maps/maps-console-typecode.png)
 
 ### Disable Service
-To stop using the Maps Service, go to **Select Services** and click **Application Service > Maps**, and disable the service. 
+To disable the Maps service, go to **console** and click the **Select Project > Project Settings > Disable Service** button.

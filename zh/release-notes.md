@@ -1,5 +1,16 @@
 ## Application Service > Maps > Release Notes
 
+### September 12, 2023
+#### Added Features
+* [API] Added parameters to APIs for navigation
+    * useStartDirection: Whether to specify navigation direction based on departure coordinates
+    * APIs to which parameters are added
+        * Route Navigation
+        * Summary of Route Navigation
+        * Search of Estimated Routes
+        * Added multi-stops 100
+        * Summarize path information between stopovers
+
 ### October 4, 2022
 #### Added Features
 * [API] Added parameters to APIs for navigation 
