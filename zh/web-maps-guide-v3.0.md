@@ -1,29 +1,29 @@
-## Application Service > Maps > Guide for Web Maps 
+## Application Service > Maps > Guide for Web Maps
 
-Describes JavaScript-based web APIs required to use web maps. 
+This guide describes JavaScript-based web APIs required to use web maps of Maps.
 
 
-## Common API Information 
+## Common API Information
 
-### Prerequisites 
-- Appkey is required to use APIs. 
-- To check your appkey, go to **URL & Appkey** on top of the **NHN Cloud Console**. 
+### Prerequisites
+- Appkey is required to use APIs.
+- To check your appkey, go to **URL & Appkey** on top of the **NHN Cloud Console**.
 
 ### Common Request Information
 
-#### URL Information 
+#### URL Information
 
 | Item | URL                              |
 | ---- | -------------------------------- |
-| Maps | https://kr1-maps.api.nhncloudservice.com |
+| Map | https://kr1-maps.api.nhncloudservice.com |
 
 
 ## Web Maps
 
 ### 1. Web Maps
 
-Describes how to show maps on the web browser by using Javascript-based NHN Cloud Maps API. 
-NHN Cloud Maps API adopts Thinkware coordinates
+The following describes how to show maps on the web browser by using Javascript-based NHN Cloud Maps API.
+NHN Cloud Maps API uses WGS84 (EPSG:4326) coordinates.
 
 
 #### Guide for Maps API
@@ -32,46 +32,43 @@ NHN Cloud Maps API adopts Thinkware coordinates
 
 | API Name                                | Parameter                        | Returns                                  | Description                            |
 | ---------------------------------------- | -------------------------------- | ---------------------------------------- | ---------------------------------------- |
-| new inavi.maps.Map(options)  | options.container : string                 | inavi.maps. map object | ID of DOM element to mark maps |
-|                                          | options.type : string             |                                          | Map type <br> 'NORMAL': General maps,<br> 'SATTELITE': Aerial maps<br>default: 'NORMAL' |
-|                                          | options.center : LngLatLike       |                                          | Central coordinates on the map |
-|                                          | options.zoom : number            |                                          | Level of a map        |
-|                                          | options.heading : number             |                                          | Counter clockwise angle on north |
-|                                          | options.tilt : number             |                                          | Tilt of a map |
-|                                          | options.maxZoom : number             |                                          | Counter clockwise angle on north |
-|                                          | options.heading : number             |                                          | Maximum zoom-in level |
-|                                          | options.hash : boolean             |                                          | If map information shows on the address bar |
-|                                          | options.zoomable : boolean             |                                          | If zoom-in is available |
-|                                          | options.draggable : boolean             |                                          | If a drag is available |
-|                                          | options.rotatable : boolean             |                                          | If rotation is available |
-|                                          | options.keyboard : boolean             |                                          | If map movement on keyboard is available |
-|                                          | options.disableDefaultUI : boolean             |                                          | If default control can be hidden |
-|                                          | options.logoScaleControl : LogoScaleControlOptions             |                                          | Log and scale mark control option |
-|                                          | options.compassControl : CompassControlOptions             |                                          | Compass mark control option |
-|                                          | options.zoomControl : ZoomControlOptions             |                                          | Zoom-in/out mark control option |
-| changeType(type)                         | type : string                    |                                          | Map Type <br> 'NORMAL': General maps,<br> 'SATTELITE': Aerial <br>default: 'NORMAL' |
+| new inavi.maps.Map(options)  | options.container : string                 | inavi.maps.Map map object | ID of the DOM element to display the map |
+|                                          | options.center : LngLatLike       |                                          | Central coordinates of the map |
+|                                          | options.zoom : number            |                                          | Level of the map        |
+|                                          | options.heading : number             |                                          | Angle rotated counterclockwise from the north |
+|                                          | options.tilt : number             |                                          | Tilt of the map when it is laid flat |
+|                                          | options.maxZoom : number             |                                          | Maximum zoom-in level |
+|                                          | options.hash : boolean             |                                          | Whether to display map information on the address bar |
+|                                          | options.zoomable : boolean             |                                          | Whether the map is zoomable |
+|                                          | options.draggable : boolean             |                                          | Whether the map is zoomable |
+|                                          | options.rotatable : boolean             |                                          | Whether the map is rotatable |
+|                                          | options.keyboard : boolean             |                                          | Whether the map can be moved using the keyboard |
+|                                          | options.disableDefaultUI : boolean             |                                          | Whether to hide the default control |
+|                                          | options.logoScaleControl : LogoScaleControlOptions             |                                          | Log and scale display control option |
+|                                          | options.compassControl : CompassControlOptions             |                                          | Compass display control option |
+|                                          | options.zoomControl : ZoomControlOptions             |                                          | Zoom-in/out display control option |
 | on(eventType, listener) | eventType : string              |                                          | load,<br>zoomstart, zoom, zoomend,<br>rotatestart, rotate, rotateend,<br>tiltstart, tilt, tiltend,<br>click, dblclick,<br>mousedown, mouseup, mousemove,<br>mouseenter, mouseleave, mouseover, mouseout,<br>contextmenu,<br>wheel,<br>touchstart, touchend, touchcancel, touchmove,<br>movestart, move, moveend,<br>dragstart, drag, dragend|
-|                                          | listener : Function             |                                          | Listener for registration        |
+|                                          | listener : Function             |                                          | Listener to register        |
 | once(eventType, listener) | eventType : string              |                                          | load,<br>zoomstart, zoom, zoomend,<br>rotatestart, rotate, rotateend,<br>tiltstart, tilt, tiltend,<br>click, dblclick,<br>mousedown, mouseup, mousemove,<br>mouseenter, mouseleave, mouseover, mouseout,<br>contextmenu,<br>wheel,<br>touchstart, touchend, touchcancel, touchmove,<br>movestart, move, moveend,<br>dragstart, drag, dragend|
-|                                          | listener : Function             |                                          | Listener for registration   |
+|                                          | listener : Function             |                                          | Listener to register   |
 | off(eventType, listener) | eventType : string              |                                          | load,<br>zoomstart, zoom, zoomend,<br>rotatestart, rotate, rotateend,<br>tiltstart, tilt, tiltend,<br>click, dblclick,<br>mousedown, mouseup, mousemove,<br>mouseenter, mouseleave, mouseover, mouseout,<br>contextmenu,<br>wheel,<br>touchstart, touchend, touchcancel, touchmove,<br>movestart, move, moveend,<br>dragstart, drag, dragend|
-|                                          | listener : Function             |                                          | Listener for removal        |
-| new inavi.maps.Marker(option)        | option.map : Map              | inavi.maps.Marker object | Map object                         |
+|                                          | listener : Function             |                                          | Listener to remove        |
+| new inavi.maps.Marker(option)        | option.map : Map              | inavi.maps.Marker marker object | Map object                         |
 |                                          | option.icon : string         |                                          | Icon URL                               |
-|                                          | option.position : LngLatLike     |                                          | Marker creation coordinates |
-|                                          | option.anchor : string      |                                          | To be located by coordinates <br> top-left, top, top-right,<br>left, center, right,<br>bottom-left, bottom, bottom-right |
+|                                          | option.position : LngLatLike     |                                          | Coordinates where a marker will be created |
+|                                          | option.anchor : string      |                                          | Position where coordinates will be located<br> top-left, top, top-right,<br>left, center, right,<br>bottom-left, bottom, bottom-right |
 |                                          | option.title : string            |                                          | Character strings for tool-tips   |
-|                                          | option.offset : Array       |                                          | Offset by pixel                    |
-|                                          | option.draggable : boolean       |                                          | If a drag is available   |
+|                                          | option.offset : Array       |                                          | Offset in pixel unit                    |
+|                                          | option.draggable : boolean       |                                          | Whether the marker is draggable   |
 |                                          | option.zIndex : number           |                                          | z-index value                           |
 |                                          | option.opacity : number          |                                          | Opacity level                |
 | inavi.maps.LngLat.convertToPixel(lngLat) | lngLat.lng : number               | Screen pixel coordinates | WGS84 longitude                        |
 |                                          | lngLat.lat : number               |                                          | WGS84 latitude                         |
-| inavi.maps.Pixel.convertToLngLat(pixel) | pixel.pxX : number               | Longitude/latitude coordinates | Screen pixel x coordinates               |
-|                                          | pixel.pxY : number               |                                          | Screen pixel y coordinates               |
+| inavi.maps.Pixel.convertToLngLat(pixel) | pixel.x : number               | Longitude/latitude coordinates | Screen pixel x coordinates               |
+|                                          | pixel.y : number               |                                          | Screen pixel y coordinates               |
 
 
-#### Enable Maps API 
+#### Enable the Maps API
 ```html
 <script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap"></script>
 <div id="div_map" style="width:500px; height:500px;"></div>
@@ -79,7 +76,7 @@ NHN Cloud Maps API adopts Thinkware coordinates
     var map;
     
     function initMap() {
-        //선언한 DIV에 지도를 표출합니다.
+        //Display the map on the declared DIV.
         map = new inavi.maps.Map({
             container: "div_map",
             center: {
@@ -93,47 +90,46 @@ NHN Cloud Maps API adopts Thinkware coordinates
 </script>
 ```
 
-#### Change Map Mode 
+#### Change the Map Mode
 ```html
 <script type="text/javascript">
-    // Change map type of created map object. 
-    // General:NORMAL, Aerial background:SATELLITE
-    // Change into aerial background map.
+    // Change the map type of the created map object.
+    // General: NORMAL, Aerial background: SATELLITE
+    // Change to a aerial background map.
     window.onload = function (){
         map.setType("SATELLITE");
     };
 </script>
 ```
 
-#### Register Map Events
+#### Register a Map Event
 ```html
 <script type="text/javascript">
-    //Register move events on the map. 
+    //Register the move event to the map.
     window.onload = function (){
         map.on("move", moveHandler);
     }
 
-    //Callback function when map event occurs
     function moveHandler(event){
         console.log("event callback!");
     }
 </script>
 ```
 
-#### Remove Map Events 
+#### Remove the Map Event
 ```html
 <script type="text/javascript">
-    //Remove move events from the map. 
+    //Remove the move event from the map.
     window.onload = function (){
         map.off("move", moveHandler)
     }
 </script>
 ```
 
-#### Add Map Markers 
+#### Add a Map Marker
 ```html
 <script type="text/javascript">
-    // Add marker objects on the map. 
+    // Add a marker object to the map.
     window.onload = function (){
         var marker = new inavi.maps.Marker({
             map: map,
@@ -143,17 +139,17 @@ NHN Cloud Maps API adopts Thinkware coordinates
             }
         });
 
-        // Move marker objects. 
+        // Move the marker object.
         marker.setPosition({lng: 127.110513, lat: 37.402027});
     }
 </script>
 ```
 
-#### Convert Screen Pixel Coordinates into WGS Coordinates 
+#### Convert Screen Pixel Coordinates to WGS Coordinates
 ```html
 <script type="text/javascript">
     window.onload = function (){
-        // Convert screen pixel coordinates into WGS coordinates. 
+        // Convert screen pixel coordinates to WGS coordinates.
         var screen_pixel = {
             x: 100,
             y: 100
@@ -166,11 +162,11 @@ NHN Cloud Maps API adopts Thinkware coordinates
 </script>
 ```
 
-#### Convert WGS Coordinates into Screen Pixel Coordinates 
+#### Convert WGS Coordinates to Screen Pixel Coordinates
 ```html
 <script type="text/javascript">
     window.onload = function (){
-        // Convert WGS coordinates into screen pixel coordinates. 
+        // Convert WGS coordinates to screen pixel coordinates.
         var wgs84 = {
             lng: 127.11074994024005,
             lat: 37.40215870673785
@@ -182,16 +178,17 @@ NHN Cloud Maps API adopts Thinkware coordinates
     }
 </script>
 ```
-#### Changing map style
+
+#### Change the Map Style
 ```html
-// Changes the map style of the created map object to the style created with Map Studio.
+// Change the map style of the created map object to the style created with Map Studio.
 <script type="text/javascript">
     window.onload = function (){
-        //For StyleJosnUrl, refer to the deployment code provided when Map Studio deployed the style
+        //For StyleJsonUrl, refer to the deployment code when deploying styles in Map Studio
         map.setStyle("{StyleJsonUrl}");
     }
 </script>
 
-// When using a style during map initialization
+// When applying styles while initializing the map, use the script below instead of the existing script.
 <script type="text/javascript" src="https://kr1-maps.api.nhncloudservice.com/maps/v3.0/appkeys/{appkey}/maps?callback=initMap&styleID={styleID}"></script>
 ```
