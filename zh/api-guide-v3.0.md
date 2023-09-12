@@ -23,6 +23,12 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | ---- | -------------------------------- |
 | User-Agent | `Windows`, `Android`, `Mac OS` |
 
+#### Header Information
+
+| Header Name   | Value                              |
+| ---- | -------------------------------- |
+| User-Agent | `Windows`, `Android`, `Mac OS` |
+
 ### Common Response Information
 
 #### Search API
