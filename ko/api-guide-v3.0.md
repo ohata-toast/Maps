@@ -2496,6 +2496,205 @@
 | route.data[0].detailDistance[0].position           | String |  위치<br>경유지가 1개일 경우 0\|1: 출발지 → 경유지 1, 1\|2: 경유지 1 → 목적지          |
 | route.data[0].detailDistance[0].distance           | Integer |  거리(m)            |
 
+## W3W 연동 API
+
+### 1\. W3W 좌표 검색(좌표 -> 주소)
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/w3w-addresses?posX={posX}&posY={posY}|
+
+[Path parameter]
+
+| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 필수    |       | 고유의 Appkey |
+
+[Request Query Parameter]
+
+| 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| posX      | String | 필수      |           | x 좌표                                                       |
+| posY      | String | 필수      |           | y 좌표                                                       |
+
+#### 응답
+
+##### 응답 본문
+```
+{
+    "address": {
+        "result": true,
+        "adm": {
+            "what3words": "내린다.벨트.조절",
+            "posx": "127.110732",
+            "posy": "37.402153",
+            "address": "경기도 성남시 분당구 삼평동 678",
+            "roadname": "경기도 성남시 분당구 판교역로 240"
+        }
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### 필드
+
+| 이름                          | 타입      | 설명                                       |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | 헤더 영역                                    |
+| header.isSuccessful         | Boolean | 성공 여부                                    |
+| header.resultCode           | Integer | 실패 코드                                    |
+| header.resultMessage        | String  | 실패 메시지                                   |
+| address			                  | Object  | 본문 영역                                    |
+| address.result                   | Boolean  | 성공 여부                                  |
+| address.adm                   | Array  | 주소 정보                                   |
+| address.adm[0].what3words              | String | what3words 주소                       |
+| address.adm[0].posx           | String | x 좌표                             |
+| address.adm[0].posy           | String | y 좌표                          |
+| address.adm[0].address           | String | 법정동 주소                          |
+| address.adm[0].roadname           | String | 도로명 주소                        |
+
+### 2\. W3W 추천어 검색
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/w3w-proposers?query={query}&posX={posX}&posY={posY}|
+
+[Path parameter]
+
+| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 필수    |       | 고유의 Appkey |
+
+[Request Query Parameter]
+
+| 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| query      | String | 필수      |           | what3words 주소<br>(what3words 양식대로 2단어 입력 후 초성 및 단어 입력 필수<br>ex) 서명.증감.ㅇ /  외치다.효자.소)                                                     |
+| posX      | String | 선택      |           | x 좌표                                                       |
+| posY      | String | 선택      |           | y 좌표                                                       |
+
+#### 응답
+
+##### 응답 본문
+```
+{
+    "proposer": {
+        "result": true,
+        "what3words": [
+            {
+                "what3words": "서명.증감.여태",
+                "distance": 280,
+                "address": "경상남도 함안군"
+            },
+            {
+                "what3words": "서명.동감.부위",
+                "distance": 56,
+                "address": "경기도 동두천시"
+            },
+            {
+                "what3words": "서명.장담.여태",
+                "distance": 89,
+                "address": "충청북도 청주시"
+            }
+        ]
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### 필드
+
+| 이름                          | 타입      | 설명                                       |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | 헤더 영역                                    |
+| header.isSuccessful         | Boolean | 성공 여부                                    |
+| header.resultCode           | Integer | 실패 코드                                    |
+| header.resultMessage        | String  | 실패 메시지                                   |
+| proposer			                  | Object  | 본문 영역                                    |
+| proposer.result                   | Boolean  | 성공 여부                                  |
+| proposer.what3words                   | Array  | w3w 추천어 정보                                   |
+| proposer.what3words[0].what3words              | String | what3words 주소                       |
+| proposer.what3words[0].distance           | double | posX, posY 입력 시 해당 좌표로 부터의 거리<br>(posX, posY 입력 시 노출)                            |
+| proposer.what3words[0].address           | String | 축약 주소                         |
+
+### 3\. W3W 최적 지점 검색
+
+#### 요청
+
+[URI]
+
+| 메서드  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/w3w-optposition-searches?query={query}|
+
+[Path parameter]
+
+| 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 필수    |       | 고유의 Appkey |
+
+[Request Query Parameter]
+
+| 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| query | String | 필수     |        | what3words 주소<br>(what3words 양식대로 3단어 입력 필수<br>ex) 서명.증감.아끼는) |
+
+#### 응답
+
+##### 응답 본문
+```
+{
+    "search": {
+        "result": true,
+        "entrypoint": {
+            "what3words": "서명.증감.아끼는",
+            "posx": "127.110876",
+            "posy": "37.402324",
+            "address": "경기도 성남시 분당구 삼평동 678",
+            "roadname": "경기도 성남시 분당구 판교역로 240"
+        }
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### 필드
+
+| 이름                          | 타입      | 설명                                       |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | 헤더 영역                                    |
+| header.isSuccessful         | Boolean | 성공 여부                                    |
+| header.resultCode           | Integer | 실패 코드                                    |
+| header.resultMessage        | String  | 실패 메시지                                   |
+| search			                  | Object  | 본문 영역                                    |
+| search.result                   | Boolean  | 성공 여부                                  |
+| search.entrypoint                   | Array  | 최적 지점 정보                                   |
+| search.entrypoint[0].what3words              | String | what3words 주소                       |
+| search.entrypoint[0].posx           | String | x 좌표                             |
+| search.entrypoint[0].posy           | String | y 좌표                          |
+| search.entrypoint[0].address           | String | 법정동 주소                          |
+| search.entrypoint[0].roadname           | String | 도로명 주소                        |
+
 ## Static Map(정적 지도)
 
 ### 1\. Static Map(정적 지도)
