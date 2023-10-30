@@ -1,5 +1,16 @@
 ## Application Service > Maps > 릴리스 노트
 
+### 2023. 10. 26.
+#### 기능 추가
+* [API] W3W 추천어 검색 API 추가
+* [API] W3W 좌표 검색(좌표 -> 주소) API 추가
+* [API] W3W 최적 지점 검색 API 추가
+* [SDK] Support -> AndroidX 마이그레이션(Android)
+* [SDK] play-services-location 라이브러리 런타임 종속성 변경(Android)
+
+#### 버그 수정
+* [SDK] INVShape 겹침 상태에서 터치 이벤트 오류 수정(iOS)
+
 ### 2023. 09. 12.
 #### 기능 추가
 * [API] 탐색 API 파라미터 추가
