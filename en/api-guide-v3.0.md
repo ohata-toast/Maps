@@ -791,6 +791,10 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 }
 ```
 
+
+
+
+
 ##### Field
 
 | Name               | Type   | Description |
@@ -1516,6 +1520,10 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | location.legal_address.address_category4     | String  |  ri                       |
 | location.legal_address.cut_address     | String  |                         |
 
+
+
+
+
 ## Navigate
 
 ### 1\. Route Navigation
@@ -1566,6 +1574,8 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
 | carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
 | useStartDirection   | Boolean | Optional   |       | Whether to specify navigation direction based on departure coordinates<br>Default: false |
+
+
 
 #### Response
 
@@ -2483,6 +2493,207 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | route.data[0].detailDistance           | Array | Stopover summary                          |
 | route.data[0].detailDistance[0].position           | String |  Location<br>If there is only one stopover, 0\|1: Starting point -> Stopover 1, 1\|2: Stopover 1 -> Destination          |
 | route.data[0].detailDistance[0].distance           | Integer |  Distance (m)            |
+
+
+## W3W Integration API
+
+### 1. Search for W3W coordinates (Coordinates -> Address)
+
+#### Request
+
+[URI]
+
+| Method  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/w3w-addresses?posX={posX}&posY={posY}|
+
+[Path parameter]
+
+| Name     | Type     | Required | Valid Range | Description     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | Required    |       | Unique appkey |
+
+[Request Query Parameter]
+
+| Name       | Type     | Required | Valid Range | Description                                       |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| posX      | String | Required      |           | X coordinate                                                       |
+| posY      | String | Required      |           | Y coordinate                                                       |
+
+#### Response
+
+##### Response Body
+```
+{
+    "search": {
+        "data": [
+            {
+                "posx": "127.110662",
+                "posy": "37.402125",
+                "address": "240, Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
+                "admcode": "4113510900"
+            }
+        ],
+        "count": 1
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### Field
+
+| Name                          | Type      | Description                                       |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | Header area                                    |
+| header.isSuccessful         | Boolean | Successful or not                                    |
+| header.resultCode           | Integer | Failure code                                    |
+| header.resultMessage        | String  | Failure message                                   |
+| address			                  | Object  | Body area                                    |
+| address.result                   | Boolean  | Successful or not                                  |
+| address.adm                   | Array  | Basic information                                   |
+| address.adm[0].what3words              | String | what3words address                       |
+| address.adm[0].posx           | String | X coordinate                             |
+| address.adm[0].posy           | String | Y coordinate                          |
+| address.adm[0].address           | String | Legal address                          |
+| address.adm[0].roadname           | String | Street address                        |
+
+### 2. Search for W3W Suggestions
+
+#### Request
+
+[URI]
+
+| Method  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/w3w-proposers?query={query}&posX={posX}&posY={posY}|
+
+[Path parameter]
+
+| Name     | Type     | Required | Valid Range | Description     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | Required    |       | Unique appkey |
+
+[Request Query Parameter]
+
+| Name       | Type     | Required | Valid Range | Description                                       |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| query      | String | Required      |           | what3words address<br>(2 words in the form of what3words, followed by the initial letter and word.<br>Example) sign.increase.decrease./shout.filial.cow)                                                     |
+| posX      | String | Optional      |           | X coordinate                                                       |
+| posY      | String | Optional      |           | Y coordinate                                                       |
+
+#### Response
+
+##### Response Body
+```
+{
+    "proposer": {
+        "result": true,
+        "what3words": [
+            {
+                "what3words": "signature.increment.so far",
+                "distance": 280,
+                "address": "Haman-gun, Gyeongsangnam-do"
+            },
+            {
+                "what3words": "Signature.Donggam.area",
+                "distance": 56,
+                "address": "Dongducheon-si, Gyeonggi-do"
+            },
+            {
+                "what3words": "Signature.Jangdam.Yeotae",
+                "distance": 89,
+                "address": "Cheongju-si, Chungcheongbuk-do"
+            }
+        ]
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### Field
+
+| Name                          | Type      | Description                                       |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | Header area                                    |
+| header.isSuccessful         | Boolean | Successful or not                                    |
+| header.resultCode           | Integer | Failure code                                    |
+| header.resultMessage        | String  | Failure message                                   |
+| proposer			                  | Object  | Body area                                    |
+| proposer.result                   | Boolean  | Successful or not                                  |
+| proposer.what3words                   | Array  | W3W suggestion information                                   |
+| proposer.what3words[0].what3words              | String | what3words address                       |
+| proposer.what3words[0].distance           | double | Distance from those coordinates when posX, posY are entered<br>(expose on posX, posY input)                            |
+| proposer.what3words[0].address           | String | Abbreviated address                         |
+
+### 3. Search for the W3W best point
+
+#### Request
+
+[URI]
+
+| Method  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/w3w-optposition-searches?query={query}|
+
+[Path parameter]
+
+| Name     | Type     | Required | Valid Range | Description     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | Required    |       | Unique appkey |
+
+[Request Query Parameter]
+
+| Name       | Type     | Required | Valid Range | Description                                       |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| query | String | Required     |        | what3words address<br>(3 words required based on what3words form<br>Example) signature.increase.decrease.cherish |
+
+#### Response
+
+##### Response Body
+```
+{
+    "search": {
+        "result": true,
+        "entrypoint": {
+            "what3words": "signature.increment.cherished",
+            "posx": "127.110876",
+            "posy": "37.402324",
+            "address": "678, Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do, Korea",
+            "roadname": "240, Pangyo Station Road, Bundang-gu, Seongnam-si, Gyeonggi-do, Korea"
+        }
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### Field
+
+| Name                          | Type      | Description                                       |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | Header area                                    |
+| header.isSuccessful         | Boolean | Successful or not                                    |
+| header.resultCode           | Integer | Failure code                                    |
+| header.resultMessage        | String  | Failure message                                   |
+| search			                  | Object  | Body area                                    |
+| search.result                   | Boolean  | Successful or not                                  |
+| search.entrypoint                   | Array  | Best point information                                   |
+| search.entrypoint[0].what3words              | String | what3words address                       |
+| search.entrypoint[0].posx           | String | X coordinate                             |
+| search.entrypoint[0].posy           | String | Y coordinate                          |
+| search.entrypoint[0].address           | String | Legal address                          |
+| search.entrypoint[0].roadname           | String | Street address                        |
 
 ## Static Map
 

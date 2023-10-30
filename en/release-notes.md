@@ -1,5 +1,16 @@
 ## Application Service > Maps > Release Notes
 
+### October 26, 2023
+#### Added Features
+* [API] Added W3W suggestions search API
+* [API] Added W3W coordinate search (coordinates -> address) API
+* [API] Added W3W best point search API
+* [SDK] Support -> AndroidX Migration (Android)
+* [SDK] Change play-services-location library runtime dependency (Android)
+
+#### Bug Fixes
+* [SDK] Fixed touch event error in INVShape overlap state (iOS)
+
 ### September 12, 2023
 #### Added Features
 * [API] Added parameters to APIs for navigation

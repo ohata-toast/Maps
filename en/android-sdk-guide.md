@@ -12,10 +12,10 @@ Describes the basic project configuration method to enable iNavi maps on Android
 
 
 ### Project Configuration
-Since iNavi Maps SDK is deployed via Bintray, set a repository for the build.gradle file of the project and at the app module level and add dependency on iNavi Maps SDK like below. 
->` Deployed as a new map storage starting from SDK 0.6.1. You must change the map storage if you are using the previous map storage.`
->- Previous - https://dl.bintray.com/inavi-systems/maps/
->- `New - https://inavisystems.jfrog.io/artifactory/maps/`
+To use iNavi Maps SDK, set a repository for the build.gradle file of the project and at the app module level and add dependency on iNavi Maps SDK like below. 
+>` Deployed as a new map storage starting from SDK 0.10.0. You must change the map storage if you are using the previous map storage.`
+>- Previous - https://inavisystems.jfrog.io/artifactory/maps
+>- `New -  https://repo.inavi.com/artifactory/maps`
 
 ```gradle
 /* Root Project build.gradle */
@@ -26,7 +26,7 @@ allprojects {
         ...
         // Repository for iNavi maps 
         maven {
-            url 'https://inavisystems.jfrog.io/artifactory/maps/'
+            url 'https://repo.inavi.com/artifactory/maps'
         }
     }
 }
@@ -36,7 +36,7 @@ allprojects {
 /* App Module build.gradle */
 
 dependencies {
-    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.8.0'
+    implementation 'com.inavi.mapsdk:inavi-maps-sdk:0.10.0'
 }
 ```
 
