@@ -2,9 +2,9 @@
 
 ### October 26, 2023
 #### Added Features
-* [API] Added W3W suggestions search API
-* [API] Added W3W coordinate search (coordinates -> address) API
-* [API] Added W3W best point search API
+* [API] Added Search for W3W Suggestions API
+* [API] Added Search for W3W coordinates (coordinates -> address) API
+* [API] Added Search for W3W best point API
 * [SDK] Support -> AndroidX Migration (Android)
 * [SDK] Change play-services-location library runtime dependency (Android)
 

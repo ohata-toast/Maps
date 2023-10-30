@@ -2633,7 +2633,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | proposer.what3words[0].distance           | double | Distance from those coordinates when posX, posY are entered<br>(expose on posX, posY input)                            |
 | proposer.what3words[0].address           | String | Abbreviated address                         |
 
-### 3. Search for the W3W best point
+### 3. Search for W3W best point
 
 #### Request
 
