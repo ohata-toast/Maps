@@ -57,7 +57,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Query Parameter]
 
@@ -321,7 +321,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Query Parameter]
 
@@ -420,7 +420,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Query Parameter]
 
@@ -615,7 +615,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Query Parameter]
 
@@ -762,7 +762,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Query Parameter]
 
@@ -1308,7 +1308,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Query Parameter]
 
@@ -1421,7 +1421,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Query Parameter]
 
@@ -1542,7 +1542,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Request Parameters]
 
@@ -1699,7 +1699,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Request Parameters]
 
@@ -1779,7 +1779,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Request Parameters]
 
@@ -1861,7 +1861,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Request Parameters]
 
@@ -1945,7 +1945,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Request Parameters]
 
@@ -2253,7 +2253,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Request Parameters]
 
@@ -2411,7 +2411,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Request Parameters]
 
@@ -2512,7 +2512,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Request Query Parameter]
 
@@ -2575,13 +2575,13 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Request Query Parameter]
 
 | 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| query      | String | 필수      |           | what3words 주소<br>(what3words 양식대로 2단어 입력 후 초성 및 단어 입력 필수<br>ex) 서명.증감.ㅇ /  외치다.효자.소)                                                     |
+| query      | String | 필수      |           | what3words 주소<br>(what3words 양식에 따라 2단어 입력 후 초성 및 단어 입력 필수<br>예) 서명.증감.ㅇ/외치다.효자.소)                                                     |
 | posX      | String | 선택      |           | x 좌표                                                       |
 | posY      | String | 선택      |           | y 좌표                                                       |
 
@@ -2630,7 +2630,7 @@
 | proposer.result                   | Boolean  | 성공 여부                                  |
 | proposer.what3words                   | Array  | w3w 추천어 정보                                   |
 | proposer.what3words[0].what3words              | String | what3words 주소                       |
-| proposer.what3words[0].distance           | double | posX, posY 입력 시 해당 좌표로 부터의 거리<br>(posX, posY 입력 시 노출)                            |
+| proposer.what3words[0].distance           | double | posX, posY 입력 시 해당 좌표로부터의 거리<br>(posX, posY 입력 시 노출)                            |
 | proposer.what3words[0].address           | String | 축약 주소                         |
 
 ### 3\. W3W 최적 지점 검색
@@ -2647,13 +2647,13 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Request Query Parameter]
 
 | 이름       | 타입     | 필수 여부 | 유효 범위 | 설명                                       |
 | -------- | ------ | ----- | ----- | ---------------------------------------- |
-| query | String | 필수     |        | what3words 주소<br>(what3words 양식대로 3단어 입력 필수<br>ex) 서명.증감.아끼는) |
+| query | String | 필수     |        | what3words 주소<br>(what3words 양식에 따라 3단어 입력 필수<br>예) 서명.증감.아끼는) |
 
 #### 응답
 
@@ -2713,7 +2713,7 @@
 
 | 이름     | 타입     | 필수 여부 | 유효 범위 | 설명     |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 필수    |       | 고유의 Appkey |
+| appkey | String | 필수    |       | 고유의 앱키 |
 
 [Request Query Parameter]
 
