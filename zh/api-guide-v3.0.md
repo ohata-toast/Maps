@@ -791,6 +791,10 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 }
 ```
 
+
+
+
+
 ##### Field
 
 | Name               | Type   | Description |
@@ -1516,6 +1520,10 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | location.legal_address.address_category4     | String  |  ri                       |
 | location.legal_address.cut_address     | String  |                         |
 
+
+
+
+
 ## Navigate
 
 ### 1\. Route Navigation
@@ -1528,7 +1536,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 | Method | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight}&useStartDirection={useStartDirection} |
 
 [Path parameter]
 
@@ -1557,14 +1565,16 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | option   | String | Required |       | Route navigation option<br>Only one option can be used<br>e.g.) option=real_traffic<br>real_traffic: Real-time recommendation1<br>real\_traffic\_freeroad: Real-time \(free\)<br>real_traffic2: Real-time recommendation 2<br>short\_distance\_priority: Short distance<br>motorcycle: Two-wheeler<br>recommendation: Recommendation |
 | carType   | Integer | Optional |       | Vehicle types to calculate toll fees (1~6); default is 1 |
 | coordType   | String | Required |       | Only one is available out of Input/Output coordinate types (TW or WGS84) |
-|guideTop	|Integer| Optional ||Guide data count to expose |
-|groupByTrafficColor	| Boolean| Optional | |Return list of route details by each group of traffic color	|
-|saveFile	| Boolean| Optional | |Save binary files to search POI around the route	|
+| guideTop	|Integer| Optional ||Guide data count to expose |
+| groupByTrafficColor	| Boolean| Optional | |Return list of route details by each group of traffic color	|
+| saveFile	| Boolean| Optional | |Save binary files to search POI around the route	|
 | useTaxifare   | Integer | Optional   |       | Whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
 | searchByAddress   | Boolean | Optional   |       | Whether to use address-based route navigation<br>Default: false |
 | usageType   | Integer | Optional   |       | Vehicle usage type<br>Default: 0<br>Normal: 0<br>Taxi: 1<br>(Applied only when the route navigation option is recommendation) |
 | carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
 | carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
+| useStartDirection   | Boolean | Optional   |       | Whether to specify navigation direction based on departure coordinates<br>Default: false |
+
 
 
 #### Response
@@ -1683,7 +1693,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 | Method | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-summary?option={option}&coordType={coordType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&carHeight={carHeight}&carWeight={carWeight} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-summary?option={option}&coordType={coordType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&carHeight={carHeight}&carWeight={carWeight}&useStartDirection={useStartDirection} |
 
 [Path parameter]
 
@@ -1926,7 +1936,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 | Method | URI                                                          |
 | ------ | ------------------------------------------------------------ |
-| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}&carHeight={carHeight}&carWeight={carWeight}|
+| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}&carHeight={carHeight}&carWeight={carWeight}&useStartDirection={useStartDirection}|
 
 [Path parameter]
 
@@ -1960,15 +1970,16 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | via5Y   | String | Optional    |      |  Y coordinates at stopover 5               |
 | coordType    | String | Optional    |       | Type of coordinates (TW, WGS84)<br> default : wgs84
 | useTrafficColor   | Boolean | Optional    |       | Return road traffic color (True, False)<br> defaut : false |
-| guideTop   | Integer | Optional   |       |Guide data count to expose |
+| guideTop   | Integer | Optional   |       | Guide data count to expose |
 | carType   | Integer | Optional    |       | Vehicle type to calculate toll fees (1~6), default : 1 |
-|groupByTrafficColor	| Boolean| Optional| |Return list of route details by each group of traffic color	|
+| groupByTrafficColor	| Boolean| Optional| | Return list of route details by each group of traffic color	|
 | beforeCount   | Integer | Optional  |      | Navigation count before base time  |
 | afterCount   | Integer | Optional    |       | Navigation count after base time |
 | interval   | Integer | Optional    |       | Inverval (minute) before/after base time  |
 | useTaxifare   | Integer | Optional   |       | Whether to see the expected amount of taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis |
 | carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
 | carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
+| useStartDirection   | Boolean | Optional   |       | Whether to specify navigation direction based on departure coordinates<br>Default: false |
 
 #### Response
 
@@ -2256,14 +2267,15 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | useAngle    | String | Optional    |       | Option of the moving direction of the starting point<br> (Default: false, true: driving direction is prioritized, false: driving direction is not prioritized)                              |
 | angle    | Integer | Optional    |       | Result display count                               |
 | carType   | Integer | Optional    |       | Car type for tollgate calculation (1-6), default: 1 |
-| guideTop	|Integer| Optional ||The number of information messages to show |
-|groupByTrafficColor	| Boolean| Optional| |Whether to return detailed path list information coded and grouped with road traffic colors	|
+| guideTop	|Integer| Optional ||The number of information messages to expose |
+| groupByTrafficColor	| Boolean| Optional| | Whether to return detailed path list information coded and grouped with road traffic colors	|
 | useTaxifare   | Integer | Optional   |       | Whether to check predicted taxi fare<br>e.g. useTaxifare=1<br>0: Disabled<br> 1: General taxi<br>2: Deluxe taxi<br>3: General & deluxe taxis|
 | useStartDirection    | Boolean | Optional    |       | Result display count                               |
 | searchByAddress   | Boolean | Optional   |       | Whether to use address-based route navigation<br>Default: false |
 | usageType   | Integer | Optional   |       | Vehicle usage type<br>Default: 0<br>Normal: 0<br>Taxi: 1<br>(Applied only when the route navigation option is recommendation) |
 | carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
 | carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
+| useStartDirection   | Boolean | Optional   |       | Whether to specify navigation direction based on departure coordinates<br>Default: false |
 
 
 #### Response
@@ -2391,7 +2403,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 
 | Method  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal-summary?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight} |
+| GET,POST  | /maps/v3.0/appkeys/{appkey}/route-normal-summary?option={option}&coordType={coordType}&carType={carType}&startX={startX}&startY={startY}&endX={endX}&endY={endY}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&saveFile={saveFile}&useTaxifare={useTaxifare}&searchByAddress={searchByAddress}&usageType={usageType}&carHeight={carHeight}&carWeight={carWeight}&useStartDirection={useStartDirection} |
 
 [Path parameter]
 
@@ -2425,6 +2437,7 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | usageType   | Integer | Optional   |       | Vehicle usage type<br>Default: 0<br>Normal: 0<br>Taxi: 1<br>(Applied only when the route navigation option is recommendation) |
 | carHeight   | Integer | Optional   |       | Car height information<br>Default: 0 |
 | carWeight   | Integer | Optional   |       | Car weight information<br>Default: 0 |
+| useStartDirection   | Boolean | Optional   |       | Whether to specify navigation direction based on departure coordinates<br>Default: false |
 
 #### Response
 
@@ -2480,6 +2493,207 @@ This guide describes how to use features such as search, geocoding, reverse geoc
 | route.data[0].detailDistance           | Array | Stopover summary                          |
 | route.data[0].detailDistance[0].position           | String |  Location<br>If there is only one stopover, 0\|1: Starting point -> Stopover 1, 1\|2: Stopover 1 -> Destination          |
 | route.data[0].detailDistance[0].distance           | Integer |  Distance (m)            |
+
+
+## W3W Integration API
+
+### 1. Search for W3W coordinates (Coordinates -> Address)
+
+#### Request
+
+[URI]
+
+| Method  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/w3w-addresses?posX={posX}&posY={posY}|
+
+[Path parameter]
+
+| Name     | Type     | Required | Valid Range | Description     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | Required    |       | Unique appkey |
+
+[Request Query Parameter]
+
+| Name       | Type     | Required | Valid Range | Description                                       |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| posX      | String | Required      |           | X coordinate                                                       |
+| posY      | String | Required      |           | Y coordinate                                                       |
+
+#### Response
+
+##### Response Body
+```
+{
+    "search": {
+        "data": [
+            {
+                "posx": "127.110662",
+                "posy": "37.402125",
+                "address": "240, Pangyoyeok-ro, Bundang-gu, Seongnam-si, Gyeonggi-do",
+                "admcode": "4113510900"
+            }
+        ],
+        "count": 1
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### Field
+
+| Name                          | Type      | Description                                       |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | Header area                                    |
+| header.isSuccessful         | Boolean | Successful or not                                    |
+| header.resultCode           | Integer | Failure code                                    |
+| header.resultMessage        | String  | Failure message                                   |
+| address			                  | Object  | Body area                                    |
+| address.result                   | Boolean  | Successful or not                                  |
+| address.adm                   | Array  | Basic information                                   |
+| address.adm[0].what3words              | String | what3words address                       |
+| address.adm[0].posx           | String | X coordinate                             |
+| address.adm[0].posy           | String | Y coordinate                          |
+| address.adm[0].address           | String | Legal address                          |
+| address.adm[0].roadname           | String | Street address                        |
+
+### 2. Search for W3W Suggestions
+
+#### Request
+
+[URI]
+
+| Method  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/w3w-proposers?query={query}&posX={posX}&posY={posY}|
+
+[Path parameter]
+
+| Name     | Type     | Required | Valid Range | Description     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | Required    |       | Unique appkey |
+
+[Request Query Parameter]
+
+| Name       | Type     | Required | Valid Range | Description                                       |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| query      | String | Required      |           | what3words address<br>(2 words in the form of what3words, followed by the initial letter and word.<br>Example) sign.increase.decrease./shout.filial.cow)                                                     |
+| posX      | String | Optional      |           | X coordinate                                                       |
+| posY      | String | Optional      |           | Y coordinate                                                       |
+
+#### Response
+
+##### Response Body
+```
+{
+    "proposer": {
+        "result": true,
+        "what3words": [
+            {
+                "what3words": "signature.increment.so far",
+                "distance": 280,
+                "address": "Haman-gun, Gyeongsangnam-do"
+            },
+            {
+                "what3words": "Signature.Donggam.area",
+                "distance": 56,
+                "address": "Dongducheon-si, Gyeonggi-do"
+            },
+            {
+                "what3words": "Signature.Jangdam.Yeotae",
+                "distance": 89,
+                "address": "Cheongju-si, Chungcheongbuk-do"
+            }
+        ]
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### Field
+
+| Name                          | Type      | Description                                       |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | Header area                                    |
+| header.isSuccessful         | Boolean | Successful or not                                    |
+| header.resultCode           | Integer | Failure code                                    |
+| header.resultMessage        | String  | Failure message                                   |
+| proposer			                  | Object  | Body area                                    |
+| proposer.result                   | Boolean  | Successful or not                                  |
+| proposer.what3words                   | Array  | W3W suggestion information                                   |
+| proposer.what3words[0].what3words              | String | what3words address                       |
+| proposer.what3words[0].distance           | double | Distance from those coordinates when posX, posY are entered<br>(expose on posX, posY input)                            |
+| proposer.what3words[0].address           | String | Abbreviated address                         |
+
+### 3. Search for W3W best point
+
+#### Request
+
+[URI]
+
+| Method  | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/w3w-optposition-searches?query={query}|
+
+[Path parameter]
+
+| Name     | Type     | Required | Valid Range | Description     |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | Required    |       | Unique appkey |
+
+[Request Query Parameter]
+
+| Name       | Type     | Required | Valid Range | Description                                       |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| query | String | Required     |        | what3words address<br>(3 words required based on what3words form<br>Example) signature.increase.decrease.cherish |
+
+#### Response
+
+##### Response Body
+```
+{
+    "search": {
+        "result": true,
+        "entrypoint": {
+            "what3words": "signature.increment.cherished",
+            "posx": "127.110876",
+            "posy": "37.402324",
+            "address": "678, Sampyeong-dong, Bundang-gu, Seongnam-si, Gyeonggi-do, Korea",
+            "roadname": "240, Pangyo Station Road, Bundang-gu, Seongnam-si, Gyeonggi-do, Korea"
+        }
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### Field
+
+| Name                          | Type      | Description                                       |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | Header area                                    |
+| header.isSuccessful         | Boolean | Successful or not                                    |
+| header.resultCode           | Integer | Failure code                                    |
+| header.resultMessage        | String  | Failure message                                   |
+| search			                  | Object  | Body area                                    |
+| search.result                   | Boolean  | Successful or not                                  |
+| search.entrypoint                   | Array  | Best point information                                   |
+| search.entrypoint[0].what3words              | String | what3words address                       |
+| search.entrypoint[0].posx           | String | X coordinate                             |
+| search.entrypoint[0].posy           | String | Y coordinate                          |
+| search.entrypoint[0].address           | String | Legal address                          |
+| search.entrypoint[0].roadname           | String | Street address                        |
 
 ## Static Map
 
