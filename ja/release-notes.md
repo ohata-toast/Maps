@@ -1,5 +1,16 @@
 ## Application Service > Maps > リリースノート
 
+### 2023. 10. 26.
+#### 機能追加
+* [API] W3Wおすすめワード検索APIを追加
+* [API] W3W座標検索(座標 → アドレス) API追加
+* [API] W3W最適地点検索APIを追加
+* [SDK] Support → AndroidXマイグレーション(Android)
+* [SDK] play-services-locationライブラリランタイム依存関係を変更(Android)
+
+#### バグ修正
+* [SDK] INVShape重なり状態でのタッチイベントエラーを修正(iOS)
+
 ### 2023. 09. 12.
 #### 機能追加
 * [API]探索APIパラメータの追加
