@@ -2135,7 +2135,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | 名前    | タイプ    | 要否 | 有効範囲 | 説明    |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 必須   |       | 固有のAppkey |
+| appkey | String | 必須   |       | 固有のアプリケーションキー |
 
 [Request Parameters]
 
@@ -2293,7 +2293,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | 名前   | タイプ   | 必須かどうか | 有効範囲 | 説明   |
 | ------ | ------ | ----- | ----- | ------ |
-| appkey | String | 必須  |       | 固有のAppkey |
+| appkey | String | 必須  |       | 固有のアプリケーションキー |
 
 [Request Parameters]
 
@@ -2377,6 +2377,205 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | route.data[0].detailDistance           | Array | 経由地要約情報                        |
 | route.data[0].detailDistance[0].position           | String | 位置<br>経由地が1個の場合、0\|1：出発地→経由地1, 1\|2：経由地1 →目的地         |
 | route.data[0].detailDistance[0].distance           | Integer | 距離(m)            |
+
+## W3W連動API
+
+### 1\. W3W座標検索(座標 → 住所)
+
+#### リクエスト
+
+[URI]
+
+| メソッド | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/w3w-addresses?posX={posX}&posY={posY}|
+
+[Path parameter]
+
+| 名前    | タイプ    | 必須かどうか | 有効範囲 | 説明    |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 必須   |       | 固有のアプリケーションキー |
+
+[Request Query Parameter]
+
+| 名前      | タイプ    | 必須かどうか | 有効範囲 | 説明                                      |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| posX      | String | 必須     |           | x座標                                                      |
+| posY      | String | 必須     |           | y座標                                                      |
+
+#### レスポンス
+
+##### レスポンス本文
+```
+{
+    "address": {
+        "result": true,
+        "adm": {
+            "what3words": "下げる.ベルト.調節",
+            "posx": "127.110732",
+            "posy": "37.402153",
+            "address": "京畿道 城南市盆唐区三坪洞678",
+            "roadname": "京畿道 城南市盆唐区パンギョ駅路240"
+        }
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### フィールド
+
+| 名前                         | タイプ     | 説明                                      |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | ヘッダ領域                                   |
+| header.isSuccessful         | Boolean | 成否                                   |
+| header.resultCode           | Integer | 失敗コード                                   |
+| header.resultMessage        | String  | 失敗メッセージ                                  |
+| address			                  | Object  | 本文領域                                   |
+| address.result                   | Boolean  | 成否                                 |
+| address.adm                   | Array  | 住所情報                                  |
+| address.adm[0].what3words              | String | what3wordsアドレス                      |
+| address.adm[0].posx           | String | x座標                            |
+| address.adm[0].posy           | String | y座標                         |
+| address.adm[0].address           | String | 定洞の住所                         |
+| address.adm[0].roadname           | String | 道路名の住所                       |
+
+### 2\. W3Wおすすめワード検索
+
+#### リクエスト
+
+[URI]
+
+| メソッド | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/w3w-proposers?query={query}&posX={posX}&posY={posY}|
+
+[Path parameter]
+
+| 名前    | タイプ    | 必須かどうか | 有効範囲 | 説明    |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 必須   |       | 固有のアプリケーションキー |
+
+[Request Query Parameter]
+
+| 名前      | タイプ    | 必須かどうか | 有効範囲 | 説明                                      |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| query      | String | 必須     |           | what3wordsアドレス<br>(what3wordsフォームに従って2単語入力後、頭文字と単語入力必須<br>例)署名.増減.ㅇ/叫ぶ.孝子.牛)                                                     |
+| posX      | String | 選択     |           | x座標                                                      |
+| posY      | String | 選択     |           | y座標                                                      |
+
+#### レスポンス
+
+##### レスポンス本文
+```
+{
+    "proposer": {
+        "result": true,
+        "what3words": [
+            {
+                "what3words": "署名.増減.今まで",
+                "distance": 280,
+                "address": "慶尚南道咸安郡"
+            },
+            {
+                "what3words": "署名.同感.部位",
+                "distance": 56,
+                "address": "京畿道東豆市"
+            },
+            {
+                "what3words": "署名.断言.今まで",
+                "distance": 89,
+                "address": "忠清北道清州市"
+            }
+        ]
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### フィールド
+
+| 名前                         | タイプ     | 説明                                      |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | ヘッダ領域                                   |
+| header.isSuccessful         | Boolean | 成否                                   |
+| header.resultCode           | Integer | 失敗コード                                   |
+| header.resultMessage        | String  | 失敗メッセージ                                  |
+| proposer			                  | Object  | 本文領域                                   |
+| proposer.result                   | Boolean  | 成否                                 |
+| proposer.what3words                   | Array  | w3wおすすめワード 情報                                  |
+| proposer.what3words[0].what3words              | String | what3wordsアドレス                      |
+| proposer.what3words[0].distance           | double | posX, posY入力時、その座標からの距離<br>(posX, posY入力時に表示)                            |
+| proposer.what3words[0].address           | String | 短縮アドレス                        |
+
+### 3\. W3W最適地点検索
+
+#### リクエスト
+
+[URI]
+
+| メソッド | URI                                      |
+| ---- | ---------------------------------------- |
+| GET  | /maps/v3.0/appkeys/{appkey}/w3w-optposition-searches?query={query}|
+
+[Path parameter]
+
+| 名前    | タイプ    | 必須かどうか | 有効範囲 | 説明    |
+| ------ | ------ | ----- | ----- | ------ |
+| appkey | String | 必須   |       | 固有のアプリケーションキー |
+
+[Request Query Parameter]
+
+| 名前      | タイプ    | 必須かどうか | 有効範囲 | 説明                                      |
+| -------- | ------ | ----- | ----- | ---------------------------------------- |
+| query | String | 必須    |        | what3wordsアドレス<br>(what3wordsフォームに従って3単語入力必須<br>例)署名.増減.お気に入り) |
+
+#### レスポンス
+
+##### レスポンス本文
+```
+{
+    "search": {
+        "result": true,
+        "entrypoint": {
+            "what3words": "署名.増減.お気に入り",
+            "posx": "127.110876",
+            "posy": "37.402324",
+            "address": "京畿道 城南市盆唐区三坪洞678",
+            "roadname": "京畿道 城南市盆唐区パンギョ駅路240"
+        }
+    },
+    "header": {
+        "isSuccessful": true,
+        "resultCode": 0,
+        "resultMessage": ""
+    }
+}
+```
+
+##### フィールド
+
+| 名前                         | タイプ     | 説明                                      |
+| --------------------------- | ------- | ---------------------------------------- |
+| header                      | Object  | ヘッダ領域                                   |
+| header.isSuccessful         | Boolean | 成否                                   |
+| header.resultCode           | Integer | 失敗コード                                   |
+| header.resultMessage        | String  | 失敗メッセージ                                  |
+| search			                  | Object  | 本文領域                                   |
+| search.result                   | Boolean  | 成否                                 |
+| search.entrypoint                   | Array  | 最適地点情報                                  |
+| search.entrypoint[0].what3words              | String | what3wordsアドレス                      |
+| search.entrypoint[0].posx           | String | x座標                            |
+| search.entrypoint[0].posy           | String | y座標                         |
+| search.entrypoint[0].address           | String | 法定洞の住所                         |
+| search.entrypoint[0].roadname           | String | 道路名の住所                       |
 
 ## Static Map
 
