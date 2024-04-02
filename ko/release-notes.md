@@ -1,5 +1,12 @@
 ## Application Service > Maps > 릴리스 노트
 
+### 2024. 04. 09.
+#### 기능 추가
+* [API] 통합 검색 API 파라미터 추가
+    * addrext: 지번/건물번호 확장 검색 옵션
+* [API] 탐색 API 파라미터 추가
+    * usageType: 차량 용도
+    
 ### 2023. 10. 26.
 #### 기능 추가
 * [API] W3W 추천어 검색 API 추가

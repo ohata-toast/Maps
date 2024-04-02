@@ -51,7 +51,7 @@
 
 | 메서드  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET  | /maps/v3.0/appkeys/{appkey}/searches?query={query}&coordtype={coordtype}&startposition={startposition}&reqcount={reqcount}&spopt={spopt}&radius={radius}&admcode={admcode}&depth={depth}&x1={x1}&y1={y1}&x2={x2}&y2={y2}&sortopt={sortopt}&catecode={catecode} |
+| GET  | /maps/v3.0/appkeys/{appkey}/searches?query={query}&coordtype={coordtype}&startposition={startposition}&reqcount={reqcount}&spopt={spopt}&radius={radius}&admcode={admcode}&depth={depth}&x1={x1}&y1={y1}&x2={x2}&y2={y2}&sortopt={sortopt}&catecode={catecode}&addrext={addrext} |
 
 [Path parameter]
 
@@ -77,6 +77,8 @@
 | y2            | String | 선택      |           | y2 좌표<br>spopt 값이 1인 경우 Extent의 오른쪽 하단 y 좌표, spopt 값이 2인 경우 사용 안함 |
 | sortopt       | String | 선택      |           | 정렬 옵션<br>1: 명칭순 정렬<br>2: 거리순 정렬(좌표를 입력한 경우)<br>3: 이름 매치(좌표를 입력한 경우 좌표로부터 거리순으로 추가 정렬)<br>4: 검색어 가중치 정렬(엔진 기준)<br>* sortopt 값이 설정되지 않은 경우 4로 설정 |
 | catecode      | String | 선택      |           | 선호 카테고리<br>선호 카테고리 검색 시 검색어에 카테고리 명칭을 입력한 경우, 검색어 우선 정책에 의해 입력한 선호 카테고리보다 검색어를 기준으로 검색됨<br>예) 검색어: "미용실" , 선호 카테고리: "100000"(음식점) -> 미용실 기준으로 검색 됨 |
+| addrext       | String | 선택      |           | 지번/건물번호 확장 검색 옵션<br>0: 정확히 일치<br>1: 부지번 확장<br>2: 본지번 확장<br>* 옵션 선택이 없는 경우 Default는 0으로 설정됨 |
+
 
 #### 응답
 
@@ -1939,7 +1941,7 @@
 
 | 메서드  | URI                                      |
 | ---- | ---------------------------------------- |
-| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}&carHeight={carHeight}&carWeight={carWeight}&useStartDirection={useStartDirection}|
+| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}&carHeight={carHeight}&carWeight={carWeight}&useStartDirection={useStartDirection}&usageType={usageType}|
 
 [Path parameter]
 
@@ -1983,6 +1985,7 @@
 | carHeight   | Integer | 선택   |       | 차량 높이 정보<br>Default: 0 |
 | carWeight   | Integer | 선택   |       | 차량 중량 정보<br>Default: 0 |
 | useStartDirection   | Boolean | 선택   |       | 출발지 좌표 기준 탐색 방향 지정 기능 여부<br>Default: false |
+| usageType   | Integer | 선택   |       | 차량 용도<br>Default: 0<br>일반: 0<br>택시: 1 |
 
 #### 응답
 
