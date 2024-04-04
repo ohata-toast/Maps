@@ -51,7 +51,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | メソッド | URI                                      |
 | ---- | ---------------------------------------- |
-| GET  | /maps/v3.0/appkeys/{appkey}/searches?query={query}&coordtype={coordtype}&startposition={startposition}&reqcount={reqcount}&spopt={spopt}&radius={radius}&admcode={admcode}&depth={depth}&x1={x1}&y1={y1}&x2={x2}&y2={y2}&sortopt={sortopt}&catecode={catecode} |
+| GET  | /maps/v3.0/appkeys/{appkey}/searches?query={query}&coordtype={coordtype}&startposition={startposition}&reqcount={reqcount}&spopt={spopt}&radius={radius}&admcode={admcode}&depth={depth}&x1={x1}&y1={y1}&x2={x2}&y2={y2}&sortopt={sortopt}&catecode={catecode}&addrext={addrext} |
 
 [Path parameter]
 
@@ -76,6 +76,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | x2            | String | 任意 |       | x2座標<br>spopt値が1の場合、Extentの右下x座標、spopt値が2の場合、使用しない |
 | y2            | String | 任意 |       | y2座標<br>spopt値が1の場合、Extentの右下y座標、spopt値が2の場合、使用しない |
 | sortopt       | String | 任意 |       | ソートoption<br>1：名称順ソート<br>2：距離順ソート(座標を入力した場合)<br>3：名前マッチ(座標を入力した場合、座標から距離順で追加ソート)<br>4：検索ワード重みソート(エンジン基準)<br>* sortopt値が未設定の場合、4に設定 |
+| addrext       | String | 任意     |           | 地番/建物番号拡張検索オプション<br>0:正確に一致<br>1: 敷地番号拡張<br>2: 本地番拡張<br>* オプション選択がない場合、Defaultは0に設定される |
 
 
 #### レスポンス
@@ -1821,7 +1822,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 
 | メソッド | URI                                      |
 | ---- | ---------------------------------------- |
-| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}&carHeight={carHeight}&carWeight={carWeight}&useStartDirection={useStartDirection}|
+| GET  | /maps/v3.0/appkeys/{appkey}/route-time?startX={startX}&startY={startY}&endX={endX}&endY={endY}&type={type}&year={year}&month={month}&day={day}&hour={hour}&minutes={minutes}&via1X={via1X}&via1Y={via1Y}&via2X={via2X}&via2Y={via2Y}&via3X={via3X}&via3Y={via3Y}&via4X={via4X}&via4Y={via4Y}&via5X={via5X}&via5Y={via5Y}&coordType={coordType}&carType={carType}&useTrafficColor={useTrafficColor}&guideTop={guideTop}&groupByTrafficColor={groupByTrafficColor}&beforeCount={beforeCount}&afterCount={afterCount}&interval={interval}&useTaxifare={useTaxifare}&carHeight={carHeight}&carWeight={carWeight}&useStartDirection={useStartDirection}&usageType={usageType}|
 
 [Path parameter]
 
@@ -1865,6 +1866,7 @@ inaviの長年培ったナビエンジン技術を利用した検索、Geocoding
 | carHeight   | Integer | 選択 |       | 車両の高さ情報<br>Default: 0 |
 | carWeight   | Integer | 選択 |       | 車両の重量情報<br>Default: 0 |
 | useStartDirection   | Boolean | 任意   |       | 出発地座標基準探索方向指定機能を使用するか<br>Default: false |
+| usageType   | Integer | 任意  |       | 車両用途<br>Default: 0<br>一般: 0<br>タクシー: 1 |
 
 #### レスポンス
 
